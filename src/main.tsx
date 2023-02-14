@@ -8,6 +8,7 @@ import { createRoot } from 'react-dom/client'
 
 import { AppProvider } from './provider'
 import { App } from './component/App'
+import { reportWebVitals, sendToVercelAnalytics } from './vital'
 
 const root = document.getElementById('app')
 
@@ -19,3 +20,5 @@ createRoot(root).render(
     <App />
   </AppProvider>,
 )
+
+reportWebVitals(sendToVercelAnalytics)
