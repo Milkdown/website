@@ -91,8 +91,13 @@ export const Footer: FC = () => {
           <LinkGroups {...linksGroup} />
           <LinkGroups {...moreGroup} />
         </div>
-        <div className="text-nord2 dark:text-nord4 mt-6 text-sm font-light">
-          MIT Licensed | Copyright © 2021-present Mirone ♡ Meo
+        <div className="flex flex-col md:flex-row justify-between items-baseline gap-2">
+          <div className="text-nord2 dark:text-nord4 mt-6 text-sm font-light">
+            MIT Licensed | Copyright © 2021-present Mirone ♡ Meo
+          </div>
+          <a href="https://vercel.com/?utm_source=milkdown&utm_campaign=oss">
+            <img src="/vercel-banner.svg" className="w-32" />
+          </a>
         </div>
       </div>
     </footer>
