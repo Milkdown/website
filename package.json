@@ -9,6 +9,11 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@milkdown/core": "7.0.0-next.1",
+    "@milkdown/ctx": "7.0.0-next.1",
+    "@milkdown/preset-commonmark": "7.0.0-next.1",
+    "@milkdown/prose": "7.0.0-next.1",
+    "@milkdown/transformer": "7.0.0-next.1",
     "@next/font": "13.1.6",
     "@types/node": "18.13.0",
     "@types/react": "18.0.28",
