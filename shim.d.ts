@@ -1,5 +1,6 @@
 /* Copyright 2021, Milkdown by Mirone. */
 /// <reference types="vite/client" />
+
 declare let docsearch: (options: unknown) => void;
 
 declare module 'builddocs' {
@@ -36,3 +37,5 @@ declare module 'lz-string' {
   export function compress(input: string): string;
   export function decompress(compressed: string): string;
 }
+
+declare const __VERCEL_ANALYTICS_ID__: string

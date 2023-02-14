@@ -21,6 +21,4 @@ createRoot(root).render(
   </AppProvider>,
 )
 
-console.log(import.meta.env.VERCEL_ANALYTICS_ID)
-
 reportWebVitals(sendToVercelAnalytics)

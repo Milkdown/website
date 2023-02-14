@@ -9,8 +9,9 @@ function getConnectionSpeed() {
     : '';
 }
 
+console.log(__VERCEL_ANALYTICS_ID__)
 export function sendToVercelAnalytics(metric: any) {
-  const analyticsId = import.meta.env.VERCEL_ANALYTICS_ID;
+  const analyticsId = __VERCEL_ANALYTICS_ID__;
   if (!analyticsId) {
     return;
   }
