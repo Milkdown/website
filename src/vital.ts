@@ -1,5 +1,3 @@
-import { onCLS, onFID, onFCP, onLCP, onTTFB } from 'web-vitals';
-
 const vitalsUrl = 'https://vitals.vercel-analytics.com/v1/vitals';
 
 function getConnectionSpeed() {
@@ -43,11 +41,19 @@ export function sendToVercelAnalytics(metric: any) {
 }
 
 export const reportWebVitals = (onPerfEntry: (metric: any) => void) => {
-    if (onPerfEntry && onPerfEntry instanceof Function) {
-        onCLS(onPerfEntry);
-        onFID(onPerfEntry);
-        onFCP(onPerfEntry);
-        onLCP(onPerfEntry);
-        onTTFB(onPerfEntry);
-    }
-  };
+  if (onPerfEntry && onPerfEntry instanceof Function) {
+    import('web-vitals').then(({
+      onCLS,
+      onFID,
+      onFCP,
+      onLCP,
+      onTTFB,
+    }) => {
+      onCLS(onPerfEntry);
+      onFID(onPerfEntry);
+      onFCP(onPerfEntry);
+      onLCP(onPerfEntry);
+      onTTFB(onPerfEntry);
+    })
+  }
+};
