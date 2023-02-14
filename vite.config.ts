@@ -8,6 +8,9 @@ import { markdownPlugin } from './plugins/markdown-plugin'
 import { sitemapPlugin } from './plugins/sitemap-plugin'
 
 export default defineConfig({
+  define: {
+    VERCEL_ANALYTICS_ID: JSON.stringify(process.env.VERCEL_ANALYTICS_ID),
+  },
   build: {
     assetsDir: 'assets',
     emptyOutDir: true,

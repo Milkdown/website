@@ -1,4 +1,5 @@
 /* Copyright 2021, Milkdown by Mirone. */
+/// <reference types="vite/client" />
 declare let docsearch: (options: unknown) => void;
 
 declare module 'builddocs' {
