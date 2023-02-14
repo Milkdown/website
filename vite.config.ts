@@ -10,7 +10,6 @@ import { sitemapPlugin } from './plugins/sitemap-plugin'
 export default defineConfig({
   build: {
     assetsDir: 'assets',
-    outDir: '../docs',
     emptyOutDir: true,
     sourcemap: false,
     rollupOptions: {
