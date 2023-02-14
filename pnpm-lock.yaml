@@ -52,6 +52,7 @@ specifiers:
   '@types/react-dom': ^18.0.0
   '@types/react-router-dom': ^5.1.7
   '@types/unist': ^2.0.6
+  '@vercel/analytics': ^0.1.8
   '@vitejs/plugin-react': ^3.1.0
   autoprefixer: ^10.2.5
   builddocs: ^1.0.7
@@ -139,6 +140,7 @@ dependencies:
   '@textea/json-viewer': 2.13.1_zula6vjvt3wdocc4mwcxqa6nzi
   '@types/katex': 0.16.0
   '@types/lodash.debounce': 4.0.7
+  '@vercel/analytics': 0.1.8_react@18.2.0
   clsx: 1.2.1
   katex: 0.16.4
   lodash.debounce: 4.0.8
@@ -3259,6 +3261,14 @@ packages:
 
   /@types/unist/2.0.6:
     resolution: {integrity: sha512-PBjIUxZHOuj0R15/xuwJYjFi+KZdNFrehocChv4g5hu6aFroHue8m0lBP0POdK2nKzbw0cgV1mws8+V/JAcEkQ==}
+
+  /@vercel/analytics/0.1.8_react@18.2.0:
+    resolution: {integrity: sha512-PQrOI8BJ9qUiVJuQfnKiJd15eDjDJH9TBKsNeMrtelT4NAk7d9mBVz1CoZkvoFnHQ0OW7Xnqmr1F2nScfAnznQ==}
+    peerDependencies:
+      react: ^16.8||^17||^18
+    dependencies:
+      react: 18.2.0
+    dev: false
 
   /@vitejs/plugin-react/3.1.0_vite@4.1.1:
     resolution: {integrity: sha512-AfgcRL8ZBhAlc3BFdigClmTUMISmmzHn7sB2h9U1odvc5U/MjWXsAaz18b/WoppUTDBzxOJwo2VdClfUcItu9g==}

@@ -3,6 +3,7 @@ import '@milkdown/theme-nord/style.css'
 import './style.css'
 import './docsearch.css'
 import './prosemirror.css'
+import { Analytics } from '@vercel/analytics/react';
 
 import { createRoot } from 'react-dom/client'
 
@@ -18,6 +19,7 @@ if (!root)
 createRoot(root).render(
   <AppProvider>
     <App />
+    <Analytics />
   </AppProvider>,
 )
 
