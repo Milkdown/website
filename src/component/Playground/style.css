@@ -1,0 +1,3 @@
+table {
+  @apply !w-[calc(100%-2rem)];
+}
