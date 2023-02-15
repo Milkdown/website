@@ -1,7 +1,7 @@
 {
   "name": "website",
   "private": true,
-  "version": "0.0.0",
+  "version": "7.0.0-next.1",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
