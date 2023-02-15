@@ -89,11 +89,11 @@ graph TD;
 
 Have fun!
 
-[repo]: https://github.com/Saul-Mirone/milkdown
+[repo]: https://github.com/Milkdown/milkdown
 [prosemirror]: https://prosemirror.net/
 [yjs]: https://docs.yjs.dev/
 [remark]: https://github.com/remarkjs/remark
-[mirone]: https://github.com/Saul-Mirone
+[mirone]: https://github.com/Milkdown
 [meo]: https://www.meo.cool/
 
 [^1]: We use [tweet emoji](https://twemoji.twitter.com) to make emoji can be viewed cross platforms.

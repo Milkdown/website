@@ -8,7 +8,7 @@ This plugin includes basic collaborative editing features like:
 -   Remote cursor support.
 -   Undo/Redo support.
 
-> You can look [milkdown collaboration example](https://github.com/Saul-Mirone/milkdown/tree/main/examples/collaboration) for a working example.
+> You can look [milkdown collaboration example](https://github.com/Milkdown/milkdown/tree/main/examples/collaboration) for a working example.
 
 ## Configure Plugin
 

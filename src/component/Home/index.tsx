@@ -25,7 +25,7 @@ export const Home: FC = () => {
               </span>
             </button>
           </NavLink>
-          <a href="https://github.com/Saul-Mirone/milkdown" target="_blank" rel="noreferrer">
+          <a href="https://github.com/Milkdown/milkdown" target="_blank" rel="noreferrer">
             <button className="hover-shadow-lg dark:bg-nord3 hover:dark:bg-nord1 inline-flex h-14 items-center rounded-2xl bg-gray-200 py-4 px-5 shadow-md hover:bg-gray-100">
               <span className="text-sm">
                 VIEW ON GITHUB

@@ -77,4 +77,4 @@ export const myThemeConfig = (ctx: Ctx) => {
 }
 ```
 
-You can view the source code of [@milkdown/theme-nord](https://github.com/Saul-Mirone/milkdown/tree/main/packages/theme-nord) to get some inspirations.
+You can view the source code of [@milkdown/theme-nord](https://github.com/Milkdown/milkdown/tree/main/packages/theme-nord) to get some inspirations.

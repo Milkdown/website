@@ -32,7 +32,7 @@ const communityGroup = {
     },
     {
       text: 'Github',
-      link: 'https://github.com/Saul-Mirone/milkdown',
+      link: 'https://github.com/Milkdown/milkdown',
     },
   ],
 }
@@ -60,15 +60,15 @@ const moreGroup = {
   items: [
     {
       text: 'License',
-      link: 'https://github.com/Saul-Mirone/milkdown/blob/main/LICENSE',
+      link: 'https://github.com/Milkdown/milkdown/blob/main/LICENSE',
     },
     {
       text: 'Contributors',
-      link: 'https://github.com/Saul-Mirone/milkdown/graphs/contributors',
+      link: 'https://github.com/Milkdown/milkdown/graphs/contributors',
     },
     {
       text: 'Code of Conduct',
-      link: 'https://github.com/Saul-Mirone/milkdown/blob/main/CODE_OF_CONDUCT.md',
+      link: 'https://github.com/Milkdown/milkdown/blob/main/CODE_OF_CONDUCT.md',
     },
   ],
 }
