@@ -30,8 +30,8 @@ Create a component is pretty easy.
     mounted() {
       Editor.make()
         .config((ctx) => {
-            ctx.set(rootCtx, this.$refs.editor);
-            ctx.set(defaultValueCtx, this.$props.msg);
+          ctx.set(rootCtx, this.$refs.editor);
+          ctx.set(defaultValueCtx, this.$props.msg);
         })
         .config(nord)
         .use(commonmark)
@@ -40,7 +40,3 @@ Create a component is pretty easy.
   };
 </script>
 ```
-
-## Online Demo
-
-// TODO: add online demo

@@ -48,4 +48,4 @@ export const MilkdownEditorWrapper: React.FC = () => {
 
 ## Online Demo
 
-// TODO: add online demo
+[Open in StackBlitz](https://stackblitz.com/github/Milkdown/examples/tree/main/next-commonmark)

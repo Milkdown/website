@@ -52,6 +52,8 @@ Editor
   .create();
 ```
 
+[Open in StackBlitz](https://stackblitz.com/github/Milkdown/examples/tree/main/vanilla-commonmark)
+
 ## Taste the plugin
 
 Now let's add an **undo & redo** support for our editor:

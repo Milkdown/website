@@ -19,7 +19,6 @@ import { defaultValueCtx, Editor, rootCtx } from '@milkdown/core';
 import { commonmark } from '@milkdown/preset-commonmark';
 import { nord } from '@milkdown/theme-nord';
 import { emoji } from '@milkdown/plugin-emoji';
-import { destroy } from '@milkdown/utils';
 
 const Milkdown = () => {
   let ref;
@@ -28,7 +27,6 @@ const Milkdown = () => {
     editor = await Editor.make()
       .config((ctx) => {
           ctx.set(rootCtx, ref);
-          ctx.set(defaultValueCtx, '# Milkdown :heartpulse: Solidjs');
       })
       .config(nord)
       .use(commonmark)
@@ -37,7 +35,7 @@ const Milkdown = () => {
   });
 
   onCleanup(() => {
-      editor.action(destroy());
+    editor.destroy();
   });
 
   return <div ref={ref} />;
@@ -46,4 +44,4 @@ const Milkdown = () => {
 
 ## Online Demo
 
-// TODO: add online demo
+[Open in StackBlitz](https://stackblitz.com/github/Milkdown/examples/tree/main/solid-commonmark)

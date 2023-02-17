@@ -36,8 +36,8 @@ export class AppComponent {
   ngAfterViewInit() {
     Editor.make()
       .config((ctx) => {
-          ctx.set(rootCtx, this.editorRef.nativeElement);
-          ctx.set(defaultValueCtx, this.defaultValue);
+        ctx.set(rootCtx, this.editorRef.nativeElement);
+        ctx.set(defaultValueCtx, this.defaultValue);
       })
       .config(nord)
       .use(commonmark)
@@ -46,6 +46,3 @@ export class AppComponent {
 }
 ```
 
-## Online Demo
-
-// TODO: add online demo

@@ -79,4 +79,4 @@ export default defineComponent({
 
 ## Online Demo
 
-// TODO: add online demo
+[Open in StackBlitz](https://stackblitz.com/github/Milkdown/examples/tree/main/vue-commonmark)

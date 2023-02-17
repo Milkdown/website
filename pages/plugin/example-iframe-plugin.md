@@ -20,7 +20,7 @@ Luckily, remark provides a powerful [remark directive plugin](https://github.com
 ```markdown
 # My Iframe
 
-:iframe{src="https://saul-mirone.github.io"}
+::iframe{src="https://saul-mirone.github.io"}
 ```
 
 ## Define Schema
@@ -30,34 +30,28 @@ Our iframe should be an inline node because it doesn't have any children,
 and it will have a `src` attribute to connect to the source.
 
 ```typescript
-import { createNode } from '@milkdown/utils';
+import { $node } from '@milkdown/utils';
 
-const id = 'iframe';
-const iframe = createNode(() => ({
-    id,
-    schema: () => ({
-        inline: true,
-        attrs: {
-            src: { default: null },
-        },
-        group: 'inline',
-        marks: '',
-        parseDOM: [
-            {
-                tag: 'iframe',
-                getAttrs: (dom) => {
-                    if (!(dom instanceof HTMLElement)) {
-                        throw new Error();
-                    }
-                    return {
-                        src: dom.getAttribute('src'),
-                    };
-                },
-            },
-        ],
-        toDOM: (node) => ['iframe', { ...node.attrs, class: 'iframe' }, 0],
+const iframeNode = $node('iframe', () => ({
+  group: 'block',
+  atom: true,
+  isolating: true,
+  marks: '',
+  attrs: {
+    src: { default: null },
+  },
+  parseDOM: [{
+    tag: 'iframe',
+    getAttrs: (dom) => ({
+      src: (dom as HTMLElement).getAttribute('src'),
     }),
-}));
+  }],
+  toDOM: (node: Node) => [
+    'iframe',
+    {...node.attrs, 'contenteditable': false},
+    0,
+  ],
+}))
 ```
 
 ## Connect to plugin(s)
@@ -66,13 +60,10 @@ Now that we have our basic node defined, we need to specify which remark plugins
 it requires to work;
 
 ```typescript
-import { RemarkPlugin } from '@milkdown/core';
+import { $remark } from '@milkdown/utils';
 import directive from 'remark-directive';
 
-const iframe = createNode(() => ({
-    // ...
-    remarkPlugins: () => [directive as RemarkPlugin],
-}));
+const remarkDirective = $remark(() => directive)
 ```
 
 ## Parser
@@ -84,24 +75,21 @@ but in this case the iframe node has the following structure:
 
 ```typescript
 const AST = {
-    name: 'iframe',
-    attributes: { src: 'https://saul-mirone.github.io' },
-    type: 'textDirective',
+  name: 'iframe',
+  attributes: { src: 'https://saul-mirone.github.io' },
+  type: 'leafDirective',
 };
 ```
 
 So we can easily write our parser specification for it:
 
 ```typescript
-schema: () => ({
-    // ...
-    parseMarkdown: {
-        match: (node) => node.type === 'textDirective' && node.name === 'iframe',
-        runner: (state, node, type) => {
-            state.addNode(type, { src: (node.attributes as { src: string }).src });
-        },
-    },
-}),
+parseMarkdown: {
+  match: (node) => node.type === 'leafDirective' && node.name === 'iframe',
+  runner: (state, node, type) => {
+    state.addNode(type, { src: (node.attributes as { src: string }).src });
+  },
+},
 ```
 
 Now, text in `defaultValue` can be parsed to iframe elements correctly.
@@ -111,20 +99,15 @@ Now, text in `defaultValue` can be parsed to iframe elements correctly.
 Then, we need to add a serializer specification to transform the prosemirror node back to remark AST:
 
 ```typescript
-schema: () => ({
-    // ...
-    toMarkdown: {
-        match: (node) => node.type.name === id,
-        runner: (state, node) => {
-            state.addNode('textDirective', undefined, undefined, {
-                name: 'iframe',
-                attributes: {
-                    src: node.attrs.src,
-                },
-            });
-        },
-    }
-},
+toMarkdown: {
+  match: (node) => node.type.name === 'iframe',
+  runner: (state, node) => {
+    state.addNode('leafDirective', undefined, undefined, {
+      name: 'iframe',
+      attributes: { src: node.attrs.src },
+    });
+  },
+}
 ```
 
 Now, iframe elements can be serialized into string correctly.
@@ -137,20 +120,16 @@ We can use `inputRules` to define [prosemirror input rules](https://prosemirror.
 ```typescript
 import { InputRule } from 'prosemirror-inputrules';
 
-const iframe = createNode(() => ({
-    // ...
-    inputRules: (nodeType) => [
-        new InputRule(/:iframe\{src\="(?<src>[^"]+)?"?\}/, (state, match, start, end) => {
-            const [okay, src = ''] = match;
-            const { tr } = state;
-            if (okay) {
-                tr.replaceWith(start, end, nodeType.create({ src }));
-            }
+const iframeInputRule = $inputRule(() => new InputRule(/::iframe\{src\="(?<src>[^"]+)?"?\}/, (state, match, start, end) => {
+  const [okay, src = ''] = match;
+  const { tr } = state;
 
-            return tr;
-        }),
-    ],
-}));
+  if (okay) {
+    tr.replaceWith(start - 1, end, iframeNode.type().create({ src }));
+  }
+
+  return tr;
+}))
 ```
 
 ## Use Plugins
@@ -163,15 +142,12 @@ import { Editor } from '@milkdown/core';
 import { AtomList, createNode } from "@milkdown/utils";
 import { commonmark } from '@milkdown/preset-commonmark';
 
-const iframe = createNode(() => ({ /* ... */ });
 
-const iframePlugin = AtomList.create([iframe()]);
-
-Editor.make().use(iframePlugin).use(commonmark).create();
+Editor.make().use([remarkDirective, iframeNode, iframeInputRule]).use(commonmark).create();
 ```
 
 ---
 
 ## Full Code
 
-!CodeSandBox{milkdown-custom-syntax-mudgd}
+[Open in StackBlitz](https://stackblitz.com/github/Milkdown/examples/tree/main/vanilla-iframe-syntax)
