@@ -37,5 +37,4 @@ const mapConfig = ({ dir, items }: ConfigItem): Section => ({
 
 const toRouter = (config: ConfigItem[]): Section[] => config.map(cfg => mapConfig(cfg))
 
-
-export const pageRouter: Section[] = toRouter(config);
+export const pageRouter: Section[] = toRouter(config)

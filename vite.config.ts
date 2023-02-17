@@ -12,7 +12,7 @@ export default defineConfig(({ mode }) => {
 
   return {
     define: {
-      __VERCEL_ANALYTICS_ID__: JSON.stringify(env.VERCEL_ANALYTICS_ID || "QAQ"),
+      __VERCEL_ANALYTICS_ID__: JSON.stringify(env.VERCEL_ANALYTICS_ID || 'QAQ'),
     },
     build: {
       assetsDir: 'assets',

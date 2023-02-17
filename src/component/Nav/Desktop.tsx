@@ -72,7 +72,6 @@ const NavItem: FC<{ icon: string; text: string; id?: string; link?: string }> = 
 }
 
 export const DesktopNav: FC = () => {
-
   return (
     <nav className="flex h-full w-full flex-col items-center justify-between pt-11 pb-14">
       <div>

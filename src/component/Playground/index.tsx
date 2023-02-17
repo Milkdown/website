@@ -19,7 +19,7 @@ import './style.css'
 const AsyncMilkdown = lazy(() => import('./Milkdown').then(module => ({ default: module.Milkdown })))
 
 const importContent = () => {
-  return import(`./content/index.md`)
+  return import('./content/index.md')
 }
 
 const Provider = compose(FeatureToggleProvider, MilkdownProvider, ProsemirrorAdapterProvider, ProseStateProvider, ShareProvider)
