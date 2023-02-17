@@ -46,8 +46,6 @@ Editor.make()
 
 ## Commands
 
-@Undo
-@Redo
 @undoCommand
 @redoCommand
 
