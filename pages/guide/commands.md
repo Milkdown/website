@@ -30,36 +30,22 @@ async function setup() {
 
 ## Create a Command
 
-To create a command, you should follow these steps:
-
-1. Create a command key through `createCmdKey`.
-2. Create a command function. (They are just [prosemirror commands](https://prosemirror.net/docs/guide/#commands).)
-3. Register the created command in command manager.
+To create a command, you should use `$command` in @milkdown/utils.
+The command should be a [prosemirror command](https://prosemirror.net/docs/guide/#commands).
 
 ### Example: Command without argument
 
 We create a command in the next example:
 
 ```typescript
-import { createCmdKey, MilkdownPlugin, CommandsReady, commandsCtx, schemaCtx } from '@milkdown/core';
-import { wrapIn } from 'prosemirror-commands';
+import { blockquoteSchema } from '@milkdown/preset-commonmark';
+import { $command, callCommand } from '@milkdown/utils';
+import { wrapIn } from '@milkdown/prose/commands';
 
-export const WrapInBlockquote = createCmdKey();
-const plugin: MilkdownPlugin = (ctx) => async () => {
-  // wait for command manager ready
-  await ctx.wait(CommandsReady);
-
-  const commandManager = ctx.get(commandsCtx);
-  const schema = ctx.get(schemaCtx);
-
-  commandManager.create(
-    WrapInBlockquote,
-    () => wrapIn(schema.nodes.blockquote)
-  );
-};
+const wrapInBlockquoteCommand = $command('WrapInBlockquote', (ctx) => () => wrapIn(blockquoteSchema.type()))
 
 // call command
-commandManager.call(WrapInBlockquote);
+editor.action(callCommand(wrapInBlockquoteCommand.key));
 ```
 
 ### Example: Command with argument
@@ -67,26 +53,15 @@ commandManager.call(WrapInBlockquote);
 We can also add a info argument for commands:
 
 ```typescript
-import { createCmdKey, MilkdownPlugin, CommandsReady, commandsCtx, schemaCtx } from '@milkdown/core';
-import { setBlockType } from 'prosemirror-commands';
+import { headingSchema } from '@milkdown/preset-commonmark';
+import { $command, callCommand } from '@milkdown/utils';
+import { setBlockType } from '@milkdown/prose/commands';
 
 // use number as the type of argument
 export const WrapInHeading = createCmdKey<number>();
-
-const plugin: MilkdownPlugin = (ctx) => async () => {
-  // wait for command manager ready
-  await ctx.wait(CommandsReady);
-
-  const commandManager = ctx.get(commandsCtx);
-  const schema = ctx.get(schemaCtx);
-
-  commandManager.create(
-    WrapInBlockquote,
-    (level = 1) => setBlockType(schema.nodes.heading, { level })
-  );
-};
+const wrapInHeadingCommand = $command('WrapInHeading', (ctx) => (level = 1) => setBlockType(headingSchema.type(), { level }));
 
 // call command
-commandManager.call(WrapInHeading); // turn to h1 by default
-commandManager.call(WrapInHeading, 2); // turn to h2
+editor.action(callCommand(wrapInHeadingCommand.key)); // turn to h1 by default
+editor.action(callCommand(wrapInHeadingCommand.key, 2)); // turn to h2
 ```
