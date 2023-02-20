@@ -19,8 +19,9 @@ if (!root)
 createRoot(root).render(
   <AppProvider>
     <App />
-    <Analytics />
+    {import.meta.env.PROD && <Analytics />}
   </AppProvider>,
 )
 
-reportWebVitals(sendToVercelAnalytics)
+if (import.meta.env.PROD)
+  reportWebVitals(sendToVercelAnalytics)
