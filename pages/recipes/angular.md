@@ -6,7 +6,8 @@ We don't provide Angular support out of box, but you can use the vanilla version
 
 ```bash
 # install with npm
-npm install @milkdown/core @milkdown/prose @milkdown/preset-commonmark @milkdown/theme-nord
+npm install @milkdown/core @milkdown/prose @milkdown/ctx @milkdown/transformer
+npm install @milkdown/preset-commonmark @milkdown/theme-nord
 ```
 
 ## Create a Component
