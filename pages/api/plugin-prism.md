@@ -69,3 +69,9 @@ Editor
   .use(prism)
   .create();
 ```
+
+## Other Solutions
+
+If you prefer to use other highlighters, we have an example for you use [shiki](https://shiki.matsu.io/) to build a highlight plugin.
+
+[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/Milkdown/examples/tree/main/vanilla-shiki-highlight)

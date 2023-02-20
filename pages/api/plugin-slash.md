@@ -61,11 +61,11 @@ Editor
 
 ## Use with React
 
-TODO: add docs about how to use with prosemirror-adapter/react
+[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/Milkdown/examples/tree/main/react-slash)
 
 ## Use with Vue
 
-TODO: add docs about how to use with prosemirror-adapter/vue
+[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/Milkdown/examples/tree/main/vue-slash)
 
 ## API
 

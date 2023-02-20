@@ -21,7 +21,13 @@ export const LinkWidget: FC = () => {
 
   return (
     <span className="not-prose">
-      <Component {...props} className={clsx('inline-flex items-center justify-center gap-1 rounded px-2', linkClass(false))}>
+      <Component
+        {...props}
+        className={clsx('inline-flex items-center justify-center gap-1 rounded px-2', linkClass(false))}
+        onMouseDown={(e) => {
+          e.preventDefault()
+        }}
+      >
         <span className="material-symbols-outlined text-nord8 text-sm ">open_in_new</span>
         <small className="text-nord8 font-light">
           {href}

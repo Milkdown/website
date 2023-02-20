@@ -57,6 +57,14 @@ Editor
 
 @block
 
+## Use with React
+
+[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/Milkdown/examples/tree/main/react-block)
+
+## Use with Vue
+
+[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/Milkdown/examples/tree/main/vue-block)
+
 ## API
 
 @BlockProvider
