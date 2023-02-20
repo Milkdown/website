@@ -1,7 +1,7 @@
 /* Copyright 2021, Milkdown by Mirone. */
 import type { Ctx, MilkdownPlugin } from '@milkdown/ctx'
 import { Editor, defaultValueCtx, editorViewOptionsCtx, rootCtx } from '@milkdown/core'
-import { block, blockView } from '@milkdown/plugin-block'
+import { block } from '@milkdown/plugin-block'
 import { clipboard } from '@milkdown/plugin-clipboard'
 import { cursor } from '@milkdown/plugin-cursor'
 import { diagram, diagramSchema } from '@milkdown/plugin-diagram'
@@ -130,9 +130,11 @@ export const usePlayground = (
     return [
       block,
       (ctx: Ctx) => () => {
-        ctx.set(blockView.key, pluginViewFactory({
-          component: Block,
-        }))
+        ctx.set(block.key, {
+          view: pluginViewFactory({
+            component: Block,
+          }),
+        })
       },
     ].flat()
   }, [pluginViewFactory])

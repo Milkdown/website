@@ -63,6 +63,6 @@ Editor
 @BlockProviderOptions
 
 @blockPlugin
-@blockView
+@blockSpec
 
 @blockConfig
