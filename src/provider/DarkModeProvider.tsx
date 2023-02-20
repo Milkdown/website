@@ -33,8 +33,12 @@ export const DarkModeProvider: FC<{ children: ReactNode }> = ({ children }) => {
   }, [])
 
   useEffect(() => {
+    // For Algolia DocSearch
+    document.documentElement.setAttribute('data-theme', darkMode ? 'dark' : 'light')
+    // For TailwindCSS
     document.documentElement.classList.toggle('dark', darkMode)
   }, [darkMode])
+
   return (
     <darkModeCtx.Provider value={darkMode}>
       <setDarkModeCtx.Provider value={setDarkMode}>
