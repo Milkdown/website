@@ -61,7 +61,7 @@ export const config: ConfigItem[] = [
       'plugin-trailing',
       'plugin-upload',
       'plugin-clipboard',
-      'plugin-collaborative',
+      'plugin-collab',
     ],
   },
 ]

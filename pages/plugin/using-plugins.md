@@ -76,7 +76,7 @@ Milkdown provides the following official plugins:
 
   Add listener support.
 
-* [@milkdown/plugin-collaborative](/plugin-collaborative)
+* [@milkdown/plugin-collab](/plugin-collab)
 
   Add collaborative editing support, powered by [yjs](https://docs.yjs.dev/).
 

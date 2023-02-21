@@ -1,16 +1,16 @@
-# @milkdown/plugin-collaborative
+# @milkdown/plugin-collab
 
 This plugin used to support collaborative editing for milkdown.
 
 Please check the [collaborative editing guide](/collaborative-editing) to learn more.
 
 ```typescript
-import { collaborative, collabServiceCtx } from '@milkdown/plugin-collaborative';
+import { collab, collabServiceCtx } from '@milkdown/plugin-collab';
 
 async function setup() {
   const editor = await Editor
     .make()
-    .use(collaborative)
+    .use(collab)
     .create();
 
   const doc = new Doc();
@@ -31,7 +31,7 @@ async function setup() {
 
 ## Plugin
 
-@collaborative
+@collab
 @CollabReady
 
 ## Service

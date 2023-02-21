@@ -1,7 +1,7 @@
 # Collaborative Editing
 
 Milkdown supports collaborative editing powered by [Y.js](https://docs.yjs.dev/).
-We provide the [@milkdown/plugin-collaborative](https://www.npmjs.com/package/@milkdown/plugin-collaborative) plugin to help you use milkdown with yjs easily.
+We provide the [@milkdown/plugin-collab](/plugin-collab) plugin to help you use milkdown with yjs easily.
 This plugin includes basic collaborative editing features like:
 
 -   Sync between clients.
@@ -15,7 +15,7 @@ This plugin includes basic collaborative editing features like:
 First you need to install the plugin and yjs through npm:
 
 ```bash
-npm install @milkdown/plugin-collaborative yjs y-websocket
+npm install @milkdown/plugin-collab yjs y-websocket
 ```
 
 And you also need to choose a [provider for yjs](https://docs.yjs.dev/ecosystem/connection-provider), here we use [y-websocket](https://docs.yjs.dev/ecosystem/connection-provider/y-websocket) as an example.
@@ -24,10 +24,10 @@ After the installation, you can configure your editor:
 
 ```typescript
 // ...import other plugins
-import { collaborative, collabServiceCtx } from '@milkdown/plugin-collaborative';
+import { collab, collabServiceCtx } from '@milkdown/plugin-collab';
 
 async function setup() {
-  const editor = await Editor.make().config(nord).use(commonmark).use(collaborative).create();
+  const editor = await Editor.make().config(nord).use(commonmark).use(collab).create();
 
   const doc = new Doc();
   const wsProvider = new WebsocketProvider('<YOUR_WS_HOST>', 'milkdown', doc);
