@@ -8,14 +8,16 @@ This plugin includes basic collaborative editing features like:
 -   Remote cursor support.
 -   Undo/Redo support.
 
-> You can look [milkdown collaboration example](https://github.com/Milkdown/milkdown/tree/main/examples/collaboration) for a working example.
+[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/Milkdown/examples/tree/main/vanilla-collab)
 
 ## Configure Plugin
 
 First you need to install the plugin and yjs through npm:
 
 ```bash
-npm install @milkdown/plugin-collab yjs y-websocket
+npm install @milkdown/plugin-collab
+
+npm install yjs y-protocols y-prosemirror
 ```
 
 And you also need to choose a [provider for yjs](https://docs.yjs.dev/ecosystem/connection-provider), here we use [y-websocket](https://docs.yjs.dev/ecosystem/connection-provider/y-websocket) as an example.
