@@ -33,7 +33,7 @@ export default defineConfig(({ mode }) => {
       },
     },
     plugins: [
-      VitePWA({ registerType: 'autoUpdate' }),
+      VitePWA(),
       sitemapPlugin(),
       markdownPlugin(),
       react(),
