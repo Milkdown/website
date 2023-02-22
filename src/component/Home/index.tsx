@@ -10,13 +10,14 @@ const AsyncHomeEditor = lazy(() => import('./Editor').then(module => ({ default:
 
 export const Home: FC = () => {
   const gettingStarted = '/getting-started'
+  const playground = '/playground'
 
   return (
     <div className="mx-8 pt-16 md:mx-24 lg:mx-40 xl:mx-80">
       <div className="mt-24 text-center">
         <h1 className="text-4xl font-medium sm:text-6xl xl:text-8xl">The <span className="text-nord10">WYSIWYG Markdown</span> Editor Framework</h1>
         <p className="mt-6 text-lg font-light sm:text-2xl">🍼 A plugin driven framework to build WYSIWYG Markdown editor.</p>
-        <div className="mt-9 flex justify-center gap-4">
+        <div className="mt-9 flex flex-wrap justify-center gap-4">
           <NavLink to={gettingStarted}>
             <button className="bg-nord10 hover:bg-nord9 inline-flex h-14 items-center rounded-2xl py-4 px-5 text-gray-50 shadow-md hover:shadow-lg">
               <span className="material-symbols-outlined mr-3 text-base">play_circle</span>
@@ -25,6 +26,22 @@ export const Home: FC = () => {
               </span>
             </button>
           </NavLink>
+          <NavLink to={playground}>
+            <button className="hover-shadow-lg dark:bg-nord3 hover:dark:bg-nord1 inline-flex h-14 items-center rounded-2xl bg-gray-200 py-4 px-5 shadow-md hover:bg-gray-100">
+              <span className="material-symbols-outlined mr-3 text-base">gamepad</span>
+              <span className="text-sm">
+                PLAYGROUND
+              </span>
+            </button>
+          </NavLink>
+          <a href="https://github.com/Milkdown/examples" target="_blank" rel="noreferrer">
+            <button className="hover-shadow-lg dark:bg-nord3 hover:dark:bg-nord1 inline-flex h-14 items-center rounded-2xl bg-gray-200 py-4 px-5 shadow-md hover:bg-gray-100">
+              <span className="material-symbols-outlined mr-3 text-base">view_cozy</span>
+              <span className="text-sm">
+                EXAMPLES
+              </span>
+            </button>
+          </a>
           <a href="https://github.com/Milkdown/milkdown" target="_blank" rel="noreferrer">
             <button className="hover-shadow-lg dark:bg-nord3 hover:dark:bg-nord1 inline-flex h-14 items-center rounded-2xl bg-gray-200 py-4 px-5 shadow-md hover:bg-gray-100">
               <span className="text-sm">
