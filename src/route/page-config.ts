@@ -47,6 +47,7 @@ export const config: ConfigItem[] = [
       'utils',
       'preset-commonmark',
       'preset-gfm',
+      'theme-nord',
       'plugin-listener',
       'plugin-history',
       'plugin-math',
