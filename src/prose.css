@@ -1,3 +1,7 @@
+h4 {
+  @apply underline underline-offset-4 decoration-nord14;
+}
+
 .prose blockquote {
   @apply not-italic;
 }

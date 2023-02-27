@@ -62,6 +62,7 @@ Editor
 # Task List
 
 @extendListItemSchemaForTask
+@wrapInTaskListInputRule
 
 ---
 
