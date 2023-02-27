@@ -56,9 +56,12 @@ export const TableTooltip: FC = () => {
 
       provider.update(view)
 
-      getEditor().ctx.set(tableTooltipCtx.key, provider)
+      const editor = getEditor()
 
-      tooltipProvider.current = provider
+      if (editor && editor.ctx && editor.ctx.isInjected(tableTooltipCtx.key)) {
+        editor.ctx.set(tableTooltipCtx.key, provider)
+        tooltipProvider.current = provider
+      }
     }
 
     return () => {
