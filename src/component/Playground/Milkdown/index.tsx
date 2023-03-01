@@ -58,7 +58,7 @@ export const Milkdown = forwardRef<MilkdownRef, MilkdownProps>(({ content, onCha
         <Button icon="redo" onClick={() => call(redoCommand.key) } />
         <Button icon="format_bold" onClick={() => call(toggleStrongCommand.key) } />
         <Button icon="format_italic" onClick={() => call(toggleEmphasisCommand.key)} />
-        <Button icon="format_underlined" onClick={() => call(toggleStrikethroughCommand.key)} />
+        <Button icon="format_strikethrough" onClick={() => call(toggleStrikethroughCommand.key)} />
         <Button icon="table" onClick={() => call(insertTableCommand.key)} />
         <Button icon="format_list_bulleted" onClick={() => call(wrapInBulletListCommand.key)} />
         <Button icon="format_list_numbered" onClick={() => call(wrapInOrderedListCommand.key)} />
