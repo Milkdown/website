@@ -130,6 +130,11 @@ Editor
 @insertHrInputRule
 @insertHrCommand
 
+## HTML
+
+@htmlAttr
+@htmlSchema
+
 ---
 
 # Marks

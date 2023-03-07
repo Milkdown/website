@@ -154,7 +154,7 @@ export const SidePanel: FC = () => {
   const events = mode === 'mobile' ? {} : { onMouseEnter: holdSidePanel, onMouseLeave: () => hideSidePanel(500) }
 
   return (
-    <div className="flex h-full w-full flex-col divide-y p-3" {...events}>
+    <div className="flex h-full w-full flex-col divide-y p-3 overflow-auto overscroll-none" {...events}>
       { mode === 'mobile' && !isRoot && <SidePanelGroup items={[{ id: ROOT, onClick: showRootSidePanel, text: 'back', prefixIcon: 'arrow_back' }]} />}
       <SidePanelGroup {...itemsGroup} />
     </div>

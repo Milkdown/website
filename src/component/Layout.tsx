@@ -24,10 +24,10 @@ export const Layout: FC<LayoutProps> = ({ NavBar, AppBar, Sidebar, children }) =
       </div>
       <div className={`bg-nord6/90 dark:bg-nord3/80 fixed inset-y-0 z-30
         w-80
-        overflow-auto rounded-r-3xl pt-16
+        rounded-r-3xl py-16
         shadow-lg backdrop-blur backdrop-saturate-50
         transition-all duration-200
-        ease-in-out md:pt-0 ${sidePanelVisible ? 'left-0 md:left-20' : '-left-80'}`}>
+        ease-in-out md:py-0 ${sidePanelVisible ? 'left-0 md:left-20' : '-left-80'}`}>
         <Sidebar />
       </div>
 
