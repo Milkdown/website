@@ -76,7 +76,7 @@ export const ImageTooltip: FC = () => {
   }
 
   return (
-    <div>
+    <div className="hidden">
       <div ref={ref} className="flex w-96 flex-col gap-2 rounded border-gray-300 bg-white p-4 shadow ring dark:border-gray-600 dark:bg-black">
         <label className="flex flex-row items-center justify-center gap-4">
           <span className="w-10">Link</span>

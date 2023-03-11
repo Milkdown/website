@@ -56,7 +56,7 @@ export const Slash = () => {
   })
 
   return (
-    <div>
+    <div className="hidden">
       <div role="tooltip" className="w-96 rounded bg-gray-50 shadow-lg ring-2 dark:bg-gray-900" ref={ref}>
         <ul className="m-0 list-none">
           <li

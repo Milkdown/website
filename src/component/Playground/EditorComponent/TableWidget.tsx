@@ -70,7 +70,7 @@ export const TableTooltip: FC = () => {
   }, [getEditor, loading, view])
 
   return (
-    <div>
+    <div className="hidden">
       <div className="flex" ref={ref}>
         {
         !isWholeTable && !isHeading && isRow
