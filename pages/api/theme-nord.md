@@ -20,7 +20,7 @@ import '@milkdown/theme-nord/style.css'
 
 Editor
   .make()
-  .config(nord)
+  .use(nord)
   // ...
   .create()
 ```
