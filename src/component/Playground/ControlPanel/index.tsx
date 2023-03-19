@@ -20,7 +20,7 @@ interface ControlPanelProps extends CodemirrorProps {
 }
 
 const AsyncCodemirror = lazy(() => import('../Codemirror').then(module => ({ default: module.Codemirror })))
-const AsyncJsonViewer = lazy(() => import('@textea/json-viewer').then(module => ({ default: module.JsonViewer })))
+const AsyncJsonViewer = lazy(() => import('@rich-data/viewer').then(module => ({ default: module.JsonViewer })))
 
 export const ControlPanel: FC<ControlPanelProps> = ({ content, onChange, lock, codemirrorRef }) => {
   const linkClass = useLinkClass()
