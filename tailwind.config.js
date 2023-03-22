@@ -1,7 +1,6 @@
-/* Copyright 2021, Milkdown by Mirone. */
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ['**/*.tsx', '**/*.ts', '**/*.css'],
+  content: ["./src/**/*.{js,ts,jsx,tsx,css}"],
   darkMode: 'class',
   theme: {
     extend: {},

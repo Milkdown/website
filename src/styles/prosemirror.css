@@ -1,0 +1,28 @@
+.ProseMirror:focus-visible {
+  @apply outline-none;
+}
+
+.ProseMirror-selectednode {
+  outline: none;
+  @apply outline-nord9 dark:outline-nord10 outline-2 outline outline-offset-2;
+}
+
+span[data-type="html"] {
+  @apply px-1 py-1 mx-1 rounded bg-gray-200 font-sans dark:bg-gray-900 relative text-nord9 dark:text-nord10;
+}
+
+li p {
+  @apply !m-0 !leading-6;
+}
+
+li p + p {
+  @apply !mt-2;
+}
+
+li::after {
+  all: unset !important;
+}
+
+ul, ol {
+  @apply !p-0 ml-4;
+}
