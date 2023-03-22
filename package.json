@@ -3,8 +3,10 @@
   "version": "7.1.0",
   "private": true,
   "scripts": {
+    "build:doc": "node scripts/build-api.mjs",
+    "build:next": "next build",
     "dev": "next dev",
-    "build": "next build",
+    "build": "pnpm build:doc && pnpm build:next",
     "start": "next start",
     "lint": "next lint",
     "prepare": "husky install"
