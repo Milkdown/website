@@ -47,7 +47,6 @@ const DocRenderer: FC<{ content: string }> = ({ content }) => {
   return (
     <>
       <Head>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>{toTitle(router.query.id as string)} | Milkdown</title>
       </Head>
       <div className="mx-8 pt-16 md:mx-24 lg:mx-40 xl:mx-80">
