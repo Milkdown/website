@@ -6,6 +6,7 @@ import {
 } from "@/providers";
 
 import clsx from "clsx";
+import Image from "next/image";
 import Link from "next/link";
 import { System } from "./System";
 
@@ -30,7 +31,13 @@ export const MobileNav = () => {
           linkClass(false)
         )}
       >
-        <img className="inline-block h-7 w-7" src="/milkdown-logo.svg" />
+        <Image
+          alt={"milkdown logo"}
+          width={28}
+          height={28}
+          className="inline-block h-7 w-7"
+          src="/milkdown-logo.svg"
+        />
         <span>Milkdown</span>
       </Link>
 

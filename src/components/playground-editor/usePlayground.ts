@@ -1,7 +1,6 @@
 import {
   defaultValueCtx,
   Editor,
-  editorViewCtx,
   editorViewOptionsCtx,
   rootCtx,
 } from "@milkdown/core";
@@ -39,26 +38,32 @@ import {
 } from "@prosemirror-adapter/react";
 import debounce from "lodash.debounce";
 import { useRouter } from "next/navigation";
-import { useEffect, useLayoutEffect, useMemo, useRef } from "react";
+import { useEffect, useMemo, useRef } from "react";
 import { refractor } from "refractor/lib/common";
-import { useToast } from "../../toast";
-import { Block } from "../EditorComponent/Block";
-import { CodeBlock } from "../EditorComponent/CodeBlock";
-import { Diagram } from "../EditorComponent/Diagram";
-import { FootnoteDef, FootnoteRef } from "../EditorComponent/Footnote";
-import { ImageTooltip, imageTooltip } from "../EditorComponent/ImageTooltip";
-import { linkPlugin } from "../EditorComponent/LinkWidget";
-import { ListItem } from "../EditorComponent/ListItem";
-import { MathBlock } from "../EditorComponent/MathBlock";
-import { Slash } from "../EditorComponent/Slash";
+import { Block } from "../playground/editor-component/Block";
+import { CodeBlock } from "../playground/editor-component/CodeBlock";
+import { Diagram } from "../playground/editor-component/Diagram";
+import {
+  FootnoteDef,
+  FootnoteRef,
+} from "../playground/editor-component/Footnote";
+import {
+  ImageTooltip,
+  imageTooltip,
+} from "../playground/editor-component/ImageTooltip";
+import { linkPlugin } from "../playground/editor-component/LinkWidget";
+import { ListItem } from "../playground/editor-component/ListItem";
+import { MathBlock } from "../playground/editor-component/MathBlock";
+import { Slash } from "../playground/editor-component/Slash";
 import {
   tableSelectorPlugin,
   TableTooltip,
   tableTooltip,
   tableTooltipCtx,
-} from "../EditorComponent/TableWidget";
-import { encode } from "../Share/share";
-import { useSetShare } from "../Share/ShareProvider";
+} from "../playground/editor-component/TableWidget";
+import { encode } from "@/utils/share";
+import { useSetShare } from "./ShareProvider";
+import { useToast } from "../toast";
 import { useFeatureToggle } from "./FeatureToggleProvider";
 import { useSetProseState } from "./ProseStateProvider";
 

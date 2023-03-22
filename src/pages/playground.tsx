@@ -1,9 +1,9 @@
-import { CodemirrorRef } from "@/components/playground/Codemirror";
-import { ControlPanel } from "@/components/playground/ControlPanel";
-import type { MilkdownRef } from "@/components/playground/Milkdown";
-import { FeatureToggleProvider } from "@/components/playground/Milkdown/FeatureToggleProvider";
-import { ProseStateProvider } from "@/components/playground/Milkdown/ProseStateProvider";
-import { ShareProvider } from "@/components/playground/Share/ShareProvider";
+import { CodemirrorRef } from "@/components/codemirror";
+import { ControlPanel } from "@/components/playground/control-panel";
+import type { MilkdownRef } from "@/components/playground-editor";
+import { FeatureToggleProvider } from "@/components/playground-editor/FeatureToggleProvider";
+import { ProseStateProvider } from "@/components/playground-editor/ProseStateProvider";
+import { ShareProvider } from "@/components/playground-editor/ShareProvider";
 import { ToastProvider } from "@/components/toast";
 import { compose } from "@/utils/compose";
 import { decode } from "@/utils/share";
@@ -16,7 +16,7 @@ import { useCallback, useEffect, useRef, useState } from "react";
 
 const PlaygroundMilkdown = dynamic(
   () =>
-    import("@/components/playground/Milkdown").then((module) => ({
+    import("@/components/playground-editor").then((module) => ({
       default: module.PlaygroundMilkdown,
     })),
   {

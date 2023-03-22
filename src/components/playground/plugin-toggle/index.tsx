@@ -4,7 +4,7 @@ import type { FC } from "react";
 import {
   useFeatureToggle,
   useSetFeatureToggle,
-} from "../Milkdown/FeatureToggleProvider";
+} from "../../playground-editor/FeatureToggleProvider";
 
 import styles from "./style.module.css";
 

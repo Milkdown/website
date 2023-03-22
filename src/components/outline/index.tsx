@@ -1,4 +1,3 @@
-/* Copyright 2021, Milkdown by Mirone. */
 import { useLinkClass } from "@/hooks";
 import clsx from "clsx";
 import Link from "next/link";

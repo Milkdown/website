@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { FC } from "react";
 import Image from "next/image";
+import vercelBanner from "./vercel-banner.svg";
 
 type LinkGroupsProps = {
   title: string;
@@ -108,13 +109,7 @@ const Footer: FC = () => {
             MIT Licensed | Copyright © 2021-present Mirone ♡ Meo
           </div>
           <a href="https://vercel.com/?utm_source=milkdown&utm_campaign=oss">
-            <Image
-              width={128}
-              height={26}
-              alt="vercel banner"
-              src="/vercel-banner.svg"
-              className="w-32"
-            />
+            <Image src={vercelBanner} alt="vercel banner" className="w-32" />
           </a>
         </div>
       </div>

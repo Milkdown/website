@@ -1,8 +1,5 @@
-/* Copyright 2021, Milkdown by Mirone. */
 import { useNodeViewContext } from "@prosemirror-adapter/react";
 import type { FC } from "react";
-
-// import './ListItem.css'
 
 export const ListItem: FC = () => {
   const { contentRef, node, setAttrs, selected } = useNodeViewContext();

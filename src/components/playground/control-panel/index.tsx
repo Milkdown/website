@@ -1,4 +1,3 @@
-/* Copyright 2021, Milkdown by Mirone. */
 import { useLinkClass } from "@/hooks";
 import { useDarkMode } from "@/providers";
 
@@ -7,11 +6,11 @@ import clsx from "clsx";
 import dynamic from "next/dynamic";
 import type { FC, RefObject } from "react";
 import pkgJson from "../../../../package.json";
-import type { CodemirrorProps, CodemirrorRef } from "../Codemirror";
-import { Codemirror } from "../Codemirror";
-import { useProseState } from "../Milkdown/ProseStateProvider";
-import { PluginToggle } from "../PluginToggle";
-import { useShare } from "../Share/ShareProvider";
+import type { CodemirrorProps, CodemirrorRef } from "../../codemirror";
+import { Codemirror } from "../../codemirror";
+import { useProseState } from "../../playground-editor/ProseStateProvider";
+import { PluginToggle } from "../plugin-toggle";
+import { useShare } from "../../playground-editor/ShareProvider";
 import { AccordionItem } from "./AccordionItem";
 
 interface ControlPanelProps extends CodemirrorProps {

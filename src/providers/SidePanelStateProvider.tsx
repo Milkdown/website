@@ -1,8 +1,6 @@
 import type { Dispatch, FC, ReactNode, Reducer } from "react";
 import { createContext, useCallback, useContext, useReducer } from "react";
 
-export type SidePanelActionType = "Hide" | "ShowRoot" | "ShowSection";
-
 export type SidePanelMode = "desktop" | "mobile";
 
 export const ROOT = "$ROOT$";

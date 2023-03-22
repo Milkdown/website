@@ -1,4 +1,3 @@
-/* Copyright 2021, Milkdown by Mirone. */
 import { useLinkClass } from "@/hooks";
 import type { CmdKey } from "@milkdown/core";
 import { editorViewCtx, parserCtx } from "@milkdown/core";
@@ -18,9 +17,8 @@ import { Slice } from "@milkdown/prose/model";
 import { Milkdown as Editor } from "@milkdown/react";
 import { callCommand } from "@milkdown/utils";
 import clsx from "clsx";
-import { useRouter } from "next/router";
-import type { FC, MutableRefObject, RefObject } from "react";
-import { forwardRef, useEffect, useImperativeHandle } from "react";
+import type { FC, RefObject } from "react";
+import { useImperativeHandle } from "react";
 import { usePlayground } from "./usePlayground";
 
 const Button: FC<{ icon: string; onClick?: () => void }> = ({
@@ -46,9 +44,11 @@ interface MilkdownProps {
   onChange: (markdown: string) => void;
   milkdownRef: RefObject<MilkdownRef>;
 }
+
 export interface MilkdownRef {
   update: (markdown: string) => void;
 }
+
 export const PlaygroundMilkdown: FC<MilkdownProps> = ({
   content,
   onChange,

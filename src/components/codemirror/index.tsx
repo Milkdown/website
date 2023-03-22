@@ -1,5 +1,3 @@
-/* Copyright 2021, Milkdown by Mirone. */
-
 import { useDarkMode } from "@/providers";
 import type { MutableRefObject } from "react";
 import {

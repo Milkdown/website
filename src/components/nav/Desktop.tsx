@@ -1,9 +1,9 @@
-/* Copyright 2021, Milkdown by Mirone. */
 import { useLinkClass } from "@/hooks";
 import { useHideSidePanel, useShowSectionSidePanel } from "@/providers";
 import { docConfig } from "@/routes";
 
 import clsx from "clsx";
+import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import type { FC, ReactNode } from "react";
@@ -100,7 +100,13 @@ export const DesktopNav: FC = () => {
           dark:bg-gray-800 hover:dark:bg-gray-700"
         >
           <Link href="/">
-            <img className="h-9 w-9" src="/milkdown-logo.svg" />
+            <Image
+              alt={"milkdown logo"}
+              width={36}
+              height={36}
+              className="h-9 w-9"
+              src="/milkdown-logo.svg"
+            />
           </Link>
         </div>
         <div className="mt-8 flex flex-col gap-4">

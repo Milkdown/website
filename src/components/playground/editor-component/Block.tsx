@@ -1,5 +1,3 @@
-/* Copyright 2021, Milkdown by Mirone. */
-
 import { commandsCtx } from "@milkdown/core";
 import { blockConfig, BlockProvider } from "@milkdown/plugin-block";
 import {

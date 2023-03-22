@@ -1,4 +1,3 @@
-/* Copyright 2021, Milkdown by Mirone. */
 import { useDarkMode } from "@/providers";
 import { useNodeViewContext } from "@prosemirror-adapter/react";
 import * as Tabs from "@radix-ui/react-tabs";
