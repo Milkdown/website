@@ -1,3 +1,7 @@
+.ProseMirror {
+  @apply dark:prose-invert;
+}
+
 .ProseMirror:focus-visible {
   @apply outline-none;
 }
