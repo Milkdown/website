@@ -68,5 +68,3 @@ export const docConfig: DocConfigItem[] = [
     ],
   },
 ];
-
-export const docList = docConfig.flatMap(({ items }) => items);
