@@ -88,6 +88,7 @@ specifiers:
   tslib: ^2.5.0
   typescript: 5.0.2
   unified: ^10.1.2
+  workbox-window: ^6.5.4
 
 dependencies:
   '@codemirror/autocomplete': 6.4.2_ipi6fyicmvtccbdgcmxxogx7ni
@@ -151,6 +152,7 @@ dependencies:
   react-json-view: 1.21.3_zula6vjvt3wdocc4mwcxqa6nzi
   refractor: 4.8.1
   tslib: 2.5.0
+  workbox-window: 6.5.4
 
 devDependencies:
   '@tailwindcss/forms': 0.5.3_tailwindcss@3.2.7

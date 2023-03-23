@@ -1,5 +1,6 @@
 import Footer from "@/components/footer";
 import Nav from "@/components/nav";
+import PwaUpdater from "@/components/pwa-updater";
 import { LayoutProvider } from "@/providers";
 
 import { Analytics } from "@vercel/analytics/react";
@@ -26,6 +27,7 @@ export default function App({ Component, pageProps }: AppProps) {
         <Nav />
         <Component {...pageProps} />
         <Footer />
+        <PwaUpdater />
         <Analytics />
       </LayoutProvider>
     </>

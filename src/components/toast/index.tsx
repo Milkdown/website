@@ -1,3 +1,4 @@
+import { useLinkClass } from "@/hooks";
 import * as Toast from "@radix-ui/react-toast";
 import clsx from "clsx";
 import type { FC, ReactNode } from "react";
@@ -11,7 +12,9 @@ import {
 
 import styles from "./style.module.css";
 
-type Show = (desc: string, type: "success" | "fail" | "warning") => void;
+type ToastType = "success" | "fail" | "warning" | "info";
+
+type Show = (desc: string, type: ToastType, onConfirm?: () => void) => void;
 export const setShowCtx = createContext<Show>(() => {});
 
 export const useToast = () => {
@@ -21,16 +24,18 @@ export const useToast = () => {
 export const ToastProvider: FC<{ children: ReactNode }> = ({ children }) => {
   const [open, setOpen] = useState(false);
   const [desc, setDesc] = useState("");
-  const [type, setType] = useState<"success" | "fail" | "warning">("success");
-
-  const show: Show = useCallback(
-    (desc: string, type: "success" | "fail" | "warning") => {
-      setDesc(desc);
-      setType(type);
-      setOpen(true);
-    },
-    []
+  const [onConfirm, setOnConfirm] = useState<undefined | (() => void)>(
+    undefined
   );
+  const [type, setType] = useState<ToastType>("success");
+  const linkClassName = useLinkClass();
+
+  const show: Show = useCallback((desc, type, onConfirm) => {
+    setDesc(desc);
+    setType(type);
+    setOpen(true);
+    setOnConfirm(() => onConfirm);
+  }, []);
 
   const icon = useMemo(() => {
     switch (type) {
@@ -38,6 +43,8 @@ export const ToastProvider: FC<{ children: ReactNode }> = ({ children }) => {
         return "report_problem";
       case "fail":
         return "error_outline";
+      case "info":
+        return "new_releases";
       case "success":
       default:
         return "check_circle_outline";
@@ -50,6 +57,8 @@ export const ToastProvider: FC<{ children: ReactNode }> = ({ children }) => {
         return "text-nord13";
       case "fail":
         return "text-nord11";
+      case "info":
+        return "text-nord15";
       case "success":
       default:
         return "text-nord14";
@@ -71,9 +80,25 @@ export const ToastProvider: FC<{ children: ReactNode }> = ({ children }) => {
             </span>
             <span className="text-sm font-light">{desc}</span>
           </Toast.Title>
-          <Toast.Action asChild altText="Close toast.">
-            <button className="material-symbols-outlined">close</button>
-          </Toast.Action>
+          <div>
+            {onConfirm && (
+              <Toast.Action
+                className={clsx("rounded-full p-2", linkClassName(false))}
+                asChild
+                altText="Confirm toast."
+                onClick={onConfirm}
+              >
+                <button className="material-symbols-outlined">done</button>
+              </Toast.Action>
+            )}
+            <Toast.Action
+              className={clsx("rounded-full p-2", linkClassName(false))}
+              asChild
+              altText="Close toast."
+            >
+              <button className="material-symbols-outlined">close</button>
+            </Toast.Action>
+          </div>
         </Toast.Root>
         <Toast.Viewport className={styles["toast-viewport"]} />
       </Toast.Provider>

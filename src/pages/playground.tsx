@@ -4,7 +4,6 @@ import type { MilkdownRef } from "@/components/playground-editor";
 import { FeatureToggleProvider } from "@/components/playground-editor/FeatureToggleProvider";
 import { ProseStateProvider } from "@/components/playground-editor/ProseStateProvider";
 import { ShareProvider } from "@/components/playground-editor/ShareProvider";
-import { ToastProvider } from "@/components/toast";
 import { compose } from "@/utils/compose";
 import { decode } from "@/utils/share";
 import { MilkdownProvider } from "@milkdown/react";
@@ -29,8 +28,7 @@ const Provider = compose(
   MilkdownProvider,
   ProsemirrorAdapterProvider,
   ProseStateProvider,
-  ShareProvider,
-  ToastProvider
+  ShareProvider
 );
 
 export default function Playground() {
