@@ -19,6 +19,12 @@ const HomeEditor = dynamic(() => import("@/components/home-editor"), {
   ssr: false,
 });
 
+export async function getStaticProps() {
+  return {
+    props: {}, // will be passed to the page component as props
+  };
+}
+
 export default function Home() {
   return (
     <>

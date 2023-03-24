@@ -31,6 +31,12 @@ const Provider = compose(
   ShareProvider
 );
 
+export async function getStaticProps() {
+  return {
+    props: {},
+  };
+}
+
 export default function Playground() {
   const [content, setContent] = useState("");
   const router = useRouter();

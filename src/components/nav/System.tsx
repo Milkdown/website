@@ -1,5 +1,5 @@
 import { useLinkClass } from "@/hooks";
-import { useSetDarkMode } from "@/providers";
+import { useDocSearch, useSetDarkMode } from "@/providers";
 
 import "@docsearch/css";
 import docsearch from "@docsearch/js";
@@ -26,20 +26,17 @@ const NavButtonItem: FC<{ children: ReactNode; onClick?: () => void }> = ({
 export const System = () => {
   const setDarkMode = useSetDarkMode();
   const container = useRef<HTMLDivElement>(null);
+  const docSearchConfig = useDocSearch();
 
   useEffect(() => {
     if (docsearch && typeof docsearch === "function" && container.current) {
       docsearch({
-        appId: "ESBZP4AW9O",
-
-        apiKey: "3c3f00caad4516fb13f96aea068122af",
-
-        indexName: "milkdown",
+        ...docSearchConfig,
 
         container: container.current,
       });
     }
-  }, []);
+  }, [docSearchConfig]);
 
   return (
     <div className="ml-auto flex select-none md:ml-0 md:block">

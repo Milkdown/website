@@ -12,3 +12,4 @@ export const LayoutProvider = compose(
 
 export * from "./DarkModeProvider";
 export * from "./SidePanelStateProvider";
+export * from "./DocSearchProvider";
