@@ -43,19 +43,19 @@ export default function Home() {
           <div className="mt-9 flex flex-wrap justify-center gap-4">
             <div className="flex justify-center gap-4">
               <Link href={gettingStarted}>
-                <button className="inline-flex h-14 items-center rounded-2xl bg-nord10 py-4 px-5 text-gray-50 shadow-md hover:bg-nord9 hover:shadow-lg">
-                  <span className="material-symbols-outlined mr-3 text-base">
+                <button className="inline-flex h-12 items-center rounded-2xl bg-nord10 py-2 px-3 text-gray-50 shadow-md hover:bg-nord9 hover:shadow-lg md:h-14 md:py-4 md:px-5">
+                  <span className="material-symbols-outlined mr-2 text-base md:mr-3">
                     play_circle
                   </span>
-                  <span className="text-sm">GET STARTED</span>
+                  <span className="text-xs md:text-sm">GET STARTED</span>
                 </button>
               </Link>
               <Link href={playground}>
-                <button className="hover-shadow-lg inline-flex h-14 items-center rounded-2xl bg-gray-200 py-4 px-5 shadow-md hover:bg-gray-100 dark:bg-nord3 hover:dark:bg-nord1">
-                  <span className="material-symbols-outlined mr-3 text-base">
+                <button className="hover-shadow-lg inline-flex h-12 items-center rounded-2xl bg-gray-200 py-2 px-3 shadow-md hover:bg-gray-100 dark:bg-nord3 hover:dark:bg-nord1 md:h-14 md:py-4 md:px-5">
+                  <span className="material-symbols-outlined mr-2 text-base md:mr-3">
                     gamepad
                   </span>
-                  <span className="text-sm">PLAYGROUND</span>
+                  <span className="text-xs md:text-sm">PLAYGROUND</span>
                 </button>
               </Link>
             </div>
@@ -65,8 +65,8 @@ export default function Home() {
                 target="_blank"
                 rel="noreferrer"
               >
-                <button className="hover-shadow-lg inline-flex h-14 items-center rounded-2xl bg-gray-200 py-4 px-5 shadow-md hover:bg-gray-100 dark:bg-nord3 hover:dark:bg-nord1">
-                  <span className="material-symbols-outlined mr-3 text-base">
+                <button className="hover-shadow-lg inline-flex h-12 items-center rounded-2xl bg-gray-200 py-2 px-3 shadow-md hover:bg-gray-100 dark:bg-nord3 hover:dark:bg-nord1 md:h-14 md:py-4 md:px-5">
+                  <span className="material-symbols-outlined mr-2 text-base md:mr-3">
                     view_cozy
                   </span>
                   <span className="text-sm">EXAMPLES</span>
@@ -77,8 +77,8 @@ export default function Home() {
                 target="_blank"
                 rel="noreferrer"
               >
-                <button className="hover-shadow-lg inline-flex h-14 items-center rounded-2xl bg-gray-200 py-4 px-5 shadow-md hover:bg-gray-100 dark:bg-nord3 hover:dark:bg-nord1">
-                  <span className="text-sm">VIEW ON GITHUB</span>
+                <button className="hover-shadow-lg inline-flex h-12 items-center rounded-2xl bg-gray-200 py-2 px-3 shadow-md hover:bg-gray-100 dark:bg-nord3 hover:dark:bg-nord1 md:h-14 md:py-4 md:px-5">
+                  <span className="text-xs md:text-sm">VIEW ON GITHUB</span>
                 </button>
               </a>
             </div>
