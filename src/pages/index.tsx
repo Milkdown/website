@@ -1,3 +1,5 @@
+import { Button } from "@/components/home/Button";
+import { InfoCard } from "@/components/home/InfoCard";
 import { MilkdownProvider } from "@milkdown/react";
 import { ProsemirrorAdapterProvider } from "@prosemirror-adapter/react";
 import dynamic from "next/dynamic";
@@ -25,6 +27,25 @@ export async function getStaticProps() {
   };
 }
 
+const InfoCardData = [
+  {
+    title: "Plugin Driven",
+    desc: "Everything in milkdown are plugins. Extend your editor with different types of plugins: syntax, theme, UI, etc.",
+  },
+  {
+    title: "Collaborative",
+    desc: "With the support of Y.js, milkdown can be used in real-time collaborative editing.",
+  },
+  {
+    title: "Headless",
+    desc: "Milkdown is headless and comes without any CSS. You can easily customize the editor to fit the style of your application.",
+  },
+  {
+    title: "Reliable",
+    desc: "Milkdown is built on top of some great libraries, such as ProseMirror, Y.js, and Remark. Which means you can use their community and eco system to get help.",
+  },
+];
+
 export default function Home() {
   return (
     <>
@@ -40,48 +61,27 @@ export default function Home() {
           <p className="mt-6 text-lg font-light sm:text-2xl">
             🍼 A plugin driven framework to build WYSIWYG Markdown editor.
           </p>
-          <div className="mt-9 flex flex-wrap justify-center gap-4">
-            <div className="flex justify-center gap-4">
-              <Link href={gettingStarted}>
-                <button className="inline-flex h-12 items-center rounded-2xl bg-nord10 py-2 px-3 text-gray-50 shadow-md hover:bg-nord9 hover:shadow-lg md:h-14 md:py-4 md:px-5">
-                  <span className="material-symbols-outlined mr-2 text-base md:mr-3">
-                    play_circle
-                  </span>
-                  <span className="text-xs md:text-sm">GET STARTED</span>
-                </button>
-              </Link>
-              <Link href={playground}>
-                <button className="hover-shadow-lg inline-flex h-12 items-center rounded-2xl bg-gray-200 py-2 px-3 shadow-md hover:bg-gray-100 dark:bg-nord3 hover:dark:bg-nord1 md:h-14 md:py-4 md:px-5">
-                  <span className="material-symbols-outlined mr-2 text-base md:mr-3">
-                    gamepad
-                  </span>
-                  <span className="text-xs md:text-sm">PLAYGROUND</span>
-                </button>
-              </Link>
-            </div>
-            <div className="flex justify-center gap-4">
-              <a
-                href="https://github.com/Milkdown/examples"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <button className="hover-shadow-lg inline-flex h-12 items-center rounded-2xl bg-gray-200 py-2 px-3 shadow-md hover:bg-gray-100 dark:bg-nord3 hover:dark:bg-nord1 md:h-14 md:py-4 md:px-5">
-                  <span className="material-symbols-outlined mr-2 text-base md:mr-3">
-                    view_cozy
-                  </span>
-                  <span className="text-sm">EXAMPLES</span>
-                </button>
-              </a>
-              <a
-                href="https://github.com/Milkdown/milkdown"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <button className="hover-shadow-lg inline-flex h-12 items-center rounded-2xl bg-gray-200 py-2 px-3 shadow-md hover:bg-gray-100 dark:bg-nord3 hover:dark:bg-nord1 md:h-14 md:py-4 md:px-5">
-                  <span className="text-xs md:text-sm">VIEW ON GITHUB</span>
-                </button>
-              </a>
-            </div>
+          <div className="mt-9 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
+            <Link href={gettingStarted}>
+              <Button primary text="GET STARTED" icon="play_circle" />
+            </Link>
+            <Link href={playground}>
+              <Button text="PLAYGROUND" icon="gamepad" />
+            </Link>
+            <a
+              href="https://github.com/Milkdown/examples"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <Button text="EXAMPLES" icon="view_cozy" />
+            </a>
+            <a
+              href="https://github.com/Milkdown/milkdown"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <Button text="VIEW ON GITHUB" />
+            </a>
           </div>
         </div>
         <div className="mt-24">
@@ -92,35 +92,9 @@ export default function Home() {
           </MilkdownProvider>
         </div>
         <div className="mt-24 grid grid-cols-1 gap-6 md:grid-cols-2">
-          <div className="flex-1/2 rounded-2xl bg-gray-50 py-3 px-4 dark:bg-nord3">
-            <div className="text-xl font-bold">Plugin Driven</div>
-            <p className="mt-7 font-light">
-              Everything in milkdown are plugins. Extend your editor with
-              different types of plugins: syntax, theme, UI, etc.
-            </p>
-          </div>
-          <div className="flex-1/2 rounded-2xl bg-gray-50 py-3 px-4 dark:bg-nord3">
-            <div className="text-xl font-bold">Collaborative</div>
-            <p className="mt-7 font-light">
-              With the support of Y.js, milkdown can be used in real-time
-              collaborative editing.
-            </p>
-          </div>
-          <div className="flex-1/2 rounded-2xl bg-gray-50 py-3 px-4 dark:bg-nord3">
-            <div className="text-xl font-bold">Headless</div>
-            <p className="mt-7 font-light">
-              Milkdown is headless and comes without any CSS. You can easily
-              customize the editor to fit the style of your application.
-            </p>
-          </div>
-          <div className="flex-1/2 rounded-2xl bg-gray-50 py-3 px-4 dark:bg-nord3">
-            <div className="text-xl font-bold">Reliable</div>
-            <p className="mt-7 font-light">
-              Milkdown is built on top of some great libraries, such as
-              ProseMirror, Y.js, and Remark. Which means you can use their
-              community and eco system to get help.
-            </p>
-          </div>
+          {InfoCardData.map((data) => (
+            <InfoCard key={data.title} title={data.title} desc={data.desc} />
+          ))}
         </div>
       </main>
     </>
