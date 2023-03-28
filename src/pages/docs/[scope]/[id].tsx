@@ -3,12 +3,10 @@ import { docConfig } from "@/routes";
 import { toTitle } from "@/utils/title";
 import { MilkdownProvider } from "@milkdown/react";
 import { ProsemirrorAdapterProvider } from "@prosemirror-adapter/react";
-import dynamic from "next/dynamic";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import type { FC } from "react";
-
-const Doc = dynamic(() => import("@/components/doc-editor"), { ssr: false });
+import Doc from "@/components/doc-editor";
 
 type Params = {
   params: {
@@ -28,13 +26,15 @@ export async function getStaticProps({ params }: Params) {
 }
 
 export async function getStaticPaths() {
-  const paths = docConfig.flatMap(({ items, dir: scope }) =>
-    items.map((id) => ({
-      params: {
-        id,
-        scope,
-      },
-    }))
+  const paths = docConfig.flatMap(({ items, scope, dir }) =>
+    items.map(
+      (id): Params => ({
+        params: {
+          id,
+          scope,
+        },
+      })
+    )
   );
   return {
     paths,
@@ -42,17 +42,25 @@ export async function getStaticPaths() {
   };
 }
 
+function getEditUrl(id: string, scope: string) {
+  const dir = docConfig.find((item) => item.scope === scope)?.dir ?? scope;
+
+  return `https://github.com/Milkdown/website/edit/main/docs/${dir}/${id}.md`;
+}
+
 const DocRenderer: FC<{ content: string }> = ({ content }) => {
   const router = useRouter();
+  const { id, scope } = router.query;
+  const url = getEditUrl(id as string, scope as string);
   return (
     <>
       <Head>
-        <title>{toTitle(router.query.id as string)} | Milkdown</title>
+        <title>{toTitle(id as string)} | Milkdown</title>
       </Head>
       <div className="mx-8 pt-16 md:mx-24 lg:mx-40 xl:mx-80">
         <MilkdownProvider>
           <ProsemirrorAdapterProvider>
-            <Doc content={content} />
+            <Doc url={url} content={content} />
           </ProsemirrorAdapterProvider>
         </MilkdownProvider>
       </div>

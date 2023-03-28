@@ -27,7 +27,9 @@ import markdown from "refractor/lang/markdown";
 import tsx from "refractor/lang/tsx";
 import typescript from "refractor/lang/typescript";
 
-const Doc: FC<{ content: string }> = ({ content }) => {
+import { Button } from "./Button";
+
+const Doc: FC<{ content: string; url: string }> = ({ content, url }) => {
   const [outlines, setOutlines] = useState<
     { text: string; level: number; id: string }[]
   >([]);
@@ -93,6 +95,9 @@ const Doc: FC<{ content: string }> = ({ content }) => {
     <>
       <Milkdown />
       <div className="fixed inset-y-16 right-10 hidden flex-col gap-4 overflow-y-auto xl:flex xl:w-60">
+        <a className="float-right" href={url} target="_blank">
+          <Button primary text="Edit on github" icon="edit" />
+        </a>
         <Outline items={outlines} />
       </div>
     </>

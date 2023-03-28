@@ -157,7 +157,7 @@ const sectionToGroup = (section?: DocConfigItem): SidePanelGroupProps => {
       return {
         id: item,
         text: toTitle(item),
-        link: `/docs/${section.dir}/${item}`,
+        link: `/docs/${section.scope}/${item}`,
       };
     }),
   };
@@ -187,7 +187,7 @@ export const SidePanel: FC = () => {
         ? getRoot(playgroundURL, (key: string) =>
             showSectionSidePanel(key, "mobile")
           )
-        : sectionToGroup(docConfig.find((item) => item.dir === activeId)),
+        : sectionToGroup(docConfig.find((item) => item.scope === activeId)),
     [activeId, isRoot, showSectionSidePanel]
   );
 

@@ -3,8 +3,8 @@ import { NextApiResponse } from "next";
 
 const EXTERNAL_DATA_URL = "https://milkdown.dev/docs";
 function generateSiteMap() {
-  const docList = docConfig.flatMap(({ items, dir }) =>
-    items.map((item) => ({ id: item, scope: dir }))
+  const docList = docConfig.flatMap(({ items, scope }) =>
+    items.map((item) => ({ id: item, scope: scope }))
   );
   return `<?xml version="1.0" encoding="UTF-8"?>
    <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">

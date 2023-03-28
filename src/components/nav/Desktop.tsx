@@ -25,7 +25,7 @@ const NavItem: FC<{
     section.items.find((item) => item === pageId)
   );
   const isActive = Boolean(
-    router.pathname === link || (id && page?.dir === id)
+    router.pathname === link || (id && page?.scope === id)
   );
   const linkClass = useLinkClass();
 

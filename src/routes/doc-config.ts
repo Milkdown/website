@@ -1,11 +1,12 @@
 export type DocConfigItem = {
-  dir: string;
+  scope: string;
+  dir?: string;
   items: string[];
 };
 
 export const docConfig: DocConfigItem[] = [
   {
-    dir: "guide",
+    scope: "guide",
     items: [
       "why-milkdown",
       "getting-started",
@@ -19,7 +20,7 @@ export const docConfig: DocConfigItem[] = [
     ],
   },
   {
-    dir: "recipes",
+    scope: "recipes",
     items: [
       "react",
       "vue",
@@ -32,7 +33,7 @@ export const docConfig: DocConfigItem[] = [
     ],
   },
   {
-    dir: "plugin",
+    scope: "plugin",
     items: [
       "using-plugins",
       "plugins-101",
@@ -41,7 +42,8 @@ export const docConfig: DocConfigItem[] = [
     ],
   },
   {
-    dir: "api",
+    scope: "api",
+    dir: "api-src",
     items: [
       "core",
       "ctx",
