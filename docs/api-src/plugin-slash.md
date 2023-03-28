@@ -22,7 +22,7 @@ function slashPluginView(view) {
   const content = document.createElement('div');
 
   const provider = new SlashProvider({
-    content: this.content,
+    content,
   });
 
   return {
@@ -43,10 +43,9 @@ You need to bind the slash view to the plugin in `editor.config`.
 
 ```typescript
 import { Editor } from '@milkdown/core';
-
 import { slashFactory } from '@milkdown/plugin-slash';
 
-const slash = tooltipFactory('my-slash');
+const slash = slashFactory('my-slash');
 
 Editor
   .make()
