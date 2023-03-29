@@ -10,8 +10,6 @@ import {
   useState,
 } from "react";
 
-import styles from "./style.module.css";
-
 type ToastType = "success" | "fail" | "warning" | "info";
 
 type Show = (desc: string, type: ToastType, onConfirm?: () => void) => void;
@@ -69,18 +67,14 @@ export const ToastProvider: FC<{ children: ReactNode }> = ({ children }) => {
     <setShowCtx.Provider value={show}>
       <Toast.Provider swipeDirection="right">
         {children}
-        <Toast.Root
-          className={styles["toast-root"]}
-          open={open}
-          onOpenChange={setOpen}
-        >
-          <Toast.Title className={styles["toast-title"]}>
+        <Toast.Root className="toast-root" open={open} onOpenChange={setOpen}>
+          <Toast.Title className="toast-title">
             <span className={clsx("material-symbols-outlined", iconColor)}>
               {icon}
             </span>
             <span className="text-sm font-light">{desc}</span>
           </Toast.Title>
-          <div>
+          <div className="flex">
             {onConfirm && (
               <Toast.Action
                 className={clsx("rounded-full p-2", linkClassName(false))}
@@ -100,7 +94,7 @@ export const ToastProvider: FC<{ children: ReactNode }> = ({ children }) => {
             </Toast.Action>
           </div>
         </Toast.Root>
-        <Toast.Viewport className={styles["toast-viewport"]} />
+        <Toast.Viewport className="toast-viewport" />
       </Toast.Provider>
     </setShowCtx.Provider>
   );

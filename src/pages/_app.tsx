@@ -15,6 +15,7 @@ import "@milkdown/theme-nord/style.css";
 import "@/styles/docsearch.css";
 import "@/styles/prosemirror.css";
 import "@/styles/prose.css";
+import "@/styles/toast.css";
 
 export default function App({
   Component,
