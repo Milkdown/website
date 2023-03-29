@@ -49,7 +49,7 @@ export const ControlPanel: FC<ControlPanelProps> = ({
               "flex h-8 w-8 items-center justify-center rounded-full"
             )}
           >
-            <span className="material-symbols-outlined text-base">share</span>
+            <span className="material-symbols-outlined !text-base">share</span>
           </button>
         </div>
       </div>
