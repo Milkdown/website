@@ -4,6 +4,7 @@ import type { MilkdownRef } from "@/components/playground-editor";
 import { FeatureToggleProvider } from "@/components/playground-editor/FeatureToggleProvider";
 import { ProseStateProvider } from "@/components/playground-editor/ProseStateProvider";
 import { ShareProvider } from "@/components/playground-editor/ShareProvider";
+import { getPlaygroundTemplate } from "@/pages/api/playground";
 import { compose } from "@/utils/compose";
 import { decode } from "@/utils/share";
 import { MilkdownProvider } from "@milkdown/react";
@@ -44,13 +45,16 @@ const Provider = compose(
 );
 
 export async function getStaticProps() {
+  const template = await getPlaygroundTemplate();
   return {
-    props: {},
+    props: {
+      template,
+    },
   };
 }
 
-export default function Playground() {
-  const [content, setContent] = useState("");
+export default function Playground({ template }: { template: string }) {
+  const [content, setContent] = useState(template);
   const router = useRouter();
   const path = router.asPath;
 
@@ -58,20 +62,9 @@ export default function Playground() {
     const [_, search = ""] = path.split("?");
     const searchParams = new URLSearchParams(search);
     const text = searchParams.get("text");
-    let importing = true;
     if (text) {
       setContent(decode(text));
-    } else {
-      fetch("/api/playground")
-        .then((res) => res.json())
-        .then(({ content }) => {
-          setContent(content);
-        });
     }
-
-    return () => {
-      importing = false;
-    };
   }, [path]);
 
   const lockCodemirror = useRef(false);
