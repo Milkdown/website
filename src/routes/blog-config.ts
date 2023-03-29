@@ -9,7 +9,7 @@ export type BlogConfigItem = {
 };
 
 const getDate = (year: number, month: number, day: number) => {
-  return formatDate(new Date(Date.UTC(year, month + 1, day)));
+  return formatDate(new Date(Date.UTC(year, month - 1, day)));
 };
 
 /// Put the latest blogs on the top please.
