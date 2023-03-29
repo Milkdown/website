@@ -1,5 +1,5 @@
 import { CodemirrorRef } from "@/components/codemirror";
-import { ControlPanel } from "@/components/playground/control-panel";
+import Loading from "@/components/loading";
 import type { MilkdownRef } from "@/components/playground-editor";
 import { FeatureToggleProvider } from "@/components/playground-editor/FeatureToggleProvider";
 import { ProseStateProvider } from "@/components/playground-editor/ProseStateProvider";
@@ -20,6 +20,18 @@ const PlaygroundMilkdown = dynamic(
     })),
   {
     ssr: false,
+    loading: () => <Loading />,
+  }
+);
+
+const ControlPanel = dynamic(
+  () =>
+    import("@/components/playground/control-panel").then((module) => ({
+      default: module.ControlPanel,
+    })),
+  {
+    ssr: false,
+    loading: () => <Loading />,
   }
 );
 

@@ -1,5 +1,6 @@
 import { Button } from "@/components/home/Button";
 import { InfoCard } from "@/components/home/InfoCard";
+import Loading from "@/components/loading";
 import { MilkdownProvider } from "@milkdown/react";
 import { ProsemirrorAdapterProvider } from "@prosemirror-adapter/react";
 import dynamic from "next/dynamic";
@@ -19,6 +20,7 @@ Try it out by typing in here, or visiting the [online playground](/playground).
 
 const HomeEditor = dynamic(() => import("@/components/home-editor"), {
   ssr: false,
+  loading: () => <Loading />,
 });
 
 export async function getStaticProps() {

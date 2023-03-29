@@ -67,36 +67,6 @@ import { useToast } from "../toast";
 import { useFeatureToggle } from "./FeatureToggleProvider";
 import { useSetProseState } from "./ProseStateProvider";
 
-const useToggle = (
-  label: string,
-  state: boolean,
-  get: () => Editor | undefined,
-  plugins: MilkdownPlugin[]
-) => {
-  const ref = useRef(state);
-  useEffect(() => {
-    const effect = async () => {
-      const editor = get();
-      if (!editor || ref.current === state) return;
-
-      if (!state) {
-        await editor.remove(plugins);
-        ref.current = false;
-      } else {
-        editor.use(plugins);
-        ref.current = true;
-      }
-
-      await editor.create();
-    };
-
-    effect().catch((e) => {
-      console.error("Error run toggle for: ", label);
-      console.error(e);
-    });
-  }, [get, label, plugins, state]);
-};
-
 const slash = slashFactory("MILKDOWN");
 
 export const usePlayground = (
@@ -249,11 +219,6 @@ export const usePlayground = (
             nodeViewFactory({ component: CodeBlock })
           )
         );
-      // .use(gfmPlugins)
-      // .use(mathPlugins)
-      // .use(diagramPlugins)
-      // .use(blockPlugins)
-      // .use(twemojiPlugins);
     },
     [onChange, defaultValue]
   );
@@ -266,12 +231,31 @@ export const usePlayground = (
         const editor = get();
         if (!editor) return;
 
-        editor
-          .use(gfmPlugins)
-          .use(mathPlugins)
-          .use(diagramPlugins)
-          .use(blockPlugins)
-          .use(twemojiPlugins);
+        if (enableGFM) {
+          editor.use(gfmPlugins);
+        } else {
+          await editor.remove(gfmPlugins);
+        }
+        if (enableMath) {
+          editor.use(mathPlugins);
+        } else {
+          await editor.remove(mathPlugins);
+        }
+        if (enableDiagram) {
+          editor.use(diagramPlugins);
+        } else {
+          await editor.remove(diagramPlugins);
+        }
+        if (enableBlockHandle) {
+          editor.use(blockPlugins);
+        } else {
+          await editor.remove(blockPlugins);
+        }
+        if (enableTwemoji) {
+          editor.use(twemojiPlugins);
+        } else {
+          await editor.remove(twemojiPlugins);
+        }
 
         await editor.create();
       };
@@ -288,17 +272,16 @@ export const usePlayground = (
     mathPlugins,
     twemojiPlugins,
     loading,
+    enableGFM,
+    enableMath,
+    enableDiagram,
+    enableBlockHandle,
+    enableTwemoji,
   ]);
 
   useEffect(() => {
     onChange(defaultValue);
   }, [defaultValue, onChange]);
-
-  useToggle("GFM", enableGFM, get, gfmPlugins);
-  useToggle("Math", enableMath, get, mathPlugins);
-  useToggle("Diagram", enableDiagram, get, diagramPlugins);
-  useToggle("BlockHandle", enableBlockHandle, get, blockPlugins);
-  useToggle("Twemoji", enableTwemoji, get, twemojiPlugins);
 
   const router = useRouter();
 
