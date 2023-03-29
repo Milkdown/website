@@ -52,10 +52,11 @@ const DocRenderer: FC<{ content: string }> = ({ content }) => {
   const router = useRouter();
   const { id, scope } = router.query;
   const url = getEditUrl(id as string, scope as string);
+  const title = `${toTitle(id as string)} | Milkdown`;
   return (
     <>
       <Head>
-        <title>{toTitle(id as string)} | Milkdown</title>
+        <title>{title}</title>
       </Head>
       <div className="mx-8 pt-16 md:mx-24 lg:mx-40 xl:mx-80">
         <MilkdownProvider>
