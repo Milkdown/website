@@ -35,6 +35,7 @@ export default function PwaUpdater() {
 
     wb.addEventListener("waiting", promptNewVersionAvailable);
 
+    wb.register();
     return () => {
       wb.removeEventListener("waiting", promptNewVersionAvailable);
     };
