@@ -3,6 +3,12 @@ import { toTitle } from "@/utils/title";
 import Head from "next/head";
 import Link from "next/link";
 
+export async function getStaticProps() {
+  return {
+    props: {}, // will be passed to the page component as props
+  };
+}
+
 export default function Blogs() {
   return (
     <>

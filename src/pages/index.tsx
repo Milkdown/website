@@ -1,9 +1,8 @@
+import HomeEditor from "@/components/home-editor";
 import { Button } from "@/components/home/Button";
 import { InfoCard } from "@/components/home/InfoCard";
-import Loading from "@/components/loading";
 import { MilkdownProvider } from "@milkdown/react";
 import { ProsemirrorAdapterProvider } from "@prosemirror-adapter/react";
-import dynamic from "next/dynamic";
 import Head from "next/head";
 import Link from "next/link";
 
@@ -17,11 +16,6 @@ const doc = `
 
 Try it out by typing in here, or visiting the [online playground](/playground).
 `;
-
-const HomeEditor = dynamic(() => import("@/components/home-editor"), {
-  ssr: false,
-  loading: () => <Loading />,
-});
 
 export async function getStaticProps() {
   return {
@@ -70,10 +64,11 @@ export default function Home() {
             <Link href={gettingStarted}>
               <Button primary text="GET STARTED" icon="play_circle" />
             </Link>
-            <Link href={playground}>
+            <Link className="hidden md:block" href={playground}>
               <Button text="PLAYGROUND" icon="gamepad" />
             </Link>
             <a
+              className="hidden md:block"
               href="https://github.com/Milkdown/examples"
               target="_blank"
               rel="noreferrer"
