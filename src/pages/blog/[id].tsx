@@ -49,7 +49,7 @@ export default function Blog({ content }: { content: string }) {
       <Head>
         <title>{title}</title>
       </Head>
-      <div className="mx-8 pt-16 md:mx-24 lg:mx-40 xl:mx-80">
+      <div className="mx-8 pt-24 md:mx-24 lg:mx-40 xl:mx-80">
         <MilkdownProvider>
           <ProsemirrorAdapterProvider>
             <Doc url={url} content={content} />
