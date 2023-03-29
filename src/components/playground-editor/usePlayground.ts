@@ -293,12 +293,6 @@ export const usePlayground = (
       const content = editor.action(getMarkdown());
       const base64 = encode(content);
 
-      if (base64.length > 2000) {
-        console.warn("Share content is too long.");
-        toast("Content is too long to share", "warning");
-        return;
-      }
-
       const url = new URL(location.href);
       url.searchParams.set("text", base64);
       navigator.clipboard.writeText(url.toString());
