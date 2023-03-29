@@ -24,10 +24,10 @@ export default function Blogs() {
                   {toTitle(id)}
                 </h3>
               </Link>
-              <div className="font-serif text-gray-500 dark:text-gray-300">
+              <div className="font-serif text-sm text-gray-500 dark:text-gray-400">
                 {date}
               </div>
-              <p>{desc}</p>
+              <p className="!mt-2">{desc}</p>
             </section>
           ))}
         </div>
