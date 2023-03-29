@@ -34,7 +34,7 @@ const Button: FC<{ icon: string; onClick?: () => void }> = ({
       )}
       onClick={onClick}
     >
-      <span className="material-symbols-outlined text-base">{icon}</span>
+      <span className="material-symbols-outlined !text-base">{icon}</span>
     </div>
   );
 };

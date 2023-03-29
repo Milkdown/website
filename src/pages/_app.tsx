@@ -31,7 +31,9 @@ export default function App({
       <DocSearchProvider docSearch={docSearch}>
         <LayoutProvider>
           <Nav />
-          <Component {...componentProps} />
+          <main className="flex-grow">
+            <Component {...componentProps} />
+          </main>
           <Footer />
           <PwaUpdater />
           <Analytics />

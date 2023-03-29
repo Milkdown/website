@@ -114,6 +114,7 @@ export const DesktopNav: FC = () => {
           <NavItem icon="apps" text="Recipes" id="recipes" />
           <NavItem icon="extension" text="Plugin" id="plugin" />
           <NavItem icon="api" text="API" id="api" />
+          <NavItem icon="pages" text="Blog" link="/blog" />
           <NavItem icon="view_carousel" text="Playground" link="/playground" />
         </div>
       </div>

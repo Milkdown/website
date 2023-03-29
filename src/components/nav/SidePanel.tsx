@@ -102,44 +102,49 @@ const SidePanelGroup: FC<SidePanelGroupProps> = ({ title, items }) => {
 };
 
 const getRoot = (
-  playgroundURL: string,
   showSectionSidePanel: (id: string) => void
 ): SidePanelGroupProps => {
   return {
     items: [
       {
         id: "guide",
-        text: "guide",
+        text: "Guide",
         prefixIcon: "design_services",
         suffixIcon: "arrow_forward",
         onClick: () => showSectionSidePanel("guide"),
       },
       {
         id: "recipes",
-        text: "recipes",
+        text: "Recipes",
         prefixIcon: "apps",
         suffixIcon: "arrow_forward",
         onClick: () => showSectionSidePanel("recipes"),
       },
       {
         id: "plugin",
-        text: "plugin",
+        text: "Plugin",
         prefixIcon: "extension",
         suffixIcon: "arrow_forward",
         onClick: () => showSectionSidePanel("plugin"),
       },
       {
         id: "api",
-        text: "api",
+        text: "Api",
         prefixIcon: "api",
         suffixIcon: "arrow_forward",
         onClick: () => showSectionSidePanel("api"),
       },
       {
+        id: "blog",
+        text: "Blog",
+        prefixIcon: "pages",
+        link: "/blog",
+      },
+      {
         id: "playground",
-        text: "playground",
+        text: "Playground",
         prefixIcon: "view_carousel",
-        link: playgroundURL,
+        link: "/playground",
       },
     ],
   };
@@ -170,7 +175,6 @@ export const SidePanel: FC = () => {
   const showRootSidePanel = useShowRootSidePanel();
   const { mode, activeId } = useSidePanelState();
   const isRoot = activeId === ROOT;
-  const playgroundURL = "/playground";
   const router = useRouter();
   const location = router.asPath;
 
@@ -184,9 +188,7 @@ export const SidePanel: FC = () => {
   const itemsGroup = useMemo(
     () =>
       isRoot
-        ? getRoot(playgroundURL, (key: string) =>
-            showSectionSidePanel(key, "mobile")
-          )
+        ? getRoot((key: string) => showSectionSidePanel(key, "mobile"))
         : sectionToGroup(docConfig.find((item) => item.scope === activeId)),
     [activeId, isRoot, showSectionSidePanel]
   );
@@ -203,7 +205,7 @@ export const SidePanel: FC = () => {
             {
               id: ROOT,
               onClick: showRootSidePanel,
-              text: "back",
+              text: "Back",
               prefixIcon: "arrow_back",
             },
           ]}
