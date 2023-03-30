@@ -28,6 +28,18 @@ export default function App({
           name="viewport"
           content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no, user-scalable=no, viewport-fit=cover"
         />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:creator" content="@mirone_saul" />
+        <meta property="og:url" content="https://milkdown.dev" />
+        <meta property="og:title" content="Milkdown" />
+        <meta
+          property="og:description"
+          content="The plugin based WSIWYG markdown editor framework."
+        />
+        <meta
+          property="og:image"
+          content="http://milkdown.dev/milkdown-logo.svg"
+        />
       </Head>
       <DocSearchProvider docSearch={docSearch}>
         <LayoutProvider>

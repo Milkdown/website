@@ -44,16 +44,20 @@ export default function Blog({ content }: { content: string }) {
   const { id } = router.query;
   const url = getEditUrl(id as string);
   const title = `${toTitle(id as string)} | Milkdown`;
+  const ogUrl = `https://milkdown.dev/${router.asPath}`;
   return (
     <>
       <Head>
         <title>{title}</title>
-        <meta name="twitter:card" content="summary" />
-        <meta property="og:url" content={router.asPath} />
+        <meta property="og:url" content={ogUrl} />
         <meta property="og:title" content={title} />
         <meta
           property="og:description"
           content={content.slice(0, 100) + "..."}
+        />
+        <meta
+          property="og:image"
+          content="http://milkdown.dev/milkdown-logo.svg"
         />
       </Head>
       <div className="mx-8 pt-24 md:mx-24 lg:mx-40 xl:mx-80">
