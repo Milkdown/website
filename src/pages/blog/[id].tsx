@@ -55,10 +55,6 @@ export default function Blog({ content }: { content: string }) {
           property="og:description"
           content={content.slice(0, 100) + "..."}
         />
-        <meta
-          property="og:image"
-          content="http://milkdown.dev/milkdown-logo.svg"
-        />
       </Head>
       <div className="mx-8 pt-24 md:mx-24 lg:mx-40 xl:mx-80">
         <MilkdownProvider>

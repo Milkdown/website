@@ -33,7 +33,21 @@ export default function Document() {
         <meta name="theme-color" content="#5E81AC" />
         <meta
           name="description"
-          content="Official documentation website for milkdown."
+          content="The plugin based WSIWYG markdown editor framework."
+        />
+
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:creator" content="@mirone_saul" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://milkdown.dev" />
+        <meta property="og:title" content="Milkdown" />
+        <meta
+          property="og:description"
+          content="The plugin based WSIWYG markdown editor framework."
+        />
+        <meta
+          property="og:image"
+          content="http://milkdown.dev/apple-touch-icon.png"
         />
       </Head>
       <body>
