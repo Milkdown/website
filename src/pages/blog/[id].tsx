@@ -48,6 +48,13 @@ export default function Blog({ content }: { content: string }) {
     <>
       <Head>
         <title>{title}</title>
+        <meta name="twitter:card" content="summary" />
+        <meta property="og:url" content={router.asPath} />
+        <meta property="og:title" content={title} />
+        <meta
+          property="og:description"
+          content={content.slice(0, 100) + "..."}
+        />
       </Head>
       <div className="mx-8 pt-24 md:mx-24 lg:mx-40 xl:mx-80">
         <MilkdownProvider>
