@@ -14,7 +14,7 @@ const NestedDiv: FC<{ level: number; children: ReactNode }> = ({
   if (level === 0) return <>{children}</>;
 
   return (
-    <div className="pl-1">
+    <div className="truncate pl-1">
       <NestedDiv level={level - 1}>{children}</NestedDiv>
     </div>
   );
@@ -46,7 +46,7 @@ function Outline(props: { items: OutlineItem[] }) {
               <Link key={item.id} href={url}>
                 <div
                   className={clsx(
-                    "cursor-pointer truncate rounded-3xl p-2 text-sm font-light",
+                    "cursor-pointer rounded-3xl p-2 text-sm font-light",
                     linkClass(hash === item.id)
                   )}
                 >
