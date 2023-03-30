@@ -36,8 +36,13 @@ export default function Document() {
           content="The plugin based WSIWYG markdown editor framework."
         />
 
-        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:creator" content="@mirone_saul" />
+        <meta property="twitter:title" content="Milkdown" />
+        <meta
+          property="twitter:image"
+          content="http://milkdown.dev/apple-touch-icon.png"
+        />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://milkdown.dev" />
         <meta property="og:title" content="Milkdown" />

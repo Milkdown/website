@@ -52,14 +52,16 @@ const DocRenderer: FC<{ content: string }> = ({ content }) => {
   const router = useRouter();
   const { id, scope } = router.query;
   const url = getEditUrl(id as string, scope as string);
-  const title = `${toTitle(id as string)} | Milkdown`;
+  const originalTitle = toTitle(id as string);
+  const title = `${originalTitle} | Milkdown`;
   const ogUrl = `https://milkdown.dev/${router.asPath}`;
   return (
     <>
       <Head>
         <title>{title}</title>
         <meta property="og:url" content={ogUrl} />
-        <meta property="og:title" content={title} />
+        <meta property="og:title" content={originalTitle} />
+        <meta property="twitter:title" content={originalTitle} />
         <meta
           property="og:description"
           content={content.slice(0, 100) + "..."}
