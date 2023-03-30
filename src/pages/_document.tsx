@@ -41,7 +41,7 @@ export default function Document() {
         <meta property="twitter:title" content="Milkdown" />
         <meta
           property="twitter:image"
-          content="http://milkdown.dev/apple-touch-icon.png"
+          content="http://milkdown.dev/banner.svg"
         />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://milkdown.dev" />
@@ -50,10 +50,7 @@ export default function Document() {
           property="og:description"
           content="The plugin based WSIWYG markdown editor framework."
         />
-        <meta
-          property="og:image"
-          content="http://milkdown.dev/apple-touch-icon.png"
-        />
+        <meta property="og:image" content="http://milkdown.dev/banner.svg" />
       </Head>
       <body>
         <Main />
