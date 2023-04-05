@@ -48,7 +48,7 @@ export default function Home() {
       <Head>
         <title>Milkdown</title>
       </Head>
-      <div className="mx-8 pt-16 md:mx-24 lg:mx-40 xl:mx-80">
+      <div className="mx-8 pt-24 md:mx-24 lg:mx-40 xl:mx-80 2xl:mx-auto 2xl:max-w-4xl">
         <div className="mt-24 text-center">
           <h1 className="text-4xl font-medium sm:text-6xl xl:text-8xl">
             The{" "}
