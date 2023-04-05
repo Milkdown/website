@@ -48,7 +48,7 @@ export default function Home() {
       <Head>
         <title>Milkdown</title>
       </Head>
-      <main className="mx-8 pt-16 md:mx-24 lg:mx-40 xl:mx-80">
+      <div className="mx-8 pt-16 md:mx-24 lg:mx-40 xl:mx-80">
         <div className="mt-24 text-center">
           <h1 className="text-4xl font-medium sm:text-6xl xl:text-8xl">
             The{" "}
@@ -96,7 +96,7 @@ export default function Home() {
             <InfoCard key={data.title} title={data.title} desc={data.desc} />
           ))}
         </div>
-      </main>
+      </div>
     </>
   );
 }

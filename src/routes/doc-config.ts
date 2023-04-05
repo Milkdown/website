@@ -16,6 +16,7 @@ export const docConfig: DocConfigItem[] = [
       "keyboard-shortcuts",
       "macros",
       "collaborative-editing",
+      "prosemirror-api",
       "faq",
     ],
   },
