@@ -2,6 +2,7 @@ import { CodemirrorRef } from "@/components/codemirror";
 import Loading from "@/components/loading";
 import type { MilkdownRef } from "@/components/playground-editor";
 import { FeatureToggleProvider } from "@/components/playground-editor/FeatureToggleProvider";
+import { InspectorProvider } from "@/components/playground-editor/InspectorProvider";
 import { ProseStateProvider } from "@/components/playground-editor/ProseStateProvider";
 import { ShareProvider } from "@/components/playground-editor/ShareProvider";
 import { getPlaygroundTemplate } from "@/pages/api/playground";
@@ -41,7 +42,8 @@ const Provider = compose(
   MilkdownProvider,
   ProsemirrorAdapterProvider,
   ProseStateProvider,
-  ShareProvider
+  ShareProvider,
+  InspectorProvider
 );
 
 export async function getStaticProps() {

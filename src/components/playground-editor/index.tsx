@@ -114,7 +114,7 @@ export const PlaygroundMilkdown: FC<MilkdownProps> = ({
 
         <div />
       </div>
-      <div className="h-full overflow-auto overscroll-none pl-10">
+      <div className="h-full overflow-auto overscroll-none">
         <Editor />
       </div>
     </div>

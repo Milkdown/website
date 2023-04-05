@@ -1,3 +1,4 @@
+import { useSetInspector } from "@/components/playground-editor/InspectorProvider";
 import {
   defaultValueCtx,
   Editor,
@@ -38,7 +39,7 @@ import {
 } from "@prosemirror-adapter/react";
 import debounce from "lodash.debounce";
 import { useRouter } from "next/navigation";
-import { useEffect, useMemo, useRef } from "react";
+import { useEffect, useMemo } from "react";
 import { refractor } from "refractor/lib/common";
 import { Block } from "../playground/editor-component/Block";
 import { CodeBlock } from "../playground/editor-component/CodeBlock";
@@ -78,6 +79,7 @@ export const usePlayground = (
   const widgetViewFactory = useWidgetViewFactory();
   const setProseState = useSetProseState();
   const setShare = useSetShare();
+  const setInspector = useSetInspector();
   const toast = useToast();
   const {
     enableGFM,
@@ -163,6 +165,7 @@ export const usePlayground = (
   const editorInfo = useEditor(
     (root) => {
       return Editor.make()
+        .enableInspector()
         .config((ctx) => {
           ctx.update(editorViewOptionsCtx, (prev) => ({
             ...prev,
@@ -175,11 +178,11 @@ export const usePlayground = (
           ctx
             .get(listenerCtx)
             .markdownUpdated((_, markdown) => {
-              debounce(onChange, 500)(markdown);
+              debounce(onChange, 100)(markdown);
             })
             .updated((_, doc) => {
               const state = doc.toJSON();
-              debounce(setProseState, 500)(state);
+              debounce(setProseState, 100)(state);
             });
           ctx.update(prismConfig.key, (prev) => ({
             ...prev,
@@ -300,6 +303,16 @@ export const usePlayground = (
       router.replace(url.toString());
     });
   }, [get, router, setShare, toast]);
+
+  useEffect(() => {
+    if (loading) return;
+    setInspector(() => {
+      const editor = get();
+      if (!editor) return [];
+
+      return editor.collectInspection();
+    });
+  }, [get, setInspector, loading]);
 
   return editorInfo;
 };
