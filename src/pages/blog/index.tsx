@@ -13,7 +13,7 @@ export default function Blogs() {
   return (
     <>
       <Head>
-        <title>Blogs | Milkdown</title>
+        <title>Blog | Milkdown</title>
       </Head>
       <div className="prose prose-sm mx-auto px-8 pt-24 dark:prose-invert sm:prose-base xl:prose-lg">
         <h1>Milkdown Blog</h1>
