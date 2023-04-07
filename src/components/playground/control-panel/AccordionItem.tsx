@@ -26,7 +26,7 @@ export const AccordionItem: FC<AccordionItemProps> = ({
         <Accordion.Trigger
           className={clsx(
             styles["accordion-trigger"],
-            "group flex items-center gap-2 px-4 py-2"
+            "group flex w-full items-center gap-2 px-4 py-2"
           )}
         >
           <span className="material-symbols-outlined group-data-[state=open]:rotate-180">

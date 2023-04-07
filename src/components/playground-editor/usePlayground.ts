@@ -261,6 +261,10 @@ export const usePlayground = (
         }
 
         await editor.create();
+
+        setInspector(() => {
+          return editor.collectInspection();
+        });
       };
 
       effect().catch((e) => {
@@ -304,15 +308,15 @@ export const usePlayground = (
     });
   }, [get, router, setShare, toast]);
 
-  useEffect(() => {
-    if (loading) return;
-    setInspector(() => {
-      const editor = get();
-      if (!editor) return [];
-
-      return editor.collectInspection();
-    });
-  }, [get, setInspector, loading]);
+  // useEffect(() => {
+  //   if (loading) return;
+  //   setInspector(() => {
+  //     const editor = get();
+  //     if (!editor) return [];
+  //
+  //     return editor.collectInspection();
+  //   });
+  // }, [get, setInspector, loading]);
 
   return editorInfo;
 };

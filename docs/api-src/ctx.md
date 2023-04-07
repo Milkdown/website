@@ -27,3 +27,10 @@
 ## Plugin Types
 
 @MilkdownPlugin
+
+## Inspector
+
+@Inspector
+@Inspection
+@Meta
+@TimerStatus
