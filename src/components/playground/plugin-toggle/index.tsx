@@ -1,3 +1,4 @@
+import EditorInspector from "@/components/editor-inspector";
 import * as Switch from "@radix-ui/react-switch";
 import clsx from "clsx";
 import type { FC } from "react";
@@ -42,34 +43,41 @@ export const PluginToggle: FC = () => {
   } = useFeatureToggle();
   const setFeatureToggle = useSetFeatureToggle();
   return (
-    <div className="mb-1 flex h-full flex-col gap-4 py-4">
-      <ToggleItem
-        label={"Enable GFM"}
-        checked={enableGFM}
-        onCheckedChange={(value) => setFeatureToggle({ enableGFM: value })}
-      />
-      <ToggleItem
-        label={"Enable Math"}
-        checked={enableMath}
-        onCheckedChange={(value) => setFeatureToggle({ enableMath: value })}
-      />
-      <ToggleItem
-        label={"Enable Diagram"}
-        checked={enableDiagram}
-        onCheckedChange={(value) => setFeatureToggle({ enableDiagram: value })}
-      />
-      <ToggleItem
-        label={"Enable Twemoji"}
-        checked={enableTwemoji}
-        onCheckedChange={(value) => setFeatureToggle({ enableTwemoji: value })}
-      />
-      <ToggleItem
-        label={"Enable Block Handle"}
-        checked={enableBlockHandle}
-        onCheckedChange={(value) =>
-          setFeatureToggle({ enableBlockHandle: value })
-        }
-      />
+    <div className="mb-1 flex h-full flex-col gap-8 py-4">
+      <div className="flex flex-col gap-4">
+        <ToggleItem
+          label={"Enable GFM"}
+          checked={enableGFM}
+          onCheckedChange={(value) => setFeatureToggle({ enableGFM: value })}
+        />
+        <ToggleItem
+          label={"Enable Math"}
+          checked={enableMath}
+          onCheckedChange={(value) => setFeatureToggle({ enableMath: value })}
+        />
+        <ToggleItem
+          label={"Enable Diagram"}
+          checked={enableDiagram}
+          onCheckedChange={(value) =>
+            setFeatureToggle({ enableDiagram: value })
+          }
+        />
+        <ToggleItem
+          label={"Enable Twemoji"}
+          checked={enableTwemoji}
+          onCheckedChange={(value) =>
+            setFeatureToggle({ enableTwemoji: value })
+          }
+        />
+        <ToggleItem
+          label={"Enable Block Handle"}
+          checked={enableBlockHandle}
+          onCheckedChange={(value) =>
+            setFeatureToggle({ enableBlockHandle: value })
+          }
+        />
+      </div>
+      <EditorInspector />
     </div>
   );
 };

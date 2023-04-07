@@ -1,3 +1,4 @@
+import EditorInspector from "@/components/editor-inspector";
 import { useLinkClass } from "@/hooks";
 import { useDarkMode } from "@/providers";
 
