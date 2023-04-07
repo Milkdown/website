@@ -1,5 +1,5 @@
 import { useInspector } from "@/components/playground-editor/InspectorProvider";
-import { renderTimeline } from "@/components/playground/control-panel/timeline";
+import { renderTimeline } from "./timeline";
 import { useDarkMode } from "@/providers";
 import { useCallback } from "react";
 
