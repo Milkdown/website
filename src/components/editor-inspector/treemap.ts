@@ -1,4 +1,4 @@
-import { Inspection } from "@milkdown/ctx";
+import { Telemetry } from "@milkdown/ctx";
 import * as d3 from "d3";
 import { uid } from "./uid";
 
@@ -22,7 +22,7 @@ const transformScope = (scope: string) =>
     ? scope.slice(10).replace(/plugin-/, "@")
     : scope;
 
-const getTreemapData = (inspector: Inspection[]) => {
+const getTreemapData = (inspector: Telemetry[]) => {
   const map: Record<string, any> = {};
   inspector.forEach((inspection) => {
     const scope = transformScope(inspection.metadata.package);
@@ -73,7 +73,7 @@ const color = d3.scaleSequential([8, 0], d3.interpolateMagma);
 
 export function renderTreemap(
   container: HTMLDivElement,
-  inspector: Inspection[]
+  inspector: Telemetry[]
 ) {
   const treemapData = getTreemapData(inspector);
   container.style.marginLeft = "30px";

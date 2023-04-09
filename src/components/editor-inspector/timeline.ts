@@ -1,5 +1,5 @@
 import * as d3 from "d3";
-import { Inspection, TimerStatus } from "@milkdown/ctx";
+import { Telemetry, TimerStatus } from "@milkdown/ctx";
 
 type TimeLine = {
   name: string;
@@ -9,7 +9,7 @@ type TimeLine = {
   status: TimerStatus;
 };
 
-const getTimelineData = (inspector: Inspection[]): TimeLine[] => {
+const getTimelineData = (inspector: Telemetry[]): TimeLine[] => {
   const points = inspector
     .filter((inspection) => inspection.recordedTimers.length > 0)
     .flatMap(({ recordedTimers, waitTimers }) =>
@@ -93,7 +93,7 @@ function createTooltip(
 
 export const renderTimeline = (
   container: HTMLDivElement,
-  inspector: Inspection[],
+  inspector: Telemetry[],
   darkMode: boolean
 ) => {
   const data = getTimelineData(inspector);

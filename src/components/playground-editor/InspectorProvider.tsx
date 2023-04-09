@@ -1,4 +1,4 @@
-import { Inspection } from "@milkdown/ctx";
+import { Telemetry } from "@milkdown/ctx";
 import {
   createContext,
   Dispatch,
@@ -9,9 +9,9 @@ import {
   useState,
 } from "react";
 
-export const inspectorCtx = createContext<Inspection[]>([]);
+export const inspectorCtx = createContext<Telemetry[]>([]);
 export const setInspectorCtx = createContext<
-  Dispatch<SetStateAction<Inspection[]>>
+  Dispatch<SetStateAction<Telemetry[]>>
 >(() => {});
 
 export const useInspector = () => useContext(inspectorCtx);
@@ -20,7 +20,7 @@ export const useSetInspector = () => useContext(setInspectorCtx);
 export const InspectorProvider: FC<{ children: ReactNode }> = ({
   children,
 }) => {
-  const [inspector, setInspector] = useState<Inspection[]>([]);
+  const [inspector, setInspector] = useState<Telemetry[]>([]);
 
   return (
     <inspectorCtx.Provider value={inspector}>
