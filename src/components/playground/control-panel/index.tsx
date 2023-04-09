@@ -1,11 +1,10 @@
-import EditorInspector from "@/components/editor-inspector";
 import { useLinkClass } from "@/hooks";
 import { useDarkMode } from "@/providers";
 
 import * as Accordion from "@radix-ui/react-accordion";
 import clsx from "clsx";
-import dynamic from "next/dynamic";
 import type { FC, RefObject } from "react";
+import { JSONTree } from "react-json-tree";
 import pkgJson from "../../../../package.json";
 import type { CodemirrorProps, CodemirrorRef } from "../../codemirror";
 import { Codemirror } from "../../codemirror";
@@ -18,9 +17,25 @@ interface ControlPanelProps extends CodemirrorProps {
   codemirrorRef: RefObject<CodemirrorRef>;
 }
 
-const JsonViewer = dynamic(() => import("react-json-view"), {
-  ssr: false,
-});
+const twilight = {
+  scheme: "twilight",
+  base00: "#2E3440",
+  base01: "#323537",
+  base02: "#464b50",
+  base03: "#5f5a60",
+  base04: "#838184",
+  base05: "#a7a7a7",
+  base06: "#c3c3c3",
+  base07: "#ffffff",
+  base08: "#cf6a4c",
+  base09: "#cda869",
+  base0A: "#f9ee98",
+  base0B: "#8f9d6a",
+  base0C: "#afc4db",
+  base0D: "#7587a6",
+  base0E: "#9b859d",
+  base0F: "#9b703f",
+};
 
 export const ControlPanel: FC<ControlPanelProps> = ({
   content,
@@ -71,12 +86,13 @@ export const ControlPanel: FC<ControlPanelProps> = ({
           />
         </AccordionItem>
         <AccordionItem value="state" name="State">
-          <JsonViewer
-            src={JSON.parse(JSON.stringify(proseState, null, 2))}
-            collapsed
-            indentWidth={3}
-            theme={darkMode ? "ocean" : "rjv-default"}
-          />
+          <div className="flex min-h-full px-2 [&>*]:!m-0 [&>*]:flex-1 [&>*]:!bg-transparent">
+            <JSONTree
+              data={proseState}
+              theme={twilight}
+              invertTheme={!darkMode}
+            />
+          </div>
         </AccordionItem>
       </Accordion.Root>
     </div>

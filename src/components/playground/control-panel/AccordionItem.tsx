@@ -39,7 +39,7 @@ export const AccordionItem: FC<AccordionItemProps> = ({
         forceMount
         className={clsx(
           styles["accordion-content"],
-          "h-[calc(100% - 10rem)] overflow-hidden"
+          "h-[calc(100% - 10rem)] overflow-hidden border-nord-4 dark:border-gray-600 [&[data-state='open']]:border-b"
         )}
       >
         {children}
