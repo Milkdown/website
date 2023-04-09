@@ -17,6 +17,12 @@ const getDate = (year: number, month: number, day: number) => {
 /// Put the latest blogs on the top please.
 export const blogConfig: BlogConfigItem[] = [
   {
+    id: "announcing-telemetry-inspector",
+    author: ["Mirone"],
+    desc: "Get editor inner information and status during runtime.",
+    date: getDate(2023, 4, 9),
+  },
+  {
     id: "build-your-own-milkdown-copilot",
     author: ["Mirone"],
     desc: "Use AI to power your writing experience. What if you can build your own copilot?",

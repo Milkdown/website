@@ -31,6 +31,6 @@
 ## Inspector
 
 @Inspector
-@Inspection
+@Telemetry
 @Meta
 @TimerStatus

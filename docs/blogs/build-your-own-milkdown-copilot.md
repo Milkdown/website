@@ -8,7 +8,7 @@ Since OpenAI also released the [API](https://openai.com/blog/openai-api) of it. 
 I think it's possible to build a Milkdown Copilot Plugin that can help you write documents. So I did it.
 Let's see the result.
 
-![Milkdown Copilot](/blogs/milkdown-copilot.gif)
+![Milkdown Copilot](/blogs/build-your-own-milkdown-copilot/milkdown-copilot.gif)
 
 Looks cool, right? But how does it work? I'll explain it in the following sections.
 

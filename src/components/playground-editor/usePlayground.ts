@@ -263,7 +263,7 @@ export const usePlayground = (
         await editor.create();
 
         setInspector(() => {
-          return editor.collectInspection();
+          return editor.inspect();
         });
       };
 
@@ -307,16 +307,6 @@ export const usePlayground = (
       router.replace(url.toString());
     });
   }, [get, router, setShare, toast]);
-
-  // useEffect(() => {
-  //   if (loading) return;
-  //   setInspector(() => {
-  //     const editor = get();
-  //     if (!editor) return [];
-  //
-  //     return editor.collectInspection();
-  //   });
-  // }, [get, setInspector, loading]);
 
   return editorInfo;
 };
