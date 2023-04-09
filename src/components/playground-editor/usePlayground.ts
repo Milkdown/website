@@ -262,9 +262,7 @@ export const usePlayground = (
 
         await editor.create();
 
-        setInspector(() => {
-          return editor.inspect();
-        });
+        setInspector(() => editor.inspect());
       };
 
       effect().catch((e) => {
