@@ -20,4 +20,4 @@ editor.config((ctx) => {
 });
 ```
 
-We have provided some built-in macros for you to use out of the box. You can check them out in the [API Reference](/utils#macros).
+We have provided some built-in macros for you to use out of the box. You can check them out in the [API Reference](/docs/api/utils#macros).
