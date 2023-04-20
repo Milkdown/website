@@ -10,9 +10,9 @@ npm install @milkdown/core @milkdown/prose @milkdown/ctx @milkdown/transformer
 npm install @milkdown/preset-commonmark @milkdown/theme-nord
 ```
 
-## Create a Component
+## Creating a Component
 
-Create a component is pretty easy.
+Creating a component is pretty easy.
 
 ```html
 <script>
@@ -21,7 +21,8 @@ import { commonmark } from '@milkdown/preset-commonmark';
 import { nord } from '@milkdown/theme-nord';
 
 function editor(dom) {
-  Editor.make()
+  // to obtain the editor instance we need to store a reference of the editor.
+  const MakeEditor = Editor.make()
     .config((ctx) => {
       ctx.set(rootCtx, dom);
     })
@@ -29,6 +30,12 @@ function editor(dom) {
     .use(commonmark)
     .create();
 }
+MakeEditor.then((editor) => {
+  // here you have access to the editor instance.
+  
+  // const exampleContent = "# Hello World!";
+  // editor.action(replaceAll(exampleContent));
+})
 </script>
 
 <div use:editor />
