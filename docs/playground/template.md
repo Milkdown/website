@@ -39,7 +39,7 @@ function main() {
 
 ---
 
-You can type \`||\` and a \`space\` to create a table:
+You can type `|3x2|<space>` to create a table:
 
 | First Header   |   Second Header    |
 | -------------- | :----------------: |
@@ -63,7 +63,7 @@ T( v \otimes (\alpha w) ) &= T( \alpha ( v \otimes w) ) \\
 \end{aligned}
 $$
 
-You can type \`$$\` and a \`space\` to create a math block.
+You can type `$$<space>` to create a math block.
 
 ---
 
@@ -94,6 +94,5 @@ Have fun!
 [yjs]: https://docs.yjs.dev/
 [remark]: https://github.com/remarkjs/remark
 [mirone]: https://github.com/Milkdown
-[meo]: https://www.meo.cool/
 
 [^1]: We use [tweet emoji](https://twemoji.twitter.com) to make emoji can be viewed cross platforms.
