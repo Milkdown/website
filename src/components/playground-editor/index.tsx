@@ -33,8 +33,8 @@ const Button: FC<{ icon: string; onClick?: () => void }> = ({
         linkClass(false)
       )}
       onMouseDown={(e) => {
-        onClick?.()
-        e.preventDefault()
+        onClick?.();
+        e.preventDefault();
       }}
     >
       <span className="material-symbols-outlined !text-base">{icon}</span>
