@@ -32,7 +32,10 @@ const Button: FC<{ icon: string; onClick?: () => void }> = ({
         "flex h-10 w-10 cursor-pointer items-center justify-center",
         linkClass(false)
       )}
-      onClick={onClick}
+      onMouseDown={(e) => {
+        onClick?.()
+        e.preventDefault()
+      }}
     >
       <span className="material-symbols-outlined !text-base">{icon}</span>
     </div>

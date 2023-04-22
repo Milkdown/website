@@ -35,7 +35,7 @@ function main() {
 }
 ````
 
-> Tips: use \`Mod-Enter\` to exit blocks such as code block.
+> Tips: use `<mod>+<enter>` to exit blocks such as code block.
 
 ---
 
