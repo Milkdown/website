@@ -31,6 +31,6 @@ ul, ol {
   @apply !p-0 ml-4;
 }
 
-.ProseMirror p > img {
+.ProseMirror p > img:not(.ProseMirror-separator) {
   @apply w-full;
 }

@@ -150,9 +150,9 @@ export const usePlayground = (
       emoji,
       (ctx: Ctx) => () => {
         ctx.set(emojiAttr.key, () => ({
-          span: {},
+          container: {},
           img: {
-            class: "w-[1em] h-[1em] !m-0 inline-block mr-px align-text-top",
+            class: "w-[1em] h-[1em] inline align-text-top",
           },
         }));
       },
