@@ -28,7 +28,6 @@ export const Codemirror = forwardRef<CodemirrorRef, CodemirrorProps>(
         dark,
       });
       editorRef.current = editor;
-      console.log(editor.viewport);
 
       return () => {
         editor.destroy();

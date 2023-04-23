@@ -49,7 +49,7 @@ const TooltipButton: FC<{ onClick: () => void; icon: string }> = ({
       )}
       onClick={onClick}
     >
-      <span className="material-symbols-outlined text-base">{icon}</span>
+      <span className="material-symbols-outlined !text-base">{icon}</span>
     </button>
   );
 };
@@ -127,10 +127,10 @@ export const TableTooltip: FC = () => {
             icon="arrow_back"
             onClick={() => {
               if (loading) return;
+
               getEditor().action((ctx) => {
                 ctx.get(commandsCtx).call(addColBeforeCommand.key);
               });
-
               tooltipProvider.current?.hide();
             }}
           />
