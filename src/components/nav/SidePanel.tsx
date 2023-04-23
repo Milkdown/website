@@ -32,7 +32,6 @@ type SidePanelGroupProps = {
 const SidePanelGroup: FC<SidePanelGroupProps> = ({ title, items }) => {
   const router = useRouter();
   const pageId = router.query.id;
-  const isActive = items.some((item) => item.id === pageId);
   const linkClass = useLinkClass();
 
   const getItemClassName = useCallback(

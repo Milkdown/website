@@ -16,7 +16,6 @@ import { indent } from "@milkdown/plugin-indent";
 import { listener, listenerCtx } from "@milkdown/plugin-listener";
 import { math, mathBlockSchema } from "@milkdown/plugin-math";
 import { prism, prismConfig } from "@milkdown/plugin-prism";
-import { slashFactory } from "@milkdown/plugin-slash";
 import { trailing } from "@milkdown/plugin-trailing";
 import { upload } from "@milkdown/plugin-upload";
 import {
@@ -41,34 +40,32 @@ import debounce from "lodash.debounce";
 import { useRouter } from "next/navigation";
 import { useEffect, useMemo } from "react";
 import { refractor } from "refractor/lib/common";
-import { Block } from "../playground/editor-component/Block";
-import { CodeBlock } from "../playground/editor-component/CodeBlock";
-import { Diagram } from "../playground/editor-component/Diagram";
+import { Block } from "@/components/playground-editor/editor-component/Block";
+import { CodeBlock } from "@/components/playground-editor/editor-component/CodeBlock";
+import { Diagram } from "@/components/playground-editor/editor-component/Diagram";
 import {
   FootnoteDef,
   FootnoteRef,
-} from "../playground/editor-component/Footnote";
+} from "@/components/playground-editor/editor-component/Footnote";
 import {
   ImageTooltip,
   imageTooltip,
-} from "../playground/editor-component/ImageTooltip";
-import { linkPlugin } from "../playground/editor-component/LinkWidget";
-import { ListItem } from "../playground/editor-component/ListItem";
-import { MathBlock } from "../playground/editor-component/MathBlock";
-import { Slash } from "../playground/editor-component/Slash";
+} from "@/components/playground-editor/editor-component/ImageTooltip";
+import { linkPlugin } from "@/components/playground-editor/editor-component/LinkWidget";
+import { ListItem } from "@/components/playground-editor/editor-component/ListItem";
+import { MathBlock } from "@/components/playground-editor/editor-component/MathBlock";
+import { useSlash } from "@/components/playground-editor/editor-component/Slash";
 import {
   tableSelectorPlugin,
   TableTooltip,
   tableTooltip,
   tableTooltipCtx,
-} from "../playground/editor-component/TableWidget";
+} from "@/components/playground-editor/editor-component/TableWidget";
 import { encode } from "@/utils/share";
 import { useSetShare } from "./ShareProvider";
 import { useToast } from "../toast";
 import { useFeatureToggle } from "./FeatureToggleProvider";
 import { useSetProseState } from "./ProseStateProvider";
-
-const slash = slashFactory("MILKDOWN");
 
 export const usePlayground = (
   defaultValue: string,
@@ -162,6 +159,8 @@ export const usePlayground = (
     ].flat();
   }, []);
 
+  const slash = useSlash();
+
   const editorInfo = useEditor(
     (root) => {
       return Editor.make()
@@ -193,11 +192,7 @@ export const usePlayground = (
               component: ImageTooltip,
             }),
           });
-          ctx.set(slash.key, {
-            view: pluginViewFactory({
-              component: Slash,
-            }),
-          });
+          slash.config(ctx);
         })
         .config(nord)
         .use(commonmark)
@@ -211,7 +206,7 @@ export const usePlayground = (
         .use(upload)
         .use(trailing)
         .use(imageTooltip)
-        .use(slash)
+        .use(slash.plugins)
         .use(
           $view(listItemSchema.node, () =>
             nodeViewFactory({ component: ListItem })
@@ -282,6 +277,7 @@ export const usePlayground = (
     enableDiagram,
     enableBlockHandle,
     enableTwemoji,
+    setInspector,
   ]);
 
   useEffect(() => {

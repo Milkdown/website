@@ -1,12 +1,6 @@
 import { useDarkMode } from "@/providers";
 import type { MutableRefObject } from "react";
-import {
-  forwardRef,
-  RefObject,
-  useEffect,
-  useImperativeHandle,
-  useRef,
-} from "react";
+import { forwardRef, useEffect, useImperativeHandle, useRef } from "react";
 import { createCodeMirrorState, createCodeMirrorView } from "./setup";
 
 export interface CodemirrorProps {

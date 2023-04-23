@@ -1,5 +1,5 @@
 import { commandsCtx } from "@milkdown/core";
-import { blockConfig, BlockProvider } from "@milkdown/plugin-block";
+import { BlockProvider } from "@milkdown/plugin-block";
 import {
   turnIntoTextCommand,
   wrapInHeadingCommand,
