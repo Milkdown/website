@@ -23,6 +23,7 @@ export const Block = () => {
         content: element,
         tippyOptions: {
           zIndex: 20,
+          appendTo: document.body,
           onBeforeUpdate: () => setShowMenu(false),
           onClickOutside: () => setShowMenu(false),
           onHide: () => setShowMenu(false),

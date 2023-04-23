@@ -71,12 +71,9 @@ export const ControlPanel: FC<ControlPanelProps> = ({
       </div>
       <Accordion.Root
         type="single"
-        defaultValue="inspector"
+        defaultValue="markdown"
         className="h-[calc(100%-2.5rem)]"
       >
-        <AccordionItem value="inspector" name="Inspector">
-          <PluginToggle />
-        </AccordionItem>
         <AccordionItem value="markdown" name="Markdown">
           <Codemirror
             ref={codemirrorRef}
@@ -84,6 +81,9 @@ export const ControlPanel: FC<ControlPanelProps> = ({
             onChange={onChange}
             lock={lock}
           />
+        </AccordionItem>
+        <AccordionItem value="inspector" name="Inspector">
+          <PluginToggle />
         </AccordionItem>
         <AccordionItem value="state" name="State">
           <div className="flex min-h-full px-2 [&>*]:!m-0 [&>*]:flex-1 [&>*]:!bg-transparent">

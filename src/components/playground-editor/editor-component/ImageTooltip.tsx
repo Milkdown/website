@@ -24,6 +24,7 @@ export const ImageTooltip: FC = () => {
         content: ref.current,
         tippyOptions: {
           zIndex: 30,
+          appendTo: document.body,
         },
         shouldShow: (view) => {
           const { selection } = view.state;

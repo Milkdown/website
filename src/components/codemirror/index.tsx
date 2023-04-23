@@ -28,6 +28,7 @@ export const Codemirror = forwardRef<CodemirrorRef, CodemirrorProps>(
         dark,
       });
       editorRef.current = editor;
+      console.log(editor.viewport);
 
       return () => {
         editor.destroy();
@@ -39,15 +40,12 @@ export const Codemirror = forwardRef<CodemirrorRef, CodemirrorProps>(
         const { current } = editorRef;
         if (!current) return;
 
-        current.setState(
-          createCodeMirrorState({ onChange, lock, dark, content })
-        );
+        const state = createCodeMirrorState({ onChange, lock, dark, content });
+        current.setState(state);
       },
     }));
 
-    return (
-      <div className="min-h-full bg-gray-50 dark:bg-gray-900" ref={divRef} />
-    );
+    return <div className="h-full bg-gray-50 dark:bg-gray-900" ref={divRef} />;
   }
 );
 Codemirror.displayName = "Codemirror";

@@ -11,6 +11,7 @@ declare global {
 export default function PwaUpdater() {
   const toast = useToast();
   useEffect(() => {
+    if (process.env.NODE_ENV === "development") return;
     const hasWorkbox =
       typeof window !== "undefined" &&
       "serviceWorker" in navigator &&
