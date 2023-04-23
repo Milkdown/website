@@ -29,7 +29,7 @@ const Button: FC<{ icon: string; onClick?: () => void }> = ({
   return (
     <div
       className={clsx(
-        "flex h-10 w-10 cursor-pointer items-center justify-center",
+        "flex h-10 w-10 cursor-pointer items-center justify-center rounded",
         linkClass(false)
       )}
       onMouseDown={(e) => {
@@ -85,35 +85,37 @@ export const PlaygroundMilkdown: FC<MilkdownProps> = ({
   }
 
   return (
-    <div className="relative h-full pt-16">
-      <div className="absolute inset-x-0 top-0 flex h-10 divide-x divide-nord4 border-b border-nord4 dark:divide-gray-600 dark:border-gray-600">
-        <Button icon="undo" onClick={() => call(undoCommand.key)} />
-        <Button icon="redo" onClick={() => call(redoCommand.key)} />
-        <Button
-          icon="format_bold"
-          onClick={() => call(toggleStrongCommand.key)}
-        />
-        <Button
-          icon="format_italic"
-          onClick={() => call(toggleEmphasisCommand.key)}
-        />
-        <Button
-          icon="format_strikethrough"
-          onClick={() => call(toggleStrikethroughCommand.key)}
-        />
-        <Button icon="table" onClick={() => call(insertTableCommand.key)} />
-        <Button
-          icon="format_list_bulleted"
-          onClick={() => call(wrapInBulletListCommand.key)}
-        />
-        <Button
-          icon="format_list_numbered"
-          onClick={() => call(wrapInOrderedListCommand.key)}
-        />
-        <Button
-          icon="format_quote"
-          onClick={() => call(wrapInBlockquoteCommand.key)}
-        />
+    <div className="relative h-full pt-10">
+      <div className="absolute top-0 h-10 w-full border-b border-nord4 dark:divide-gray-600 dark:border-gray-600">
+        <div className="prose mx-auto flex">
+          <Button icon="undo" onClick={() => call(undoCommand.key)} />
+          <Button icon="redo" onClick={() => call(redoCommand.key)} />
+          <Button
+            icon="format_bold"
+            onClick={() => call(toggleStrongCommand.key)}
+          />
+          <Button
+            icon="format_italic"
+            onClick={() => call(toggleEmphasisCommand.key)}
+          />
+          <Button
+            icon="format_strikethrough"
+            onClick={() => call(toggleStrikethroughCommand.key)}
+          />
+          <Button icon="table" onClick={() => call(insertTableCommand.key)} />
+          <Button
+            icon="format_list_bulleted"
+            onClick={() => call(wrapInBulletListCommand.key)}
+          />
+          <Button
+            icon="format_list_numbered"
+            onClick={() => call(wrapInOrderedListCommand.key)}
+          />
+          <Button
+            icon="format_quote"
+            onClick={() => call(wrapInBlockquoteCommand.key)}
+          />
+        </div>
 
         <div />
       </div>
