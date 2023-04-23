@@ -24,7 +24,7 @@ const removeSlash = (ctx: Ctx) => {
   );
 };
 
-export const slash = slashFactory("slashDropDown") satisfies MilkdownPlugin[];
+export const slash = slashFactory("slashMenu") satisfies MilkdownPlugin[];
 
 export const config: Array<ConfigItem> = [
   {

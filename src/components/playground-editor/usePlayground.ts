@@ -1,3 +1,4 @@
+import { useEmojiMenu } from "@/components/emoji-menu";
 import { useSetInspector } from "@/components/playground-editor/InspectorProvider";
 import { useSlash } from "@/components/slash-menu";
 import {
@@ -160,6 +161,7 @@ export const usePlayground = (
   }, []);
 
   const slash = useSlash();
+  const emojiMenu = useEmojiMenu();
 
   const editorInfo = useEditor(
     (root) => {
@@ -193,6 +195,7 @@ export const usePlayground = (
             }),
           });
           slash.config(ctx);
+          emojiMenu.config(ctx);
         })
         .config(nord)
         .use(commonmark)
@@ -207,6 +210,7 @@ export const usePlayground = (
         .use(trailing)
         .use(imageTooltip)
         .use(slash.plugins)
+        .use(emojiMenu.plugins)
         .use(
           $view(listItemSchema.node, () =>
             nodeViewFactory({ component: ListItem })

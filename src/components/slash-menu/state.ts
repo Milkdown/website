@@ -44,7 +44,10 @@ export const useSlashState = (instance: Instance) => {
         setSelected((s) => (s - 1 + config.length) % config.length);
         return;
       }
-      getEditor()?.action(config[selectedRef.current].onSelect);
+      if (key === "Enter") {
+        getEditor()?.action(config[selectedRef.current].onSelect);
+        return;
+      }
     },
     [getEditor]
   );
