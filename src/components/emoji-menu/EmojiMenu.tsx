@@ -86,7 +86,7 @@ export const EmojiMenu = () => {
                 selected={i === selected}
                 setSelected={setSelected}
               >
-                {item.emoji} [{item.names[0]}]
+                {item.emoji} :{item.names[0]}:
               </EmojiMenuItem>
             ))}
           </ul>
