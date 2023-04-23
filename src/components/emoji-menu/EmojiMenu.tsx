@@ -72,33 +72,25 @@ export const EmojiMenu = () => {
     slashProvider.current?.update(view, prevState);
   });
 
-  useEffect(() => {
-    if (emojis.length === 0) {
-      slashProvider.current?.hide();
-    }
-  }, [emojis]);
-
   return (
     <div className="hidden">
-      <div
-        role="tooltip"
-        className="w-72 rounded bg-gray-50 shadow-lg ring-2 dark:bg-gray-900"
-        ref={ref}
-      >
-        <ul className="m-0 list-none">
-          {emojis.map((item, i) => (
-            <EmojiMenuItem
-              key={i.toString()}
-              index={i}
-              instance={instance}
-              onSelect={onPick}
-              selected={i === selected}
-              setSelected={setSelected}
-            >
-              {item.emoji} [{item.names[0]}]
-            </EmojiMenuItem>
-          ))}
-        </ul>
+      <div role="tooltip" ref={ref}>
+        {emojis.length > 0 && (
+          <ul className="m-0 w-72 list-none rounded bg-gray-50 shadow-lg ring-2 dark:bg-gray-900">
+            {emojis.map((item, i) => (
+              <EmojiMenuItem
+                key={i.toString()}
+                index={i}
+                instance={instance}
+                onSelect={onPick}
+                selected={i === selected}
+                setSelected={setSelected}
+              >
+                {item.emoji} [{item.names[0]}]
+              </EmojiMenuItem>
+            ))}
+          </ul>
+        )}
       </div>
     </div>
   );

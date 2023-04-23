@@ -23,7 +23,6 @@ export const useSlashState = (instance: Instance) => {
   const onPick = useCallback(
     (ctx: Ctx) => {
       const target = emojis[selected];
-      console.log(emojis, selected);
       if (!target) return;
       const view = ctx.get(editorViewCtx);
       const { state } = view;

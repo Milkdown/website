@@ -46,12 +46,8 @@ export const Slash = () => {
 
   return (
     <div className="hidden">
-      <div
-        role="tooltip"
-        className="w-96 rounded bg-gray-50 shadow-lg ring-2 dark:bg-gray-900"
-        ref={ref}
-      >
-        <ul className="m-0 list-none">
+      <div role="tooltip" ref={ref}>
+        <ul className="m-0 w-96 list-none rounded bg-gray-50 shadow-lg ring-2 dark:bg-gray-900">
           {config.map((item, i) => (
             <SlashItem
               key={i.toString()}
