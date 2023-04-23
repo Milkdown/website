@@ -1,4 +1,5 @@
 import { useSetInspector } from "@/components/playground-editor/InspectorProvider";
+import { useSlash } from "@/components/slash-menu";
 import {
   defaultValueCtx,
   Editor,
@@ -54,7 +55,6 @@ import {
 import { linkPlugin } from "@/components/playground-editor/editor-component/LinkWidget";
 import { ListItem } from "@/components/playground-editor/editor-component/ListItem";
 import { MathBlock } from "@/components/playground-editor/editor-component/MathBlock";
-import { useSlash } from "@/components/playground-editor/editor-component/Slash";
 import {
   tableSelectorPlugin,
   TableTooltip,
