@@ -17,6 +17,12 @@ const getDate = (year: number, month: number, day: number) => {
 /// Put the latest blogs on the top please.
 export const blogConfig: BlogConfigItem[] = [
   {
+    id: "understanding-headless-slash-plugin",
+    author: ["Mirone"],
+    desc: "Why we built slash plugin as a headless plugin?",
+    date: getDate(2023, 4, 25),
+  },
+  {
     id: "announcing-telemetry-inspector",
     author: ["Mirone"],
     desc: "Get editor inner information and status during runtime.",
