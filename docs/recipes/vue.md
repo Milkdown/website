@@ -21,7 +21,7 @@ npm install @milkdown/preset-commonmark @milkdown/theme-nord
 
 Create a component is pretty easy.
 
-First, we need to create a `MilkdownProvider` component.
+First, we need to create a `MilkdownEditor` component.
 
 ```html
 <!-- MilkdownEditor.vue -->
