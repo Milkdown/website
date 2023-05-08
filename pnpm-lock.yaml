@@ -116,8 +116,8 @@ dependencies:
     specifier: 7.2.1
     version: 7.2.1(@milkdown/core@7.2.1)(@milkdown/ctx@7.2.1)(@milkdown/prose@7.2.1)(@milkdown/transformer@7.2.1)
   '@prosemirror-adapter/react':
-    specifier: ^0.2.2
-    version: 0.2.2(react-dom@18.2.0)(react@18.2.0)
+    specifier: ^0.2.5
+    version: 0.2.5(react-dom@18.2.0)(react@18.2.0)
   '@radix-ui/react-accordion':
     specifier: ^1.1.1
     version: 1.1.1(react-dom@18.2.0)(react@18.2.0)
@@ -2639,20 +2639,20 @@ packages:
     resolution: {integrity: sha512-50/17A98tWUfQ176raKiOGXuYpLyyVMkxxG6oylzL3BPOlA6ADGdK7EYunSa4I064xerltq9TGXs8HmOk5E+vw==}
     dev: false
 
-  /@prosemirror-adapter/core@0.2.2:
-    resolution: {integrity: sha512-rnkh1StLZO5YcA8ELVmUNd+OkqeuneyhoDoXrSDsMuG1HeQLy6WithRurJQcqkJQD5Ak/ebWDykKEFPGKS4a+A==}
+  /@prosemirror-adapter/core@0.2.5:
+    resolution: {integrity: sha512-oeSamDlVr4WMhRlWW6BQp6sekcYa5yvndzwGXTg6Me1e0KMPMAdwOIoTyChqhj4HCTy3SZKu1cSSaYAY9eptKQ==}
     dependencies:
       tslib: 2.5.0
     dev: false
 
-  /@prosemirror-adapter/react@0.2.2(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-iNbCFDlaE67SaY+3V4Chb4LHj7h8YvTPddWWfnMFIjXfO8k6+vOm3haxDrRiyzb61/7cXXmfs077OaGVuikxtw==}
+  /@prosemirror-adapter/react@0.2.5(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-AMUoNV9vjkSb2doD+SthOsFDunAo+YIgL1XVFv+EFkKXEarvaJyqE8Y0G0zY4MQvfvFC+n9xG9WSCFc6g36ieQ==}
     peerDependencies:
       react: '*'
       react-dom: '*'
     dependencies:
-      '@prosemirror-adapter/core': 0.2.2
-      nanoid: 4.0.1
+      '@prosemirror-adapter/core': 0.2.5
+      nanoid: 4.0.2
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
       tslib: 2.5.0
@@ -6943,6 +6943,12 @@ packages:
 
   /nanoid@4.0.1:
     resolution: {integrity: sha512-udKGtCCUafD3nQtJg9wBhRP3KMbPglUsgV5JVsXhvyBs/oefqb4sqMEhKBBgqZncYowu58p1prsZQBYvAj/Gww==}
+    engines: {node: ^14 || ^16 || >=18}
+    hasBin: true
+    dev: false
+
+  /nanoid@4.0.2:
+    resolution: {integrity: sha512-7ZtY5KTCNheRGfEFxnedV5zFiORN1+Y1N6zvPTnHQd8ENUvfaDBeuJDZb2bN/oXwXxu3qkTXDzy57W5vAmDTBw==}
     engines: {node: ^14 || ^16 || >=18}
     hasBin: true
     dev: false

@@ -50,7 +50,7 @@
     "@milkdown/theme-nord": "7.2.1",
     "@milkdown/transformer": "7.2.1",
     "@milkdown/utils": "7.2.1",
-    "@prosemirror-adapter/react": "^0.2.2",
+    "@prosemirror-adapter/react": "^0.2.5",
     "@radix-ui/react-accordion": "^1.1.1",
     "@radix-ui/react-popover": "^1.0.5",
     "@radix-ui/react-switch": "^1.0.2",

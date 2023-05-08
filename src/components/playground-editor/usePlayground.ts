@@ -198,6 +198,7 @@ export const usePlayground = (
           emojiMenu.config(ctx);
         })
         .config(nord)
+        .use(emojiMenu.plugins)
         .use(commonmark)
         .use(linkPlugin(widgetViewFactory))
         .use(listener)
@@ -210,7 +211,6 @@ export const usePlayground = (
         .use(trailing)
         .use(imageTooltip)
         .use(slash.plugins)
-        .use(emojiMenu.plugins)
         .use(
           $view(listItemSchema.node, () =>
             nodeViewFactory({ component: ListItem })
