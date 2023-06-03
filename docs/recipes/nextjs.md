@@ -1,6 +1,6 @@
 # Next.js
 
-Since we provide [react](/react) support out of box, we can use it directly in [Next.js](https://nextjs.org/).
+Since we provide [react](/docs/recipes/react) support out of box, we can use it directly in [Next.js](https://nextjs.org/).
 
 ## Install the Dependencies
 

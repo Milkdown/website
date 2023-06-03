@@ -2,7 +2,7 @@
 
 This plugin used to support collaborative editing for milkdown.
 
-Please check the [collaborative editing guide](/collaborative-editing) to learn more.
+Please check the [collaborative editing guide](/docs/guide/collaborative-editing) to learn more.
 
 ```typescript
 import { collab, collabServiceCtx } from '@milkdown/plugin-collab';

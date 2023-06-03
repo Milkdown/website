@@ -1,6 +1,6 @@
 # NuxtJS
 
-Since we provide [vue](/vue) support out of box, we can use it directly in [NuxtJS](https://v3.nuxtjs.org/).
+Since we provide [vue](/docs/recipes/vue) support out of box, we can use it directly in [NuxtJS](https://v3.nuxtjs.org/).
 
 > NuxtJS version should be 3.x.
 
