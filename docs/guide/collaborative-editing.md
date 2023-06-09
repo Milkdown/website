@@ -1,7 +1,7 @@
 # Collaborative Editing
 
 Milkdown supports collaborative editing powered by [Y.js](https://docs.yjs.dev/).
-We provide the [@milkdown/plugin-collab](/plugin-collab) plugin to help you use milkdown with yjs easily.
+We provide the [@milkdown/plugin-collab](/docs/api/plugin-collab) plugin to help you use milkdown with yjs easily.
 This plugin includes basic collaborative editing features like:
 
 -   Sync between clients.

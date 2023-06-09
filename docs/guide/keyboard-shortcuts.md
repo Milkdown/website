@@ -20,4 +20,4 @@ Editor
 ```
 
 If there is no supported commands for the behavior you expect, you can write a [prosemirror keymap plugin](https://github.com/ProseMirror/prosemirror-keymap) to do this.
-You may need to read the [composable plugins](/composable-plugins) section to learn how to convert a prosemirror plugin into milkdown plugin.
+You may need to read the [composable plugins](/docs/plugin/composable-plugins) section to learn how to convert a prosemirror plugin into milkdown plugin.

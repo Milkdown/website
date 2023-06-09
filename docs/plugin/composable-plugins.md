@@ -1,8 +1,8 @@
 # Composable Plugins
 
-In the previous section, we showed you how to create a plugin from scratch. Luckily, you don't need to do that in most cases. Milkdown provides a lot of helpers in [@milkdown/utils](/utils) to make it easier to create plugins. The **composable** here means that you can use the plugin in other plugins. For example, you can use a command plugin in a keymap plugin. This is a very common pattern in Milkdown.
+In the previous section, we showed you how to create a plugin from scratch. Luckily, you don't need to do that in most cases. Milkdown provides a lot of helpers in [@milkdown/utils](/docs/api/utils) to make it easier to create plugins. The **composable** here means that you can use the plugin in other plugins. For example, you can use a command plugin in a keymap plugin. This is a very common pattern in Milkdown.
 
-I'll show you some examples of how to use composable plugins. But I won't go into detail about the options and the usage of each plugin. You can find the details in the [API reference](/utils#composable).
+I'll show you some examples of how to use composable plugins. But I won't go into detail about the options and the usage of each plugin. You can find the details in the [API reference](/docs/api/utils#composable).
 
 ## Schema
 

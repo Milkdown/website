@@ -191,7 +191,7 @@ Editor.make()
     .use(listener);
 ```
 
-For more details about listener, please check [Using Listeners](/plugin-listener).
+For more details about listener, please check [Using Listeners](/docs/api/plugin-listener).
 
 ---
 
