@@ -105,6 +105,7 @@ Editor
 @sinkListItemCommand
 @liftListItemCommand
 @splitListItemCommand
+@liftFirstListItemCommand
 @listItemKeymap
 
 ## Code Block
@@ -192,3 +193,4 @@ Editor
 @remarkInlineLinkPlugin
 @remarkAddOrderInListPlugin
 @remarkLineBreak
+@remarkMarker
