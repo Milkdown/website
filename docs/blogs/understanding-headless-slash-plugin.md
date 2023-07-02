@@ -62,8 +62,8 @@ function yourSlashView(): PluginView {
     update: (view: EditorView, prevState: EditorState) => {
       slashProvider.update(view, prevState);
     },
-    destory: () => {
-      slashProvider.destory();
+    destroy: () => {
+      slashProvider.destroy();
     }
   }
 }
