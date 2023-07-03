@@ -30,7 +30,7 @@ export const headingAnchorPlugin = (
   });
 
   return $prose(
-    () =>
+    (ctx) =>
       new Plugin({
         state: {
           init() {
@@ -40,7 +40,7 @@ export const headingAnchorPlugin = (
             const widgets: Decoration[] = [];
 
             tr.doc.descendants((node, pos) => {
-              if (node.type === headingSchema.type()) {
+              if (node.type === headingSchema.type(ctx)) {
                 widgets.push(
                   widget(pos + 1, {
                     id: node.attrs.id,
