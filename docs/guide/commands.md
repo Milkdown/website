@@ -41,8 +41,12 @@ We create a command in the next example:
 import { blockquoteSchema } from '@milkdown/preset-commonmark';
 import { $command, callCommand } from '@milkdown/utils';
 import { wrapIn } from '@milkdown/prose/commands';
+import { Editor } from '@milkdown/core';
 
-const wrapInBlockquoteCommand = $command('WrapInBlockquote', (ctx) => () => wrapIn(blockquoteSchema.type()))
+const wrapInBlockquoteCommand = $command('WrapInBlockquote', (ctx) => () => wrapIn(blockquoteSchema.type(ctx)));
+
+// register the command when creating the editor
+const editor = Editor().make().use(wrapInBlockquoteCommand).create();
 
 // call command
 editor.action(callCommand(wrapInBlockquoteCommand.key));
@@ -59,7 +63,7 @@ import { setBlockType } from '@milkdown/prose/commands';
 
 // use number as the type of argument
 export const WrapInHeading = createCmdKey<number>();
-const wrapInHeadingCommand = $command('WrapInHeading', (ctx) => (level = 1) => setBlockType(headingSchema.type(), { level }));
+const wrapInHeadingCommand = $command('WrapInHeading', (ctx) => (level = 1) => setBlockType(headingSchema.type(ctx), { level }));
 
 // call command
 editor.action(callCommand(wrapInHeadingCommand.key)); // turn to h1 by default
