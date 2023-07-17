@@ -9,7 +9,7 @@ We can use **command key** to run commands with command manager.
 
 ```typescript
 import { Editor, commandsCtx } from '@milkdown/core';
-import { commonmark, ToggleItalic } from '@milkdown/preset-commonmark';
+import { commonmark, toggleEmphasisCommand } from '@milkdown/preset-commonmark';
 
 async function setup() {
   const editor = await Editor.make().use(commonmark).create();
@@ -20,7 +20,7 @@ async function setup() {
       const commandManager = ctx.get(commandsCtx);
 
       // call command
-      commandManager.call(ToggleItalic);
+      commandManager.call(toggleEmphasisCommand.key);
     });
 
   // get markdown string:
