@@ -1,8 +1,8 @@
 # Prosemirror API
 
-Milkdown is built on top of prosemirror. Which means you can use all the prosemirror API in Milkdown.
-To access the prosemirror API, you can use the `@milkdown/prose` package. It re-exports all the prosemirror API.
-Using this package can make sure that you are using the same version of prosemirror as Milkdown.
+Milkdown is built on top of prosemirror. Which means you can use the entire prosemirror API in Milkdown.
+To access the prosemirror API, you can use the `@milkdown/prose` package. It re-exports all of the prosemirror API.
+Using this package you can make sure that you are using the same version of prosemirror as Milkdown.
 
 ## Installation
 
@@ -10,7 +10,7 @@ Using this package can make sure that you are using the same version of prosemir
 npm install @milkdown/prose
 ```
 
-To access certain API in `prosemirror-x` package, you need to import them from `@milkdown/prose/x`.
+To access a certain API in the `prosemirror-x` package, you need to import them from `@milkdown/prose/x`.
 
 For example:
 

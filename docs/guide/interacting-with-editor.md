@@ -2,7 +2,9 @@
 
 ## Register to DOM
 
-By default, milkdown will create editor on `document.body`. You can also point out which dom you want it to load on:
+By default, milkdown will create editor on the `document.body`. Alternatively, you can also point out which dom node you want it to load into.
+
+```typescript:
 
 ```typescript
 import { rootCtx } from '@milkdown/core';
@@ -28,9 +30,9 @@ Editor.make().config((ctx) => {
 
 ## Setting Default Value
 
-We support three types of default value:
+We support three types of default values:
 
-* Markdown string.
+* Markdown strings.
 * HTML DOM.
 * Prosemirror documentation JSON.
 
@@ -53,7 +55,7 @@ And then the editor will be rendered with default value.
 
 You can also use HTML as default value.
 
-Let's assume that we have following html snippets:
+Let's assume that we have the following html snippets:
 
 ```html
 <div id="pre">
@@ -61,7 +63,7 @@ Let's assume that we have following html snippets:
 </div>
 ```
 
-Then we can use it as defaultValue with a `type` specification:
+Then we can use it as a defaultValue with a `type` specification:
 
 ```typescript
 import { defaultValueCtx } from '@milkdown/core';
@@ -77,9 +79,9 @@ Editor.make().config((ctx) => {
 
 ### JSON
 
-We can also use JSON object as default value.
+We can also use a JSON object as a default value.
 
-This JSON object can be get by listener through [listener-plugin](https://www.npmjs.com/package/@milkdown/plugin-listener), for example:
+This JSON object can be obtained by a listener through the [listener-plugin](https://www.npmjs.com/package/@milkdown/plugin-listener), for example:
 
 ```typescript
 import { listener, listenerCtx } from '@milkdown/plugin-listener';
@@ -149,15 +151,15 @@ editor.onStatusChange((status: EditorStatus) => {
 
 ---
 
-## Adding Listener
+## Adding Listeners
 
-As mentioned above, you can add listener to the editor, get values when needed.
+As mentioned above, you can add a listener to the editor, in order to get it's value when needed.
 
 ### Markdown Listener
 
-You can add markdown listener to get the markdown string output when needed.
+You can add markdown listener to get the editor's contents as a markdown string.
 
-You can add as many listeners as you want, all the listener will be triggered in one change.
+You can add as many listeners as you want, all the listeners will be triggered at once.
 
 ```typescript
 import { listener, listenerCtx } from '@milkdown/plugin-listener';
@@ -175,7 +177,7 @@ Editor.make()
 
 ### Doc Listener
 
-You can also listen to the [raw prosemirror document node](https://prosemirror.net/docs/ref/#model.Node), and do things you want.
+You can also listen to the [raw prosemirror document node](https://prosemirror.net/docs/ref/#model.Node), and do things you want from there.
 
 ```typescript
 import { listener, listenerCtx } from '@milkdown/plugin-listener';
@@ -191,13 +193,13 @@ Editor.make()
     .use(listener);
 ```
 
-For more details about listener, please check [Using Listeners](/docs/api/plugin-listener).
+For more details about listeners, please check [Using Listeners](/docs/api/plugin-listener).
 
 ---
 
 ## Readonly Mode
 
-You can set the editor to readonly mode by set the `editable` property.
+You can set the editor to readonly mode by setting the `editable` property.
 
 ```typescript
 import { editorViewOptionsCtx } from '@milkdown/core';
@@ -221,11 +223,11 @@ setTimeout(() => {
 
 ---
 
-## Using Action
+## Using Actions
 
-You can use action to get the context value in a running editor on demand.
+You can use an action to get the context value in a running editor on demand.
 
-For example, get the markdown string by action:
+For example, to get the markdown string by running an action:
 
 ```typescript
 import { Editor, editorViewCtx, serializerCtx } from '@milkdown/core';
@@ -259,7 +261,7 @@ For more details about macros, please check [macros](/macros).
 
 ## Destroying
 
-You can call `editor.destroy` to destroy an existing editor. You can create a new editor later with `editor.create`.
+You can call `editor.destroy` to destroy an existing editor. You can create a new editor again with `editor.create`.
 
 ```typescript
 await editor.destroy();

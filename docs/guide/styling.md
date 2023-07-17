@@ -1,6 +1,6 @@
 # Styling
 
-Milkdown is headless, there is no style provided by default. That means you can import themes or even create your own themes to control the style of your editor.
+Milkdown is headless, there are no styles provided by default. That means you can import themes or even create your own themes to control the style of your editor.
 
 ## Styling the plain HTML
 
@@ -22,7 +22,7 @@ For every node/mark, milkdown provides a default className, for example, `paragr
 
 ## Adding custom attributes
 
-You can also add attributes to node/mark. In this way, you can use css libraries such as [tailwind css](https://tailwindcss.com/).
+You can also add attributes to node/marks. In this way, you can use css libraries such as [tailwind css](https://tailwindcss.com/).
 
 ```typescript
 import { Editor, editorViewOptionsCtx } from '@milkdown/core';
@@ -52,7 +52,7 @@ Editor
 ## Writing you own theme
 
 It's possible to write your own theme. Generally speaking, themes are defined by the two ways above:
-Some configs to add attributes, and some css to style them.
+Some configs are needed to add attributes, and some css is used to style them.
 
 ```typescript
 import { Ctx } from '@milkdown/core';
@@ -63,10 +63,10 @@ import 'prosemirror-view/style/prosemirror.css'
 // If you need to style tables, you should import this css file.
 import 'prosemirror-tables/style/tables.css'
 
-// You css file.
+// Your css file.
 import './my-theme.css'
 
-// You config.
+// Your config.
 export const myThemeConfig = (ctx: Ctx) => {
   ctx.update(editorViewOptionsCtx, (prev) => ({
     ...prev,
@@ -77,4 +77,4 @@ export const myThemeConfig = (ctx: Ctx) => {
 }
 ```
 
-You can view the source code of [@milkdown/theme-nord](https://github.com/Milkdown/milkdown/tree/main/packages/theme-nord) to get some inspirations.
+You can view the source code of [@milkdown/theme-nord](https://github.com/Milkdown/milkdown/tree/main/packages/theme-nord) to get some inspiration.

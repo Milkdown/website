@@ -99,8 +99,8 @@ editor.action((ctx) => {
 });
 ```
 
-Keep in mind that apply template multiple times may cause some unexpected behavior, such as duplicate content.
-So you need to make sure **the template is applied only once**.
+Keep in mind that applying a template multiple times may cause some unexpected behavior, such as duplicate content.
+Because of this you need to make sure **the template is applied only once**.
 
 By default, the template will only be applied if _document get from remote server is empty_.
 You can control this behavior through passing second parameter to `applyTemplate`:
@@ -114,5 +114,5 @@ collabService
   .connect();
 ```
 
-Here the nodes we get are [prosemirror node](https://prosemirror.net/docs/ref/#model.Node).
+Here the nodes we get are [prosemirror nodes](https://prosemirror.net/docs/ref/#model.Node).
 You should return `true` if the template should be applied, and `false` if not.

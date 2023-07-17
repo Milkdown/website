@@ -1,7 +1,7 @@
 # Commands
 
-Sometimes we want to make some changes to editor content programmatically, such as click a button to toggle selection to italic style.
-We provide users a command manager with lots of commands defined in presets and plugins to use.
+Sometimes we want to make some changes to editor content programmatically, such as click a button to toggle our selection to italic style.
+We provide users with a command manager that has lots of commands defined for use in presets and plugins.
 
 ## Run a Command
 

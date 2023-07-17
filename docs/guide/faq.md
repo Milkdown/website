@@ -7,7 +7,7 @@ This page lists answers of FAQ.
 ### How can I change contents programmatically?
 
 You should use `editor.action` to change the contents.
-We provide two macros for change contents in milkdown, `insert` and `replaceAll`.
+We provide two macros for that allow you to change content in milkdown, `insert` and `replaceAll`.
 
 ```typescript
 import { insert, replaceAll } from '@milkdown/utils';
