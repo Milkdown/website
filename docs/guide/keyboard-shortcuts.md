@@ -2,7 +2,7 @@
 
 Keyboard shortcuts are provided by default from both presets and plugins.  Depending on your application, you might want to change them.
 
-You can configure shortcuts just like configure their styles:
+You can configure shortcuts just like this:
 
 ```typescript
 import { blockquoteKeymap, commonmark } from '@milkdown/preset-commonmark';

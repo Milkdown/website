@@ -2,8 +2,8 @@
 
 Macros are helpers that specify how to handle a certain input and apply it to the editor.
 
-Macros are always take payload (or nothing) as the parameters,
-and return a callback function that takes `ctx` of milkdown as parameter.
+Macros always take a payload (or nothing) as the parameters,
+and return a callback function that takes the `ctx` of milkdown as parameter.
 When you call this function with `ctx`, it will apply to the editor.
 
 ```typescript
