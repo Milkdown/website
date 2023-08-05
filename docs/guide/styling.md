@@ -38,13 +38,13 @@ Editor
     }))
 
     // Add attributes to nodes and marks
-    ctx.set(headingAttr, (node) => {
+    ctx.set(headingAttr.key, (node) => {
       const level = node.attrs.level;
       if (level === 1) return { class: 'text-4xl', data-el-type: 'h1' };
       if (level === 2) return { class: 'text-3xl', data-el-type: 'h2' };
       // ...
     })
-    ctx.set(paragraphAttr, () => ({ class: 'text-lg' }));
+    ctx.set(paragraphAttr.key, () => ({ class: 'text-lg' }));
   })
   .use(commonmark)
 ```
