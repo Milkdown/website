@@ -2,9 +2,7 @@
 
 ## Register to DOM
 
-By default, milkdown will create editor on the `document.body`. Alternatively, you can also point out which dom node you want it to load into.
-
-```typescript:
+By default, milkdown will create editor on the `document.body`. Alternatively, you can also point out which dom node you want it to load into:
 
 ```typescript
 import { rootCtx } from '@milkdown/core';
