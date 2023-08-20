@@ -29,13 +29,13 @@ function editor(dom) {
     .config(nord)
     .use(commonmark)
     .create();
+  MakeEditor.then((editor) => {
+    // here you have access to the editor instance.
+    
+    // const exampleContent = "# Hello World!";
+    // editor.action(replaceAll(exampleContent));
+  })
 }
-MakeEditor.then((editor) => {
-  // here you have access to the editor instance.
-  
-  // const exampleContent = "# Hello World!";
-  // editor.action(replaceAll(exampleContent));
-})
 </script>
 
 <div use:editor />
