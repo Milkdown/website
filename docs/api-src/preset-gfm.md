@@ -61,6 +61,11 @@ Editor
 @moveCol
 @moveRow
 
+## Prosemirror Plugins
+@autoInsertZeroSpaceInTablePlugin
+@columnResizingPlugin
+@tableEditingPlugin
+
 ---
 
 # Task List
@@ -83,3 +88,9 @@ Editor
 
 @footnoteDefinitionSchema
 @footnoteReferenceSchema
+
+---
+
+# Others
+
+@remarkGFMPlugin

@@ -20,7 +20,6 @@ Editor.make()
 
 ## Plugins
 
-@emojiConfig
 @emojiAttr
 @emojiSchema
 
