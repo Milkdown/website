@@ -3,7 +3,7 @@
 There are different kinds of markdown editors, such as [Typora](https://typora.io/), [tui](https://github.com/nhn/tui.editor) and [Bear](https://bear.app/).
 They work pretty well for writing notes in markdown on different platforms. So why bother making Milkdown?
 
-Milkdown aims to provide a **open source solution** for developers to make their editors more powerful, and attractive, it also makes sure it runs everywhere.
+Milkdown aims to provide an **open source solution** for developers to make their editors more powerful, and attractive, it also ensures it runs everywhere.
 
 ---
 
