@@ -59,8 +59,6 @@ Editor
 Now let's add **undo & redo** support to our editor using the `history` plugin:
 
 ```typescript
-
-```typescript
 import { Editor } from '@milkdown/core';
 import { commonmark } from '@milkdown/preset-commonmark';
 import { history } from '@milkdown/plugin-history';
