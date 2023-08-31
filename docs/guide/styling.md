@@ -49,7 +49,7 @@ Editor
   .use(commonmark)
 ```
 
-## Writing you own theme
+## Writing your own theme
 
 It's possible to write your own theme. Generally speaking, themes are defined by the two ways above:
 Some configs are needed to add attributes, and some css is used to style them.
