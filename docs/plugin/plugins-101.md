@@ -9,7 +9,7 @@ But it can help you understand the plugin system and what happens under the hood
 Generally speaking, a plugin will have following structure:
 
 ```typescript
-import { MilkdownPlugin } from '@milkdown/core';
+import { MilkdownPlugin } from '@milkdown/ctx';
 
 const myPlugin: MilkdownPlugin = (ctx) => {
   // #1 prepare plugin
