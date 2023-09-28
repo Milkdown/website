@@ -63,7 +63,8 @@ it requires to work;
 import { $remark } from '@milkdown/utils';
 import directive from 'remark-directive';
 
-const remarkDirective = $remark(() => directive)
+const remarkPluginId = "..."
+const remarkDirective = $remark(remarkPluginId, () => directive)
 ```
 
 ## Parser
