@@ -95,7 +95,7 @@ We have used `ctx` several times in the above example, now we can try to underst
 Ctx is a data container which is shared in the entire editor instance. It's composed by a lot of slices. Every `slice` has a unique key and a value. You can change the value of a slice by `ctx.set` and `ctx.update`. And you can get the value of a slice by `ctx.get` with the slice key or name. Last but not least, you can remove a slice by `post.remove`.
 
 ```typescript
-import { MilkdownPlugin, createSlice } from '@milkdown/core';
+import { MilkdownPlugin, createSlice } from '@milkdown/ctx';
 
 const counterCtx = createSlice(0, 'counter');
 
