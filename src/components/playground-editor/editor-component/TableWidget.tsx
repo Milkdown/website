@@ -68,6 +68,7 @@ export const TableTooltip: FC = () => {
     view.state.selection instanceof CellSelection &&
     view.state.selection.isColSelection();
   const isWholeTable = isRow && isCol;
+  const isAny = isRow || isCol;
   const isHeading =
     isRow &&
     view.state.doc.nodeAt((view.state.selection as CellSelection).$headCell.pos)
@@ -135,7 +136,7 @@ export const TableTooltip: FC = () => {
             }}
           />
         )}
-        {(isWholeTable || !isHeading) && (
+        {(isWholeTable || (!isHeading && isAny)) && (
           <TooltipButton
             icon="delete"
             onClick={() => {
