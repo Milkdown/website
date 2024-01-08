@@ -1,12 +1,12 @@
 # Vue
 
-We provide vue support out of box.
+We provide vue support out of the box.
 
 > Vue version should be 3.x
 
 ## Install the Dependencies
 
-Except the `@milkdown/core`, preset and theme. We need to install the `@milkdown/vue`, which provide lots of abilities for vue in milkdown.
+Besides the `@milkdown/core`, preset and theme. We need to install the `@milkdown/vue`, which provides lots of abilities for vue in milkdown.
 
 ```bash
 # install with npm
@@ -19,7 +19,7 @@ npm install @milkdown/preset-commonmark @milkdown/theme-nord
 
 ## Create a Component
 
-Create a component is pretty easy.
+Creating a component is pretty easy.
 
 First, we need to create a `MilkdownEditor` component.
 
