@@ -146,6 +146,8 @@ Editor
 @emphasisSchema
 @toggleEmphasisCommand
 @emphasisKeymap
+@emphasisStarInputRule
+@emphasisUnderscoreInputRule
 
 ## Strong
 
@@ -153,6 +155,7 @@ Editor
 @strongSchema
 @toggleStrongCommand
 @strongKeymap
+@strongInputRule
 
 ## Inline Code
 
@@ -160,6 +163,7 @@ Editor
 @inlineCodeSchema
 @toggleInlineCodeCommand
 @inlineCodeKeymap
+@inlineCodeInputRule
 
 ## Link
 
@@ -171,9 +175,6 @@ Editor
 ---
 
 # Prosemirror Plugins
-
-@inlineSyncPlugin
-@inlineSyncConfig
 
 @inlineNodesCursorPlugin
 

@@ -81,6 +81,7 @@ Editor
 @strikethroughSchema
 @toggleStrikethroughCommand
 @strikethroughKeymap
+@strikethroughInputRule
 
 ---
 
@@ -94,3 +95,4 @@ Editor
 # Others
 
 @remarkGFMPlugin
+@markInputRules

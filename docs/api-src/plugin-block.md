@@ -74,3 +74,5 @@ Editor
 @blockSpec
 
 @blockConfig
+
+@ActiveNode

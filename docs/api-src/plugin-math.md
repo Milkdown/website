@@ -29,5 +29,6 @@ Editor
 @mathInlineSchema
 
 @mathBlockInputRule
+@mathInlineInputRule
 
 @remarkMathPlugin
