@@ -42,12 +42,12 @@ You need to bind the block view to the plugin in `editor.config`.
 ```typescript
 import { Editor } from '@milkdown/core';
 
-import { block, blockView } from '@milkdown/plugin-block';
+import { block } from '@milkdown/plugin-block';
 
 Editor
   .make()
   .config((ctx) => {
-    ctx.set(blockView.key, {
+    ctx.set(block.key, {
       view: blockPluginView(ctx)
     })
   })
