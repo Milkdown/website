@@ -15,3 +15,9 @@ body,
 body {
   @apply dark:bg-nord0 bg-white text-gray-900 dark:text-gray-50;
 }
+div[data-milkdown-root="true"] {
+  @apply h-full;
+}
+.milkdown {
+  @apply h-full;
+}
