@@ -37,7 +37,7 @@ import { Milkdown, useEditor } from "@milkdown/vue";
 import { commonmark } from "@milkdown/preset-commonmark";
 
 export default defineComponent({
-  name: "Milkdown",
+  name: "MilkdownEditor",
   components: {
     Milkdown,
   },
