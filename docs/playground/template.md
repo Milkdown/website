@@ -23,7 +23,7 @@ You can check the output markdown text in **two columns editing**.
     -   [x] :+1: **Emoji** - Support emoji shortcut and picker, driven by plugin
 -   Made by
     -   Programmer: [Mirone][mirone]
-    -   Designer: [Mirone][mirone]
+    -   Designer: [Meo][meo]
 
 ---
 
@@ -93,6 +93,7 @@ Have fun!
 [prosemirror]: https://prosemirror.net/
 [yjs]: https://docs.yjs.dev/
 [remark]: https://github.com/remarkjs/remark
-[mirone]: https://github.com/Milkdown
+[mirone]: https://github.com/Saul-Mirone
+[meo]: https://github.com/Saul-Meo
 
 [^1]: We use [tweet emoji](https://twemoji.twitter.com) to make emoji can be viewed cross platforms.
