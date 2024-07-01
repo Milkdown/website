@@ -5,12 +5,10 @@ import {
   wrapInHeadingCommand,
 } from "@milkdown/preset-commonmark";
 import { useInstance } from "@milkdown/react";
-import { usePluginViewContext } from "@prosemirror-adapter/react";
 import clsx from "clsx";
 import { useEffect, useRef, useState } from "react";
 
 export const Block = () => {
-  const { view } = usePluginViewContext();
   const blockProvider = useRef<BlockProvider>();
   const [element, setElement] = useState<HTMLDivElement | null>(null);
   const [loading, get] = useInstance();
@@ -21,13 +19,6 @@ export const Block = () => {
       blockProvider.current ??= new BlockProvider({
         ctx: get().ctx,
         content: element,
-        tippyOptions: {
-          zIndex: 20,
-          appendTo: document.body,
-          onBeforeUpdate: () => setShowMenu(false),
-          onClickOutside: () => setShowMenu(false),
-          onHide: () => setShowMenu(false),
-        },
       });
     }
 
@@ -37,7 +28,7 @@ export const Block = () => {
   }, [loading, get, element]);
 
   useEffect(() => {
-    blockProvider.current?.update(view);
+    blockProvider.current?.update();
   });
 
   return (

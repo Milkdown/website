@@ -3,56 +3,72 @@ export type DocConfigItem = {
   dir?: string;
   items: string[];
 };
+export type APIConfigItem = {
+  label: string;
+  items: string[];
+};
 
-export const docConfig: DocConfigItem[] = [
+export const scopeTitleMap: Record<string, string> = {
+  guide: "Guide",
+  recipes: "Recipes",
+  plugin: "Plugin",
+  api: "API",
+};
+Object.freeze(scopeTitleMap);
+
+export const guideConfig: DocConfigItem = {
+  scope: "guide",
+  items: [
+    "why-milkdown",
+    "getting-started",
+    "styling",
+    "interacting-with-editor",
+    "commands",
+    "keyboard-shortcuts",
+    "macros",
+    "collaborative-editing",
+    "prosemirror-api",
+    "faq",
+  ],
+};
+export const recipesConfig: DocConfigItem = {
+  scope: "recipes",
+  items: [
+    "react",
+    "vue",
+    "svelte",
+    "solidjs",
+    "nextjs",
+    "nuxtjs",
+    "angular",
+    "vue2",
+  ],
+};
+export const pluginConfig: DocConfigItem = {
+  scope: "plugin",
+  items: [
+    "using-plugins",
+    "plugins-101",
+    "composable-plugins",
+    "example-iframe-plugin",
+  ],
+};
+export const apiConfigByCategory: APIConfigItem[] = [
   {
-    scope: "guide",
-    items: [
-      "why-milkdown",
-      "getting-started",
-      "styling",
-      "interacting-with-editor",
-      "commands",
-      "keyboard-shortcuts",
-      "macros",
-      "collaborative-editing",
-      "prosemirror-api",
-      "faq",
-    ],
+    label: "Framework",
+    items: ["core", "ctx", "utils", "transformer"],
   },
   {
-    scope: "recipes",
-    items: [
-      "react",
-      "vue",
-      "svelte",
-      "solidjs",
-      "nextjs",
-      "nuxtjs",
-      "angular",
-      "vue2",
-    ],
+    label: "Preset",
+    items: ["preset-commonmark", "preset-gfm"],
   },
   {
-    scope: "plugin",
-    items: [
-      "using-plugins",
-      "plugins-101",
-      "composable-plugins",
-      "example-iframe-plugin",
-    ],
+    label: "Theme",
+    items: ["theme-nord"],
   },
   {
-    scope: "api",
-    dir: "api-src",
+    label: "Plugin",
     items: [
-      "core",
-      "ctx",
-      "transformer",
-      "utils",
-      "preset-commonmark",
-      "preset-gfm",
-      "theme-nord",
       "plugin-listener",
       "plugin-history",
       "plugin-math",
@@ -71,3 +87,22 @@ export const docConfig: DocConfigItem[] = [
     ],
   },
 ];
+export const apiConfig: DocConfigItem = {
+  scope: "api",
+  dir: "api-src",
+  items: apiConfigByCategory.flatMap((x) => x.items),
+};
+
+export const docConfig: DocConfigItem[] = [
+  guideConfig,
+  recipesConfig,
+  pluginConfig,
+  apiConfig,
+];
+
+Object.freeze(apiConfigByCategory);
+Object.freeze(guideConfig);
+Object.freeze(recipesConfig);
+Object.freeze(pluginConfig);
+Object.freeze(apiConfig);
+Object.freeze(docConfig);

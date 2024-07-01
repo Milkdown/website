@@ -1,4 +1,5 @@
 import Footer from "@/components/footer";
+import { Header } from "@/components/header";
 import Nav from "@/components/nav";
 import PwaUpdater from "@/components/pwa-updater";
 import { DocSearchProvider, LayoutProvider } from "@/providers";
@@ -9,14 +10,15 @@ import NextApp, { AppContext, AppInitialProps } from "next/app";
 import type { AppProps } from "next/app";
 import Head from "next/head";
 
-import "@/styles/globals.css";
-
+import "@docsearch/css";
 import "@milkdown/theme-nord/style.css";
+import "@/styles/globals.css";
 import "@/styles/docsearch.css";
 import "@/styles/prosemirror.css";
 import "@/styles/prose.css";
 import "@/styles/playground.css";
 import "@/styles/toast.css";
+import "@/styles/liquid.css";
 
 export default function App({
   Component,
@@ -32,7 +34,8 @@ export default function App({
       </Head>
       <DocSearchProvider docSearch={docSearch}>
         <LayoutProvider>
-          <Nav />
+          <Header />
+          {/* <Nav /> */}
           <main className="flex-grow">
             <Component {...componentProps} />
           </main>

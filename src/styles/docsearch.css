@@ -1,3 +1,7 @@
+#docsearch {
+  @apply flex justify-center items-end;
+}
+
 #docsearch .DocSearch:hover {
   background-color: transparent;
   box-shadow: none;
