@@ -5,3 +5,7 @@
 .cm-scroller {
   @apply overscroll-contain;
 }
+
+div[data-show="false"] {
+  @apply hidden;
+}

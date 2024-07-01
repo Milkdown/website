@@ -22,10 +22,6 @@ export const ImageTooltip: FC = () => {
     if (ref.current && !tooltipProvider.current && !loading) {
       const provider = new TooltipProvider({
         content: ref.current,
-        tippyOptions: {
-          zIndex: 30,
-          appendTo: document.body,
-        },
         shouldShow: (view) => {
           const { selection } = view.state;
           const { empty, from } = selection;
@@ -83,57 +79,55 @@ export const ImageTooltip: FC = () => {
   };
 
   return (
-    <div className="hidden">
-      <div
-        ref={ref}
-        className="flex w-96 flex-col gap-2 rounded border-gray-300 bg-white p-4 shadow ring dark:border-gray-600 dark:bg-black"
-      >
-        <label className="flex flex-row items-center justify-center gap-4">
-          <span className="w-10">Link</span>
-          <input
-            onBlur={(e) => {
-              onChange("src", e);
-            }}
-            onChange={debounce((e) => {
-              onChange("src", e);
-            }, 2000)}
-            type="text"
-            className="mt-1 block w-full rounded-md bg-gray-300 shadow-sm focus:border-indigo-300
+    <div
+      ref={ref}
+      className="absolute flex w-96 flex-col gap-2 rounded border-gray-300 bg-white p-4 shadow ring dark:border-gray-600 dark:bg-black"
+    >
+      <label className="flex flex-row items-center justify-center gap-4">
+        <span className="w-10">Link</span>
+        <input
+          onBlur={(e) => {
+            onChange("src", e);
+          }}
+          onChange={debounce((e) => {
+            onChange("src", e);
+          }, 2000)}
+          type="text"
+          className="mt-1 block w-full rounded-md bg-gray-300 shadow-sm focus:border-indigo-300
             focus:ring focus:ring-indigo-200/50 dark:bg-gray-600"
-            defaultValue={src}
-          />
-        </label>
-        <label className="flex flex-row items-center justify-center gap-4">
-          <span className="w-10">Alt</span>
-          <input
-            onBlur={(e) => {
-              onChange("alt", e);
-            }}
-            onChange={debounce((e) => {
-              onChange("alt", e);
-            }, 2000)}
-            type="text"
-            className="mt-1 block w-full rounded-md bg-gray-300 shadow-sm focus:border-indigo-300
+          defaultValue={src}
+        />
+      </label>
+      <label className="flex flex-row items-center justify-center gap-4">
+        <span className="w-10">Alt</span>
+        <input
+          onBlur={(e) => {
+            onChange("alt", e);
+          }}
+          onChange={debounce((e) => {
+            onChange("alt", e);
+          }, 2000)}
+          type="text"
+          className="mt-1 block w-full rounded-md bg-gray-300 shadow-sm focus:border-indigo-300
             focus:ring focus:ring-indigo-200/50 dark:bg-gray-600"
-            defaultValue={alt}
-          />
-        </label>
-        <label className="flex flex-row items-center justify-center gap-4">
-          <span className="w-10">Title</span>
-          <input
-            onBlur={(e) => {
-              onChange("title", e);
-            }}
-            onChange={debounce((e) => {
-              onChange("title", e);
-            }, 2000)}
-            type="text"
-            className="mt-1 block w-full rounded-md bg-gray-300 shadow-sm focus:border-indigo-300
+          defaultValue={alt}
+        />
+      </label>
+      <label className="flex flex-row items-center justify-center gap-4">
+        <span className="w-10">Title</span>
+        <input
+          onBlur={(e) => {
+            onChange("title", e);
+          }}
+          onChange={debounce((e) => {
+            onChange("title", e);
+          }, 2000)}
+          type="text"
+          className="mt-1 block w-full rounded-md bg-gray-300 shadow-sm focus:border-indigo-300
             focus:ring focus:ring-indigo-200/50 dark:bg-gray-600"
-            defaultValue={title}
-          />
-        </label>
-      </div>
+          defaultValue={title}
+        />
+      </label>
     </div>
   );
 };

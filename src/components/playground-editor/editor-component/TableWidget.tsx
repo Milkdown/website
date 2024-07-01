@@ -84,9 +84,6 @@ export const TableTooltip: FC = () => {
     ) {
       const provider = new TooltipProvider({
         content: ref.current,
-        tippyOptions: {
-          zIndex: 30,
-        },
         shouldShow: () => {
           return false;
         },
@@ -108,107 +105,105 @@ export const TableTooltip: FC = () => {
   }, [getEditor, loading, view]);
 
   return (
-    <div className="hidden">
-      <div className="flex" ref={ref}>
-        {!isWholeTable && !isHeading && isRow && (
-          <TooltipButton
-            icon="arrow_upward"
-            onClick={() => {
-              if (loading) return;
+    <div className="absolute flex" ref={ref}>
+      {!isWholeTable && !isHeading && isRow && (
+        <TooltipButton
+          icon="arrow_upward"
+          onClick={() => {
+            if (loading) return;
 
-              getEditor().action((ctx) => {
-                ctx.get(commandsCtx).call(addRowBeforeCommand.key);
-              });
-              tooltipProvider.current?.hide();
-            }}
-          />
-        )}
-        {!isWholeTable && isCol && (
-          <TooltipButton
-            icon="arrow_back"
-            onClick={() => {
-              if (loading) return;
+            getEditor().action((ctx) => {
+              ctx.get(commandsCtx).call(addRowBeforeCommand.key);
+            });
+            tooltipProvider.current?.hide();
+          }}
+        />
+      )}
+      {!isWholeTable && isCol && (
+        <TooltipButton
+          icon="arrow_back"
+          onClick={() => {
+            if (loading) return;
 
-              getEditor().action((ctx) => {
-                ctx.get(commandsCtx).call(addColBeforeCommand.key);
-              });
-              tooltipProvider.current?.hide();
-            }}
-          />
-        )}
-        {(isWholeTable || (!isHeading && isAny)) && (
-          <TooltipButton
-            icon="delete"
-            onClick={() => {
-              if (loading) return;
+            getEditor().action((ctx) => {
+              ctx.get(commandsCtx).call(addColBeforeCommand.key);
+            });
+            tooltipProvider.current?.hide();
+          }}
+        />
+      )}
+      {(isWholeTable || (!isHeading && isAny)) && (
+        <TooltipButton
+          icon="delete"
+          onClick={() => {
+            if (loading) return;
 
-              getEditor().action((ctx) => {
-                ctx.get(commandsCtx).call(deleteSelectedCellsCommand.key);
-              });
-              tooltipProvider.current?.hide();
-            }}
-          />
-        )}
-        {!isWholeTable && isRow && (
-          <TooltipButton
-            icon="arrow_downward"
-            onClick={() => {
-              if (loading) return;
+            getEditor().action((ctx) => {
+              ctx.get(commandsCtx).call(deleteSelectedCellsCommand.key);
+            });
+            tooltipProvider.current?.hide();
+          }}
+        />
+      )}
+      {!isWholeTable && isRow && (
+        <TooltipButton
+          icon="arrow_downward"
+          onClick={() => {
+            if (loading) return;
 
-              getEditor().action((ctx) => {
-                ctx.get(commandsCtx).call(addRowAfterCommand.key);
-              });
-              tooltipProvider.current?.hide();
-            }}
-          />
-        )}
-        {!isWholeTable && isCol && (
-          <TooltipButton
-            icon="arrow_forward"
-            onClick={() => {
-              if (loading) return;
-              getEditor().action((ctx) => {
-                ctx.get(commandsCtx).call(addColAfterCommand.key);
-              });
+            getEditor().action((ctx) => {
+              ctx.get(commandsCtx).call(addRowAfterCommand.key);
+            });
+            tooltipProvider.current?.hide();
+          }}
+        />
+      )}
+      {!isWholeTable && isCol && (
+        <TooltipButton
+          icon="arrow_forward"
+          onClick={() => {
+            if (loading) return;
+            getEditor().action((ctx) => {
+              ctx.get(commandsCtx).call(addColAfterCommand.key);
+            });
 
-              tooltipProvider.current?.hide();
-            }}
-          />
-        )}
-        {!isWholeTable && isCol && (
-          <TooltipButton
-            icon="format_align_left"
-            onClick={() => {
-              if (loading) return;
-              getEditor().action((ctx) => {
-                ctx.get(commandsCtx).call(setAlignCommand.key, "left");
-              });
-            }}
-          />
-        )}
-        {!isWholeTable && isCol && (
-          <TooltipButton
-            icon="format_align_center"
-            onClick={() => {
-              if (loading) return;
-              getEditor().action((ctx) => {
-                ctx.get(commandsCtx).call(setAlignCommand.key, "center");
-              });
-            }}
-          />
-        )}
-        {!isWholeTable && isCol && (
-          <TooltipButton
-            icon="format_align_right"
-            onClick={() => {
-              if (loading) return;
-              getEditor().action((ctx) => {
-                ctx.get(commandsCtx).call(setAlignCommand.key, "right");
-              });
-            }}
-          />
-        )}
-      </div>
+            tooltipProvider.current?.hide();
+          }}
+        />
+      )}
+      {!isWholeTable && isCol && (
+        <TooltipButton
+          icon="format_align_left"
+          onClick={() => {
+            if (loading) return;
+            getEditor().action((ctx) => {
+              ctx.get(commandsCtx).call(setAlignCommand.key, "left");
+            });
+          }}
+        />
+      )}
+      {!isWholeTable && isCol && (
+        <TooltipButton
+          icon="format_align_center"
+          onClick={() => {
+            if (loading) return;
+            getEditor().action((ctx) => {
+              ctx.get(commandsCtx).call(setAlignCommand.key, "center");
+            });
+          }}
+        />
+      )}
+      {!isWholeTable && isCol && (
+        <TooltipButton
+          icon="format_align_right"
+          onClick={() => {
+            if (loading) return;
+            getEditor().action((ctx) => {
+              ctx.get(commandsCtx).call(setAlignCommand.key, "right");
+            });
+          }}
+        />
+      )}
     </div>
   );
 };
@@ -251,8 +246,8 @@ const TableSelectorWidget: FC = () => {
 
         getEditor().action((ctx) => {
           const tooltip = ctx.get(tableTooltipCtx.key);
-          tooltip?.getInstance()?.setProps({
-            getReferenceClientRect: () => {
+          tooltip?.show({
+            getBoundingClientRect: () => {
               return div.getBoundingClientRect();
             },
           });
