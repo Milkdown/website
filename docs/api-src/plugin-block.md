@@ -76,3 +76,4 @@ Editor
 @blockConfig
 
 @ActiveNode
+@DeriveContext
