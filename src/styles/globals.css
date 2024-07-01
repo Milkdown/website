@@ -49,7 +49,7 @@ button.button-default {
 .dark {
   button.button-default {
     &:hover {
-      background-color: color-mix(in srgb, #494E59 20%, black);
+      background-color: color-mix(in srgb, #494E59 16%, black);
     }
     &:active {
       background-color: color-mix(in srgb, #494E59 12%, black);
