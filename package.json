@@ -30,7 +30,7 @@
     "@milkdown/core": "7.4.0",
     "@milkdown/ctx": "7.4.0",
     "@milkdown/exception": "7.4.0",
-    "@milkdown/plugin-block": "7.4.0",
+    "@milkdown/plugin-block": "7.4.1",
     "@milkdown/plugin-clipboard": "7.4.0",
     "@milkdown/plugin-collab": "7.4.0",
     "@milkdown/plugin-cursor": "7.4.0",

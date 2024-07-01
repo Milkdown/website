@@ -77,8 +77,8 @@ importers:
         specifier: 7.4.0
         version: 7.4.0
       '@milkdown/plugin-block':
-        specifier: 7.4.0
-        version: 7.4.0(@milkdown/core@7.4.0(@milkdown/ctx@7.4.0)(@milkdown/prose@7.4.0)(@milkdown/transformer@7.4.0(@milkdown/prose@7.4.0)))(@milkdown/ctx@7.4.0)(@milkdown/prose@7.4.0)(@milkdown/transformer@7.4.0(@milkdown/prose@7.4.0))
+        specifier: 7.4.1
+        version: 7.4.1(@milkdown/core@7.4.0(@milkdown/ctx@7.4.0)(@milkdown/prose@7.4.0)(@milkdown/transformer@7.4.0(@milkdown/prose@7.4.0)))(@milkdown/ctx@7.4.0)(@milkdown/prose@7.4.0)(@milkdown/transformer@7.4.0(@milkdown/prose@7.4.0))
       '@milkdown/plugin-clipboard':
         specifier: 7.4.0
         version: 7.4.0(@milkdown/core@7.4.0(@milkdown/ctx@7.4.0)(@milkdown/prose@7.4.0)(@milkdown/transformer@7.4.0(@milkdown/prose@7.4.0)))(@milkdown/ctx@7.4.0)(@milkdown/prose@7.4.0)(@milkdown/transformer@7.4.0(@milkdown/prose@7.4.0))
@@ -1187,8 +1187,8 @@ packages:
   '@milkdown/exception@7.4.0':
     resolution: {integrity: sha512-id0kZrhIA6QRlpgPsrmNNZY71NPwujJg4RPZUSrbM+4PuXXZfzaVtMWd3LGn5HrDRDhkvmIrRzbEmqqfUnGYLg==}
 
-  '@milkdown/plugin-block@7.4.0':
-    resolution: {integrity: sha512-XJnRi2NDtDDVMF/N4srcs1CJ/VGvWs/IxpgfhFyYNviLGgRbcB2CKwbx8kbDLKs8MAon9STCF+KCyUprRWXZww==}
+  '@milkdown/plugin-block@7.4.1':
+    resolution: {integrity: sha512-p8dbTDOIONTqO53nxBFF6gJaHYwwwlJK5fqwYTwXPTkpStkDpx7okJketAzF3xlIeL3gCAXM+4+mOdDGCv66ng==}
     peerDependencies:
       '@milkdown/core': ^7.2.0
       '@milkdown/ctx': ^7.2.0
@@ -6079,7 +6079,7 @@ snapshots:
     dependencies:
       tslib: 2.5.0
 
-  '@milkdown/plugin-block@7.4.0(@milkdown/core@7.4.0(@milkdown/ctx@7.4.0)(@milkdown/prose@7.4.0)(@milkdown/transformer@7.4.0(@milkdown/prose@7.4.0)))(@milkdown/ctx@7.4.0)(@milkdown/prose@7.4.0)(@milkdown/transformer@7.4.0(@milkdown/prose@7.4.0))':
+  '@milkdown/plugin-block@7.4.1(@milkdown/core@7.4.0(@milkdown/ctx@7.4.0)(@milkdown/prose@7.4.0)(@milkdown/transformer@7.4.0(@milkdown/prose@7.4.0)))(@milkdown/ctx@7.4.0)(@milkdown/prose@7.4.0)(@milkdown/transformer@7.4.0(@milkdown/prose@7.4.0))':
     dependencies:
       '@floating-ui/dom': 1.6.5
       '@milkdown/core': 7.4.0(@milkdown/ctx@7.4.0)(@milkdown/prose@7.4.0)(@milkdown/transformer@7.4.0(@milkdown/prose@7.4.0))

@@ -10,17 +10,20 @@ import { useEffect, useRef, useState } from "react";
 
 export const Block = () => {
   const blockProvider = useRef<BlockProvider>();
-  const [element, setElement] = useState<HTMLDivElement | null>(null);
+  const element = useRef<HTMLDivElement | null>(null);
   const [loading, get] = useInstance();
   const [showMenu, setShowMenu] = useState(false);
 
   useEffect(() => {
-    if (element && !loading) {
+    if (element.current && !loading) {
+      const { ctx } = get();
       blockProvider.current ??= new BlockProvider({
         getOffset: () => 16,
-        ctx: get().ctx,
-        content: element,
+        getPlacement: () => "left-start",
+        ctx,
+        content: element.current,
       });
+      blockProvider.current.update();
     }
 
     return () => {
@@ -28,17 +31,13 @@ export const Block = () => {
     };
   }, [loading, get, element]);
 
-  useEffect(() => {
-    blockProvider.current?.update();
-  });
-
   return (
     <div
       className={clsx(
         "absolute cursor-grab rounded-full border-2 bg-gray-50 dark:border-gray-900 dark:bg-gray-900",
-        showMenu ? "ring-2 ring-offset-2" : ""
+        showMenu && "ring-2 ring-offset-2"
       )}
-      ref={setElement}
+      ref={element}
     >
       <div onClick={() => setShowMenu((x) => !x)}>
         <svg
