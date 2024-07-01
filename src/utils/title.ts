@@ -1,5 +1,5 @@
 const isAbbreviation = (str: string) => {
-  return ["api", "faq"].includes(str.toLowerCase());
+  return ["api", "faq", "gfm"].includes(str.toLowerCase());
 };
 
 const isConjunction = (str: string) => {

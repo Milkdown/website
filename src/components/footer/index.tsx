@@ -15,7 +15,14 @@ const LinkGroups: FC<LinkGroupsProps> = ({ title, items }) => {
     <div className="flex-1">
       <div className="mb-4 text-lg font-semibold md:text-xl">{title}</div>
       {items.map((item, i) => (
-        <div key={i.toString()} className="mb-2 text-sm md:text-base">
+        <div
+          key={i.toString()}
+          className={clsx(
+            "mb-2 text-sm md:text-base",
+            "text-nord-neutral/[.80] dark:text-nord-neutral-dark/[.80]",
+            "hover:text-nord-neutral dark:hover:text-nord-neutral-dark"
+          )}
+        >
           <a href={item.link}>{item.text}</a>
         </div>
       ))}
@@ -65,7 +72,6 @@ const Footer: FC = () => {
     <footer
       className={clsx(
         "w-full self-end bg-gray-200 dark:bg-gray-700",
-        "text-nord-neutral dark:text-nord-neutral-dark",
         "pt-6 pb-12 md:pt-16 md:pb-16"
       )}
     >
@@ -75,7 +81,7 @@ const Footer: FC = () => {
             <div className="text-lg font-semibold md:text-xl">Community</div>
             <div className="mt-4 flex items-center gap-6">
               <a
-                className="fill-nord-neutral dark:fill-nord-neutral-dark"
+                className="fill-nord-solid/80 hover:fill-nord-solid dark:fill-nord-solid-dark/80 dark:hover:fill-nord-solid-dark"
                 href="https://github.com/Milkdown/milkdown"
                 target="_blank"
                 rel="noreferrer"
@@ -83,7 +89,7 @@ const Footer: FC = () => {
                 <Github />
               </a>
               <a
-                className="fill-nord-neutral dark:fill-nord-neutral-dark"
+                className="fill-nord-solid/80 hover:fill-nord-solid dark:fill-nord-solid-dark/80 dark:hover:fill-nord-solid-dark"
                 href="https://discord.gg/SdMnrSMyBX"
                 target="_blank"
                 rel="noreferrer"
@@ -91,7 +97,7 @@ const Footer: FC = () => {
                 <Discord />
               </a>
               <a
-                className="fill-nord-neutral dark:fill-nord-neutral-dark"
+                className="fill-nord-solid/80 hover:fill-nord-solid dark:fill-nord-solid-dark/80 dark:hover:fill-nord-solid-dark"
                 href="https://twitter.com/mirone_saul"
                 target="_blank"
                 rel="noreferrer"
@@ -126,10 +132,10 @@ const Footer: FC = () => {
           <div className="flex-1/2">
             <div
               className={clsx(
-                "font-light tracking-tighter",
+                "font-light",
                 "text-nord-neutral-deep/40 dark:text-nord-neutral-deep-dark/40",
                 "text-xs md:text-sm lg:text-base",
-                "!leading-10"
+                "!leading-[48px]"
               )}
             >
               MIT Licensed | Copyright © 2021-present Mirone ♡ Meo

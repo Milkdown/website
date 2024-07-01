@@ -44,7 +44,7 @@ const ScopeList: FC = () => {
                 return (
                   <LinkButton
                     key={item}
-                    text={text}
+                    text={toTitle(text)}
                     link={`/docs/api/${item}`}
                   />
                 );
