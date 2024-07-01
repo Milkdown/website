@@ -19,11 +19,11 @@ const HomeEditor: FC<{ value: string }> = ({ value }) => {
       .config((ctx) => {
         ctx.set(rootCtx, root);
         root.className =
-          "h-96 overflow-auto bg-gray-100 rounded-2xl shadow-inner border-gray-200 dark:bg-gray-800 dark:border-gray-700";
+          "!h-80 md:!h-[480px] overflow-auto bg-nord-foreground rounded-2xl shadow border border-nord-outline dark:bg-nord-foreground-dark dark:border-nord-outline-dark";
 
         ctx.set(editorViewOptionsCtx, {
           attributes: {
-            class: "w-full max-w-full box-border overflow-hidden p-4",
+            class: "w-full max-w-full box-border overflow-hidden p-8",
           },
         });
       })

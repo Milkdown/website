@@ -51,15 +51,6 @@ export const EmojiMenu = () => {
         setSearch(text);
         return true;
       },
-      tippyOptions: {
-        onShow: () => {
-          setOpened(true);
-        },
-        onHide: () => {
-          setSelected(0);
-          setOpened(false);
-        },
-      },
     });
 
     return () => {

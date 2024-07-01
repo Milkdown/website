@@ -94,16 +94,16 @@ export default function Playground({ template }: { template: string }) {
       <Head>
         <title>Playground | Milkdown</title>
       </Head>
-      <div className="m-0 mt-16 grid border-b border-gray-300 dark:border-gray-600 md:ml-20 md:mt-0 md:grid-cols-2">
+      <div className="m-0 grid border-b border-gray-300 dark:border-gray-600 md:mt-0 md:grid-cols-2">
         <Provider>
-          <div className="h-[calc(50vh-2rem)] overflow-auto overscroll-none md:h-screen">
+          <div className="h-[calc(50vh-2rem)] overflow-auto overscroll-none md:h-[calc(100vh-72px)]">
             <PlaygroundMilkdown
               milkdownRef={milkdownRef}
               content={content}
               onChange={onMilkdownChange}
             />
           </div>
-          <div className="h-[calc(50vh-2rem)] overflow-auto overscroll-none border-l border-gray-300 dark:border-gray-600 md:h-screen">
+          <div className="h-[calc(50vh-2rem)] overflow-auto overscroll-none border-l border-gray-300 dark:border-gray-600 md:h-[calc(100vh-72px)]">
             <ControlPanel
               codemirrorRef={codemirrorRef}
               content={content}

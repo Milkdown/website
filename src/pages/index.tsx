@@ -1,8 +1,10 @@
 import HomeEditor from "@/components/home-editor";
 import { Button } from "@/components/home/Button";
 import { InfoCard } from "@/components/home/InfoCard";
+import { Liquid } from "@/components/liquid";
 import { MilkdownProvider } from "@milkdown/react";
 import { ProsemirrorAdapterProvider } from "@prosemirror-adapter/react";
+import clsx from "clsx";
 import Head from "next/head";
 import Link from "next/link";
 
@@ -25,20 +27,24 @@ export async function getStaticProps() {
 
 const InfoCardData = [
   {
+    emoji: "🔩",
     title: "Plugin Driven",
-    desc: "Everything in milkdown are plugins. Extend your editor with different types of plugins: syntax, theme, UI, etc.",
+    desc: "Everything in Milkdown are plugins. Extend your editor with different types of plugins: syntax, theme, UI, etc.",
   },
   {
+    emoji: "🤝",
     title: "Collaborative",
-    desc: "With the support of Y.js, milkdown can be used in real-time collaborative editing.",
+    desc: "With the support of Y.js, Milkdown can be used in real-time collaborative editing which can support multiple users editing on the same documentation.",
   },
   {
+    emoji: "🤯",
     title: "Headless",
     desc: "Milkdown is headless and comes without any CSS. You can easily customize the editor to fit the style of your application.",
   },
   {
+    emoji: "💡",
     title: "Reliable",
-    desc: "Milkdown is built on top of some great libraries, such as ProseMirror, Y.js, and Remark. Which means you can use their community and eco system to get help.",
+    desc: "Milkdown is built on top of some great libraries, such as ProseMirror, Y.js, and Remark, which means you can use their community and eco system to get help.",
   },
 ];
 
@@ -48,53 +54,50 @@ export default function Home() {
       <Head>
         <title>Milkdown</title>
       </Head>
-      <div className="mx-8 pt-24 md:mx-24 lg:mx-40 xl:mx-80 2xl:mx-auto 2xl:max-w-4xl">
-        <div className="mt-24 text-center">
-          <h1 className="text-4xl font-medium sm:text-6xl xl:text-8xl">
-            The{" "}
-            <span className="text-nord10 dark:text-nord9">
-              WYSIWYG Markdown
-            </span>{" "}
-            Editor Framework
-          </h1>
-          <p className="mt-6 text-lg font-light sm:text-2xl">
-            🍼 A plugin driven framework to build WYSIWYG Markdown editor.
-          </p>
-          <div className="mt-9 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
-            <Link href={gettingStarted}>
-              <Button primary text="GET STARTED" icon="play_circle" />
-            </Link>
-            <Link className="hidden md:block" href={playground}>
-              <Button text="PLAYGROUND" icon="gamepad" />
-            </Link>
-            <a
-              className="hidden md:block"
-              href="https://github.com/Milkdown/examples"
-              target="_blank"
-              rel="noreferrer"
+      <div>
+        <Liquid>
+          <div className="min-w-64 relative z-10 flex h-full w-full flex-col items-center justify-center">
+            <h1 className="text-center text-4xl font-bold text-nord-neutral dark:text-nord-neutral-dark sm:text-6xl xl:text-7xl">
+              Milkdown
+            </h1>
+            <p
+              className={clsx(
+                "text-center text-nord-neutral dark:text-nord-neutral-dark",
+                "text-base sm:text-2xl",
+                "mt-6 mb-11 sm:mt-10 sm:mb-10",
+                "w-64 sm:w-full"
+              )}
             >
-              <Button text="EXAMPLES" icon="view_cozy" />
-            </a>
-            <a
-              href="https://github.com/Milkdown/milkdown"
-              target="_blank"
-              rel="noreferrer"
-            >
-              <Button text="VIEW ON GITHUB" />
-            </a>
+              A plugin driven framework to build WYSIWYG Markdown editor.
+            </p>
+            <div className="flex flex-col gap-4 sm:flex-row sm:gap-10">
+              <Link href={gettingStarted}>
+                <Button primary text="Get Started" />
+              </Link>
+              <Link href={playground}>
+                <Button text="Playground" />
+              </Link>
+            </div>
           </div>
-        </div>
-        <div className="mt-24">
-          <MilkdownProvider>
-            <ProsemirrorAdapterProvider>
-              <HomeEditor value={doc.trim()} />
-            </ProsemirrorAdapterProvider>
-          </MilkdownProvider>
-        </div>
-        <div className="mt-24 grid grid-cols-1 gap-6 md:grid-cols-2">
-          {InfoCardData.map((data) => (
-            <InfoCard key={data.title} title={data.title} desc={data.desc} />
-          ))}
+        </Liquid>
+        <div className="mx-8 mb-10 md:mx-24 md:mb-24 lg:mx-40 xl:mx-80 2xl:mx-auto 2xl:max-w-4xl">
+          <div className="mt-10 md:mt-24">
+            <MilkdownProvider>
+              <ProsemirrorAdapterProvider>
+                <HomeEditor value={doc.trim()} />
+              </ProsemirrorAdapterProvider>
+            </MilkdownProvider>
+          </div>
+          <div className="mt-10 grid grid-cols-1 gap-6 md:mt-20 md:grid-cols-2">
+            {InfoCardData.map((data) => (
+              <InfoCard
+                key={data.title}
+                emoji={data.emoji}
+                title={data.title}
+                desc={data.desc}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </>

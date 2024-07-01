@@ -1,3 +1,11 @@
 .cm-editor {
   @apply font-mono h-full xl:text-base lg:text-sm md:text-xs;
 }
+
+.cm-scroller {
+  @apply overscroll-contain;
+}
+
+div[data-show="false"] {
+  @apply hidden;
+}

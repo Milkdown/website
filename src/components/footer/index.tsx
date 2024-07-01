@@ -1,7 +1,9 @@
+import { Discord, Github, Twitter } from "@/components/svg-icon";
 import Link from "next/link";
 import { FC } from "react";
 import Image from "next/image";
 import vercelBanner from "./vercel-banner.svg";
+import clsx from "clsx";
 
 type LinkGroupsProps = {
   title: string;
@@ -10,36 +12,22 @@ type LinkGroupsProps = {
 
 const LinkGroups: FC<LinkGroupsProps> = ({ title, items }) => {
   return (
-    <div>
-      <div className="mb-5 text-xl">{title}</div>
+    <div className="flex-1">
+      <div className="mb-4 text-lg font-semibold md:text-xl">{title}</div>
       {items.map((item, i) => (
         <div
           key={i.toString()}
-          className="mb-2 text-nord10 hover:text-nord8 dark:text-nord9 hover:dark:text-nord7"
+          className={clsx(
+            "mb-2 text-sm md:text-base",
+            "text-nord-neutral/[.80] dark:text-nord-neutral-dark/[.80]",
+            "hover:text-nord-neutral dark:hover:text-nord-neutral-dark"
+          )}
         >
           <a href={item.link}>{item.text}</a>
         </div>
       ))}
     </div>
   );
-};
-
-const communityGroup = {
-  title: "Community",
-  items: [
-    {
-      text: "Discord",
-      link: "https://discord.gg/SdMnrSMyBX",
-    },
-    {
-      text: "Twitter",
-      link: "https://twitter.com/SaulMirone",
-    },
-    {
-      text: "Github",
-      link: "https://github.com/Milkdown/milkdown",
-    },
-  ],
 };
 
 const linksGroup = {
@@ -81,36 +69,78 @@ const moreGroup = {
 const Footer: FC = () => {
   const root = "/";
   return (
-    <footer className="mt-24 w-full self-end bg-gray-200 py-12 dark:bg-gray-700">
-      <div className="mx-8 pt-24 md:mx-24 lg:mx-40 xl:mx-80 2xl:mx-auto 2xl:max-w-4xl">
-        <div className="grid grid-cols-2 gap-6 md:grid-cols-4">
-          <div
-            className="mr-auto flex h-20 w-20 cursor-pointer items-center justify-center
-            rounded-full border-2
-            border-gray-300 bg-white shadow-inner hover:bg-gray-200 dark:border-gray-600
-            dark:bg-gray-800 hover:dark:bg-gray-700"
-          >
-            <Link href={root}>
+    <footer
+      className={clsx(
+        "w-full self-end bg-gray-200 dark:bg-gray-700",
+        "pt-6 pb-12 md:pt-16 md:pb-16"
+      )}
+    >
+      <div className="mx-8 md:mx-24 lg:mx-40 xl:mx-80 2xl:mx-auto 2xl:max-w-4xl">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+          <div className="flex-1/2">
+            <div className="text-lg font-semibold md:text-xl">Community</div>
+            <div className="mt-4 flex items-center gap-6">
+              <a
+                className="fill-nord-solid/80 hover:fill-nord-solid dark:fill-nord-solid-dark/80 dark:hover:fill-nord-solid-dark"
+                href="https://github.com/Milkdown/milkdown"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <Github />
+              </a>
+              <a
+                className="fill-nord-solid/80 hover:fill-nord-solid dark:fill-nord-solid-dark/80 dark:hover:fill-nord-solid-dark"
+                href="https://discord.gg/SdMnrSMyBX"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <Discord />
+              </a>
+              <a
+                className="fill-nord-solid/80 hover:fill-nord-solid dark:fill-nord-solid-dark/80 dark:hover:fill-nord-solid-dark"
+                href="https://twitter.com/mirone_saul"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <Twitter />
+              </a>
+            </div>
+          </div>
+          <div className="flex-1/2 flex">
+            <LinkGroups {...linksGroup} />
+            <LinkGroups {...moreGroup} />
+          </div>
+          <div className="flex-1/2 flex items-center gap-5">
+            <Link className="flex items-center gap-3" href={root}>
               <Image
-                width={48}
-                height={48}
+                width={40}
+                height={40}
                 alt="milkdown logo"
                 className="h-12 w-12"
                 src="/milkdown-logo.svg"
               />
+              <span className="text-lg font-bold md:text-xl">Milkdown</span>
             </Link>
+
+            <a
+              className="block"
+              href="https://vercel.com/?utm_source=milkdown&utm_campaign=oss"
+            >
+              <Image src={vercelBanner} alt="vercel banner" className="w-24" />
+            </a>
           </div>
-          <LinkGroups {...communityGroup} />
-          <LinkGroups {...linksGroup} />
-          <LinkGroups {...moreGroup} />
-        </div>
-        <div className="flex flex-col items-baseline justify-between gap-2 md:flex-row">
-          <div className="mt-6 text-sm font-light text-nord2 dark:text-nord4">
-            MIT Licensed | Copyright © 2021-present Mirone ♡ Meo
+          <div className="flex-1/2">
+            <div
+              className={clsx(
+                "font-light",
+                "text-nord-neutral-deep/40 dark:text-nord-neutral-deep-dark/40",
+                "text-xs md:text-sm lg:text-base",
+                "!leading-[48px]"
+              )}
+            >
+              MIT Licensed | Copyright © 2021-present Mirone ♡ Meo
+            </div>
           </div>
-          <a href="https://vercel.com/?utm_source=milkdown&utm_campaign=oss">
-            <Image src={vercelBanner} alt="vercel banner" className="w-32" />
-          </a>
         </div>
       </div>
     </footer>

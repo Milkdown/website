@@ -1,5 +1,5 @@
 import Footer from "@/components/footer";
-import Nav from "@/components/nav";
+import { Header } from "@/components/header";
 import PwaUpdater from "@/components/pwa-updater";
 import { DocSearchProvider, LayoutProvider } from "@/providers";
 import { DocSearch } from "@/utils/types";
@@ -9,19 +9,24 @@ import NextApp, { AppContext, AppInitialProps } from "next/app";
 import type { AppProps } from "next/app";
 import Head from "next/head";
 
-import "@/styles/globals.css";
-
+import "@docsearch/css";
 import "@milkdown/theme-nord/style.css";
+import "@/styles/globals.css";
 import "@/styles/docsearch.css";
 import "@/styles/prosemirror.css";
 import "@/styles/prose.css";
 import "@/styles/playground.css";
 import "@/styles/toast.css";
+import "@/styles/liquid.css";
+import { useRouter } from "next/router";
+import clsx from "clsx";
 
 export default function App({
   Component,
   pageProps: { docSearch, ...componentProps },
 }: AppPropsWithInitialProps) {
+  const router = useRouter();
+  const pathname = router.pathname;
   return (
     <>
       <Head>
@@ -32,8 +37,8 @@ export default function App({
       </Head>
       <DocSearchProvider docSearch={docSearch}>
         <LayoutProvider>
-          <Nav />
-          <main className="flex-grow">
+          <Header />
+          <main className={clsx("flex-grow", pathname !== "/" && "mt-[72px]")}>
             <Component {...componentProps} />
           </main>
           <Footer />

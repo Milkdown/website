@@ -7,10 +7,9 @@ export const Button: FC<{ primary?: boolean; icon?: string; text: string }> = ({
   text,
 }) => {
   const className = clsx(
-    "w-full flex h-12 items-center justify-center rounded-2xl shadow-md hover:shadow-lg md:h-14",
-    primary
-      ? "text-gray-50 bg-nord10 hover:bg-nord9"
-      : "bg-gray-200 hover:bg-gray-100 dark:bg-nord3 hover:dark:bg-nord1"
+    "w-full flex font-semibold text-base items-center justify-center rounded-full transition-all",
+    "px-10 py-3 sm:px-12 sm:py-4",
+    primary ? "button-primary main-button" : "button-default main-button"
   );
 
   return (
@@ -18,7 +17,7 @@ export const Button: FC<{ primary?: boolean; icon?: string; text: string }> = ({
       {icon && (
         <span className="material-symbols-outlined mr-3 text-base">{icon}</span>
       )}
-      <span className="text-sm">{text}</span>
+      <span className="text">{text}</span>
     </button>
   );
 };

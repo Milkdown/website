@@ -21,17 +21,6 @@ export const Slash = () => {
     slashProvider.current ??= new SlashProvider({
       content: ref.current,
       debounce: 50,
-      tippyOptions: {
-        onShow: () => {
-          setOpened(true);
-          root?.addEventListener("keydown", onKeydown);
-        },
-        onHide: () => {
-          setSelected(0);
-          setOpened(false);
-          root?.removeEventListener("keydown", onKeydown);
-        },
-      },
     });
 
     return () => {
@@ -45,23 +34,33 @@ export const Slash = () => {
   });
 
   return (
-    <div className="hidden">
-      <div role="tooltip" ref={ref}>
-        <ul className="m-0 w-96 list-none rounded bg-gray-50 shadow-lg ring-2 dark:bg-gray-900">
-          {config.map((item, i) => (
-            <SlashItem
-              key={i.toString()}
-              index={i}
-              instance={instance}
-              onSelect={(ctx) => item.onSelect(ctx)}
-              selected={i === selected}
-              setSelected={setSelected}
-            >
-              {item.renderer}
-            </SlashItem>
-          ))}
-        </ul>
-      </div>
+    <div
+      role="tooltip"
+      onMouseDown={(e) => {
+        e.preventDefault();
+        e.stopPropagation();
+      }}
+      onMouseUp={(e) => {
+        e.preventDefault();
+        e.stopPropagation();
+      }}
+      className="absolute cursor-pointer"
+      ref={ref}
+    >
+      <ul className="m-0 w-96 list-none rounded bg-gray-50 shadow-lg ring-2 dark:bg-gray-900">
+        {config.map((item, i) => (
+          <SlashItem
+            key={i.toString()}
+            index={i}
+            instance={instance}
+            onSelect={(ctx) => item.onSelect(ctx)}
+            selected={i === selected}
+            setSelected={setSelected}
+          >
+            {item.renderer}
+          </SlashItem>
+        ))}
+      </ul>
     </div>
   );
 };
