@@ -80,7 +80,7 @@ export default function Home() {
             </div>
           </div>
         </Liquid>
-        <div className="mx-8 md:mx-24 lg:mx-40 xl:mx-80 2xl:mx-auto 2xl:max-w-4xl">
+        <div className="mx-8 mb-10 md:mx-24 md:mb-24 lg:mx-40 xl:mx-80 2xl:mx-auto 2xl:max-w-4xl">
           <div className="mt-10 md:mt-24">
             <MilkdownProvider>
               <ProsemirrorAdapterProvider>

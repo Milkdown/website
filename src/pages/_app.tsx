@@ -18,11 +18,15 @@ import "@/styles/prose.css";
 import "@/styles/playground.css";
 import "@/styles/toast.css";
 import "@/styles/liquid.css";
+import { useRouter } from "next/router";
+import clsx from "clsx";
 
 export default function App({
   Component,
   pageProps: { docSearch, ...componentProps },
 }: AppPropsWithInitialProps) {
+  const router = useRouter();
+  const pathname = router.pathname;
   return (
     <>
       <Head>
@@ -34,7 +38,7 @@ export default function App({
       <DocSearchProvider docSearch={docSearch}>
         <LayoutProvider>
           <Header />
-          <main className="flex-grow">
+          <main className={clsx("flex-grow", pathname !== "/" && "mt-[72px]")}>
             <Component {...componentProps} />
           </main>
           <Footer />

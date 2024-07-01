@@ -67,7 +67,7 @@ const DocRenderer: FC<{ content: string }> = ({ content }) => {
           content={content.slice(0, 100) + "..."}
         />
       </Head>
-      <div className="mx-8 pt-24 md:mx-24 lg:mx-40 xl:mx-80 2xl:mx-auto 2xl:max-w-4xl">
+      <div className="mx-8 pb-10 pt-24 md:mx-24 md:pb-24 lg:mx-40 xl:mx-80 2xl:mx-auto 2xl:max-w-4xl">
         <MilkdownProvider>
           <ProsemirrorAdapterProvider>
             <Doc url={url} content={content} />

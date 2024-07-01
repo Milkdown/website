@@ -94,7 +94,7 @@ const Doc: FC<{ content: string; url: string }> = ({ content, url }) => {
   return (
     <>
       <Milkdown />
-      <div className="fixed inset-y-16 right-20 hidden flex-col gap-4 overflow-y-auto xl:flex xl:w-60 2xl:right-[calc(50vw-28rem-15rem)]">
+      <div className="fixed inset-y-32 right-20 hidden flex-col gap-4 overflow-y-auto xl:flex xl:w-60 2xl:right-[calc(50vw-28rem-15rem)]">
         <a className="float-right" href={url} target="_blank">
           <Button primary text="Edit on github" icon="edit" />
         </a>
