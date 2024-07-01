@@ -81,7 +81,7 @@ const moreGroup = {
 const Footer: FC = () => {
   const root = "/";
   return (
-    <footer className="mt-24 w-full self-end bg-gray-200 py-12 dark:bg-gray-700">
+    <footer className="mt-10 w-full self-end bg-gray-200 py-12 dark:bg-gray-700 md:mt-24">
       <div className="mx-8 pt-24 md:mx-24 lg:mx-40 xl:mx-80 2xl:mx-auto 2xl:max-w-4xl">
         <div className="grid grid-cols-2 gap-6 md:grid-cols-4">
           <div

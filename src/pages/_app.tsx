@@ -1,6 +1,5 @@
 import Footer from "@/components/footer";
 import { Header } from "@/components/header";
-import Nav from "@/components/nav";
 import PwaUpdater from "@/components/pwa-updater";
 import { DocSearchProvider, LayoutProvider } from "@/providers";
 import { DocSearch } from "@/utils/types";
@@ -35,7 +34,6 @@ export default function App({
       <DocSearchProvider docSearch={docSearch}>
         <LayoutProvider>
           <Header />
-          {/* <Nav /> */}
           <main className="flex-grow">
             <Component {...componentProps} />
           </main>

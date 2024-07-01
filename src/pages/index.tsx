@@ -27,20 +27,24 @@ export async function getStaticProps() {
 
 const InfoCardData = [
   {
+    emoji: "🔩",
     title: "Plugin Driven",
-    desc: "Everything in milkdown are plugins. Extend your editor with different types of plugins: syntax, theme, UI, etc.",
+    desc: "Everything in Milkdown are plugins. Extend your editor with different types of plugins: syntax, theme, UI, etc.",
   },
   {
+    emoji: "🤝",
     title: "Collaborative",
-    desc: "With the support of Y.js, milkdown can be used in real-time collaborative editing.",
+    desc: "With the support of Y.js, Milkdown can be used in real-time collaborative editing which can support multiple users editing on the same documentation.",
   },
   {
+    emoji: "🤯",
     title: "Headless",
     desc: "Milkdown is headless and comes without any CSS. You can easily customize the editor to fit the style of your application.",
   },
   {
+    emoji: "💡",
     title: "Reliable",
-    desc: "Milkdown is built on top of some great libraries, such as ProseMirror, Y.js, and Remark. Which means you can use their community and eco system to get help.",
+    desc: "Milkdown is built on top of some great libraries, such as ProseMirror, Y.js, and Remark, which means you can use their community and eco system to get help.",
   },
 ];
 
@@ -76,17 +80,22 @@ export default function Home() {
             </div>
           </div>
         </Liquid>
-        <div className="mx-8 pt-24 md:mx-24 lg:mx-40 xl:mx-80 2xl:mx-auto 2xl:max-w-4xl">
-          <div className="mt-24">
+        <div className="mx-8 md:mx-24 lg:mx-40 xl:mx-80 2xl:mx-auto 2xl:max-w-4xl">
+          <div className="mt-10 md:mt-24">
             <MilkdownProvider>
               <ProsemirrorAdapterProvider>
                 <HomeEditor value={doc.trim()} />
               </ProsemirrorAdapterProvider>
             </MilkdownProvider>
           </div>
-          <div className="mt-24 grid grid-cols-1 gap-6 md:grid-cols-2">
+          <div className="mt-10 grid grid-cols-1 gap-6 md:mt-20 md:grid-cols-2">
             {InfoCardData.map((data) => (
-              <InfoCard key={data.title} title={data.title} desc={data.desc} />
+              <InfoCard
+                key={data.title}
+                emoji={data.emoji}
+                title={data.title}
+                desc={data.desc}
+              />
             ))}
           </div>
         </div>
