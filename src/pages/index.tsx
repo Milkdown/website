@@ -57,7 +57,12 @@ export default function Home() {
       <div>
         <Liquid>
           <div className="min-w-64 relative z-10 flex h-full w-full flex-col items-center justify-center">
-            <h1 className="text-center text-4xl font-bold text-nord-neutral dark:text-nord-neutral-dark sm:text-6xl xl:text-7xl">
+            <h1
+              className={clsx(
+                "text-center text-4xl font-bold text-nord-neutral dark:text-nord-neutral-dark sm:text-6xl xl:text-7xl",
+                "liquid-content opacity-0 delay-300"
+              )}
+            >
               Milkdown
             </h1>
             <p
@@ -65,12 +70,18 @@ export default function Home() {
                 "text-center text-nord-neutral dark:text-nord-neutral-dark",
                 "text-base sm:text-2xl",
                 "mt-6 mb-11 sm:mt-10 sm:mb-10",
-                "w-64 sm:w-full"
+                "w-64 sm:w-full",
+                "liquid-content opacity-0 delay-500"
               )}
             >
               A plugin driven framework to build WYSIWYG Markdown editor.
             </p>
-            <div className="flex flex-col gap-4 sm:flex-row sm:gap-10">
+            <div
+              className={clsx(
+                "flex flex-col gap-4 sm:flex-row sm:gap-10",
+                "liquid-content opacity-0 delay-700"
+              )}
+            >
               <Link href={gettingStarted}>
                 <Button primary text="Get Started" />
               </Link>

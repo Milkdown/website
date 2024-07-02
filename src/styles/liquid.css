@@ -6,8 +6,6 @@
   g {
     filter: drop-shadow(0px 2px 5px rgba(184, 194, 215, 0.20));
   }
-
-
 }
 
 .dark {
@@ -15,5 +13,29 @@
     g {
       filter: drop-shadow(0px 2px 5px rgba(15, 17, 21, 0.20));
     }
+  }
+}
+
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+.liquid-content {
+  animation: slideIn 0.5s ease var(--animation-delay) forwards;
+  &.delay-300 {
+    --animation-delay: 0.3s;
+  }
+  &.delay-500 {
+    --animation-delay: 0.5s;
+  }
+  &.delay-700 {
+    --animation-delay: 0.7s;
   }
 }

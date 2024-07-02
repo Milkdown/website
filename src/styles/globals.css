@@ -23,11 +23,11 @@ div[data-milkdown-root="true"] {
 }
 
 button.main-button {
-  @apply shadow hover:shadow-lg active:shadow-none transition;
+  @apply shadow hover:shadow-md active:shadow-none transition;
 }
 
 button.button-primary {
-  @apply bg-nord-primary text-nord-foreground dark:text-nord-foreground-dark;
+  @apply bg-nord-primary text-nord-foreground;
   &:hover {
     background-color: color-mix(in srgb, #5E81AC, white 8%);
   }
