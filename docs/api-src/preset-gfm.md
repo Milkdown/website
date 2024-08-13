@@ -26,6 +26,7 @@ Editor
 @tableSchema
 @tableRowSchema
 @tableHeaderSchema
+@tableHeaderRowSchema
 @tableCellSchema
 
 @insertTableInputRule
@@ -35,7 +36,7 @@ Editor
 
 @goToPrevTableCellCommand
 @goToNextTableCellCommand
-@breakTableCommand
+@exitTable
 @insertTableCommand
 @moveRowCommand
 @moveColCommand
@@ -61,10 +62,15 @@ Editor
 @moveCol
 @moveRow
 
+@MoveColParams
+@MoveRowParams
+
 ## Prosemirror Plugins
-@autoInsertZeroSpaceInTablePlugin
+
+@autoInsertSpanPlugin
 @columnResizingPlugin
 @tableEditingPlugin
+@keepTableAlignPlugin
 
 ---
 
