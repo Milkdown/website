@@ -25,9 +25,12 @@ export const ControlPanel: FC<ControlPanelProps> = ({
 
   if (hide) {
     return (
-      <div className="fixed top-1/3 right-2 flex flex-col gap-2">
+      <div className="fixed top-36 right-6 flex flex-col gap-2">
         <button
-          onClick={() => setHide(false)}
+          onClick={() => {
+            setHide(false);
+            document.documentElement.scrollTop = 0;
+          }}
           className={clsx(
             linkClass(false),
             "flex h-12 w-12 items-center justify-center rounded",
