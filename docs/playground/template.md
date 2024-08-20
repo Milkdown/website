@@ -1,99 +1,93 @@
 # Milkdown
 
-![greeting bear](/polar.jpeg)
+👋 Welcome to milkdown. We are so glad to see you here!
 
-> Milkdown is a WYSIWYG markdown editor framework.
+💭 You may wonder what is Milkdown? Please write something here.
+
+> ⚠️ **Not the right side!**
 >
-> :baby_bottle: Here is the [repo] (right click to open link). \
-> We ~~only support commonmark~~. GFM is also supported!
+> Please try something on the left side.
 
-You can check the output markdown text in **two columns editing**.
+![1.00](/polar.jpeg "Hello by a polar bear")
 
--   Features
-    -   [x] 📝 **WYSIWYG Markdown** - Write markdown in an elegant way
-    -   [x] 🎨 **Themable** - Theme can be shared and used with npm packages
-    -   [x] 🎮 **Hackable** - Support your awesome idea by plugin
-    -   [x] 🦾 **Reliable** - Built on top of [prosemirror] and [remark]
-    -   [x] ⚡ **Slash & Tooltip** - Write fast for everyone, driven by plugin
-    -   [x] 🧮 **Math** - LaTeX math equations support, driven by plugin
-    -   [x] 📊 **Table** - Table support with fluent ui, driven by plugin
-    -   [x] 📰 **Diagram** - Diagram support with [mermaid](https://mermaid-js.github.io/mermaid/#/), driven by plugin
-    -   [x] 🍻 **Collaborate** - Shared editing support with [yjs], driven by plugin
-    -   [x] 💾 **Clipboard** - Support copy and paste markdown, driven by plugin
-    -   [x] :+1: **Emoji** - Support emoji shortcut and picker, driven by plugin
--   Made by
-    -   Programmer: [Mirone][mirone]
-    -   Designer: [Meo][meo]
+You're seeing this editor is called **🥞crepe**. Which is a editor built on top of Milkdown.
 
----
+If you want to install this editor, you can run `npm install @milkdown/crepe`. And then you can use it like this:
 
-You can add `inline code` and code block:
+```js
+import { Crepe } from '@milkdown/crepe';
+import "@milkdown/crepe/theme/common/style.css";
 
-```javascript
-function main() {
-  console.log('Hello milkdown!');
-}
-````
+// We have some themes for you to choose, ex.
+import "@milkdown/crepe/theme/frame.css";
+// Or you can create your own theme
+import "./your-theme.css";
 
-> Tips: use `<mod>+<enter>` to exit blocks such as code block.
+const crepe = new Crepe({
+  root: '#app',
+  defaultValue: '# Hello, Milkdown!',
+})
 
----
+crepe
+  .create()
+  .then(() => {
+    console.log('Milkdown is ready!');
+  })
 
-You can type `|3x2|<space>` to create a table:
 
-| First Header   |   Second Header    |
-| -------------- | :----------------: |
-| Content Cell 1 |  \`Content\` Cell 1  |
-| Content Cell 2 | **Content** Cell 2 |
-
----
-
-Math is supported by [TeX expression](https://en.wikipedia.org/wiki/TeX).
-
-Now we have some inline math: $E = mc^2$. You can click to edit it.
-
-Math block is also supported.
-
-$$
-\begin{aligned}
-T( (v_1 + v_2) \otimes w) &= T(v_1 \otimes w) + T(v_2 \otimes w) \\
-T( v \otimes (w_1 + w_2)) &= T(v \otimes w_1) + T(v \otimes w_2) \\
-T( (\alpha v) \otimes w ) &= T( \alpha ( v \otimes w) ) \\
-T( v \otimes (\alpha w) ) &= T( \alpha ( v \otimes w) ) \\
-\end{aligned}
-$$
-
-You can type `$$<space>` to create a math block.
-
----
-
-Use [emoji cheat sheet](https://www.webfx.com/tools/emoji-cheat-sheet/) such as `:+1:` to add emoji[^1].
-
-You may notice the emoji filter while inputting values, try to type \`:baby\` to see the list.
-
----
-
-Diagrams is powered by [mermaid](https://mermaid-js.github.io/mermaid/#/).
-
-You can type ` ```mermaid ` to add diagrams.
-
-```mermaid
-graph TD;
-EditorState-->EditorView;
-EditorView-->DOMEvent;
-DOMEvent-->Transaction;
-Transaction-->EditorState;
+// Before unmount
+crepe.destroy();
 ```
 
 ---
 
-Have fun!
+## Structure
+
+> 🍼 [Milkdown][repo] is a WYSIWYG markdown editor framework.
+>
+> Which means you can build your own markdown editor with Milkdown.
+
+In the real world, a typically milkdown editor is built on top of 3 layers:
+
+- [x] 🥛 Core: The core of Milkdown, which provides the plugin loading system with the editor concepts.
+- [x] 🧇 Plugins: A set of plugins that can be used to extend the functionalities of the editor.
+- [x] 🍮 Components: Some headless components that can be used to build your own editor.
+
+At start, you'll find it hard to understand all these concepts.
+But don't worry, we have this `@milkdown/crepe` editor for you to get started quickly.
+
+---
+
+## You can do more with Milkdown
+
+In Milkdown, you can extend the editor in many ways:
+
+| Feature      | Description                                          | Example                   |
+|--------------|------------------------------------------------------|---------------------------|
+| 🎨 Theme     | Create your own theme with CSS                       | Nord, Dracula             |
+| 🧩 Plugin    | Create your own plugin to extend the editor          | Search, Collab            |
+| 📦 Component | Create your own component to build your own editor   | Slash Menu, Toolbar       |
+| 📚 Syntax    | Create your own syntax to extend the markdown parser | Image with Caption, LaTex |
+
+We have provided a lot of plugins and components, with a out-of-box `crepe` editor for you to use and learn.
+
+---
+
+## Open Source
+
+- Milkdown is an open-source project under the MIT license.
+- Everyone is welcome to contribute to the project, and you can use it in your own project for free.
+- Please let me know what you are building with Milkdown, I would be so glad to see that!
+
+Maintaining Milkdown is a lot of work, and we are working on it in our spare time.
+If you like Milkdown, please consider supporting us by [sponsoring][sponsor] the project.
+We'll be so grateful for your support.
+
+## Who built Milkdown?
+
+Milkdown is built by [Mirone][mirone] and designed by [Meo][meo].
 
 [repo]: https://github.com/Milkdown/milkdown
-[prosemirror]: https://prosemirror.net/
-[yjs]: https://docs.yjs.dev/
-[remark]: https://github.com/remarkjs/remark
 [mirone]: https://github.com/Saul-Mirone
 [meo]: https://github.com/Saul-Meo
-
-[^1]: We use [tweet emoji](https://twemoji.twitter.com) to make emoji can be viewed cross platforms.
+[sponsor]: https://github.com/sponsors/Saul-Mirone

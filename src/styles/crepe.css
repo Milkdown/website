@@ -1,0 +1,30 @@
+@import "@milkdown/crepe/theme/common/style.css";
+@import "@milkdown/crepe/theme/nord.css";
+
+.milkdown milkdown-slash-menu .tab-group {
+  @apply !pb-3;
+}
+
+.crepe .cm-cursor, .crepe .cm-dropCursor {
+  border-left-color: #000 !important;
+}
+
+.dark .crepe .cm-cursor, .dark .crepe .cm-dropCursor {
+  border-left-color: #fff !important;
+}
+
+.crepe .milkdown  {
+  display: flow-root;
+}
+
+div:not(.expanded) .crepe .milkdown .ProseMirror {
+  @apply px-32 py-12 h-full;
+}
+
+.crepe .ProseMirror:not(.expanded .crepe .ProseMirror) {
+  @apply overflow-y-scroll overscroll-none;
+}
+
+.cm-editor {
+  @apply text-sm;
+}

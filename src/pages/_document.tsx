@@ -18,6 +18,20 @@ export default function Document() {
           crossOrigin="anonymous"
         />
 
+        {/* Crepe Nord Theme Fonts */}
+        <link
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
+          rel="stylesheet"
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+          rel="stylesheet"
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap"
+          rel="stylesheet"
+        />
+
         {/* Material Symbols, we cannot optional load icon set */}
         {/* eslint-disable-next-line @next/next/google-font-display */}
         <link

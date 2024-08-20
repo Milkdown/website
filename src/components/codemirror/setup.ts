@@ -18,8 +18,8 @@ import type { Extension } from "@codemirror/state";
 import { EditorState } from "@codemirror/state";
 import {
   EditorView,
+  ViewUpdate,
   crosshairCursor,
-  drawSelection,
   dropCursor,
   highlightActiveLine,
   highlightActiveLineGutter,
@@ -29,12 +29,12 @@ import {
 } from "@codemirror/view";
 import type React from "react";
 import { nord } from "./nord";
+import throttle from "lodash.throttle";
 
 const basicSetup: Extension = [
   highlightActiveLineGutter(),
   highlightSpecialChars(),
   history(),
-  drawSelection(),
   dropCursor(),
   EditorState.allowMultipleSelections.of(true),
   indentOnInput(),
@@ -78,14 +78,25 @@ export const createCodeMirrorState = ({
       EditorView.updateListener.of((viewUpdate) => {
         if (viewUpdate.focusChanged) lock.current = viewUpdate.view.hasFocus;
 
-        if (viewUpdate.docChanged) {
-          const getString = () => viewUpdate.state.doc.toString();
-          onChange(getString);
-        }
+        onCodeMirrorUpdate(onChange, viewUpdate);
       }),
     ],
   });
 };
+
+const onCodeMirrorUpdate = throttle(
+  (onChange: (getString: () => string) => void, viewUpdate: ViewUpdate) => {
+    if (viewUpdate.docChanged) {
+      const getString = () => viewUpdate.state.doc.toString();
+      onChange(getString);
+      viewUpdate.view.focus();
+      requestAnimationFrame(() => {
+        viewUpdate.view.focus();
+      });
+    }
+  },
+  200
+);
 
 interface ViewOptions extends StateOptions {
   root: HTMLElement;

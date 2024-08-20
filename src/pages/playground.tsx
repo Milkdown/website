@@ -8,8 +8,8 @@ import { ShareProvider } from "@/components/playground-editor/ShareProvider";
 import { getPlaygroundTemplate } from "@/pages/api/playground";
 import { compose } from "@/utils/compose";
 import { decode } from "@/utils/share";
-import { MilkdownProvider } from "@milkdown/react";
 import { ProsemirrorAdapterProvider } from "@prosemirror-adapter/react";
+import clsx from "clsx";
 import dynamic from "next/dynamic";
 import Head from "next/head";
 import { useRouter } from "next/router";
@@ -39,7 +39,6 @@ const ControlPanel = dynamic(
 
 const Provider = compose(
   FeatureToggleProvider,
-  MilkdownProvider,
   ProsemirrorAdapterProvider,
   ProseStateProvider,
   ShareProvider,
@@ -59,6 +58,7 @@ export default function Playground({ template }: { template: string }) {
   const [content, setContent] = useState(template);
   const router = useRouter();
   const path = router.asPath;
+  const [expand, setExpand] = useState(false);
 
   useEffect(() => {
     const [_, search = ""] = path.split("?");
@@ -96,15 +96,28 @@ export default function Playground({ template }: { template: string }) {
       </Head>
       <div className="m-0 grid border-b border-gray-300 dark:border-gray-600 md:mt-0 md:grid-cols-2">
         <Provider>
-          <div className="h-[calc(50vh-2rem)] overflow-auto overscroll-none md:h-[calc(100vh-72px)]">
+          <div
+            className={clsx(
+              "h-[calc(50vh-2rem)] overflow-auto overscroll-none md:h-[calc(100vh-72px)]",
+              expand &&
+                "expanded col-span-2 mx-auto mt-16 mb-24 flex !h-fit min-h-[80vh] w-full max-w-5xl flex-col border-gray-300 shadow-2xl dark:border-gray-600"
+            )}
+          >
             <PlaygroundMilkdown
               milkdownRef={milkdownRef}
               content={content}
               onChange={onMilkdownChange}
             />
           </div>
-          <div className="h-[calc(50vh-2rem)] overflow-auto overscroll-none border-l border-gray-300 dark:border-gray-600 md:h-[calc(100vh-72px)]">
+          <div
+            className={clsx(
+              "h-[calc(50vh-2rem)] overflow-y-scroll overscroll-none border-l border-gray-300 dark:border-gray-600 md:h-[calc(100vh-72px)]",
+              expand && "!h-0"
+            )}
+          >
             <ControlPanel
+              hide={expand}
+              setHide={setExpand}
               codemirrorRef={codemirrorRef}
               content={content}
               onChange={onCodemirrorChange}
