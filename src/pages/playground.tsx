@@ -100,7 +100,7 @@ export default function Playground({ template }: { template: string }) {
             className={clsx(
               "h-[calc(50vh-2rem)] overflow-auto overscroll-none md:h-[calc(100vh-72px)]",
               expand &&
-                "expanded col-span-2 mx-auto mt-16 mb-24 flex !h-fit min-h-[80vh] w-full max-w-5xl flex-col border-gray-300 shadow-2xl dark:border-gray-600"
+                "expanded col-span-2 mx-auto mt-16 mb-24 flex !h-fit min-h-[80vh] w-full max-w-5xl flex-col border-gray-300 drop-shadow-md dark:border-gray-600"
             )}
           >
             <PlaygroundMilkdown
