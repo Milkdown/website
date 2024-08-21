@@ -1,41 +1,33 @@
-import { linkPlugin } from "@/components/milkdown-shared/linkPlugin";
-import {
-  defaultValueCtx,
-  Editor,
-  editorViewOptionsCtx,
-  rootCtx,
-} from "@milkdown/core";
-import { commonmark } from "@milkdown/preset-commonmark";
-import { Milkdown, useEditor } from "@milkdown/react";
-import { nord } from "@milkdown/theme-nord";
-import { useWidgetViewFactory } from "@prosemirror-adapter/react";
-import { FC } from "react";
+import { Crepe } from "@milkdown/crepe";
+import { FC, useLayoutEffect, useRef } from "react";
 
 const HomeEditor: FC<{ value: string }> = ({ value }) => {
-  const widgetViewFactory = useWidgetViewFactory();
+  const divRef = useRef<HTMLDivElement>(null);
+  const loading = useRef(false);
 
-  useEditor((root) => {
-    return Editor.make()
-      .config((ctx) => {
-        ctx.set(rootCtx, root);
-        root.className =
-          "!h-80 md:!h-[480px] overflow-auto bg-nord-foreground rounded-2xl shadow border border-nord-outline dark:bg-nord-foreground-dark dark:border-nord-outline-dark";
+  useLayoutEffect(() => {
+    loading.current = true;
+    const crepe = new Crepe({
+      root: divRef.current,
+      defaultValue: value,
+      features: {
+        [Crepe.Feature.CodeMirror]: false,
+        [Crepe.Feature.BlockEdit]: false,
+      },
+    });
+    crepe.create();
 
-        ctx.set(editorViewOptionsCtx, {
-          attributes: {
-            class: "w-full max-w-full box-border overflow-hidden p-8",
-          },
-        });
-      })
-      .config((ctx) => {
-        ctx.set(defaultValueCtx, value);
-      })
-      .config(nord)
-      .use(commonmark)
-      .use(linkPlugin(widgetViewFactory));
-  });
+    return () => {
+      crepe.destroy();
+    };
+  }, [value]);
 
-  return <Milkdown />;
+  return (
+    <div
+      ref={divRef}
+      className="crepe !h-80 overflow-auto rounded-2xl border border-nord-outline shadow dark:border-nord-outline-dark md:!h-[480px]"
+    />
+  );
 };
 
 export default HomeEditor;
