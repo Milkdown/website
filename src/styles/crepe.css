@@ -287,6 +287,15 @@ div:not(.expanded) .crepe .milkdown .ProseMirror {
   }
 }
 
+.crepe .milkdown milkdown-table-block .cell-handle {
+  background-color: var(--crepe-color-surface);
+  box-shadow: var(--crepe-shadow-1);
+}
+
+.crepe .milkdown table th, td {
+  padding: 4px 16px !important;
+}
+
 .crepe .milkdown {
   height: 100%;
   flex: 1;
