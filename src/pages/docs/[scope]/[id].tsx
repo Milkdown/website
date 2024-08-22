@@ -1,7 +1,6 @@
 import { getDocById } from "@/pages/api/docs";
 import { docConfig } from "@/routes";
 import { toTitle } from "@/utils/title";
-import { MilkdownProvider } from "@milkdown/react";
 import { ProsemirrorAdapterProvider } from "@prosemirror-adapter/react";
 import Head from "next/head";
 import { useRouter } from "next/router";
@@ -68,11 +67,9 @@ const DocRenderer: FC<{ content: string }> = ({ content }) => {
         />
       </Head>
       <div className="mx-8 pb-10 pt-24 md:mx-24 md:pb-24 lg:mx-40 xl:mx-80 2xl:mx-auto 2xl:max-w-4xl">
-        <MilkdownProvider>
-          <ProsemirrorAdapterProvider>
-            <Doc url={url} content={content} />
-          </ProsemirrorAdapterProvider>
-        </MilkdownProvider>
+        <ProsemirrorAdapterProvider>
+          <Doc url={url} content={content} />
+        </ProsemirrorAdapterProvider>
       </div>
     </>
   );

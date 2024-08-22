@@ -44,6 +44,7 @@ export const headingAnchorPlugin = (
                 widgets.push(
                   widget(pos + 1, {
                     id: node.attrs.id,
+                    level: node.attrs.level,
                     side: -1,
                   })
                 );

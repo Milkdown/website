@@ -6,6 +6,7 @@ const HomeEditor: FC<{ value: string }> = ({ value }) => {
   const loading = useRef(false);
 
   useLayoutEffect(() => {
+    if (!divRef.current) return;
     loading.current = true;
     const crepe = new Crepe({
       root: divRef.current,
@@ -15,7 +16,9 @@ const HomeEditor: FC<{ value: string }> = ({ value }) => {
         [Crepe.Feature.BlockEdit]: false,
       },
     });
-    crepe.create();
+    crepe.create().then(() => {
+      loading.current = false;
+    });
 
     return () => {
       crepe.destroy();

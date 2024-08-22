@@ -18,7 +18,7 @@ const DropdownItem: FC<{ scope: string; item: string }> = ({ scope, item }) => {
       <li
         className={clsx(
           "w-44 rounded py-2 px-4",
-          "text-left text-sm",
+          "truncate text-left text-sm",
           "text-nord-neutral dark:text-nord-neutral-dark",
           "transition hover:bg-nord-secondary-deep/[0.12] active:bg-nord-secondary-deep/20 hover:dark:bg-nord-secondary-deep/[0.12] active:dark:bg-nord-secondary-deep/20",
           active && "bg-nord-secondary-deep/20 font-bold !text-nord-primary"
