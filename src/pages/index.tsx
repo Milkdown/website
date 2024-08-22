@@ -1,10 +1,9 @@
-import HomeEditor from "@/components/home-editor";
 import { Button } from "@/components/home/Button";
 import { InfoCard } from "@/components/home/InfoCard";
 import { Liquid } from "@/components/liquid";
-import { MilkdownProvider } from "@milkdown/react";
-import { ProsemirrorAdapterProvider } from "@prosemirror-adapter/react";
+import Loading from "@/components/loading";
 import clsx from "clsx";
+import dynamic from "next/dynamic";
 import Head from "next/head";
 import Link from "next/link";
 
@@ -24,6 +23,14 @@ export async function getStaticProps() {
     props: {}, // will be passed to the page component as props
   };
 }
+
+const HomeEditor = dynamic(
+  () => import("@/components/home-editor").then((module) => module.default),
+  {
+    ssr: false,
+    loading: () => <Loading />,
+  }
+);
 
 const InfoCardData = [
   {
@@ -93,11 +100,7 @@ export default function Home() {
         </Liquid>
         <div className="mx-8 mb-10 md:mx-24 md:mb-24 lg:mx-40 xl:mx-80 2xl:mx-auto 2xl:max-w-4xl">
           <div className="mt-10 md:mt-24">
-            <MilkdownProvider>
-              <ProsemirrorAdapterProvider>
-                <HomeEditor value={doc.trim()} />
-              </ProsemirrorAdapterProvider>
-            </MilkdownProvider>
+            <HomeEditor value={doc.trim()} />
           </div>
           <div className="mt-10 grid grid-cols-1 gap-6 md:mt-20 md:grid-cols-2">
             {InfoCardData.map((data) => (
