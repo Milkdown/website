@@ -14,7 +14,7 @@ const NestedDiv: FC<{ level: number; children: ReactNode }> = ({
   if (level === 0) return <>{children}</>;
 
   return (
-    <div className="truncate pl-1">
+    <div className={clsx("truncate", level > 1 && "pl-4")}>
       <NestedDiv level={level - 1}>{children}</NestedDiv>
     </div>
   );

@@ -39,7 +39,12 @@ export default function App({
       <DocSearchProvider docSearch={docSearch}>
         <LayoutProvider>
           <Header />
-          <main className={clsx("flex-grow", pathname !== "/" && "mt-[72px]")}>
+          <main
+            className={clsx(
+              "flex-grow",
+              pathname !== "/" ? "mt-[72px]" : "bg-white dark:bg-nord0"
+            )}
+          >
             <Component {...componentProps} />
           </main>
           <Footer />
