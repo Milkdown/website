@@ -34,13 +34,26 @@ Milkdown is built on top of these libraries:
 
 ---
 
-## First editor
+# First editor
 
-Here are some examples to help you get started with creating your first editor:
+Basically, you have 2 ways to create an editor:
+
+1. Use the `@milkdown/kit` to build your own editor from scratch.
+2. Use the `@milkdown/crepe`, which is a well-configured editor that works out of the box.
+
+## Use `@milkdown/kit`
+
+First, install the required packages:
+
+```bash
+npm install @milkdown/kit @milkdown/theme-nord
+```
+
+Then, create a simple editor with the commonmark syntax:
 
 ```typescript
-import { Editor } from '@milkdown/core';
-import { commonmark } from '@milkdown/preset-commonmark';
+import { Editor } from '@milkdown/kit/core';
+import { commonmark } from '@milkdown/kit/preset/commonmark';
 
 import { nord } from '@milkdown/theme-nord';
 import '@milkdown/theme-nord/style.css';
@@ -54,26 +67,61 @@ Editor
 
 [![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/Milkdown/examples/tree/main/vanilla-commonmark)
 
-## Taste the plugin
-
 Now let's add **undo & redo** support to our editor using the `history` plugin:
 
 ```typescript
-import { Editor } from '@milkdown/core';
-import { commonmark } from '@milkdown/preset-commonmark';
-import { history } from '@milkdown/plugin-history';
+import { Editor } from '@milkdown/kit/core';
+import { commonmark } from '@milkdown/kit/preset/commonmark';
+import { history } from '@milkdown/kit/plugin/history';
 
 import { nord } from '@milkdown/theme-nord';
 import '@milkdown/theme-nord/style.css';
 
-Editor
+const milkdown = Editor
   .make()
   .config(nord)
   .use(commonmark)
   .use(history)
-  .create();
+  .create()
+  .then(() => {
+    console.log('Editor created');
+  });
+
+// To destroy the editor
+milkdown.destroy();
 ```
 
 > `<Mod>` is `<Cmd>` for mac and `<Ctrl>` for other platforms.
 
 Now we can undo an edit by using `<Mod-z>` and redo it by using `<Mod-y>/<Shift-Mod-Z>`.
+
+## Use `@milkdown/crepe`
+
+First, install the required package:
+
+```bash
+npm install @milkdown/crepe
+```
+
+Then, create the crepe editor.
+
+```typescript
+import { crepe } from '@milkdown/crepe';
+import "@milkdown/crepe/theme/common/style.css";
+
+// We have some themes for you to choose
+// available themes: frame, classic, nord, frame-dark, classic-dark, nord-dark
+import "@milkdown/crepe/theme/frame.css";
+
+const crepe = new Crepe({
+    root: document.getElementById('app'),
+    defaultValue: 'Hello, Milkdown!',
+});
+
+crepe.create().then(() => {
+  console.log('Editor created');
+});
+
+// To destroy the editor
+crepe.destroy();
+```
