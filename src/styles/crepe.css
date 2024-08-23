@@ -366,3 +366,7 @@ div:not(.expanded) .crepe .milkdown .ProseMirror {
 .crepe-doc .milkdown .ProseMirror {
   @apply !px-3 !py-0;
 }
+
+.crepe-doc .iframe-plugin {
+  @apply w-full aspect-video block my-4;
+}

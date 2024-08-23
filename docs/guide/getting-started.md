@@ -65,7 +65,7 @@ Editor
   .create();
 ```
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/Milkdown/examples/tree/main/vanilla-commonmark)
+::iframe{src="https://stackblitz.com/github/Milkdown/examples/tree/main/vanilla-commonmark?view=preview"}
 
 Now let's add **undo & redo** support to our editor using the `history` plugin:
 

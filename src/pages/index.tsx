@@ -24,13 +24,10 @@ export async function getStaticProps() {
   };
 }
 
-const HomeEditor = dynamic(
-  () => import("@/components/home-editor").then((module) => module.default),
-  {
-    ssr: false,
-    loading: () => <Loading />,
-  }
-);
+const HomeEditor = dynamic(() => import("@/components/home-editor"), {
+  ssr: false,
+  loading: () => <Loading />,
+});
 
 const InfoCardData = [
   {

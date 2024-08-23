@@ -1,3 +1,4 @@
+import { iframePlugin } from "./iframePlugin";
 import Outline from "@/components/outline";
 import { useDarkMode } from "@/providers";
 import { editorViewCtx, editorViewOptionsCtx } from "@milkdown/kit/core";
@@ -56,6 +57,7 @@ const Doc: FC<{ content: string; url: string }> = ({ content, url }) => {
           });
       })
       .use(headingAnchorPlugin(widgetViewFactory))
+      .use(iframePlugin)
       .use(listener);
 
     crepe.create().then(() => {
