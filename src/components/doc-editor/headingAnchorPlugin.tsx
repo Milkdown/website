@@ -13,10 +13,10 @@ const HeadingWidget: FC = () => {
 
   return (
     <a
-      className="mr-1 align-middle text-[1em] text-nord10 hover:text-nord7"
+      className="!mr-2 inline-flex items-center align-middle text-[1em] text-nord10 !no-underline hover:text-nord7"
       href={`#${id}`}
     >
-      <span className="material-symbols-outlined text-[1em]">tag</span>
+      <span className="material-symbols-outlined text-[1em]">grocery</span>
     </a>
   );
 };

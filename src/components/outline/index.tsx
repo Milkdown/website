@@ -23,14 +23,24 @@ const NestedDiv: FC<{ level: number; children: ReactNode }> = ({
 function Outline(props: { items: OutlineItem[] }) {
   const { items } = props;
   const router = useRouter();
-  const location = router.asPath;
   const [hash, setHash] = useState("");
   const linkClass = useLinkClass();
 
   useEffect(() => {
-    const [_, hash = ""] = location.split("#");
-    setHash(hash);
-  }, [location]);
+    const onHashChange = () => {
+      const url = window.location.hash;
+      const [_, hash = ""] = url.split("#");
+      setHash(hash);
+    };
+
+    onHashChange();
+
+    window.addEventListener("hashchange", onHashChange);
+
+    return () => {
+      window.removeEventListener("hashchange", onHashChange);
+    };
+  }, [router]);
 
   return (
     <ul className="flex-1 pr-1">
