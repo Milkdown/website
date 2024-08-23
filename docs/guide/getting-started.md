@@ -125,3 +125,5 @@ crepe.create().then(() => {
 // To destroy the editor
 crepe.destroy();
 ```
+
+::iframe{src="https://stackblitz.com/github/Milkdown/examples/tree/main/editor-crepe"}
