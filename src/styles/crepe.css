@@ -64,10 +64,6 @@ div:not(.expanded) .crepe .milkdown .ProseMirror {
     outline: none;
   }
 
-  .milkdown .ProseMirror {
-    padding: 60px 120px;
-  }
-
   .milkdown .ProseMirror *::-moz-selection {
     background: var(--crepe-color-selected);
   }
@@ -363,6 +359,10 @@ div:not(.expanded) .crepe .milkdown .ProseMirror {
   0px 2px 6px 2px rgba(255, 255, 255, 0.15);
 }
 
+.crepe .milkdown .ProseMirror {
+  @apply !px-1 !py-0 md:!px-[120px] md:!py-[60px];
+}
+
 .crepe-doc .milkdown .ProseMirror {
-  padding: 0 4px !important;
+  @apply !px-1 !py-0;
 }
