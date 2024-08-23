@@ -16,8 +16,8 @@ This package uses [refractor](https://www.npmjs.com/package/refractor) so it has
 ## Usage
 
 ```typescript
-import { Editor } from '@milkdown/core';
-import { commonmark } from '@milkdown/preset-commonmark';
+import { Editor } from '@milkdown/kit/core';
+import { commonmark } from '@milkdown/kit/preset/commonmark';
 
 import { prism } from '@milkdown/plugin-prism';
 

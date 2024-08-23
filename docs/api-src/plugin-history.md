@@ -5,11 +5,11 @@ History undo & redo support for [milkdown](https://milkdown.dev/).
 ## Usage
 
 ```typescript
-import { Editor } from '@milkdown/core';
-import { commonmark } from '@milkdown/preset-commonmark';
+import { Editor } from '@milkdown/kit/core';
+import { commonmark } from '@milkdown/kit/preset/commonmark';
 import { nord } from '@milkdown/theme-nord';
 
-import { history } from '@milkdown/plugin-history';
+import { history } from '@milkdown/kit/plugin/history';
 
 Editor.make().use(nord).use(commonmark).use(history).create();
 ```

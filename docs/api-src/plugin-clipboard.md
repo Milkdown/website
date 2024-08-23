@@ -3,9 +3,9 @@
 Markdown copy & paste support for [milkdown](https://milkdown.dev/).
 
 ```typescript
-import { Editor } from '@milkdown/core';
+import { Editor } from '@milkdown/kit/core';
 
-import { clipboard } from '@milkdown/plugin-clipboard';
+import { clipboard } from '@milkdown/kit/plugin/clipboard';
 
 Editor
   .make()

@@ -3,9 +3,9 @@
 Commonmark preset for [milkdown](https://milkdown.dev/).
 
 ```typescript
-import { Editor } from '@milkdown/core';
+import { Editor } from '@milkdown/kit/core';
 
-import { commonmark } from '@milkdown/preset-commonmark';
+import { commonmark } from '@milkdown/kit/preset/commonmark';
 
 Editor
   .make()
@@ -23,7 +23,7 @@ You can set the attributes by setting the `attr` in `editor.config`.
 For example, you can set the `data-test-id` and `class` of all the `paragraph` nodes.
 
 ```typescript
-import { commonmark, paragraphAttr } from '@milkdown/preset-commonmark';
+import { commonmark, paragraphAttr } from '@milkdown/kit/preset/commonmark';
 
 Editor
   .make()

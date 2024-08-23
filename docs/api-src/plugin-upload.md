@@ -3,9 +3,9 @@
 Upload and create image (or any file types you like) when drop.
 
 ```typescript
-import { Editor } from '@milkdown/core';
+import { Editor } from '@milkdown/kit/core';
 
-import { upload } from '@milkdown/plugin-upload';
+import { upload } from '@milkdown/kit/plugin/upload';
 
 Editor
   .make()
@@ -23,8 +23,8 @@ By default, this plugin will transform image to base64 and ignore other file typ
 If you want to upload file and handle the generated blocks, you should setup the uploader.
 
 ```typescript
-import { upload, uploadConfig, Uploader } from '@milkdown/plugin-upload';
-import type { Node } from '@milkdown/prose/model';
+import { upload, uploadConfig, Uploader } from '@milkdown/kit/plugin/upload';
+import type { Node } from '@milkdown/kit/prose/model';
 
 const uploader: Uploader = async (files, schema) => {
   const images: File[] = [];

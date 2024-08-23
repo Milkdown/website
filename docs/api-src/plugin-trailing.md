@@ -3,9 +3,9 @@
 Add a trailing node at the end of the document automatically.
 
 ```typescript
-import { Editor } from '@milkdown/core';
+import { Editor } from '@milkdown/kit/core';
 
-import { trailing } from '@milkdown/plugin-trailing';
+import { trailing } from '@milkdown/kit/plugin/trailing';
 
 Editor
   .make()

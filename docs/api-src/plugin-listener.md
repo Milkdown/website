@@ -5,11 +5,11 @@ Listener plugin for milkdown.
 ## Usage
 
 ```typescript
-import { Editor } from '@milkdown/core';
-import { commonmark } from '@milkdown/preset-commonmark';
+import { Editor } from '@milkdown/kit/core';
+import { commonmark } from '@milkdown/kit/preset/commonmark';
 import { nord } from '@milkdown/theme-nord';
 
-import { listener, listenerCtx } from '@milkdown/plugin-listener';
+import { listener, listenerCtx } from '@milkdown/kit/plugin/listener';
 
 Editor.make()
     .config((ctx) => {

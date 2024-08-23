@@ -3,8 +3,8 @@
 Indent support for [milkdown](https://milkdown.dev/).
 
 ```typescript
-import { Editor } from '@milkdown/core';
-import { indent } from '@milkdown/plugin-indent';
+import { Editor } from '@milkdown/kit/core';
+import { indent } from '@milkdown/kit/plugin/indent';
 
 Editor
   .make()

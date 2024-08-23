@@ -11,7 +11,7 @@ Create tooltip view is simple.
 All you need to do is to implement the [Prosemirror Plugin.view](https://prosemirror.net/docs/ref/#state.PluginSpec.view).
 
 ```typescript
-import { TooltipProvider } from '@milkdown/plugin-tooltip'
+import { TooltipProvider } from '@milkdown/kit/plugin/tooltip'
 
 function tooltipPluginView(view) {
   const content = document.createElement('div');

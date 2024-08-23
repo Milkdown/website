@@ -5,10 +5,10 @@ Github flavored markdown preset for [milkdown](https://milkdown.dev/).
 > Notice: The GFM preset needs to be used with the [commonmark preset](https://milkdown.dev/api/preset-commonmark).
 
 ```typescript
-import { Editor } from '@milkdown/core';
+import { Editor } from '@milkdown/kit/core';
 
-import { commonmark } from '@milkdown/preset-commonmark';
-import { gfm } from '@milkdown/preset-gfm';
+import { commonmark } from '@milkdown/kit/preset/commonmark';
+import { gfm } from '@milkdown/kit/preset/gfm';
 
 Editor
   .make()

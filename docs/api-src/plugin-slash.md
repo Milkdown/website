@@ -16,7 +16,7 @@ Create slash view is simple.
 All you need to do is to implement the [Prosemirror Plugin.view](https://prosemirror.net/docs/ref/#state.PluginSpec.view).
 
 ```typescript
-import { SlashProvider } from '@milkdown/plugin-slash'
+import { SlashProvider } from '@milkdown/kit/plugin/slash'
 
 function slashPluginView(view) {
   const content = document.createElement('div');
