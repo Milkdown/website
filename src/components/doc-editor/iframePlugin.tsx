@@ -44,7 +44,7 @@ const iframeNode = $node("iframe", () => ({
       {
         contenteditable: false,
         class: "iframe-plugin",
-        src: `${node.attrs.src}?embed=1&view=preview`,
+        src: `${node.attrs.src}?embed=1&view=preview&ctl=1`,
       },
       0,
     ],

@@ -8,7 +8,7 @@ This plugin includes basic collaborative editing features like:
 -   Remote cursor support.
 -   Undo/Redo support.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/Milkdown/examples/tree/main/vanilla-collab)
+::iframe{src="https://stackblitz.com/github/Milkdown/examples/tree/main/vanilla-collab"}
 
 ## Configure Plugin
 
