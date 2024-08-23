@@ -17,7 +17,7 @@ interface MilkdownProps {
   onChange: (markdown: string) => void;
 }
 
-export const PlaygroundMilkdown: FC<MilkdownProps> = ({ onChange }) => {
+const CrepeEditor: FC<MilkdownProps> = ({ onChange }) => {
   const crepeRef = useRef<Crepe>(null);
   const darkMode = useDarkMode();
   const divRef = useRef<HTMLDivElement>(null);
@@ -104,3 +104,5 @@ export const PlaygroundMilkdown: FC<MilkdownProps> = ({ onChange }) => {
 
   return <div className="crepe flex h-full flex-1 flex-col" ref={divRef} />;
 };
+
+export default CrepeEditor;

@@ -12,11 +12,7 @@ interface ControlPanelProps extends CodemirrorProps {
   setHide: (hide: boolean) => void;
 }
 
-export const ControlPanel: FC<ControlPanelProps> = ({
-  hide,
-  onChange,
-  setHide,
-}) => {
+const ControlPanel: FC<ControlPanelProps> = ({ hide, onChange, setHide }) => {
   const linkClass = useLinkClass();
   const { onShare } = useAtomValue(crepeAPI);
 
@@ -54,7 +50,7 @@ export const ControlPanel: FC<ControlPanelProps> = ({
   }
 
   return (
-    <div className="h-full">
+    <div className="flex h-full flex-col">
       <div className="flex h-10 items-center justify-between border-b border-nord4 bg-gray-200 px-4 py-2 font-light dark:border-gray-600 dark:bg-gray-700">
         <div className="flex items-center gap-2">
           <button
@@ -93,3 +89,5 @@ export const ControlPanel: FC<ControlPanelProps> = ({
     </div>
   );
 };
+
+export default ControlPanel;

@@ -46,5 +46,10 @@ export const Codemirror: FC<CodemirrorProps> = ({ onChange }) => {
     };
   }, [onChange, content, dark, setCmAPI, setFocus]);
 
-  return <div className="h-full bg-gray-50 dark:bg-gray-900" ref={divRef} />;
+  return (
+    <div
+      className="overflow-y-scroll overscroll-none bg-gray-50 dark:bg-gray-900"
+      ref={divRef}
+    />
+  );
 };
