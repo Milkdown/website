@@ -9,7 +9,7 @@ But it can help you understand the plugin system and what happens under the hood
 Generally speaking, a plugin will have following structure:
 
 ```typescript
-import { MilkdownPlugin } from '@milkdown/ctx';
+import { MilkdownPlugin } from '@milkdown/kit/ctx';
 
 const myPlugin: MilkdownPlugin = (ctx) => {
   // #1 prepare plugin
@@ -35,7 +35,7 @@ Timer can be used to decide when to load the current plugin and how current plug
 You can use `ctx.wait` to wait a timer to finish.
 
 ```typescript
-import { MilkdownPlugin, Complete } from '@milkdown/core';
+import { MilkdownPlugin, Complete } from '@milkdown/kit/core';
 
 const myPlugin: MilkdownPlugin = (ctx) => {
   return async () => {
@@ -54,7 +54,7 @@ You can also create your own timer and influence other plugins load time.
 For example, let's create a plugin that will fetch markdown content from remote server as editor's default value.
 
 ```typescript
-import { MilkdownPlugin, editorStateTimerCtx, defaultValueCtx, createTimer } from '@milkdown/core';
+import { MilkdownPlugin, editorStateTimerCtx, defaultValueCtx, createTimer } from '@milkdown/kit/core';
 
 const RemoteTimer = createTimer('RemoteTimer');
 
@@ -95,7 +95,7 @@ We have used `ctx` several times in the above example, now we can try to underst
 Ctx is a data container which is shared in the entire editor instance. It's composed by a lot of slices. Every `slice` has a unique key and a value. You can change the value of a slice by `ctx.set` and `ctx.update`. And you can get the value of a slice by `ctx.get` with the slice key or name. Last but not least, you can remove a slice by `post.remove`.
 
 ```typescript
-import { MilkdownPlugin, createSlice } from '@milkdown/ctx';
+import { MilkdownPlugin, createSlice } from '@milkdown/kit/ctx';
 
 const counterCtx = createSlice(0, 'counter');
 
@@ -135,7 +135,7 @@ And when plugin processing, `ctx.get` can get the value of a ctx, `ctx.set` can 
 So, we can use `ctx` combine with `timer` to decide when should a plugin be processed.
 
 ```typescript
-import { MilkdownPlugin, SchemaReady, Timer, createSlice } from '@milkdown/core';
+import { MilkdownPlugin, SchemaReady, Timer, createSlice } from '@milkdown/kit/core';
 
 const examplePluginTimersCtx = createSlice<Timer[]>([], 'example-timer');
 

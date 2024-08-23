@@ -5,10 +5,10 @@ Such as syntax, components, etc.
 Now we can try more plugins:
 
 ```typescript
-import { Editor } from '@milkdown/core';
-import { commonmark } from '@milkdown/preset-commonmark';
-import { tooltip } from '@milkdown/plugin-tooltip';
-import { slash } from '@milkdown/plugin-slash';
+import { Editor } from '@milkdown/kit/core';
+import { commonmark } from '@milkdown/kit/preset/commonmark';
+import { tooltip } from '@milkdown/kit/plugin/tooltip';
+import { slash } from '@milkdown/kit/plugin/slash';
 
 Editor
   .make()
@@ -25,7 +25,7 @@ Editor
 You can also toggle plugins programmatically:
 
 ```typescript
-import { Editor } from '@milkdown/core';
+import { Editor } from '@milkdown/kit/core';
 import { someMilkdownPlugin } from 'some-milkdown-plugin';
 
 const editor = await Editor
@@ -52,29 +52,31 @@ await editor.create();
 
 Milkdown provides the following official plugins:
 
-* [@milkdown/preset-commonmark](/docs/api/preset-commonmark):
+### Plugins provided by `@milkdown/kit`:
 
-   Add [commonmark](https://commonmark.org/) syntax support.
+> 🙋‍♀️Why not all plugins are available in `@milkdown/kit`?
+>
+> `@milkdown/kit` is a collection of plugins that are commonly used in the editor.
+> If you want to use a plugin that is not in `@milkdown/kit`, you can install it separately.
+> The plugins in `@milkdown/kit` are also stable and well-tested.
 
-* [@milkdown/preset-gfm](/docs/api/preset-gfm)
+| Package Name                                                   | Description                                               |
+|----------------------------------------------------------------|-----------------------------------------------------------|
+| [@milkdown/kit/preset/commonmark](/docs/api/preset-commonmark) | Add [commonmark](https://commonmark.org/) syntax support. |
+| [@milkdown/kit/preset/gfm](/docs/api/preset-gfm)               | Add [gfm](https://github.github.com/gfm/) syntax support. |
+| [@milkdown/kit/plugin/history](/docs/api/plugin-history)       | Add undo & redo support.                                  |
+| [@milkdown/kit/plugin/clipboard](/docs/api/plugin-clipboard)   | Add markdown copy & paste support.                        |
+| [@milkdown/kit/plugin/cursor](/docs/api/plugin-cursor)         | Add drop & gap cursor.                                    |
+| [@milkdown/kit/plugin/listener](/docs/api/plugin-listener)     | Add listener support.                                     |
+| [@milkdown/kit/plugin/indent](/docs/api/plugin-indent)         | Add tab indent support.                                   |
+| [@milkdown/kit/plugin/upload](/docs/api/plugin-upload)         | Add drop and upload support.                              |
+| [@milkdown/kit/plugin/block](/docs/api/plugin-block)           | Add a drag handle for every block node.                   |
+| [@milkdown/kit/plugin/tooltip](/docs/api/plugin-tooltip)       | Add universal tooltip support.                            |
+| [@milkdown/kit/plugin/slash](/docs/api/plugin-slash)           | Add universal slash commands support.                     |
 
-  Add [gfm](https://github.github.com/gfm/) syntax support.
 
-* [@milkdown/plugin-history](/docs/api/plugin-history)
 
-  Add undo & redo support.
-
-* [@milkdown/plugin-clipboard](/docs/api/plugin-clipboard)
-
-  Add markdown copy & paste support.
-
-* [@milkdown/plugin-cursor](/docs/api/plugin-cursor)
-
-  Add drop & gap cursor.
-
-* [@milkdown/plugin-listener](/docs/api/plugin-listener)
-
-  Add listener support.
+### Other Plugins:
 
 * [@milkdown/plugin-collab](/docs/api/plugin-collab)
 
@@ -88,14 +90,6 @@ Milkdown provides the following official plugins:
 
   Add [LaTeX](https://en.wikipedia.org/wiki/LaTeX) support for math, powered by [Katex](https://katex.org/).
 
-* [@milkdown/plugin-tooltip](/docs/api/plugin-tooltip)
-
-  Add universal tooltip support.
-
-* [@milkdown/plugin-slash](/docs/api/plugin-slash)
-
-  Add universal slash commands support.
-
 * [@milkdown/plugin-emoji](/docs/api/plugin-emoji)
 
   Add emoji shortcut support (something like `:+1:`), and use [twemoji](https://twemoji.twitter.com/) to display emoji.
@@ -103,18 +97,6 @@ Milkdown provides the following official plugins:
 * [@milkdown/plugin-diagram](/docs/api/plugin-diagram)
 
   Add [mermaid](https://mermaid-js.github.io/mermaid/#/) diagram support.
-
-* [@milkdown/plugin-indent](/docs/api/plugin-indent)
-
-  Add tab indent support.
-
-* [@milkdown/plugin-upload](/docs/api/plugin-upload)
-
-  Add drop and upload support.
-
-* [@milkdown/plugin-block](/docs/api/plugin-block)
-
-  Add a drag handle for every block node.
 
 ## Community plugins
 

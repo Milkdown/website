@@ -360,9 +360,9 @@ div:not(.expanded) .crepe .milkdown .ProseMirror {
 }
 
 .crepe .milkdown .ProseMirror {
-  @apply !px-1 !py-0 md:!px-[120px] md:!py-[60px];
+  @apply !px-3 !py-0 md:!px-[120px] md:!py-[60px];
 }
 
 .crepe-doc .milkdown .ProseMirror {
-  @apply !px-1 !py-0;
+  @apply !px-3 !py-0;
 }

@@ -11,7 +11,7 @@ The schema plugin is the most important plugin in Milkdown. It defines the struc
 Let's create a simple blockquote node plugin as an example:
 
 ```typescript
-import { $node } from '@milkdown/utils';
+import { $node } from '@milkdown/kit/utils';
 
 const blockquote = $node('blockquote', () => ({
   content: 'block+',
@@ -40,8 +40,8 @@ Since we have a blockquote node, we can create an input rule plugin to make it e
 We expect that when we type `> ` at the beginning of a line, the blockquote node will be created.
 
 ```typescript
-import { wrappingInputRule } from '@milkdown/prose/inputrules'
-import { $inputRule } from '@milkdown/utils'
+import { wrappingInputRule } from '@milkdown/kit/prose/inputrules'
+import { $inputRule } from '@milkdown/kit/utils'
 
 export const wrapInBlockquoteInputRule = $inputRule(() => wrappingInputRule(/^\s*>\s$/, blockquoteSchema.type()))
 ```
@@ -52,8 +52,8 @@ We can also create a command plugin to create a blockquote node.
 The command is useful when we want to create a button to create a blockquote node.
 
 ```typescript
-import { wrapIn } from '@milkdown/prose/commands'
-import { $command } from '@milkdown/utils'
+import { wrapIn } from '@milkdown/kit/prose/commands'
+import { $command } from '@milkdown/kit/utils'
 
 export const wrapInBlockquoteCommand = $command('WrapInBlockquote', () => () => wrapIn(blockquoteSchema.type()))
 ```
@@ -65,8 +65,8 @@ Here we use `Ctrl + Shift + B` as the shortcut. When we press this shortcut, the
 And we can also use the command we created in the previous section.
 
 ```typescript
-import { $useKeymap } from '@milkdown/utils'
-import { commandsCtx } from '@milkdown/core'
+import { $useKeymap } from '@milkdown/kit/utils'
+import { commandsCtx } from '@milkdown/kit/core'
 
 export const blockquoteKeymap = $useKeymap('blockquoteKeymap', {
   WrapInBlockquote: {
