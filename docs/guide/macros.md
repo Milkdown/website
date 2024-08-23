@@ -7,7 +7,7 @@ and return a callback function that takes the `ctx` of milkdown as parameter.
 When you call this function with `ctx`, it will apply to the editor.
 
 ```typescript
-import { insert } from '@milkdown/utils';
+import { insert } from '@milkdown/kit/utils';
 
 // With action
 editor.action(insert('# Hello Macro'));

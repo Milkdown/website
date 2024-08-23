@@ -4,15 +4,13 @@ We provide react support out of box.
 
 ## Install the Dependencies
 
-Except the `@milkdown/core`, preset and theme. We need to install the `@milkdown/react`, which provide lots of abilities for react in milkdown.
+Except the `@milkdown/kit` and theme. We need to install the `@milkdown/react`, which provide lots of abilities for react in milkdown.
 
 ```bash
 # install with npm
 npm install @milkdown/react
-
-npm install @milkdown/core @milkdown/prose @milkdown/ctx @milkdown/transformer
-
-npm install @milkdown/preset-commonmark @milkdown/theme-nord
+npm install @milkdown/kit
+npm install @milkdown/theme-nord
 ```
 
 ## Create a Component
@@ -21,10 +19,10 @@ Create a component by using the `useEditor()` hook:
 
 ```typescript
 import React from 'react';
-import { Editor, rootCtx } from '@milkdown/core';
+import { Editor, rootCtx } from '@milkdown/kit/core';
 import { nord } from '@milkdown/theme-nord';
 import { Milkdown, MilkdownProvider, useEditor } from '@milkdown/react';
-import { commonmark } from '@milkdown/preset-commonmark';
+import { commonmark } from '@milkdown/kit/preset/commonmark';
 
 const MilkdownEditor: React.FC = () => {
     const { get } = useEditor((root) =>

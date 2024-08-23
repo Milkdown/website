@@ -8,8 +8,8 @@ We provide users with a command manager that has lots of commands defined for us
 We can use **command key** to run commands with command manager.
 
 ```typescript
-import { Editor, commandsCtx } from '@milkdown/core';
-import { commonmark, toggleEmphasisCommand } from '@milkdown/preset-commonmark';
+import { Editor, commandsCtx } from '@milkdown/kit/core';
+import { commonmark, toggleEmphasisCommand } from '@milkdown/kit/preset/commonmark';
 
 async function setup() {
   const editor = await Editor.make().use(commonmark).create();
@@ -38,10 +38,10 @@ The command should be a [prosemirror command](https://prosemirror.net/docs/guide
 We create a command in the next example:
 
 ```typescript
-import { blockquoteSchema } from '@milkdown/preset-commonmark';
-import { $command, callCommand } from '@milkdown/utils';
-import { wrapIn } from '@milkdown/prose/commands';
-import { Editor } from '@milkdown/core';
+import { blockquoteSchema } from '@milkdown/kit/preset/commonmark';
+import { $command, callCommand } from '@milkdown/kit/utils';
+import { wrapIn } from '@milkdown/kit/prose/commands';
+import { Editor } from '@milkdown/kit/core';
 
 const wrapInBlockquoteCommand = $command('WrapInBlockquote', (ctx) => () => wrapIn(blockquoteSchema.type(ctx)));
 
@@ -57,9 +57,9 @@ editor.action(callCommand(wrapInBlockquoteCommand.key));
 We can also add a info argument for commands:
 
 ```typescript
-import { headingSchema } from '@milkdown/preset-commonmark';
-import { $command, callCommand } from '@milkdown/utils';
-import { setBlockType } from '@milkdown/prose/commands';
+import { headingSchema } from '@milkdown/kit/preset/commonmark';
+import { $command, callCommand } from '@milkdown/kit/utils';
+import { setBlockType } from '@milkdown/kit/prose/commands';
 
 // use number as the type of argument
 export const WrapInHeading = createCmdKey<number>();

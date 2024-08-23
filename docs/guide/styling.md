@@ -25,8 +25,8 @@ For every node/mark, milkdown provides a default className, for example, `paragr
 You can also add attributes to node/marks. In this way, you can use css libraries such as [tailwind css](https://tailwindcss.com/).
 
 ```typescript
-import { Editor, editorViewOptionsCtx } from '@milkdown/core';
-import { commonmark, headingAttr, paragraphAttr } from '@milkdown/preset-commonmark';
+import { Editor, editorViewOptionsCtx } from '@milkdown/kit/core';
+import { commonmark, headingAttr, paragraphAttr } from '@milkdown/kit/preset/commonmark';
 
 Editor
   .make()
@@ -55,13 +55,13 @@ It's possible to write your own theme. Generally speaking, themes are defined by
 Some configs are needed to add attributes, and some css is used to style them.
 
 ```typescript
-import { Ctx } from '@milkdown/core';
+import { Ctx } from '@milkdown/kit/core';
 
 // You should import these predefined prosemirror css styles.
-import 'prosemirror-view/style/prosemirror.css'
+import '@milkdown/kit/prose/view/style/prosemirror.css'
 
 // If you need to style tables, you should import this css file.
-import 'prosemirror-tables/style/tables.css'
+import "@milkdown/kit/prose/tables/style/tables.css";
 
 // Your css file.
 import './my-theme.css'
@@ -77,4 +77,5 @@ export const myThemeConfig = (ctx: Ctx) => {
 }
 ```
 
-You can view the source code of [@milkdown/theme-nord](https://github.com/Milkdown/milkdown/tree/main/packages/theme-nord) to get some inspiration.
+You can view the source code of [@milkdown/theme-nord](https://github.com/Milkdown/milkdown/tree/main/packages/theme-nord)
+or [@milkdown/crepe/theme](https://github.com/Milkdown/milkdown/tree/main/packages/crepe/src/theme) to get some inspiration.

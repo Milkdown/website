@@ -6,8 +6,8 @@ We don't provide Svelte support out of box, but you can use the vanilla version 
 
 ```bash
 # install with npm
-npm install @milkdown/core @milkdown/prose @milkdown/ctx @milkdown/transformer
-npm install @milkdown/preset-commonmark @milkdown/theme-nord
+npm install @milkdown/kit
+npm install @milkdown/theme-nord
 ```
 
 ## Creating a Component
@@ -16,8 +16,8 @@ Creating a component is pretty easy.
 
 ```html
 <script>
-import { Editor, rootCtx, defaultValueCtx } from '@milkdown/core';
-import { commonmark } from '@milkdown/preset-commonmark';
+import { Editor, rootCtx, defaultValueCtx } from '@milkdown/kit/core';
+import { commonmark } from '@milkdown/kit/preset/commonmark';
 import { nord } from '@milkdown/theme-nord';
 
 function editor(dom) {
@@ -31,7 +31,7 @@ function editor(dom) {
     .create();
   MakeEditor.then((editor) => {
     // here you have access to the editor instance.
-    
+
     // const exampleContent = "# Hello World!";
     // editor.action(replaceAll(exampleContent));
   })

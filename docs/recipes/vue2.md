@@ -6,8 +6,8 @@ We don't provide Vue2 support out of box, but you can use the vanilla version wi
 
 ```bash
 # install with npm
-npm install @milkdown/core @milkdown/prose @milkdown/ctx @milkdown/transformer
-npm install @milkdown/preset-commonmark @milkdown/theme-nord
+npm install @milkdown/kit
+npm install @milkdown/theme-nord
 ```
 
 ## Create a Component
@@ -20,9 +20,9 @@ Create a component is pretty easy.
 </template>
 
 <script>
-  import { defaultValueCtx, Editor, rootCtx } from '@milkdown/core';
+  import { defaultValueCtx, Editor, rootCtx } from '@milkdown/kit/core';
   import { nord } from '@milkdown/theme-nord';
-  import { commonmark } from '@milkdown/preset-commonmark';
+  import { commonmark } from '@milkdown/kit/preset/commonmark';
   export default {
     name: 'Editor',
     props: {

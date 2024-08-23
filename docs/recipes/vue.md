@@ -6,15 +6,13 @@ We provide vue support out of the box.
 
 ## Install the Dependencies
 
-Besides the `@milkdown/core`, preset and theme. We need to install the `@milkdown/vue`, which provides lots of abilities for vue in milkdown.
+Besides the `@milkdown/core` and theme. We need to install the `@milkdown/vue`, which provides lots of abilities for vue in milkdown.
 
 ```bash
 # install with npm
 npm install @milkdown/vue
-
-npm install @milkdown/core @milkdown/prose @milkdown/ctx @milkdown/transformer
-
-npm install @milkdown/preset-commonmark @milkdown/theme-nord
+npm install @milkdown/kit
+npm install @milkdown/theme-nord
 ```
 
 ## Create a Component
@@ -31,10 +29,10 @@ First, we need to create a `MilkdownEditor` component.
 
 <script>
 import { defineComponent } from "vue";
-import { Editor, rootCtx, defaultValueCtx } from "@milkdown/core";
+import { Editor, rootCtx, defaultValueCtx } from "@milkdown/kit/core";
 import { nord } from "@milkdown/theme-nord";
 import { Milkdown, useEditor } from "@milkdown/vue";
-import { commonmark } from "@milkdown/preset-commonmark";
+import { commonmark } from "@milkdown/kit/preset/commonmark";
 
 export default defineComponent({
   name: "MilkdownEditor",

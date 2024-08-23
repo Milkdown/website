@@ -5,7 +5,7 @@ Keyboard shortcuts are provided by default from both presets and plugins.  Depen
 You can configure shortcuts just like this:
 
 ```typescript
-import { blockquoteKeymap, commonmark } from '@milkdown/preset-commonmark';
+import { blockquoteKeymap, commonmark } from '@milkdown/kit/preset/commonmark';
 
 Editor
   .make()

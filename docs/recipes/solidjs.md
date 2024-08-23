@@ -6,20 +6,19 @@ We don't provide SolidJS support out of box, but you can use the vanilla version
 
 ```bash
 # install with npm
-npm install @milkdown/core @milkdown/prose @milkdown/ctx @milkdown/transformer
-npm install @milkdown/preset-commonmark @milkdown/theme-nord
+npm install @milkdown/kit
+npm install @milkdown/theme-nord
 ```
 
 ## Create a Component
 
 Create a component is pretty easy.
 
-```typescript
+```tsx
 import { onCleanup, onMount } from 'solid-js';
-import { defaultValueCtx, Editor, rootCtx } from '@milkdown/core';
-import { commonmark } from '@milkdown/preset-commonmark';
+import { defaultValueCtx, Editor, rootCtx } from '@milkdown/kit/core';
+import { commonmark } from '@milkdown/kit/preset/commonmark';
 import { nord } from '@milkdown/theme-nord';
-import { emoji } from '@milkdown/plugin-emoji';
 
 const Milkdown = () => {
   let ref;
@@ -31,7 +30,6 @@ const Milkdown = () => {
       })
       .config(nord)
       .use(commonmark)
-      .use(emoji)
       .create();
   });
 
