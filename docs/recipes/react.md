@@ -17,7 +17,7 @@ npm install @milkdown/theme-nord
 
 Create a component by using the `useEditor()` hook:
 
-```typescript
+```tsx
 import React from 'react';
 import { Editor, rootCtx } from '@milkdown/kit/core';
 import { nord } from '@milkdown/theme-nord';
@@ -48,7 +48,7 @@ export const MilkdownEditorWrapper: React.FC = () => {
 
 ## Online Demo
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/Milkdown/examples/tree/main/react-commonmark)
+::iframe{src="https://stackblitz.com/github/Milkdown/examples/tree/main/react-commonmark"}
 
 ## Accessing the editor instance
 

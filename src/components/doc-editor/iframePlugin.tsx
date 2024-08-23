@@ -25,9 +25,29 @@ const iframeNode = $node("iframe", () => ({
     },
   ],
   toDOM: (node: Node) => [
-    "iframe",
-    { ...node.attrs, contenteditable: false, class: "iframe-plugin" },
-    0,
+    "div",
+    { class: "iframe-plugin-container" },
+    [
+      "a",
+      { href: node.attrs.src, contenteditable: false, target: "_blank" },
+      [
+        "span",
+        {
+          class: "material-symbols-outlined",
+        },
+        "open_in_new",
+      ],
+      "Open in Stackblitz",
+    ],
+    [
+      "iframe",
+      {
+        contenteditable: false,
+        class: "iframe-plugin",
+        src: `${node.attrs.src}?embed=1&view=preview`,
+      },
+      0,
+    ],
   ],
   parseMarkdown: {
     match: (node) => node.type === "leafDirective" && node.name === "iframe",

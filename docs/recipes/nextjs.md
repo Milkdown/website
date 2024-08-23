@@ -48,4 +48,4 @@ export const MilkdownEditorWrapper: React.FC = () => {
 
 ## Online Demo
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/Milkdown/examples/tree/main/next-commonmark)
+::iframe{src="https://stackblitz.com/github/Milkdown/examples/tree/main/next-commonmark"}

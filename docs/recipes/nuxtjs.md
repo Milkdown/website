@@ -79,4 +79,4 @@ export default defineComponent({
 
 ## Online Demo
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/Milkdown/examples/tree/main/nuxt-commonmark)
+::iframe{src="https://stackblitz.com/github/Milkdown/examples/tree/main/nuxt-commonmark"}

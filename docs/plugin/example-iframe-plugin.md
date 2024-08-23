@@ -151,4 +151,4 @@ Editor.make().use([remarkDirective, iframeNode, iframeInputRule]).use(commonmark
 
 ## Full Code
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/Milkdown/examples/tree/main/vanilla-iframe-syntax)
+::iframe{src="https://stackblitz.com/github/Milkdown/examples/tree/main/vanilla-iframe-syntax"}
