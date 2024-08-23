@@ -34,7 +34,7 @@ function Outline(props: { items: OutlineItem[] }) {
 
   return (
     <ul className="flex-1 pr-1">
-      <div className="mb-2 pl-3 text-nord10">
+      <div className="mb-2 pl-2 text-nord10">
         <small>On this page</small>
       </div>
       <div className="overflow-y-auto overflow-x-hidden">
