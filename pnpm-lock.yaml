@@ -5,18 +5,19 @@ settings:
   excludeLinksFromLockfile: false
 
 overrides:
-  array-includes: npm:@nolyfill/array-includes@latest
-  array.prototype.flat: npm:@nolyfill/array.prototype.flat@latest
-  array.prototype.flatmap: npm:@nolyfill/array.prototype.flatmap@latest
-  array.prototype.tosorted: npm:@nolyfill/array.prototype.tosorted@latest
-  deep-equal: npm:@nolyfill/deep-equal@latest
-  has: npm:@nolyfill/has@latest
-  object.assign: npm:@nolyfill/object.assign@latest
-  object.entries: npm:@nolyfill/object.entries@latest
-  object.fromentries: npm:@nolyfill/object.fromentries@latest
-  object.hasown: npm:@nolyfill/object.hasown@latest
-  object.values: npm:@nolyfill/object.values@latest
-  string.prototype.matchall: npm:@nolyfill/string.prototype.matchall@latest
+  array-includes: npm:@nolyfill/array-includes@^1
+  array.prototype.flat: npm:@nolyfill/array.prototype.flat@^1
+  array.prototype.flatmap: npm:@nolyfill/array.prototype.flatmap@^1
+  array.prototype.tosorted: npm:@nolyfill/array.prototype.tosorted@^1
+  deep-equal: npm:@nolyfill/deep-equal@^1
+  has: npm:@nolyfill/has@^1
+  object.assign: npm:@nolyfill/object.assign@^1
+  object.entries: npm:@nolyfill/object.entries@^1
+  object.fromentries: npm:@nolyfill/object.fromentries@^1
+  object.hasown: npm:@nolyfill/object.hasown@^1
+  object.values: npm:@nolyfill/object.values@^1
+  string.prototype.matchall: npm:@nolyfill/string.prototype.matchall@^1
+  is-core-module: npm:@nolyfill/is-core-module@^1
 
 importers:
 
@@ -247,6 +248,9 @@ importers:
       jotai:
         specifier: ^2.8.3
         version: 2.8.3(@types/react@18.0.28)(react@18.2.0)
+      jotai-effect:
+        specifier: ^1.0.0
+        version: 1.0.0(jotai@2.8.3(@types/react@18.0.28)(react@18.2.0))
       katex:
         specifier: ^0.16.4
         version: 0.16.10
@@ -1740,6 +1744,10 @@ packages:
 
   '@nolyfill/has@1.0.29':
     resolution: {integrity: sha512-ltmZUR/0EIR6Nuu23qFTc4ImOF3JVx8Kt7MI9xwS0NDHLnWoGsNQVX4tXPFeqd/CjqlBCFEA6Cy9XA+EgZtJTQ==}
+    engines: {node: '>=12.4.0'}
+
+  '@nolyfill/is-core-module@1.0.39':
+    resolution: {integrity: sha512-nn5ozdjYQpUCZlWGuxcJY/KpxkWQs4DcbMCmKojjyrYDEAGy4Ce19NN4v5MduafTwJlbKc99UA8YhSVqq9yPZA==}
     engines: {node: '>=12.4.0'}
 
   '@nolyfill/object.assign@1.0.28':
@@ -3363,9 +3371,6 @@ packages:
     resolution: {integrity: sha512-i2R6zNFDwgEHJyQUtJEk0XFi1i0dPFn/oqjK3/vPCcDeJvW5NQ83V8QbicfF1SupOaB0h8ntgBC2YiE7dfyctQ==}
     engines: {node: '>=4'}
 
-  is-core-module@2.11.0:
-    resolution: {integrity: sha512-RRjxlvLDkD1YJwDbroBHMb+cukurkDWNyHx7D3oNB5x9rb5ogcksMC5wHCadcXoo67gVr/+3GFySh3134zi6rw==}
-
   is-decimal@2.0.1:
     resolution: {integrity: sha512-AAB9hiomQs5DXWcRB1rqsxGUstbRroFOPPVAomNk/3XHR5JyEZChOyTWe2oayKnsSsr/kcGqF+z6yuH6HHpN0A==}
 
@@ -3461,6 +3466,11 @@ packages:
   jest-worker@27.5.1:
     resolution: {integrity: sha512-7vuh85V5cdDofPyxn58nrPjBktZo0u9x1g8WtjQol+jZDaE+fhN+cIvTj11GndBnMnyfrUOG1sZQxCdjKh+DKg==}
     engines: {node: '>= 10.13.0'}
+
+  jotai-effect@1.0.0:
+    resolution: {integrity: sha512-eCgKKG4BACDzuJGYTu0xZRk1C1MEOvbAhC3L8w7YufQ2lSLORwNX/WFnCuZxLFX0sDLkTUeoUzOYaw8wnXY+UQ==}
+    peerDependencies:
+      jotai: '>=2.5.0'
 
   jotai@2.8.3:
     resolution: {integrity: sha512-pR4plVvdbzB6zyt7VLLHPMAkcRSKhRIvZKd+qkifQLa3CEziEo1uwZjePj4acTmQrboiISBlYSdCz3gWcr1Nkg==}
@@ -7105,6 +7115,8 @@ snapshots:
 
   '@nolyfill/has@1.0.29': {}
 
+  '@nolyfill/is-core-module@1.0.39': {}
+
   '@nolyfill/object.assign@1.0.28':
     dependencies:
       '@nolyfill/shared': 1.0.28
@@ -8576,7 +8588,7 @@ snapshots:
   eslint-import-resolver-node@0.3.7:
     dependencies:
       debug: 3.2.7
-      is-core-module: 2.11.0
+      is-core-module: '@nolyfill/is-core-module@1.0.39'
       resolve: 1.22.1
     transitivePeerDependencies:
       - supports-color
@@ -8589,7 +8601,7 @@ snapshots:
       eslint-plugin-import: 2.27.5(@typescript-eslint/parser@5.55.0(eslint@8.36.0)(typescript@5.0.2))(eslint-import-resolver-typescript@3.5.3(eslint-plugin-import@2.27.5(eslint@8.36.0))(eslint@8.36.0))(eslint@8.36.0)
       get-tsconfig: 4.4.0
       globby: 13.1.3
-      is-core-module: 2.11.0
+      is-core-module: '@nolyfill/is-core-module@1.0.39'
       is-glob: 4.0.3
       synckit: 0.8.5
     transitivePeerDependencies:
@@ -8617,7 +8629,7 @@ snapshots:
       eslint-import-resolver-node: 0.3.7
       eslint-module-utils: 2.7.4(@typescript-eslint/parser@5.55.0(eslint@8.36.0)(typescript@5.0.2))(eslint-import-resolver-node@0.3.7)(eslint-import-resolver-typescript@3.5.3(eslint-plugin-import@2.27.5(eslint@8.36.0))(eslint@8.36.0))(eslint@8.36.0)
       has: '@nolyfill/has@1.0.29'
-      is-core-module: 2.11.0
+      is-core-module: '@nolyfill/is-core-module@1.0.39'
       is-glob: 4.0.3
       minimatch: 3.1.2
       object.values: '@nolyfill/object.values@1.0.28'
@@ -9006,10 +9018,6 @@ snapshots:
 
   is-buffer@2.0.5: {}
 
-  is-core-module@2.11.0:
-    dependencies:
-      has: '@nolyfill/has@1.0.29'
-
   is-decimal@2.0.1: {}
 
   is-docker@2.2.1: {}
@@ -9080,6 +9088,10 @@ snapshots:
       '@types/node': 18.15.3
       merge-stream: 2.0.0
       supports-color: 8.1.1
+
+  jotai-effect@1.0.0(jotai@2.8.3(@types/react@18.0.28)(react@18.2.0)):
+    dependencies:
+      jotai: 2.8.3(@types/react@18.0.28)(react@18.2.0)
 
   jotai@2.8.3(@types/react@18.0.28)(react@18.2.0):
     optionalDependencies:
@@ -10384,13 +10396,13 @@ snapshots:
 
   resolve@1.22.1:
     dependencies:
-      is-core-module: 2.11.0
+      is-core-module: '@nolyfill/is-core-module@1.0.39'
       path-parse: 1.0.7
       supports-preserve-symlinks-flag: 1.0.0
 
   resolve@2.0.0-next.4:
     dependencies:
-      is-core-module: 2.11.0
+      is-core-module: '@nolyfill/is-core-module@1.0.39'
       path-parse: 1.0.7
       supports-preserve-symlinks-flag: 1.0.0
 

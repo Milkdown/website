@@ -1,27 +1,24 @@
+import { crepeAPI } from "@/components/playground/atom";
 import { useLinkClass } from "@/hooks";
 import clsx from "clsx";
-import type { FC, RefObject } from "react";
-import pkgJson from "../../../../package.json";
-import type { CodemirrorProps, CodemirrorRef } from "../../codemirror";
-import { Codemirror } from "../../codemirror";
-import { useShare } from "../../playground-editor/ShareProvider";
+import type { FC } from "react";
+import pkgJson from "../../../package.json";
+import type { CodemirrorProps } from "./codemirror";
+import { Codemirror } from "./codemirror";
+import { useAtomValue } from "jotai";
 
 interface ControlPanelProps extends CodemirrorProps {
-  codemirrorRef: RefObject<CodemirrorRef>;
   hide: boolean;
   setHide: (hide: boolean) => void;
 }
 
 export const ControlPanel: FC<ControlPanelProps> = ({
   hide,
-  content,
   onChange,
-  lock,
-  codemirrorRef,
   setHide,
 }) => {
   const linkClass = useLinkClass();
-  const share = useShare();
+  const { onShare } = useAtomValue(crepeAPI);
 
   if (hide) {
     return (
@@ -43,7 +40,7 @@ export const ControlPanel: FC<ControlPanelProps> = ({
         </button>
 
         <button
-          onClick={() => share()}
+          onClick={() => onShare()}
           className={clsx(
             linkClass(false),
             "flex h-12 w-12 items-center justify-center rounded",
@@ -81,7 +78,7 @@ export const ControlPanel: FC<ControlPanelProps> = ({
         </div>
         <div className="flex">
           <button
-            onClick={() => share()}
+            onClick={() => onShare()}
             className={clsx(
               linkClass(false),
               "flex h-8 w-8 items-center justify-center rounded-full",
@@ -92,12 +89,7 @@ export const ControlPanel: FC<ControlPanelProps> = ({
           </button>
         </div>
       </div>
-      <Codemirror
-        ref={codemirrorRef}
-        content={content}
-        onChange={onChange}
-        lock={lock}
-      />
+      <Codemirror onChange={onChange} />
     </div>
   );
 };

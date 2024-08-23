@@ -1,4 +1,3 @@
-import { headingAnchorPlugin } from "@/components/milkdown-shared/headingAnchorPlugin";
 import Outline from "@/components/outline";
 import { useDarkMode } from "@/providers";
 import { editorViewCtx, editorViewOptionsCtx } from "@milkdown/kit/core";
@@ -9,6 +8,7 @@ import { useWidgetViewFactory } from "@prosemirror-adapter/react";
 import { FC, useEffect, useRef, useState } from "react";
 import { eclipse } from "@uiw/codemirror-theme-eclipse";
 
+import { headingAnchorPlugin } from "./headingAnchorPlugin";
 import { Button } from "./Button";
 
 const Doc: FC<{ content: string; url: string }> = ({ content, url }) => {

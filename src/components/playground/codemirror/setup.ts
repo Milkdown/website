@@ -1,3 +1,4 @@
+import { FocusType } from "@/components/playground/atom";
 import {
   autocompletion,
   closeBrackets,
@@ -27,7 +28,6 @@ import {
   keymap,
   rectangularSelection,
 } from "@codemirror/view";
-import type React from "react";
 import { nord } from "./nord";
 import throttle from "lodash.throttle";
 
@@ -58,14 +58,14 @@ const basicSetup: Extension = [
 
 interface StateOptions {
   dark: boolean;
+  setFocus: (focus: FocusType) => void;
   onChange: (getString: () => string) => void;
-  lock: React.MutableRefObject<boolean>;
   content: string;
 }
 
 export const createCodeMirrorState = ({
   onChange,
-  lock,
+  setFocus,
   content,
   dark,
 }: StateOptions) => {
@@ -76,7 +76,8 @@ export const createCodeMirrorState = ({
       basicSetup,
       markdown(),
       EditorView.updateListener.of((viewUpdate) => {
-        if (viewUpdate.focusChanged) lock.current = viewUpdate.view.hasFocus;
+        if (viewUpdate.focusChanged)
+          setFocus(viewUpdate.view.hasFocus ? "cm" : null);
 
         onCodeMirrorUpdate(onChange, viewUpdate);
       }),
