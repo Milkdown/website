@@ -72,8 +72,8 @@ importers:
         specifier: 7.5.0
         version: 7.5.0(@milkdown/ctx@7.5.0)(@milkdown/prose@7.5.0)(@milkdown/transformer@7.5.0(@milkdown/prose@7.5.0))
       '@milkdown/crepe':
-        specifier: ^7.5.3
-        version: 7.5.3(@lezer/common@1.2.1)(element-internals-polyfill@0.1.55)
+        specifier: ^7.5.4
+        version: 7.5.4(@lezer/common@1.2.1)(element-internals-polyfill@0.1.55)
       '@milkdown/ctx':
         specifier: 7.5.0
         version: 7.5.0
@@ -81,11 +81,11 @@ importers:
         specifier: 7.5.0
         version: 7.5.0
       '@milkdown/kit':
-        specifier: 7.5.3
-        version: 7.5.3(@codemirror/language@6.10.2)(@codemirror/state@6.4.1)(@codemirror/view@6.32.0)(element-internals-polyfill@0.1.55)
+        specifier: 7.5.4
+        version: 7.5.4(@codemirror/language@6.10.2)(@codemirror/state@6.4.1)(@codemirror/view@6.32.0)(element-internals-polyfill@0.1.55)
       '@milkdown/plugin-block':
-        specifier: 7.5.0
-        version: 7.5.0(@milkdown/core@7.5.0(@milkdown/ctx@7.5.0)(@milkdown/prose@7.5.0)(@milkdown/transformer@7.5.0(@milkdown/prose@7.5.0)))(@milkdown/ctx@7.5.0)(@milkdown/prose@7.5.0)(@milkdown/transformer@7.5.0(@milkdown/prose@7.5.0))
+        specifier: 7.5.4
+        version: 7.5.4(@milkdown/core@7.5.0(@milkdown/ctx@7.5.0)(@milkdown/prose@7.5.0)(@milkdown/transformer@7.5.0(@milkdown/prose@7.5.0)))(@milkdown/ctx@7.5.0)(@milkdown/prose@7.5.0)(@milkdown/transformer@7.5.0(@milkdown/prose@7.5.0))
       '@milkdown/plugin-clipboard':
         specifier: 7.5.0
         version: 7.5.0(@milkdown/core@7.5.0(@milkdown/ctx@7.5.0)(@milkdown/prose@7.5.0)(@milkdown/transformer@7.5.0(@milkdown/prose@7.5.0)))(@milkdown/ctx@7.5.0)(@milkdown/prose@7.5.0)(@milkdown/transformer@7.5.0(@milkdown/prose@7.5.0))
@@ -1438,8 +1438,8 @@ packages:
   '@lezer/yaml@1.0.3':
     resolution: {integrity: sha512-GuBLekbw9jDBDhGur82nuwkxKQ+a3W5H0GfaAthDXcAu+XdpS43VlnxA9E9hllkpSP5ellRDKjLLj7Lu9Wr6xA==}
 
-  '@milkdown/components@7.5.3':
-    resolution: {integrity: sha512-w4FRnhYfT8uTKyaz04+Jo089pr/5rCNVTiJkE2h/ECi9phSaLA1eDnthHNS+lyDiOc4kmAuRtlFJTuZY0iM3Ew==}
+  '@milkdown/components@7.5.4':
+    resolution: {integrity: sha512-LtmzrVFoNLlDx1SoSurs2Iuyv6hsojHt4HbyXW0MtzL8w+P+Bj8at5bmrExk/XpHrIMODDo36gvfjWvFzQ221Q==}
     peerDependencies:
       '@codemirror/language': ^6
       '@codemirror/state': ^6
@@ -1460,8 +1460,8 @@ packages:
       '@milkdown/prose': ^7.2.0
       '@milkdown/transformer': ^7.2.0
 
-  '@milkdown/crepe@7.5.3':
-    resolution: {integrity: sha512-o57IVHgvlLoJ/xILi5wZiOD/BTK8CImQ5EYCIO0KLw3jdA7xD/ZNGBhI3JQLq9TNtEulVmHSKtogFpf5Gy9NRQ==}
+  '@milkdown/crepe@7.5.4':
+    resolution: {integrity: sha512-odp+5ZXTz61QybZcc7A8Jo28xtPzuVakeSXZMPIqErQ0aq1o4P0hAH0m/1DlcDEt3ugHbpLTgDcZE95lSul2Rw==}
 
   '@milkdown/ctx@7.5.0':
     resolution: {integrity: sha512-RKGhEh7LCCTb/iY7TOgrN3vKGtQdsNi7039PY5Y561o+KLldQE5BdkPyqwedZwSszZrsDO8L6IT/SxWgtj1tRg==}
@@ -1469,11 +1469,11 @@ packages:
   '@milkdown/exception@7.5.0':
     resolution: {integrity: sha512-8B4v9otcMLX6wpfwoyic7dJD1Z39rgz8zFzqCZ6WyP9LGDb9AoNbATHvY6CPLZWy+C138WLoOhw9jsI1RIxw+g==}
 
-  '@milkdown/kit@7.5.3':
-    resolution: {integrity: sha512-n79pVN/XM1g8IVyZtMXe4sVMZYJ9v67HoGJSR5jEowerth1RxCOZue8nZN1bzMvS3CFF8uhAGNbt8busjE4L5g==}
+  '@milkdown/kit@7.5.4':
+    resolution: {integrity: sha512-OztKTsHpwtFVsAeY2tg3mhFc68rOcFy6UsFDdnX5cnaKBlV6sf9Tvw/q5EBHbi1oWeWYhSWNUB3HjI3W4i5dZQ==}
 
-  '@milkdown/plugin-block@7.5.0':
-    resolution: {integrity: sha512-bb+uLiO8ZFyp1EJ0+gBUg+mpCaztesSdH5NVbKSejs8Cq3NK15L5RHjeJkSpN66k3FU6S2vnz5F+jyfKAyYEDg==}
+  '@milkdown/plugin-block@7.5.4':
+    resolution: {integrity: sha512-32ZBhTgZqmi6eQILjH6g2rinLELjfEyyn1MqSr1STudnJdlyNWYZNb9FnwljI/W8jx37h4FJUpiLhzGVmit11g==}
     peerDependencies:
       '@milkdown/core': ^7.2.0
       '@milkdown/ctx': ^7.2.0
@@ -6677,7 +6677,7 @@ snapshots:
       '@lezer/highlight': 1.2.1
       '@lezer/lr': 1.4.2
 
-  '@milkdown/components@7.5.3(wujkycyq2u2awy6wnnqyv3wb6i)':
+  '@milkdown/components@7.5.4(wujkycyq2u2awy6wnnqyv3wb6i)':
     dependencies:
       '@atomico/hooks': 4.4.1(atomico@1.79.2)(element-internals-polyfill@0.1.55)
       '@codemirror/language': 6.10.2
@@ -6719,14 +6719,14 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@milkdown/crepe@7.5.3(@lezer/common@1.2.1)(element-internals-polyfill@0.1.55)':
+  '@milkdown/crepe@7.5.4(@lezer/common@1.2.1)(element-internals-polyfill@0.1.55)':
     dependencies:
       '@codemirror/commands': 6.6.0
       '@codemirror/language': 6.10.2
       '@codemirror/language-data': 6.5.1(@codemirror/view@6.32.0)
       '@codemirror/state': 6.4.1
       '@codemirror/view': 6.32.0
-      '@milkdown/kit': 7.5.3(@codemirror/language@6.10.2)(@codemirror/state@6.4.1)(@codemirror/view@6.32.0)(element-internals-polyfill@0.1.55)
+      '@milkdown/kit': 7.5.4(@codemirror/language@6.10.2)(@codemirror/state@6.4.1)(@codemirror/view@6.32.0)(element-internals-polyfill@0.1.55)
       '@uiw/codemirror-theme-nord': 4.23.0(@codemirror/language@6.10.2)(@codemirror/state@6.4.1)(@codemirror/view@6.32.0)
       atomico: 1.79.2
       clsx: 2.0.0
@@ -6749,12 +6749,12 @@ snapshots:
     dependencies:
       tslib: 2.5.0
 
-  '@milkdown/kit@7.5.3(@codemirror/language@6.10.2)(@codemirror/state@6.4.1)(@codemirror/view@6.32.0)(element-internals-polyfill@0.1.55)':
+  '@milkdown/kit@7.5.4(@codemirror/language@6.10.2)(@codemirror/state@6.4.1)(@codemirror/view@6.32.0)(element-internals-polyfill@0.1.55)':
     dependencies:
-      '@milkdown/components': 7.5.3(wujkycyq2u2awy6wnnqyv3wb6i)
+      '@milkdown/components': 7.5.4(wujkycyq2u2awy6wnnqyv3wb6i)
       '@milkdown/core': 7.5.0(@milkdown/ctx@7.5.0)(@milkdown/prose@7.5.0)(@milkdown/transformer@7.5.0(@milkdown/prose@7.5.0))
       '@milkdown/ctx': 7.5.0
-      '@milkdown/plugin-block': 7.5.0(@milkdown/core@7.5.0(@milkdown/ctx@7.5.0)(@milkdown/prose@7.5.0)(@milkdown/transformer@7.5.0(@milkdown/prose@7.5.0)))(@milkdown/ctx@7.5.0)(@milkdown/prose@7.5.0)(@milkdown/transformer@7.5.0(@milkdown/prose@7.5.0))
+      '@milkdown/plugin-block': 7.5.4(@milkdown/core@7.5.0(@milkdown/ctx@7.5.0)(@milkdown/prose@7.5.0)(@milkdown/transformer@7.5.0(@milkdown/prose@7.5.0)))(@milkdown/ctx@7.5.0)(@milkdown/prose@7.5.0)(@milkdown/transformer@7.5.0(@milkdown/prose@7.5.0))
       '@milkdown/plugin-clipboard': 7.5.0(@milkdown/core@7.5.0(@milkdown/ctx@7.5.0)(@milkdown/prose@7.5.0)(@milkdown/transformer@7.5.0(@milkdown/prose@7.5.0)))(@milkdown/ctx@7.5.0)(@milkdown/prose@7.5.0)(@milkdown/transformer@7.5.0(@milkdown/prose@7.5.0))
       '@milkdown/plugin-cursor': 7.5.0(@milkdown/core@7.5.0(@milkdown/ctx@7.5.0)(@milkdown/prose@7.5.0)(@milkdown/transformer@7.5.0(@milkdown/prose@7.5.0)))(@milkdown/ctx@7.5.0)(@milkdown/prose@7.5.0)(@milkdown/transformer@7.5.0(@milkdown/prose@7.5.0))
       '@milkdown/plugin-history': 7.5.0(@milkdown/core@7.5.0(@milkdown/ctx@7.5.0)(@milkdown/prose@7.5.0)(@milkdown/transformer@7.5.0(@milkdown/prose@7.5.0)))(@milkdown/ctx@7.5.0)(@milkdown/prose@7.5.0)(@milkdown/transformer@7.5.0(@milkdown/prose@7.5.0))
@@ -6779,7 +6779,7 @@ snapshots:
       - element-internals-polyfill
       - supports-color
 
-  '@milkdown/plugin-block@7.5.0(@milkdown/core@7.5.0(@milkdown/ctx@7.5.0)(@milkdown/prose@7.5.0)(@milkdown/transformer@7.5.0(@milkdown/prose@7.5.0)))(@milkdown/ctx@7.5.0)(@milkdown/prose@7.5.0)(@milkdown/transformer@7.5.0(@milkdown/prose@7.5.0))':
+  '@milkdown/plugin-block@7.5.4(@milkdown/core@7.5.0(@milkdown/ctx@7.5.0)(@milkdown/prose@7.5.0)(@milkdown/transformer@7.5.0(@milkdown/prose@7.5.0)))(@milkdown/ctx@7.5.0)(@milkdown/prose@7.5.0)(@milkdown/transformer@7.5.0(@milkdown/prose@7.5.0))':
     dependencies:
       '@floating-ui/dom': 1.6.5
       '@milkdown/core': 7.5.0(@milkdown/ctx@7.5.0)(@milkdown/prose@7.5.0)(@milkdown/transformer@7.5.0(@milkdown/prose@7.5.0))
