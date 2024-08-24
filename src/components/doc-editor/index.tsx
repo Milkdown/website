@@ -5,11 +5,9 @@ import { editorViewCtx, editorViewOptionsCtx } from "@milkdown/kit/core";
 import { listener, listenerCtx } from "@milkdown/kit/plugin/listener";
 import { Crepe } from "@milkdown/crepe";
 import { outline } from "@milkdown/kit/utils";
-import { useWidgetViewFactory } from "@prosemirror-adapter/react";
 import { FC, useEffect, useRef, useState } from "react";
 import { eclipse } from "@uiw/codemirror-theme-eclipse";
 
-import { headingAnchorPlugin } from "./headingAnchorPlugin";
 import { Button } from "./Button";
 
 const Doc: FC<{ content: string; url: string }> = ({ content, url }) => {
@@ -19,7 +17,6 @@ const Doc: FC<{ content: string; url: string }> = ({ content, url }) => {
   const darkMode = useDarkMode();
   const divRef = useRef<HTMLDivElement>(null);
   const loading = useRef(false);
-  const widgetViewFactory = useWidgetViewFactory();
 
   useEffect(() => {
     if (!divRef.current || loading.current) return;
@@ -56,7 +53,6 @@ const Doc: FC<{ content: string; url: string }> = ({ content, url }) => {
             if (view.state?.doc) setOutlines(outline()(ctx));
           });
       })
-      .use(headingAnchorPlugin(widgetViewFactory))
       .use(iframePlugin)
       .use(listener);
 
@@ -68,7 +64,7 @@ const Doc: FC<{ content: string; url: string }> = ({ content, url }) => {
       if (loading.current) return;
       crepe.destroy();
     };
-  }, [content, widgetViewFactory, darkMode]);
+  }, [content, darkMode]);
 
   return (
     <>
