@@ -26,6 +26,7 @@ export const guideConfig: DocConfigItem = {
     "commands",
     "keyboard-shortcuts",
     "macros",
+    "using-milkdown-kit",
     "collaborative-editing",
     "prosemirror-api",
     "faq",
@@ -51,20 +52,24 @@ export const pluginConfig: DocConfigItem = {
     "plugins-101",
     "composable-plugins",
     "example-iframe-plugin",
+    "using-components",
   ],
 };
 export const apiConfigByCategory: APIConfigItem[] = [
   {
-    label: "Framework",
-    items: ["core", "ctx", "utils", "transformer"],
+    label: "Component",
+    items: [
+      "component-code-block",
+      "component-image-block",
+      "component-image-inline",
+      "component-link-tooltip",
+      "component-list-item-block",
+      "component-table-block",
+    ],
   },
   {
     label: "Preset",
     items: ["preset-commonmark", "preset-gfm"],
-  },
-  {
-    label: "Theme",
-    items: ["theme-nord"],
   },
   {
     label: "Plugin",
@@ -85,6 +90,14 @@ export const apiConfigByCategory: APIConfigItem[] = [
       "plugin-clipboard",
       "plugin-collab",
     ],
+  },
+  {
+    label: "Theme",
+    items: ["theme-nord"],
+  },
+  {
+    label: "Framework",
+    items: ["core", "ctx", "utils", "transformer"],
   },
 ];
 export const apiConfig: DocConfigItem = {

@@ -38,7 +38,7 @@ const Doc: FC<{ content: string; url: string }> = ({ content, url }) => {
       .config((ctx) => {
         ctx.set(editorViewOptionsCtx, {
           attributes: {
-            class: "w-full max-w-full box-border overflow-hidden p-4",
+            class: "w-full max-w-full box-border p-4",
             spellcheck: "false",
           },
         });
