@@ -21,6 +21,7 @@ export const guideConfig: DocConfigItem = {
   items: [
     "why-milkdown",
     "getting-started",
+    "using-crepe",
     "styling",
     "interacting-with-editor",
     "commands",

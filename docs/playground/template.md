@@ -1,8 +1,8 @@
 # Milkdown
 
-👋 Welcome to milkdown. We are so glad to see you here!
+👋 Welcome to Milkdown. We are so glad to see you here!
 
-💭 You may wonder what is Milkdown? Please write something here.
+💭 You may wonder, what is Milkdown? Please write something here.
 
 > ⚠️ **Not the right side!**
 >
@@ -10,9 +10,9 @@
 
 ![1.00](/polar.jpeg "Hello by a polar bear")
 
-You're seeing this editor is called **🥞crepe**. Which is a editor built on top of Milkdown.
+You're seeing this editor called **🥞Crepe**, which is an editor built on top of Milkdown.
 
-If you want to install this editor, you can run `npm install @milkdown/crepe`. And then you can use it like this:
+If you want to install this editor, you can run `npm install @milkdown/crepe`. Then you can use it like this:
 
 ```js
 import { Crepe } from '@milkdown/crepe';
@@ -47,13 +47,13 @@ crepe.destroy();
 >
 > Which means you can build your own markdown editor with Milkdown.
 
-In the real world, a typically milkdown editor is built on top of 3 layers:
+In the real world, a typical milkdown editor is built on top of 3 layers:
 
 - [x] 🥛 Core: The core of Milkdown, which provides the plugin loading system with the editor concepts.
 - [x] 🧇 Plugins: A set of plugins that can be used to extend the functionalities of the editor.
 - [x] 🍮 Components: Some headless components that can be used to build your own editor.
 
-At start, you'll find it hard to understand all these concepts.
+At the start, you may find it hard to understand all these concepts.
 But don't worry, we have this `@milkdown/crepe` editor for you to get started quickly.
 
 ---
@@ -69,7 +69,7 @@ In Milkdown, you can extend the editor in many ways:
 | 📦 Component | Create your own component to build your own editor   | Slash Menu, Toolbar       |
 | 📚 Syntax    | Create your own syntax to extend the markdown parser | Image with Caption, LaTex |
 
-We have provided a lot of plugins and components, with a out-of-box `crepe` editor for you to use and learn.
+We have provided a lot of plugins and components, with an out-of-the-box crepe editor for you to use and learn.
 
 ---
 
