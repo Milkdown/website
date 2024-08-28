@@ -32,7 +32,7 @@ const HomeEditor: FC<{ value: string }> = ({ value }) => {
     return () => {
       crepe.destroy();
     };
-  }, [value]);
+  }, [toast, value]);
 
   return (
     <div

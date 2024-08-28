@@ -71,7 +71,7 @@ const Doc: FC<{ content: string; url: string }> = ({ content, url }) => {
       if (loading.current) return;
       crepe.destroy();
     };
-  }, [content, darkMode]);
+  }, [content, darkMode, toast]);
 
   return (
     <>
