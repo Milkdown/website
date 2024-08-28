@@ -4,20 +4,22 @@
   @apply !pb-3;
 }
 
-.crepe .cm-cursor, .crepe .cm-dropCursor {
+.crepe .cm-cursor,
+.crepe .cm-dropCursor {
   border-left-color: #000 !important;
 }
 
-.dark .crepe .cm-cursor, .dark .crepe .cm-dropCursor {
+.dark .crepe .cm-cursor,
+.dark .crepe .cm-dropCursor {
   border-left-color: #fff !important;
 }
 
-.crepe .milkdown  {
+.crepe .milkdown {
   display: flow-root;
 }
 
 div:not(.expanded) .crepe .milkdown .ProseMirror {
-  @apply px-32 py-12 h-full;
+  @apply h-full px-32 py-12;
 }
 
 .crepe .ProseMirror:not(.expanded .crepe .ProseMirror) {
@@ -41,12 +43,13 @@ div:not(.expanded) .crepe .milkdown .ProseMirror {
 
   .milkdown button,
   .milkdown input {
-    border:none;
+    border: none;
     background: none;
     box-shadow: none;
   }
 
-  .milkdown button:focus, .milkdown input:focus {
+  .milkdown button:focus,
+  .milkdown input:focus {
     outline: none;
   }
 
@@ -100,7 +103,11 @@ div:not(.expanded) .crepe .milkdown .ProseMirror {
   .milkdown .ProseMirror .ProseMirror-selectednode {
     background: var(--crepe-color-selected);
     outline: none;
-    background: color-mix(in srgb, var(--crepe-color-selected), transparent 60%);
+    background: color-mix(
+      in srgb,
+      var(--crepe-color-selected),
+      transparent 60%
+    );
   }
 
   .milkdown .ProseMirror .ProseMirror-selectednode ::-moz-selection {
@@ -119,7 +126,8 @@ div:not(.expanded) .crepe .milkdown .ProseMirror {
     background: transparent;
   }
 
-  .milkdown .ProseMirror[data-dragging="true"]::-moz-selection, .milkdown .ProseMirror[data-dragging="true"] *::-moz-selection {
+  .milkdown .ProseMirror[data-dragging="true"]::-moz-selection,
+  .milkdown .ProseMirror[data-dragging="true"] *::-moz-selection {
     background: transparent;
   }
 
@@ -179,20 +187,20 @@ div:not(.expanded) .crepe .milkdown .ProseMirror {
   .milkdown .ProseMirror h4 {
     font-size: 28px;
     line-height: 36px;
-    margin-top: 20px
+    margin-top: 20px;
   }
 
   .milkdown .ProseMirror h5 {
     font-size: 24px;
     line-height: 32px;
-    margin-top: 16px
+    margin-top: 16px;
   }
 
   .milkdown .ProseMirror h6 {
     font-size: 18px;
     font-weight: 700;
     line-height: 28px;
-    margin-top: 16px
+    margin-top: 16px;
   }
 
   .milkdown .ProseMirror p {
@@ -203,13 +211,24 @@ div:not(.expanded) .crepe .milkdown .ProseMirror {
 
   .milkdown .ProseMirror code {
     color: var(--crepe-color-inline-code);
-    background: color-mix(in srgb, var(--crepe-color-inline-area), transparent 40%);
+    background: color-mix(
+      in srgb,
+      var(--crepe-color-inline-area),
+      transparent 40%
+    );
     font-family: var(--crepe-font-code);
     padding: 0 10px;
     border-radius: 4px;
     font-size: 87.5%;
     display: inline-block;
     line-height: 1.4286;
+    &::selection {
+      background: color-mix(
+        in srgb,
+        var(--crepe-color-inline-area) 80%,
+        var(--crepe-color-outline) 80%
+      );
+    }
   }
 
   .milkdown .ProseMirror a {
@@ -218,7 +237,11 @@ div:not(.expanded) .crepe .milkdown .ProseMirror {
   }
 
   .milkdown .ProseMirror pre {
-    background: color-mix(in srgb, var(--crepe-color-inline-area), transparent 40%);
+    background: color-mix(
+      in srgb,
+      var(--crepe-color-inline-area),
+      transparent 40%
+    );
     padding: 10px;
     border-radius: 4px;
   }
@@ -254,7 +277,11 @@ div:not(.expanded) .crepe .milkdown .ProseMirror {
 
   .milkdown .ProseMirror hr {
     border: none;
-    background-color: color-mix(in srgb, var(--crepe-color-outline), transparent 80%);
+    background-color: color-mix(
+      in srgb,
+      var(--crepe-color-outline),
+      transparent 80%
+    );
     background-clip: content-box;
     padding: 6px 0;
     height: 13px;
@@ -263,7 +290,11 @@ div:not(.expanded) .crepe .milkdown .ProseMirror {
 
   .milkdown .ProseMirror hr.ProseMirror-selectednode {
     outline: none;
-    background-color: color-mix(in srgb, var(--crepe-color-outline), transparent 20%);
+    background-color: color-mix(
+      in srgb,
+      var(--crepe-color-outline),
+      transparent 20%
+    );
     background-clip: content-box;
   }
 
@@ -274,11 +305,16 @@ div:not(.expanded) .crepe .milkdown .ProseMirror {
     top: 0;
     bottom: 0;
     right: 0;
-    background-color: color-mix(in srgb, var(--crepe-color-outline), transparent 80%);
+    background-color: color-mix(
+      in srgb,
+      var(--crepe-color-outline),
+      transparent 80%
+    );
     pointer-events: none;
   }
 
-  .milkdown .ProseMirror ul,.milkdown .ProseMirror ol {
+  .milkdown .ProseMirror ul,
+  .milkdown .ProseMirror ol {
     padding: 0;
   }
 }
@@ -320,13 +356,13 @@ div:not(.expanded) .crepe .milkdown .ProseMirror {
 
   --crepe-font-title: Rubik, Cambria, "Times New Roman", Times, serif;
   --crepe-font-default: Inter, Arial, Helvetica, sans-serif;
-  --crepe-font-code: "JetBrains Mono", Menlo, Monaco, "Courier New",
-  Courier, monospace;
+  --crepe-font-code: "JetBrains Mono", Menlo, Monaco, "Courier New", Courier,
+    monospace;
 
   --crepe-shadow-1: 0px 1px 3px 1px rgba(0, 0, 0, 0.15),
-  0px 1px 2px 0px rgba(0, 0, 0, 0.3);
+    0px 1px 2px 0px rgba(0, 0, 0, 0.3);
   --crepe-shadow-2: 0px 2px 6px 2px rgba(0, 0, 0, 0.15),
-  0px 1px 2px 0px rgba(0, 0, 0, 0.3);
+    0px 1px 2px 0px rgba(0, 0, 0, 0.3);
 }
 
 .dark .crepe .milkdown {
@@ -350,13 +386,13 @@ div:not(.expanded) .crepe .milkdown .ProseMirror {
 
   --crepe-font-title: Rubik, Cambria, "Times New Roman", Times, serif;
   --crepe-font-default: Inter, Arial, Helvetica, sans-serif;
-  --crepe-font-code: "JetBrains Mono", Menlo, Monaco, "Courier New",
-  Courier, monospace;
+  --crepe-font-code: "JetBrains Mono", Menlo, Monaco, "Courier New", Courier,
+    monospace;
 
   --crepe-shadow-1: 0px 1px 2px 0px rgba(255, 255, 255, 0.3),
-  0px 1px 3px 1px rgba(255, 255, 255, 0.15);
+    0px 1px 3px 1px rgba(255, 255, 255, 0.15);
   --crepe-shadow-2: 0px 1px 2px 0px rgba(255, 255, 255, 0.3),
-  0px 2px 6px 2px rgba(255, 255, 255, 0.15);
+    0px 2px 6px 2px rgba(255, 255, 255, 0.15);
 }
 
 .crepe .milkdown .ProseMirror {
@@ -376,13 +412,13 @@ div:not(.expanded) .crepe .milkdown .ProseMirror {
 }
 
 .crepe-doc .iframe-plugin-container > a {
-  @apply bg-gray-300 dark:bg-gray-700
-    py-1 px-2 rounded-t text-nord-neutral
-    border border-nord-neutral/10
-    dark:text-nord-neutral-dark shadow text-xs !no-underline
-    font-bold transition
-    hover:bg-nord-secondary-deep/[0.12] hover:dark:bg-nord-secondary-deep/[0.12]
-    inline-flex items-center justify-center gap-2;
+  @apply inline-flex items-center
+    justify-center gap-2 rounded-t border
+    border-nord-neutral/10 bg-gray-300
+    py-1 px-2 text-xs font-bold
+    text-nord-neutral !no-underline
+    shadow transition
+    hover:bg-nord-secondary-deep/[0.12] dark:bg-gray-700 dark:text-nord-neutral-dark hover:dark:bg-nord-secondary-deep/[0.12];
 }
 
 .crepe-doc .iframe-plugin-container > a span {
@@ -390,5 +426,5 @@ div:not(.expanded) .crepe .milkdown .ProseMirror {
 }
 
 .crepe-doc .iframe-plugin {
-  @apply w-full aspect-video block border border-nord-neutral/10 shadow rounded-b rounded-tr border-t-0;
+  @apply block aspect-video w-full rounded-b rounded-tr border border-t-0 border-nord-neutral/10 shadow;
 }

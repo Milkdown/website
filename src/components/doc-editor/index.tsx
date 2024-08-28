@@ -9,6 +9,7 @@ import { FC, useEffect, useRef, useState } from "react";
 import { eclipse } from "@uiw/codemirror-theme-eclipse";
 
 import { Button } from "./Button";
+import { useToast } from "../toast";
 
 const Doc: FC<{ content: string; url: string }> = ({ content, url }) => {
   const [outlines, setOutlines] = useState<
@@ -16,6 +17,7 @@ const Doc: FC<{ content: string; url: string }> = ({ content, url }) => {
   >([]);
   const darkMode = useDarkMode();
   const divRef = useRef<HTMLDivElement>(null);
+  const toast = useToast();
   const loading = useRef(false);
 
   useEffect(() => {
@@ -30,6 +32,11 @@ const Doc: FC<{ content: string; url: string }> = ({ content, url }) => {
       featureConfigs: {
         [Crepe.Feature.CodeMirror]: {
           theme: darkMode ? undefined : eclipse,
+        },
+        [Crepe.Feature.LinkTooltip]: {
+          onCopyLink: () => {
+            toast("Link copied", "success");
+          },
         },
       },
     });

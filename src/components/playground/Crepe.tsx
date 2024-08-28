@@ -37,6 +37,11 @@ const CrepeEditor: FC<MilkdownProps> = ({ onChange }) => {
         [Crepe.Feature.CodeMirror]: {
           theme: darkMode ? undefined : eclipse,
         },
+        [Crepe.Feature.LinkTooltip]: {
+          onCopyLink: () => {
+            toast("Link copied", "success");
+          },
+        },
       },
     });
 

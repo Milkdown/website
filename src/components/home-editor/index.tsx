@@ -1,9 +1,11 @@
 import { Crepe } from "@milkdown/crepe";
 import { FC, useLayoutEffect, useRef } from "react";
+import { useToast } from "../toast";
 
 const HomeEditor: FC<{ value: string }> = ({ value }) => {
   const divRef = useRef<HTMLDivElement>(null);
   const loading = useRef(false);
+  const toast = useToast();
 
   useLayoutEffect(() => {
     if (!divRef.current) return;
@@ -14,6 +16,13 @@ const HomeEditor: FC<{ value: string }> = ({ value }) => {
       features: {
         [Crepe.Feature.CodeMirror]: false,
         [Crepe.Feature.BlockEdit]: false,
+      },
+      featureConfigs: {
+        [Crepe.Feature.LinkTooltip]: {
+          onCopyLink: () => {
+            toast("Link copied", "success");
+          },
+        },
       },
     });
     crepe.create().then(() => {
