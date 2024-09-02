@@ -89,5 +89,5 @@ Milkdown is built by [Mirone][mirone] and designed by [Meo][meo].
 
 [repo]: https://github.com/Milkdown/milkdown
 [mirone]: https://github.com/Saul-Mirone
-[meo]: https://github.com/Saul-Meo
+[meo]: https://meo.cool
 [sponsor]: https://github.com/sponsors/Saul-Mirone
