@@ -53,7 +53,7 @@ export default function Document() {
         <meta name="theme-color" content="#5E81AC" />
         <meta
           name="description"
-          content="The plugin based WSIWYG markdown editor framework."
+          content="The plugin based WYSIWYG markdown editor framework."
         />
 
         <meta name="twitter:card" content="summary_large_image" />
@@ -68,7 +68,7 @@ export default function Document() {
         <meta property="og:title" content="Milkdown" />
         <meta
           property="og:description"
-          content="The plugin based WSIWYG markdown editor framework."
+          content="The plugin based WYSIWYG markdown editor framework."
         />
         <meta property="og:image" content="http://milkdown.dev/banner.svg" />
       </Head>
