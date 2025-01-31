@@ -4,7 +4,80 @@ We provide vue support out of the box.
 
 > Vue version should be 3.x
 
-## Install the Dependencies
+## Using Crepe
+
+### Install the Dependencies
+
+```bash
+# install with npm
+npm install @milkdown/crepe
+npm install @milkdown/vue
+npm install @milkdown/kit
+```
+
+### Create a Component
+
+Creating a component is pretty easy.
+
+First, we need to create a `MilkdownEditor` component.
+
+```html
+<!-- MilkdownEditor.vue -->
+<template>
+  <Milkdown />
+</template>
+
+<script>
+import { defineComponent } from "vue";
+import { Crepe } from "@milkdown/crepe";
+import { Milkdown, MilkdownProvider, useEditor } from "@milkdown/vue";
+
+export default defineComponent({
+  name: "MilkdownEditor",
+  components: {
+    Milkdown,
+  },
+  setup: () => {
+    const crepe = new Crepe({ root });
+    return crepe;
+  },
+});
+</script>
+```
+
+Then, we need to create a `MilkdownEditorWrapper` component.
+
+```html
+<!-- MilkdownEditorWrapper.vue -->
+<template>
+  <MilkdownProvider>
+    <MilkdownEditor />
+  </MilkdownProvider>
+</template>
+
+<script>
+import { defineComponent } from "vue";
+import { MilkdownProvider } from "@milkdown/vue";
+
+export default defineComponent({
+  name: "MilkdownEditorWrapper",
+  components: {
+    MilkdownProvider,
+  },
+  setup: () => {},
+});
+</script>
+```
+
+### Online Demo
+
+::iframe{src="https://stackblitz.com/github/Milkdown/examples/tree/main/vue-crepe"}
+
+---
+
+## Using Milkdown
+
+### Install the Dependencies
 
 Besides the `@milkdown/core` and theme. We need to install the `@milkdown/vue`, which provides lots of abilities for vue in milkdown.
 
@@ -15,7 +88,7 @@ npm install @milkdown/kit
 npm install @milkdown/theme-nord
 ```
 
-## Create a Component
+### Create a Component
 
 Creating a component is pretty easy.
 
@@ -77,6 +150,6 @@ export default defineComponent({
 </script>
 ```
 
-## Online Demo
+### Online Demo
 
 ::iframe{src="https://stackblitz.com/github/Milkdown/examples/tree/main/vue-commonmark"}
