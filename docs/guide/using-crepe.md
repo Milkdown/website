@@ -98,7 +98,11 @@ CodeMirror will render code block with [CodeMirror](https://codemirror.net/).
 - `searchIcon`: Icon for search in language picker.
 - `clearSearchIcon`: Icon for clear filter in language picker.
 - `noResultText`: Text for no result in language picker.
-- `renderLanguage`: Custom renderer for languages in language picker.
+- `renderLanguage`: Custom renderer for languages in language picker. For more details, see [renderLanguage](/docs/api/component-code-block#render-language).
+- `renderPreview`: Custom renderer for preview in code block. For more details, see [renderPreview](/docs/api/component-code-block#render-preview).
+- `previewToggleText`: Custom renderer for preview toggle button text in code block.
+- `previewToggleIcon`: Custom renderer for preview toggle button icon in code block.
+- `previewLabel`: Custom renderer for preview label in code block.
 
 ### `Crepe.Feature.ListItem`
 
@@ -124,6 +128,7 @@ Tooltip for preview and edit link.
 Render block as image with uploader, resizer and caption.
 
 - `onUpload`: Callback when image chosen by file picker. For more details, see [onUpload](/docs/api/component-image-block#on-upload).
+- `proxyDomURL`: Whether to proxy the image link to another URL when rendering. For more details, see [proxyDomURL](/docs/api/component-image-block#proxy-dom-url).
 
 #### Inline Image Config
 
@@ -258,6 +263,13 @@ Drop cursor and gap cursor.
 - `color`: Color for drop cursor.
 - `width`: Width for drop cursor.
 
+### `Crepe.Feature.Latex`
+
+Latex with math block and inline math.
+
+- `katexOptions`: Options for [KaTeX](https://katex.org/).
+- `inlineEditConfirm`: Icon for confirm inline latex changes.
+
 # Methods
 
 ### `crepe.editor`
@@ -309,6 +321,22 @@ crepe.setReadonly(true);
 
 // set editable
 crepe.setReadonly(false);
+```
+
+### `crepe.on`
+
+Add a listener to the editor.
+
+It leverages the [listener plugin](/docs/api/plugin-listener) of Milkdown.
+
+```ts
+crepe.on(listener => {
+  listener.markdownUpdated(onMarkdownUpdated);
+  listener.updated(onDocUpdated);
+  listener.focus(onFocus);
+  listener.blur(onBlur);
+  // ...
+})
 ```
 
 ### `crepe.getMarkdown()`

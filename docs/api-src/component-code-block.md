@@ -225,3 +225,77 @@ ctx.update(codeBlockConfig.key, defaultConfig => ({
   noResultText: 'No language found'
 }))
 ```
+
+### `renderPreview`
+
+A function to render the preview of the code block.
+
+The value can be a function that return:
+
+- A string
+- A DOM element
+- `null` to hide the preview
+
+```typescript
+import { html } from '@milkdown/kit/component';
+
+import { codeBlockConfig } from '@milkdown/kit/component/code-block';
+
+ctx.update(codeBlockConfig.key, defaultConfig => ({
+  ...defaultConfig,
+  renderPreview: (language, content) => {
+    if (language === 'latex' && content.length > 0) {
+      return renderLatexToDOM(content);
+    }
+    return null;
+  }
+}))
+```
+
+### `previewToggleButton`
+
+The text shown in the button to toggle the preview only mode.
+
+The value can be a function that return:
+
+- A string
+- A DOM element
+- An HTML template created by `html`.
+
+```typescript
+import { html } from '@milkdown/kit/component';
+
+import { codeBlockConfig } from '@milkdown/kit/component/code-block';
+
+ctx.update(codeBlockConfig.key, defaultConfig => ({
+  ...defaultConfig,
+  previewToggleButton: (previewOnlyMode) => {
+    if (previewOnlyMode) {
+      return 'Show code';
+    }
+    return 'Hide code';
+  }
+}))
+```
+
+### `previewLabel`
+
+The label shown in the preview mode.
+
+The value can be a function that return:
+
+- A string
+- A DOM element
+- An HTML template created by `html`.
+
+```typescript
+import { html } from '@milkdown/kit/component';
+
+import { codeBlockConfig } from '@milkdown/kit/component/code-block';
+
+ctx.update(codeBlockConfig.key, defaultConfig => ({
+  ...defaultConfig,
+  previewLabel: () => {
+    return 'Preview';
+  }
+}))

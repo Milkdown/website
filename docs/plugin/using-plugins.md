@@ -86,10 +86,6 @@ Milkdown provides the following official plugins:
 
   Add [prism](https://prismjs.com/) support for code block highlight.
 
-* [@milkdown/plugin-math](/docs/api/plugin-math)
-
-  Add [LaTeX](https://en.wikipedia.org/wiki/LaTeX) support for math, powered by [Katex](https://katex.org/).
-
 * [@milkdown/plugin-emoji](/docs/api/plugin-emoji)
 
   Add emoji shortcut support (something like `:+1:`), and use [twemoji](https://twemoji.twitter.com/) to display emoji.

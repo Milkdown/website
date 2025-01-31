@@ -77,7 +77,6 @@ export const apiConfigByCategory: APIConfigItem[] = [
     items: [
       "plugin-listener",
       "plugin-history",
-      "plugin-math",
       "plugin-diagram",
       "plugin-emoji",
       "plugin-prism",

@@ -124,3 +124,30 @@ ctx.update(inlineImageConfig.key, defaultConfig => ({
   confirmButton: () => 'Confirm'
 }))
 ```
+
+### `proxyDomURL`
+
+Whether to proxy the image link to another URL when rendering.
+
+The value should be a string or promise string.
+
+```typescript
+import { imageBlockConfig } from '@milkdown/kit/component/image-block'
+
+ctx.update(imageBlockConfig.key, defaultConfig => ({
+  ...defaultConfig,
+  proxyDomURL: (originalURL: string) => {
+    return `https://example.com/${originalURL}`;
+  }
+}))
+
+// Promise is also supported
+ctx.update(imageBlockConfig.key, defaultConfig => ({
+  ...defaultConfig,
+  proxyDomURL: async (originalURL: string) => {
+    const response = await fetch(`https://api.example.com/proxy?url=${originalURL}`);
+    const url = await response.text();
+    return url;
+  }
+}))
+```

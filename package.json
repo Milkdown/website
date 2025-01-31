@@ -28,10 +28,10 @@
     "@floating-ui/react": "^0.26.17",
     "@lezer/highlight": "^1.1.3",
     "@milkdown/core": "7.5.0",
-    "@milkdown/crepe": "^7.5.6",
+    "@milkdown/crepe": "^7.6.2",
     "@milkdown/ctx": "7.5.0",
     "@milkdown/exception": "7.5.0",
-    "@milkdown/kit": "^7.5.5",
+    "@milkdown/kit": "^7.6.2",
     "@milkdown/plugin-block": "7.5.4",
     "@milkdown/plugin-clipboard": "7.5.0",
     "@milkdown/plugin-collab": "7.5.0",
@@ -41,7 +41,6 @@
     "@milkdown/plugin-history": "7.5.0",
     "@milkdown/plugin-indent": "7.5.0",
     "@milkdown/plugin-listener": "7.5.0",
-    "@milkdown/plugin-math": "7.5.0",
     "@milkdown/plugin-prism": "7.5.0",
     "@milkdown/plugin-slash": "7.5.0",
     "@milkdown/plugin-tooltip": "7.5.3",
@@ -136,5 +135,6 @@
       "string.prototype.matchall": "npm:@nolyfill/string.prototype.matchall@^1",
       "is-core-module": "npm:@nolyfill/is-core-module@^1"
     }
-  }
+  },
+  "packageManager": "pnpm@9.15.4"
 }
