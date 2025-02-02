@@ -106,7 +106,7 @@ npm install @milkdown/crepe
 Then, create the crepe editor.
 
 ```typescript
-import { crepe } from '@milkdown/crepe';
+import { Crepe } from '@milkdown/crepe';
 import "@milkdown/crepe/theme/common/style.css";
 
 // We have some themes for you to choose
