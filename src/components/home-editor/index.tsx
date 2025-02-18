@@ -15,6 +15,7 @@ const HomeEditor: FC<{ value: string }> = ({ value }) => {
       defaultValue: value,
       features: {
         [Crepe.Feature.CodeMirror]: false,
+        [Crepe.Feature.Latex]: false,
         [Crepe.Feature.BlockEdit]: false,
       },
       featureConfigs: {

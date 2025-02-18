@@ -255,7 +255,7 @@ import { insert } from '@milkdown/kit/utils';
 editor.action(insert('# Hello milkdown'));
 ```
 
-For more details about macros, please check [macros](/macros).
+For more details about macros, please check [macros](/docs/guide/macros).
 
 ---
 

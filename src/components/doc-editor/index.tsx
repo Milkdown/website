@@ -28,6 +28,7 @@ const Doc: FC<{ content: string; url: string }> = ({ content, url }) => {
       defaultValue: content,
       features: {
         [Crepe.Feature.BlockEdit]: false,
+        [Crepe.Feature.Latex]: false,
       },
       featureConfigs: {
         [Crepe.Feature.CodeMirror]: {

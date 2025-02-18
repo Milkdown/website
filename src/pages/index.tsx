@@ -13,7 +13,17 @@ const playground = "/playground";
 const doc = `
 # Like this one
 
-> I'll see you on the dark side of the moon.  -- Roger Waters
+> 足がすくんでしまっても
+>
+> 声が震えても
+>
+> お構いなし
+>
+> 心は置き去りのままで
+>
+> 加速していくビート
+>
+> まだ準備も出来ていないのに
 
 Try it out by typing in here, or visiting the [online playground](/playground).
 `;
