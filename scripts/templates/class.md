@@ -5,9 +5,8 @@
 <<if item.typeParams>>`<<typeparams item>>`<</if>>
 <<if item.extends>> extends <<type item.extends>><</if>>␤␤
 <<for impl item.implements || []
-
-> > <<t item.kind == "interface" ? "extends" : "implements">> `<<type impl>>`
-> > <</for>>
+>> <<t item.kind == "interface" ? "extends" : "implements">> `<<type impl>>`
+<</for>>
 
 ␤␤
 
