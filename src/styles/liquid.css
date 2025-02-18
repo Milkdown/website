@@ -16,7 +16,7 @@
   }
 }
 
-@keyframes slideIn {
+@keyframes fadeIn {
   0% {
     opacity: 0;
     transform: translateY(-20px);
@@ -28,7 +28,7 @@
 }
 
 .liquid-content {
-  animation: slideIn 0.5s ease var(--animation-delay) forwards;
+  animation: fadeIn 0.5s ease var(--animation-delay) forwards;
   &.delay-300 {
     --animation-delay: 0.3s;
   }
