@@ -10,7 +10,6 @@ import type { AppProps } from "next/app";
 import Head from "next/head";
 
 import "@docsearch/css";
-import "@milkdown/theme-nord/style.css";
 import "@/styles/globals.css";
 import "@/styles/docsearch.css";
 import "@/styles/prosemirror.css";
