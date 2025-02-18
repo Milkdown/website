@@ -1,9 +1,10 @@
+import clsx from "clsx";
 import { useSetAtom } from "jotai";
 import Link from "next/link";
-import { FC } from "react";
-import { mobileSidebarScope } from "./atom";
 import { useRouter } from "next/router";
-import clsx from "clsx";
+import { FC } from "react";
+
+import { mobileSidebarScope } from "./atom";
 
 type NavButtonProps = {
   text: string;
@@ -18,7 +19,7 @@ export const NavButton: FC<NavButtonProps> = ({ text }) => {
       onClick={() => setScope(text.toLowerCase())}
       className={clsx(
         "flex items-center justify-between gap-6",
-        query.scope === text.toLowerCase() && "font-bold text-nord-primary"
+        query.scope === text.toLowerCase() && "font-bold text-nord-primary",
       )}
     >
       <span className="text-sm">{text}</span>
@@ -40,7 +41,7 @@ export const LinkButton: FC<LinkButtonProps> = ({ text, link }) => {
       href={link}
       className={clsx(
         "flex items-center justify-between gap-6",
-        path === link && "font-bold text-nord-primary"
+        path === link && "font-bold text-nord-primary",
       )}
     >
       <span className="text-sm">{text}</span>

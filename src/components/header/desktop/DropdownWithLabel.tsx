@@ -1,9 +1,10 @@
-import { APIConfigItem } from "@/routes";
-import { toTitle } from "@/utils/title";
 import clsx from "clsx";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { FC } from "react";
+
+import { APIConfigItem } from "@/routes";
+import { toTitle } from "@/utils/title";
 
 type DropdownWithLabelProps = {
   scope: string;
@@ -28,7 +29,7 @@ const LabeledItem: FC<{ scope: string; item: string; label: string }> = ({
         "rounded-[20px] py-2 px-6 text-sm capitalize",
         "bg-nord-secondary-deep/[.06] transition",
         "hover:bg-nord-secondary-deep/[0.12] active:bg-nord-secondary-deep/20 hover:dark:bg-nord-secondary-deep/[0.12] active:dark:bg-nord-secondary-deep/20",
-        active && "bg-nord-secondary-deep/20 font-bold text-nord-primary"
+        active && "bg-nord-secondary-deep/20 font-bold text-nord-primary",
       )}
       href={url}
     >
@@ -66,7 +67,7 @@ export const DropdownWithLabel: FC<DropdownWithLabelProps> = ({
         "flex w-96 flex-col gap-6 p-10",
         "bg-nord-foreground dark:bg-nord-foreground-dark",
         "rounded-2xl py-8 px-6",
-        "border border-nord-neutral/10 shadow dark:border-nord-neutral/10"
+        "border border-nord-neutral/10 shadow dark:border-nord-neutral/10",
       )}
     >
       {items.map((item) => (

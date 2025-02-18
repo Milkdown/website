@@ -4,3 +4,5 @@ next-env.d.ts
 
 .idea/
 .vscode/
+
+pnpm-lock.yaml

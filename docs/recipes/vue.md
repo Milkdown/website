@@ -28,20 +28,20 @@ First, we need to create a `MilkdownEditor` component.
 </template>
 
 <script>
-import { defineComponent } from "vue";
-import { Crepe } from "@milkdown/crepe";
-import { Milkdown, MilkdownProvider, useEditor } from "@milkdown/vue";
+  import { Crepe } from "@milkdown/crepe";
+  import { Milkdown, MilkdownProvider, useEditor } from "@milkdown/vue";
+  import { defineComponent } from "vue";
 
-export default defineComponent({
-  name: "MilkdownEditor",
-  components: {
-    Milkdown,
-  },
-  setup: () => {
-    const crepe = new Crepe({ root });
-    return crepe;
-  },
-});
+  export default defineComponent({
+    name: "MilkdownEditor",
+    components: {
+      Milkdown,
+    },
+    setup: () => {
+      const crepe = new Crepe({ root });
+      return crepe;
+    },
+  });
 </script>
 ```
 
@@ -56,16 +56,16 @@ Then, we need to create a `MilkdownEditorWrapper` component.
 </template>
 
 <script>
-import { defineComponent } from "vue";
-import { MilkdownProvider } from "@milkdown/vue";
+  import { MilkdownProvider } from "@milkdown/vue";
+  import { defineComponent } from "vue";
 
-export default defineComponent({
-  name: "MilkdownEditorWrapper",
-  components: {
-    MilkdownProvider,
-  },
-  setup: () => {},
-});
+  export default defineComponent({
+    name: "MilkdownEditorWrapper",
+    components: {
+      MilkdownProvider,
+    },
+    setup: () => {},
+  });
 </script>
 ```
 
@@ -101,28 +101,28 @@ First, we need to create a `MilkdownEditor` component.
 </template>
 
 <script>
-import { defineComponent } from "vue";
-import { Editor, rootCtx, defaultValueCtx } from "@milkdown/kit/core";
-import { nord } from "@milkdown/theme-nord";
-import { Milkdown, useEditor } from "@milkdown/vue";
-import { commonmark } from "@milkdown/kit/preset/commonmark";
+  import { Editor, rootCtx, defaultValueCtx } from "@milkdown/kit/core";
+  import { commonmark } from "@milkdown/kit/preset/commonmark";
+  import { nord } from "@milkdown/theme-nord";
+  import { Milkdown, useEditor } from "@milkdown/vue";
+  import { defineComponent } from "vue";
 
-export default defineComponent({
-  name: "MilkdownEditor",
-  components: {
-    Milkdown,
-  },
-  setup: () => {
-    useEditor((root) =>
-      Editor.make()
-        .config((ctx) => {
-          ctx.set(rootCtx, root);
-        })
-        .config(nord)
-        .use(commonmark)
-    );
-  },
-});
+  export default defineComponent({
+    name: "MilkdownEditor",
+    components: {
+      Milkdown,
+    },
+    setup: () => {
+      useEditor((root) =>
+        Editor.make()
+          .config((ctx) => {
+            ctx.set(rootCtx, root);
+          })
+          .config(nord)
+          .use(commonmark),
+      );
+    },
+  });
 </script>
 ```
 
@@ -137,16 +137,16 @@ Then, we need to create a `MilkdownEditorWrapper` component.
 </template>
 
 <script>
-import { defineComponent } from "vue";
-import { MilkdownProvider } from "@milkdown/vue";
+  import { MilkdownProvider } from "@milkdown/vue";
+  import { defineComponent } from "vue";
 
-export default defineComponent({
-  name: "MilkdownEditorWrapper",
-  components: {
-    MilkdownProvider,
-  },
-  setup: () => {},
-});
+  export default defineComponent({
+    name: "MilkdownEditorWrapper",
+    components: {
+      MilkdownProvider,
+    },
+    setup: () => {},
+  });
 </script>
 ```
 

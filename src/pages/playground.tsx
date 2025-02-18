@@ -1,11 +1,12 @@
+import { useHydrateAtoms } from "jotai/utils";
+import Head from "next/head";
+import { useRouter } from "next/router";
+import { ReactElement } from "react";
+
 import { Dual } from "@/components/playground";
 import { markdown } from "@/components/playground/atom";
 import { getPlaygroundTemplate } from "@/pages/api/playground";
 import { decode } from "@/utils/share";
-import { useHydrateAtoms } from "jotai/utils";
-import Head from "next/head";
-import { ReactElement } from "react";
-import { useRouter } from "next/router";
 
 export async function getStaticProps() {
   const template = await getPlaygroundTemplate();

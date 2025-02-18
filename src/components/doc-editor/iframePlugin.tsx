@@ -1,7 +1,6 @@
 import { MilkdownPlugin } from "@milkdown/kit/ctx";
 import { Node } from "@milkdown/kit/prose/model";
 import { $node } from "@milkdown/kit/utils";
-
 import { $remark } from "@milkdown/kit/utils";
 import directive from "remark-directive";
 

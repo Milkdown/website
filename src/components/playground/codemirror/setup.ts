@@ -1,4 +1,3 @@
-import { FocusType } from "@/components/playground/atom";
 import {
   autocompletion,
   closeBrackets,
@@ -28,8 +27,11 @@ import {
   keymap,
   rectangularSelection,
 } from "@codemirror/view";
-import { nord } from "./nord";
 import throttle from "lodash.throttle";
+
+import { FocusType } from "@/components/playground/atom";
+
+import { nord } from "./nord";
 
 const basicSetup: Extension = [
   highlightActiveLineGutter(),
@@ -96,7 +98,7 @@ const onCodeMirrorUpdate = throttle(
       });
     }
   },
-  200
+  200,
 );
 
 interface ViewOptions extends StateOptions {

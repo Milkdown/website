@@ -19,8 +19,8 @@ const removeSlash = (ctx: Ctx) => {
   view.dispatch(
     view.state.tr.delete(
       view.state.selection.from - 1,
-      view.state.selection.from
-    )
+      view.state.selection.from,
+    ),
   );
 };
 

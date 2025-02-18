@@ -5,21 +5,21 @@ It helped a lot of users to build their own markdown based applications.
 It has 13k downloads per month and I feel so grateful that users like that.
 
 However, we noticed that there're some problems cannot be resolved if we don't make a new major version.
-What big changes did we made?  I'll introduce them to you in this blog.
+What big changes did we made? I'll introduce them to you in this blog.
 
 ## TL;DR
 
-* The editor becomes a first-class headless component.
+- The editor becomes a first-class headless component.
 
-* Factory plugins are fully replaced by **composable plugins**.
+- Factory plugins are fully replaced by **composable plugins**.
 
-* Runtime plugin toggling is supported.
+- Runtime plugin toggling is supported.
 
-* Universal widget plugins.
+- Universal widget plugins.
 
-* Better Vue and React support.
+- Better Vue and React support.
 
-* API documentation is provided.
+- API documentation is provided.
 
 ## Why Headless?
 
@@ -69,7 +69,7 @@ The composable plugins can keep the atomicity of the plugins and make the plugin
 They also make the plugin system easier to maintain.
 
 ```ts
-const nodeSchema = $node('node', someSchema);
+const nodeSchema = $node("node", someSchema);
 const nodeInputRules = $inputRules(someInputRules);
 const nodeCommands = $commands(someCommands);
 ```
@@ -78,7 +78,7 @@ If you want to reuse them, it also will be very easy.
 
 ```ts
 const anotherCommand = $commands(() => {
-    return setBlockType(nodeSchema.type());
+  return setBlockType(nodeSchema.type());
 });
 ```
 
@@ -89,11 +89,10 @@ In V7, we support runtime plugin toggling by providing two new API: `editor.remo
 They can let users remove the plugins and configs at runtime.
 
 ```ts
-import { Editor } from '@milkdown/core';
-import { someMilkdownPlugin } from 'some-milkdown-plugin';
+import { Editor } from "@milkdown/core";
+import { someMilkdownPlugin } from "some-milkdown-plugin";
 
-const editor = await Editor
-  .config(configForPlugin)
+const editor = await Editor.config(configForPlugin)
   .use(someMilkdownPlugin)
   .create();
 
@@ -104,7 +103,7 @@ await editor.remove(someMilkdownPlugin);
 editor.removeConfig(configForPlugin);
 
 // add another plugin
-editor.use(anotherMilkdownPlugin)
+editor.use(anotherMilkdownPlugin);
 
 // Recreate the editor to apply changes.
 await editor.create();
@@ -115,7 +114,7 @@ it will recreate the editor and apply all the changes.
 
 ## Universal Widget Plugins
 
-We have 4 official widget plugins in V6: *slash*, *tooltip*, *block* and *menu*.
+We have 4 official widget plugins in V6: _slash_, _tooltip_, _block_ and _menu_.
 
 They are all well designed and easy to use.
 But if you want to customize them, what you can do is really limited.
@@ -123,13 +122,13 @@ Also, it's hard to reuse their logic even if you want to create something simila
 For example, if you want to create a mention plugin which will show a list of users when you type `@`,
 you need to create a new plugin from scratch.
 
-So, in V7, we make *slash*, *tooltip* and *block* plugins universal.
+So, in V7, we make _slash_, _tooltip_ and _block_ plugins universal.
 You can use them to build you features easily.
 For example, if you want to create a mention plugin, you can use the new slash plugin to do that.
 Another example is that you can also create tooltips for different types of nodes.
 Display a tooltip with input when you focus on an image node, or display a tooltip with buttons when you select some text.
 
-What about the *menu* plugin? We removed it because we think it's easy to create a menu plugin by yourself.
+What about the _menu_ plugin? We removed it because we think it's easy to create a menu plugin by yourself.
 We've already done that in the [official playground](https://milkdown.dev/playground).
 And, trust me, [it won't need much code](https://github.com/milkdown/website/blob/main/src/component/Playground/Milkdown/index.tsx#L57).
 
@@ -139,8 +138,8 @@ Thanks to the [Saul-Mirone/prosemirror-adapter project](https://github.com/Saul-
 In milkdown V7. We allow users to use vue and react to render lots of parts of the editor.
 For example, you can use them to render your own code block, drag handle or even small icons.
 
-* React Example: [![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/Milkdown/examples/tree/main/react-custom-component)
-* Vue Example: [![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/Milkdown/examples/tree/main/vue-custom-component)
+- React Example: [![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/Milkdown/examples/tree/main/react-custom-component)
+- Vue Example: [![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/Milkdown/examples/tree/main/vue-custom-component)
 
 ## API Documentation
 

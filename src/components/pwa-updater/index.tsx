@@ -1,6 +1,7 @@
-import { useToast } from "@/components/toast";
 import { useEffect } from "react";
 import type { Workbox } from "workbox-window";
+
+import { useToast } from "@/components/toast";
 
 declare global {
   interface Window {

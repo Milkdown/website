@@ -4,9 +4,9 @@ Milkdown supports collaborative editing powered by [Y.js](https://docs.yjs.dev/)
 We provide the [@milkdown/plugin-collab](/docs/api/plugin-collab) plugin to help you use milkdown with yjs easily.
 This plugin includes basic collaborative editing features like:
 
--   Sync between clients.
--   Remote cursor support.
--   Undo/Redo support.
+- Sync between clients.
+- Remote cursor support.
+- Undo/Redo support.
 
 ::iframe{src="https://stackblitz.com/github/Milkdown/examples/tree/main/vanilla-collab"}
 
@@ -26,13 +26,17 @@ After the installation, you can configure your editor:
 
 ```typescript
 // ...import other plugins
-import { collab, collabServiceCtx } from '@milkdown/plugin-collab';
+import { collab, collabServiceCtx } from "@milkdown/plugin-collab";
 
 async function setup() {
-  const editor = await Editor.make().config(nord).use(commonmark).use(collab).create();
+  const editor = await Editor.make()
+    .config(nord)
+    .use(commonmark)
+    .use(collab)
+    .create();
 
   const doc = new Doc();
-  const wsProvider = new WebsocketProvider('<YOUR_WS_HOST>', 'milkdown', doc);
+  const wsProvider = new WebsocketProvider("<YOUR_WS_HOST>", "milkdown", doc);
 
   editor.action((ctx) => {
     const collabService = ctx.get(collabServiceCtx);
@@ -57,16 +61,16 @@ You may want to control the connect status of the editor manually.
 editor.action((ctx) => {
   const collabService = ctx.get(collabServiceCtx);
   const doc = new Doc();
-  const wsProvider = new WebsocketProvider('<YOUR_WS_HOST>', 'milkdown', doc);
+  const wsProvider = new WebsocketProvider("<YOUR_WS_HOST>", "milkdown", doc);
 
   collabService.bindDoc(doc).setAwareness(wsProvider.awareness);
 
-  document.getElementById('connect').onclick = () => {
+  document.getElementById("connect").onclick = () => {
     wsProvider.connect();
     collabService.connect();
   };
 
-  document.getElementById('disconnect').onclick = () => {
+  document.getElementById("disconnect").onclick = () => {
     wsProvider.disconnect();
     collabService.disconnect();
   };
@@ -83,11 +87,11 @@ const template = `# Heading`;
 editor.action((ctx) => {
   const collabService = ctx.get(collabServiceCtx);
   const doc = new Doc();
-  const wsProvider = new WebsocketProvider('<YOUR_WS_HOST>', 'milkdown', doc);
+  const wsProvider = new WebsocketProvider("<YOUR_WS_HOST>", "milkdown", doc);
 
   collabService.bindDoc(doc).setAwareness(wsProvider.awareness);
 
-  wsProvider.once('synced', async (isSynced: boolean) => {
+  wsProvider.once("synced", async (isSynced: boolean) => {
     if (isSynced) {
       collabService
         // apply your template

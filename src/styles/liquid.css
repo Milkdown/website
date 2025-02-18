@@ -4,14 +4,14 @@
   }
 
   g {
-    filter: drop-shadow(0px 2px 5px rgba(184, 194, 215, 0.20));
+    filter: drop-shadow(0px 2px 5px rgba(184, 194, 215, 0.2));
   }
 }
 
 .dark {
   .liquid-cover {
     g {
-      filter: drop-shadow(0px 2px 5px rgba(15, 17, 21, 0.20));
+      filter: drop-shadow(0px 2px 5px rgba(15, 17, 21, 0.2));
     }
   }
 }

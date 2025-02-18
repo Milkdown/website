@@ -1,11 +1,13 @@
+import clsx from "clsx";
+import { useAtomValue } from "jotai";
+import type { FC } from "react";
+
 import { crepeAPI } from "@/components/playground/atom";
 import { useLinkClass } from "@/hooks";
-import clsx from "clsx";
-import type { FC } from "react";
+
 import pkgJson from "../../../package.json";
 import type { CodemirrorProps } from "./codemirror";
 import { Codemirror } from "./codemirror";
-import { useAtomValue } from "jotai";
 
 interface ControlPanelProps extends CodemirrorProps {
   hide: boolean;
@@ -27,7 +29,7 @@ const ControlPanel: FC<ControlPanelProps> = ({ hide, onChange, setHide }) => {
           className={clsx(
             linkClass(false),
             "flex h-12 w-12 items-center justify-center rounded",
-            "bg-nord6/70 dark:bg-nord3/70"
+            "bg-nord6/70 dark:bg-nord3/70",
           )}
         >
           <span className="material-symbols-outlined text-2xl">
@@ -40,7 +42,7 @@ const ControlPanel: FC<ControlPanelProps> = ({ hide, onChange, setHide }) => {
           className={clsx(
             linkClass(false),
             "flex h-12 w-12 items-center justify-center rounded",
-            "bg-nord6/70 dark:bg-nord3/70"
+            "bg-nord6/70 dark:bg-nord3/70",
           )}
         >
           <span className="material-symbols-outlined !text-base">share</span>
@@ -58,7 +60,7 @@ const ControlPanel: FC<ControlPanelProps> = ({ hide, onChange, setHide }) => {
             className={clsx(
               linkClass(false),
               "flex h-8 w-8 items-center justify-center rounded-full",
-              "hover:bg-nord6/70 hover:dark:bg-nord3/70"
+              "hover:bg-nord6/70 hover:dark:bg-nord3/70",
             )}
           >
             <span className="material-symbols-outlined !text-base">
@@ -78,7 +80,7 @@ const ControlPanel: FC<ControlPanelProps> = ({ hide, onChange, setHide }) => {
             className={clsx(
               linkClass(false),
               "flex h-8 w-8 items-center justify-center rounded-full",
-              "hover:bg-nord6/70 hover:dark:bg-nord3/70"
+              "hover:bg-nord6/70 hover:dark:bg-nord3/70",
             )}
           >
             <span className="material-symbols-outlined !text-base">share</span>

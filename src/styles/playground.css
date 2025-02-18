@@ -1,5 +1,5 @@
 .cm-editor {
-  @apply font-mono h-full xl:text-base lg:text-sm md:text-xs;
+  @apply h-full font-mono md:text-xs lg:text-sm xl:text-base;
 }
 
 .cm-scroller {

@@ -1,5 +1,6 @@
-import { DocSearch } from "@/utils/types";
 import { createContext, FC, ReactNode, useContext } from "react";
+
+import { DocSearch } from "@/utils/types";
 
 const docSearchCtx = createContext<DocSearch>({
   appId: "",

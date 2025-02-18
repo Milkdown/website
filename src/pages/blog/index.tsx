@@ -1,7 +1,8 @@
-import { blogConfig } from "@/routes/blog-config";
-import { toTitle } from "@/utils/title";
 import Head from "next/head";
 import Link from "next/link";
+
+import { blogConfig } from "@/routes/blog-config";
+import { toTitle } from "@/utils/title";
 
 export async function getStaticProps() {
   return {

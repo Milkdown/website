@@ -15,10 +15,10 @@ npm install @milkdown/theme-nord
 Create a component is pretty easy.
 
 ```tsx
-import { onCleanup, onMount } from 'solid-js';
-import { defaultValueCtx, Editor, rootCtx } from '@milkdown/kit/core';
-import { commonmark } from '@milkdown/kit/preset/commonmark';
-import { nord } from '@milkdown/theme-nord';
+import { defaultValueCtx, Editor, rootCtx } from "@milkdown/kit/core";
+import { commonmark } from "@milkdown/kit/preset/commonmark";
+import { nord } from "@milkdown/theme-nord";
+import { onCleanup, onMount } from "solid-js";
 
 const Milkdown = () => {
   let ref;
@@ -26,7 +26,7 @@ const Milkdown = () => {
   onMount(async () => {
     editor = await Editor.make()
       .config((ctx) => {
-          ctx.set(rootCtx, ref);
+        ctx.set(rootCtx, ref);
       })
       .config(nord)
       .use(commonmark)

@@ -8,7 +8,7 @@ The whole editor is rendered inside of a container with the class `.milkdown`. A
 
 ```css
 .milkdown .editor p {
-    margin: 1rem 0;
+  margin: 1rem 0;
 }
 ```
 
@@ -16,7 +16,7 @@ For every node/mark, milkdown provides a default className, for example, `paragr
 
 ```css
 .milkdown .editor .paragraph {
-    margin: 1rem 0;
+  margin: 1rem 0;
 }
 ```
 
@@ -55,26 +55,24 @@ It's possible to write your own theme. Generally speaking, themes are defined by
 Some configs are needed to add attributes, and some css is used to style them.
 
 ```typescript
-import { Ctx } from '@milkdown/kit/core';
-
-// You should import these predefined prosemirror css styles.
-import '@milkdown/kit/prose/view/style/prosemirror.css'
-
+import { Ctx } from "@milkdown/kit/core";
 // If you need to style tables, you should import this css file.
 import "@milkdown/kit/prose/tables/style/tables.css";
+// You should import these predefined prosemirror css styles.
+import "@milkdown/kit/prose/view/style/prosemirror.css";
 
 // Your css file.
-import './my-theme.css'
+import "./my-theme.css";
 
 // Your config.
 export const myThemeConfig = (ctx: Ctx) => {
   ctx.update(editorViewOptionsCtx, (prev) => ({
     ...prev,
     attributes: {
-      class: 'milkdown milkdown-theme-my-theme',
+      class: "milkdown milkdown-theme-my-theme",
     },
-  }))
-}
+  }));
+};
 ```
 
 You can view the source code of [@milkdown/theme-nord](https://github.com/Milkdown/milkdown/tree/main/packages/theme-nord)

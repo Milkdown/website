@@ -1,13 +1,15 @@
-import { toTitle } from "@/utils/title";
-import { FC } from "react";
-import { apiConfigByCategory, docConfig, scopeTitleMap } from "@/routes";
 import clsx from "clsx";
-import { createPortal } from "react-dom";
 import { useAtom, useAtomValue } from "jotai";
+import { FC } from "react";
+import { createPortal } from "react-dom";
+
+import { apiConfigByCategory, docConfig, scopeTitleMap } from "@/routes";
+import { toTitle } from "@/utils/title";
+
 import { SystemButtonGroup } from "../shared/SystemButtonGroup";
-import { useSidebar } from "./useSidebar";
-import { mobileSidebarOpen, mobileSidebarScope } from "./atom";
 import { NavButton, LinkButton } from "./NavButton";
+import { mobileSidebarOpen, mobileSidebarScope } from "./atom";
+import { useSidebar } from "./useSidebar";
 
 const ScopeList: FC = () => {
   const scope = useAtomValue(mobileSidebarScope);
@@ -94,7 +96,7 @@ export const MobileNav: FC = () => {
           "flex flex-col",
           "rounded-l-2xl",
           "backdrop-blur backdrop-filter",
-          "transition-right duration-300"
+          "transition-right duration-300",
         )}
       >
         <div className="flex h-16 items-center justify-between border-b border-nord-neutral/10 px-2 dark:border-nord-neutral/10">

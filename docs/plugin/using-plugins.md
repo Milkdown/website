@@ -5,17 +5,12 @@ Such as syntax, components, etc.
 Now we can try more plugins:
 
 ```typescript
-import { Editor } from '@milkdown/kit/core';
-import { commonmark } from '@milkdown/kit/preset/commonmark';
-import { tooltip } from '@milkdown/kit/plugin/tooltip';
-import { slash } from '@milkdown/kit/plugin/slash';
+import { Editor } from "@milkdown/kit/core";
+import { slash } from "@milkdown/kit/plugin/slash";
+import { tooltip } from "@milkdown/kit/plugin/tooltip";
+import { commonmark } from "@milkdown/kit/preset/commonmark";
 
-Editor
-  .make()
-  .use(commonmark)
-  .use(tooltip)
-  .use(slash)
-  .create();
+Editor.make().use(commonmark).use(tooltip).use(slash).create();
 ```
 
 ---
@@ -25,11 +20,10 @@ Editor
 You can also toggle plugins programmatically:
 
 ```typescript
-import { Editor } from '@milkdown/kit/core';
-import { someMilkdownPlugin } from 'some-milkdown-plugin';
+import { Editor } from "@milkdown/kit/core";
+import { someMilkdownPlugin } from "some-milkdown-plugin";
 
-const editor = await Editor
-  .config(configForPlugin)
+const editor = await Editor.config(configForPlugin)
   .use(someMilkdownPlugin)
   .create();
 
@@ -40,7 +34,7 @@ await editor.remove(someMilkdownPlugin);
 editor.removeConfig(configForPlugin);
 
 // add another plugin
-editor.use(anotherMilkdownPlugin)
+editor.use(anotherMilkdownPlugin);
 
 // Recreate the editor to apply changes.
 await editor.create();
@@ -61,7 +55,7 @@ Milkdown provides the following official plugins:
 > The plugins in `@milkdown/kit` are also stable and well-tested.
 
 | Package Name                                                   | Description                                               |
-|----------------------------------------------------------------|-----------------------------------------------------------|
+| -------------------------------------------------------------- | --------------------------------------------------------- |
 | [@milkdown/kit/preset/commonmark](/docs/api/preset-commonmark) | Add [commonmark](https://commonmark.org/) syntax support. |
 | [@milkdown/kit/preset/gfm](/docs/api/preset-gfm)               | Add [gfm](https://github.github.com/gfm/) syntax support. |
 | [@milkdown/kit/plugin/history](/docs/api/plugin-history)       | Add undo & redo support.                                  |
@@ -74,23 +68,21 @@ Milkdown provides the following official plugins:
 | [@milkdown/kit/plugin/tooltip](/docs/api/plugin-tooltip)       | Add universal tooltip support.                            |
 | [@milkdown/kit/plugin/slash](/docs/api/plugin-slash)           | Add universal slash commands support.                     |
 
-
-
 ### Other Plugins:
 
-* [@milkdown/plugin-collab](/docs/api/plugin-collab)
+- [@milkdown/plugin-collab](/docs/api/plugin-collab)
 
   Add collaborative editing support, powered by [yjs](https://docs.yjs.dev/).
 
-* [@milkdown/plugin-prism](/docs/api/plugin-prism)
+- [@milkdown/plugin-prism](/docs/api/plugin-prism)
 
   Add [prism](https://prismjs.com/) support for code block highlight.
 
-* [@milkdown/plugin-emoji](/docs/api/plugin-emoji)
+- [@milkdown/plugin-emoji](/docs/api/plugin-emoji)
 
   Add emoji shortcut support (something like `:+1:`), and use [twemoji](https://twemoji.twitter.com/) to display emoji.
 
-* [@milkdown/plugin-diagram](/docs/api/plugin-diagram)
+- [@milkdown/plugin-diagram](/docs/api/plugin-diagram)
 
   Add [mermaid](https://mermaid-js.github.io/mermaid/#/) diagram support.
 

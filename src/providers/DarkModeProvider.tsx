@@ -1,7 +1,7 @@
-import type { SetState } from "@/utils/types";
-
 import type { FC, ReactNode } from "react";
 import { createContext, useContext, useEffect, useState } from "react";
+
+import type { SetState } from "@/utils/types";
 
 export const darkModeCtx = createContext<boolean>(false);
 export const setDarkModeCtx = createContext<SetState<boolean>>(() => undefined);
@@ -17,7 +17,7 @@ export const useSetDarkMode = () => {
 export const DarkModeProvider: FC<{ children: ReactNode }> = ({ children }) => {
   const [darkMode, setDarkMode] = useState(
     typeof window !== "undefined" &&
-      window.matchMedia?.("(prefers-color-scheme: dark)").matches
+      window.matchMedia?.("(prefers-color-scheme: dark)").matches,
   );
 
   useEffect(() => {
@@ -38,7 +38,7 @@ export const DarkModeProvider: FC<{ children: ReactNode }> = ({ children }) => {
     // For Algolia DocSearch
     document.documentElement.setAttribute(
       "data-theme",
-      darkMode ? "dark" : "light"
+      darkMode ? "dark" : "light",
     );
     // For TailwindCSS
     document.documentElement.classList.toggle("dark", darkMode);

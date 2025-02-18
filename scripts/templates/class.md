@@ -1,11 +1,13 @@
 <<in {item, name}>>
 
 #### <<if item.abstract>>abstract <</if>><<h item.kind == "typealias" ? "type" : item.kind>> <<h name>>
+
 <<if item.typeParams>>`<<typeparams item>>`<</if>>
 <<if item.extends>> extends <<type item.extends>><</if>>␤␤
 <<for impl item.implements || []
->> <<t item.kind == "interface" ? "extends" : "implements">> `<<type impl>>`
-<</for>>
+
+> > <<t item.kind == "interface" ? "extends" : "implements">> `<<type impl>>`
+> > <</for>>
 
 ␤␤
 

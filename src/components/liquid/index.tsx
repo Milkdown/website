@@ -1,5 +1,6 @@
 import clsx from "clsx";
 import { FC, ReactNode } from "react";
+
 import styles from "./style.module.css";
 
 export const Liquid: FC<{ children: ReactNode }> = ({ children }) => {
@@ -9,7 +10,7 @@ export const Liquid: FC<{ children: ReactNode }> = ({ children }) => {
         "liquid-cover",
         styles.cover,
         "relative h-screen w-screen",
-        "bg-nord-background dark:bg-nord-background-dark"
+        "bg-nord-background dark:bg-nord-background-dark",
       )}
     >
       <div className={clsx(styles.bg, "z-0")}>

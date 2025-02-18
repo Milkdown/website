@@ -9,7 +9,7 @@ But it can help you understand the plugin system and what happens under the hood
 Generally speaking, a plugin will have following structure:
 
 ```typescript
-import { MilkdownPlugin } from '@milkdown/kit/ctx';
+import { MilkdownPlugin } from "@milkdown/kit/ctx";
 
 const myPlugin: MilkdownPlugin = (ctx) => {
   // #1 prepare plugin
@@ -17,7 +17,7 @@ const myPlugin: MilkdownPlugin = (ctx) => {
     // #2 run plugin
     return async () => {
       // #3 clean up plugin
-    }
+    };
   };
 };
 ```
@@ -35,7 +35,7 @@ Timer can be used to decide when to load the current plugin and how current plug
 You can use `ctx.wait` to wait a timer to finish.
 
 ```typescript
-import { MilkdownPlugin, Complete } from '@milkdown/kit/core';
+import { MilkdownPlugin, Complete } from "@milkdown/kit/core";
 
 const myPlugin: MilkdownPlugin = (ctx) => {
   return async () => {
@@ -45,7 +45,7 @@ const myPlugin: MilkdownPlugin = (ctx) => {
 
     const end = Date.now();
 
-    console.log('Milkdown load duration: ', end - start);
+    console.log("Milkdown load duration: ", end - start);
   };
 };
 ```
@@ -54,9 +54,14 @@ You can also create your own timer and influence other plugins load time.
 For example, let's create a plugin that will fetch markdown content from remote server as editor's default value.
 
 ```typescript
-import { MilkdownPlugin, editorStateTimerCtx, defaultValueCtx, createTimer } from '@milkdown/kit/core';
+import {
+  MilkdownPlugin,
+  editorStateTimerCtx,
+  defaultValueCtx,
+  createTimer,
+} from "@milkdown/kit/core";
 
-const RemoteTimer = createTimer('RemoteTimer');
+const RemoteTimer = createTimer("RemoteTimer");
 
 const remotePlugin: MilkdownPlugin = (ctx) => {
   // register timer
@@ -77,7 +82,7 @@ const remotePlugin: MilkdownPlugin = (ctx) => {
 
       // remove timer when plugin is removed
       ctx.clearTimer(RemoteTimer);
-    }
+    };
   };
 };
 ```
@@ -95,9 +100,9 @@ We have used `ctx` several times in the above example, now we can try to underst
 Ctx is a data container which is shared in the entire editor instance. It's composed by a lot of slices. Every `slice` has a unique key and a value. You can change the value of a slice by `ctx.set` and `ctx.update`. And you can get the value of a slice by `ctx.get` with the slice key or name. Last but not least, you can remove a slice by `post.remove`.
 
 ```typescript
-import { MilkdownPlugin, createSlice } from '@milkdown/kit/ctx';
+import { MilkdownPlugin, createSlice } from "@milkdown/kit/ctx";
 
-const counterCtx = createSlice(0, 'counter');
+const counterCtx = createSlice(0, "counter");
 
 const counterPlugin: MilkdownPlugin = (ctx) => {
   ctx.inject(counterCtx);
@@ -118,12 +123,12 @@ const counterPlugin: MilkdownPlugin = (ctx) => {
     // now count is 3
     const count2 = ctx.get(counterCtx);
     // we can also get value by the slice name
-    const count3 = ctx.get('counter');
+    const count3 = ctx.get("counter");
 
     return () => {
       // remove the slice
       ctx.remove(counterCtx);
-    }
+    };
   };
 };
 ```
@@ -135,18 +140,25 @@ And when plugin processing, `ctx.get` can get the value of a ctx, `ctx.set` can 
 So, we can use `ctx` combine with `timer` to decide when should a plugin be processed.
 
 ```typescript
-import { MilkdownPlugin, SchemaReady, Timer, createSlice } from '@milkdown/kit/core';
+import {
+  MilkdownPlugin,
+  SchemaReady,
+  Timer,
+  createSlice,
+} from "@milkdown/kit/core";
 
-const examplePluginTimersCtx = createSlice<Timer[]>([], 'example-timer');
+const examplePluginTimersCtx = createSlice<Timer[]>([], "example-timer");
 
 const examplePlugin: MilkdownPlugin = (ctx) => {
   ctx.inject(examplePluginTimersCtx, [SchemaReady]);
   return async () => {
-      await Promise.all(ctx.get(examplePluginTimersCtx).map((timer) => ctx.wait(timer)));
-      // or we can use a simplified syntax sugar
-      await ctx.waitTimers(examplePluginTimersCtx);
+    await Promise.all(
+      ctx.get(examplePluginTimersCtx).map((timer) => ctx.wait(timer)),
+    );
+    // or we can use a simplified syntax sugar
+    await ctx.waitTimers(examplePluginTimersCtx);
 
-      // do something
+    // do something
   };
 };
 ```

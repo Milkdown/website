@@ -1,6 +1,3 @@
-import { useToast } from "@/components/toast";
-import { useDarkMode } from "@/providers";
-import { encode } from "@/utils/share";
 import { Crepe } from "@milkdown/crepe";
 import { editorViewCtx, parserCtx } from "@milkdown/kit/core";
 import { listener, listenerCtx } from "@milkdown/kit/plugin/listener";
@@ -11,6 +8,11 @@ import { eclipse } from "@uiw/codemirror-theme-eclipse";
 import { useAtomValue, useSetAtom } from "jotai";
 import throttle from "lodash.throttle";
 import { FC, MutableRefObject, useLayoutEffect, useRef } from "react";
+
+import { useToast } from "@/components/toast";
+import { useDarkMode } from "@/providers";
+import { encode } from "@/utils/share";
+
 import { crepeAPI, markdown } from "./atom";
 
 interface MilkdownProps {
@@ -50,7 +52,7 @@ const CrepeEditor: FC<MilkdownProps> = ({ onChange }) => {
         ctx.get(listenerCtx).markdownUpdated(
           throttle((_, markdown) => {
             onChange(markdown);
-          }, 200)
+          }, 200),
         );
       })
       .use(listener);
@@ -88,7 +90,7 @@ const CrepeEditor: FC<MilkdownProps> = ({ onChange }) => {
           tr = tr.replace(
             0,
             state.doc.content.size,
-            new Slice(doc.content, 0, 0)
+            new Slice(doc.content, 0, 0),
           );
           tr = tr.setSelection(Selection.near(tr.doc.resolve(from)));
           view.dispatch(tr);

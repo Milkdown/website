@@ -10,7 +10,7 @@ export const Button: FC<{ primary?: boolean; icon?: string; text: string }> = ({
     "flex h-12 items-center justify-center rounded-3xl shadow-md hover:shadow-lg pl-4 pr-6",
     primary
       ? "text-gray-50 bg-nord10 hover:bg-nord9"
-      : "bg-gray-200 hover:bg-gray-100 dark:bg-nord3 hover:dark:bg-nord1"
+      : "bg-gray-200 hover:bg-gray-100 dark:bg-nord3 hover:dark:bg-nord1",
   );
 
   return (

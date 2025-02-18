@@ -1,5 +1,5 @@
 #docsearch {
-  @apply flex justify-center items-end;
+  @apply flex items-end justify-center;
 }
 
 #docsearch .DocSearch:hover {
@@ -39,11 +39,11 @@
 .DocSearch-Logo svg,
 .DocSearch-Logo svg .cls-1,
 .DocSearch-Logo svg .cls-2 {
-  @apply !text-nord8 !fill-nord8;
+  @apply !fill-nord8 !text-nord8;
 }
 .DocSearch-Form {
-  @apply outline outline-nord9 outline-2 shadow-none mb-1;
+  @apply mb-1 shadow-none outline outline-2 outline-nord9;
 }
-.DocSearch-Hit[aria-selected=true] a {
+.DocSearch-Hit[aria-selected="true"] a {
   @apply bg-nord9;
 }

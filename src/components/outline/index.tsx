@@ -1,9 +1,10 @@
-import { useLinkClass } from "@/hooks";
 import clsx from "clsx";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import type { FC, ReactNode } from "react";
 import { useEffect, useState } from "react";
+
+import { useLinkClass } from "@/hooks";
 
 type OutlineItem = { text: string; level: number; id: string };
 
@@ -57,7 +58,7 @@ function Outline(props: { items: OutlineItem[] }) {
                 <div
                   className={clsx(
                     "cursor-pointer rounded-3xl p-2 text-sm font-light",
-                    linkClass(hash === item.id)
+                    linkClass(hash === item.id),
                   )}
                 >
                   <NestedDiv level={item.level}>{item.text}</NestedDiv>

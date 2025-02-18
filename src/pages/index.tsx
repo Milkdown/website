@@ -1,11 +1,12 @@
-import { Button } from "@/components/home/Button";
-import { InfoCard } from "@/components/home/InfoCard";
-import { Liquid } from "@/components/liquid";
-import Loading from "@/components/loading";
 import clsx from "clsx";
 import dynamic from "next/dynamic";
 import Head from "next/head";
 import Link from "next/link";
+
+import { Button } from "@/components/home/Button";
+import { InfoCard } from "@/components/home/InfoCard";
+import { Liquid } from "@/components/liquid";
+import Loading from "@/components/loading";
 
 const gettingStarted = "/docs/guide/getting-started";
 const playground = "/playground";
@@ -74,7 +75,7 @@ export default function Home() {
             <h1
               className={clsx(
                 "text-center text-4xl font-bold text-nord-neutral dark:text-nord-neutral-dark sm:text-6xl xl:text-7xl",
-                "liquid-content opacity-0 delay-300"
+                "liquid-content opacity-0 delay-300",
               )}
             >
               Milkdown
@@ -85,7 +86,7 @@ export default function Home() {
                 "text-base sm:text-2xl",
                 "mt-6 mb-11 sm:mt-10 sm:mb-10",
                 "w-64 sm:w-full",
-                "liquid-content opacity-0 delay-500"
+                "liquid-content opacity-0 delay-500",
               )}
             >
               A plugin driven framework to build WYSIWYG Markdown editor.
@@ -93,7 +94,7 @@ export default function Home() {
             <div
               className={clsx(
                 "flex flex-col gap-4 sm:flex-row sm:gap-10",
-                "liquid-content opacity-0 delay-700"
+                "liquid-content opacity-0 delay-700",
               )}
             >
               <Link href={gettingStarted}>

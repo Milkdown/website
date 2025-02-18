@@ -13,7 +13,7 @@ body,
 }
 
 body {
-  @apply bg-[#fdfcff] dark:bg-[#1b1c1d] text-gray-900 dark:text-gray-50;
+  @apply bg-[#fdfcff] text-gray-900 dark:bg-[#1b1c1d] dark:text-gray-50;
 }
 div[data-milkdown-root="true"] {
   @apply h-full;
@@ -23,36 +23,36 @@ div[data-milkdown-root="true"] {
 }
 
 button.main-button {
-  @apply shadow hover:shadow-md active:shadow-none transition;
+  @apply shadow transition hover:shadow-md active:shadow-none;
 }
 
 button.button-primary {
   @apply bg-nord-primary text-nord-foreground;
   &:hover {
-    background-color: color-mix(in srgb, #5E81AC, white 8%);
+    background-color: color-mix(in srgb, #5e81ac, white 8%);
   }
   &:active {
-    background-color: color-mix(in srgb, #5E81AC, white 12%);
+    background-color: color-mix(in srgb, #5e81ac, white 12%);
   }
 }
 
 button.button-default {
-  @apply bg-nord-foreground dark:bg-nord-foreground-dark text-nord-neutral dark:text-nord-neutral-dark;
+  @apply bg-nord-foreground text-nord-neutral dark:bg-nord-foreground-dark dark:text-nord-neutral-dark;
   &:hover {
-    background-color: color-mix(in srgb, #494E59 8%, white);
+    background-color: color-mix(in srgb, #494e59 8%, white);
   }
   &:active {
-    background-color: color-mix(in srgb, #494E59 12%, white);
+    background-color: color-mix(in srgb, #494e59 12%, white);
   }
 }
 
 .dark {
   button.button-default {
     &:hover {
-      background-color: color-mix(in srgb, #494E59 16%, black);
+      background-color: color-mix(in srgb, #494e59 16%, black);
     }
     &:active {
-      background-color: color-mix(in srgb, #494E59 12%, black);
+      background-color: color-mix(in srgb, #494e59 12%, black);
     }
   }
 }

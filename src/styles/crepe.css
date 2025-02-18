@@ -367,13 +367,13 @@ div:not(.expanded) .crepe > .milkdown > .ProseMirror {
 
   --crepe-font-title: Rubik, Cambria, "Times New Roman", Times, serif;
   --crepe-font-default: Inter, Arial, Helvetica, sans-serif;
-  --crepe-font-code: "JetBrains Mono", Menlo, Monaco, "Courier New", Courier,
-    monospace;
+  --crepe-font-code:
+    "JetBrains Mono", Menlo, Monaco, "Courier New", Courier, monospace;
 
-  --crepe-shadow-1: 0px 1px 3px 1px rgba(0, 0, 0, 0.15),
-    0px 1px 2px 0px rgba(0, 0, 0, 0.3);
-  --crepe-shadow-2: 0px 2px 6px 2px rgba(0, 0, 0, 0.15),
-    0px 1px 2px 0px rgba(0, 0, 0, 0.3);
+  --crepe-shadow-1:
+    0px 1px 3px 1px rgba(0, 0, 0, 0.15), 0px 1px 2px 0px rgba(0, 0, 0, 0.3);
+  --crepe-shadow-2:
+    0px 2px 6px 2px rgba(0, 0, 0, 0.15), 0px 1px 2px 0px rgba(0, 0, 0, 0.3);
 }
 
 .dark .crepe .milkdown {
@@ -397,12 +397,14 @@ div:not(.expanded) .crepe > .milkdown > .ProseMirror {
 
   --crepe-font-title: Rubik, Cambria, "Times New Roman", Times, serif;
   --crepe-font-default: Inter, Arial, Helvetica, sans-serif;
-  --crepe-font-code: "JetBrains Mono", Menlo, Monaco, "Courier New", Courier,
-    monospace;
+  --crepe-font-code:
+    "JetBrains Mono", Menlo, Monaco, "Courier New", Courier, monospace;
 
-  --crepe-shadow-1: 0px 1px 2px 0px rgba(255, 255, 255, 0.3),
+  --crepe-shadow-1:
+    0px 1px 2px 0px rgba(255, 255, 255, 0.3),
     0px 1px 3px 1px rgba(255, 255, 255, 0.15);
-  --crepe-shadow-2: 0px 1px 2px 0px rgba(255, 255, 255, 0.3),
+  --crepe-shadow-2:
+    0px 1px 2px 0px rgba(255, 255, 255, 0.3),
     0px 2px 6px 2px rgba(255, 255, 255, 0.15);
 }
 
@@ -423,13 +425,7 @@ div:not(.expanded) .crepe > .milkdown > .ProseMirror {
 }
 
 .crepe-doc .iframe-plugin-container > a {
-  @apply inline-flex items-center
-    justify-center gap-2 rounded-t border
-    border-nord-neutral/10 bg-gray-300
-    py-1 px-2 text-xs font-bold
-    text-nord-neutral !no-underline
-    shadow transition
-    hover:bg-nord-secondary-deep/[0.12] dark:bg-gray-700 dark:text-nord-neutral-dark hover:dark:bg-nord-secondary-deep/[0.12];
+  @apply inline-flex items-center justify-center gap-2 rounded-t border border-nord-neutral/10 bg-gray-300 py-1 px-2 text-xs font-bold text-nord-neutral !no-underline shadow transition hover:bg-nord-secondary-deep/[0.12] dark:bg-gray-700 dark:text-nord-neutral-dark hover:dark:bg-nord-secondary-deep/[0.12];
 }
 
 .crepe-doc .iframe-plugin-container > a span {

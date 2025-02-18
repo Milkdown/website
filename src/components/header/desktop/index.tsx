@@ -1,14 +1,16 @@
+import { FC } from "react";
+
 import {
   apiConfigByCategory,
   guideConfig,
   pluginConfig,
   recipesConfig,
 } from "@/routes";
-import { FC } from "react";
-import { TextButton, TextLinkButton } from "./TextButton";
+
+import { SystemButtonGroup } from "../shared/SystemButtonGroup";
 import { Dropdown } from "./Dropdown";
 import { DropdownWithLabel } from "./DropdownWithLabel";
-import { SystemButtonGroup } from "../shared/SystemButtonGroup";
+import { TextButton, TextLinkButton } from "./TextButton";
 
 export const DesktopNav: FC = () => {
   return (

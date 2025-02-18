@@ -30,11 +30,11 @@ const configuration = new Configuration({
 const openai = new OpenAIApi(configuration);
 
 export const handler = async (req, res, next) => {
-  if (req.path === '/api/copilot' && req.method === "POST") {
+  if (req.path === "/api/copilot" && req.method === "POST") {
     const buffers = [];
 
     // Get the body of the request.
-    const body = JSON.parse(req.body)
+    const body = JSON.parse(req.body);
 
     // Get prompt from the body.
     const { prompt } = body;
@@ -44,11 +44,11 @@ export const handler = async (req, res, next) => {
       prompt,
     });
     const hint = completion.data.choices[0].text;
-    return res.end(JSON.stringify({ hint }))
+    return res.end(JSON.stringify({ hint }));
   }
-  next()
+  next();
   return;
-}
+};
 ```
 
 We watch the `/api/copilot` route and call the OpenAI API when we receive a POST request.
@@ -58,12 +58,12 @@ To call our API, we just need one single helper in browser environment:
 
 ```ts
 async function fetchAIHint(prompt: string) {
-  const data: Record<string, string> = { prompt }
-  const response = await fetch('/api/copilot', {
+  const data: Record<string, string> = { prompt };
+  const response = await fetch("/api/copilot", {
     method: "POST",
-    body: JSON.stringify(data)
+    body: JSON.stringify(data),
   });
-  const res = await response.json() as { hint: string };
+  const res = (await response.json()) as { hint: string };
   return res.hint;
 }
 ```
@@ -84,8 +84,8 @@ we can build a prosemirror plugin and use the `onKeyDown` hook to listen to the 
 
 ```ts
 function keyDownHandler(ctx: Ctx, event: Event) {
-  if (event.key === 'Enter' || event.code === 'Space') {
-    getHint(ctx)
+  if (event.key === "Enter" || event.code === "Space") {
+    getHint(ctx);
     return;
   }
   if (event.key === "Tab") {
@@ -108,8 +108,8 @@ And we also need a component to render the hint. Here I choose to use a simple [
 
 ```ts
 function renderHint(message: string) {
-  const dom = document.createElement('pre');
-  dom.className = "copilot-hint"
+  const dom = document.createElement("pre");
+  dom.className = "copilot-hint";
   dom.innerHTML = message;
   return dom;
 }
@@ -118,49 +118,51 @@ function renderHint(message: string) {
 So our component looks like:
 
 ```ts
-import {$prose} from '@milkdown/utils';
-import {Plugin, PluginKey} from '@milkdown/prose/state';
-import {Decoration, DecorationSet} from "@milkdown/prose/view";
+import { Plugin, PluginKey } from "@milkdown/prose/state";
+import { Decoration, DecorationSet } from "@milkdown/prose/view";
+import { $prose } from "@milkdown/utils";
 
 const initialState = {
   deco: DecorationSet.empty,
-  message: '',
-}
+  message: "",
+};
 
-export const copilotPluginKey = new PluginKey('milkdown-copilot');
-export const copilotPlugin = $prose((ctx) => new Plugin({
-  key: copilotPluginKey,
-  props: {
-    handleKeyDwon(view, event) {
-      keydownHandler(ctx, event);
-    },
-    decorations(state) {
-      return copilotPluginKey.getState(state).deco;
-    }
-  },
-  state: {
-    init() {
-      return {...initialState};
-    },
-    apply(tr, value, _prevState, state) {
-      const message = tr.getMeta(copilotPluginKey);
-      if (typeof message !== 'string') return value;
+export const copilotPluginKey = new PluginKey("milkdown-copilot");
+export const copilotPlugin = $prose(
+  (ctx) =>
+    new Plugin({
+      key: copilotPluginKey,
+      props: {
+        handleKeyDwon(view, event) {
+          keydownHandler(ctx, event);
+        },
+        decorations(state) {
+          return copilotPluginKey.getState(state).deco;
+        },
+      },
+      state: {
+        init() {
+          return { ...initialState };
+        },
+        apply(tr, value, _prevState, state) {
+          const message = tr.getMeta(copilotPluginKey);
+          if (typeof message !== "string") return value;
 
-      if (message.length === 0) {
-        return {...initialState};
-      }
+          if (message.length === 0) {
+            return { ...initialState };
+          }
 
-      const { to } = tr.selection;
-      const widget = Decoration.widget(to + 1, () => renderHint(message))
-      return {
-        deco: DecorationSet.create(state.doc, [widget]),
-        message,
-      };
-    }
-  }
-}))
+          const { to } = tr.selection;
+          const widget = Decoration.widget(to + 1, () => renderHint(message));
+          return {
+            deco: DecorationSet.create(state.doc, [widget]),
+            message,
+          };
+        },
+      },
+    }),
+);
 ```
-
 
 ### Get Hint
 
@@ -169,11 +171,11 @@ To get a hint from the copilot, we need to get the text before the cursor.
 ```ts
 function getHint(ctx: Ctx) {
   const view = ctx.get(editorViewCtx);
-  const {state} = view;
-  const {tr,schema} = state;
-  const {from} = tr.selection;
+  const { state } = view;
+  const { tr, schema } = state;
+  const { from } = tr.selection;
 
-  const slice = tr.doc.slice(0, from)
+  const slice = tr.doc.slice(0, from);
   const serializer = ctx.get(serializerCtx);
   const doc = schema.topNodeType.createAndFill(undefined, slice.content);
   if (!doc) return;
@@ -181,7 +183,7 @@ function getHint(ctx: Ctx) {
   const markdown = serializer(doc);
   fetchAIHint(markdown).then((hint) => {
     const tr = view.state.tr;
-    view.dispatch(tr.setMeta(copilotPluginKey, hint))
+    view.dispatch(tr.setMeta(copilotPluginKey, hint));
   });
 }
 ```
@@ -199,9 +201,9 @@ To hide the hint, we just need to dispatch a transaction with an empty message.
 ```ts
 function hideHint(ctx: Ctx) {
   const view = ctx.get(editorViewCtx);
-  const {state} = view;
-  const {tr} = state;
-  view.dispatch(tr.setMeta(copilotPluginKey, ''))
+  const { state } = view;
+  const { tr } = state;
+  view.dispatch(tr.setMeta(copilotPluginKey, ""));
 }
 ```
 
@@ -214,19 +216,19 @@ So, before we apply the hint to the editor, we need to convert the markdown snip
 ```ts
 function applyHint(ctx: Ctx) {
   const view = ctx.get(editorViewCtx);
-  const {state} = view;
-  const {tr,schema} = state;
+  const { state } = view;
+  const { tr, schema } = state;
 
-  const {message} = copilotPluginKey.getState(state);
+  const { message } = copilotPluginKey.getState(state);
   const parser = ctx.get(parserCtx);
   const slice = parser(message);
   const dom = DOMSerializer.fromSchema(schema).serializeFragment(slice.content);
   const node = DOMParser.fromSchema(schema).parseSlice(dom);
 
   // Reset the hint since it's applied
-  tr.setMeta(copilotPluginKey, '')
+  tr.setMeta(copilotPluginKey, "")
     // Replace the selection with the hint
-    .replaceSelection(node)
+    .replaceSelection(node);
 
   view.dispatch(tr);
 }

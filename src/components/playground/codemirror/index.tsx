@@ -1,6 +1,8 @@
-import { useDarkMode } from "@/providers";
 import { useAtomValue, useSetAtom } from "jotai";
 import { FC, useLayoutEffect, useRef } from "react";
+
+import { useDarkMode } from "@/providers";
+
 import { cmAPI, markdown, focus } from "../atom";
 import { createCodeMirrorState, createCodeMirrorView } from "./setup";
 

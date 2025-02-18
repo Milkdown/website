@@ -9,6 +9,8 @@
     "build": "pnpm build:doc && pnpm build:next",
     "start": "next start",
     "lint": "next lint && tsc --noEmit",
+    "format": "prettier --write .",
+    "prettier": "prettier --check .",
     "prepare": "husky install"
   },
   "dependencies": {

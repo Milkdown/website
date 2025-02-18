@@ -1,3 +1,5 @@
+import { compressToBase64, decompressFromBase64 } from "lz-string";
+
 declare module "lz-string" {
   export function compressToBase64(input: string): string;
   export function decompressFromBase64(input: string): string;
@@ -14,8 +16,6 @@ declare module "lz-string" {
   export function compress(input: string): string;
   export function decompress(compressed: string): string;
 }
-
-import { compressToBase64, decompressFromBase64 } from "lz-string";
 
 export const encode = compressToBase64;
 

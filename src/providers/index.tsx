@@ -7,7 +7,7 @@ import { SidePanelStateProvider } from "./SidePanelStateProvider";
 export const LayoutProvider = compose(
   DarkModeProvider,
   SidePanelStateProvider,
-  ToastProvider
+  ToastProvider,
 );
 
 export * from "./DarkModeProvider";

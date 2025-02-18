@@ -1,11 +1,12 @@
-import { getDocById } from "@/pages/api/docs";
-import { blogConfig } from "@/routes/blog-config";
-import { toTitle } from "@/utils/title";
 import { MilkdownProvider } from "@milkdown/react";
 import { ProsemirrorAdapterProvider } from "@prosemirror-adapter/react";
 import Head from "next/head";
 import { useRouter } from "next/router";
+
 import Doc from "@/components/doc-editor";
+import { getDocById } from "@/pages/api/docs";
+import { blogConfig } from "@/routes/blog-config";
+import { toTitle } from "@/utils/title";
 
 type Params = {
   params: {
@@ -27,7 +28,7 @@ export async function getStaticPaths() {
   const paths = blogConfig.map(
     ({ id }): Params => ({
       params: { id },
-    })
+    }),
   );
   return {
     paths,

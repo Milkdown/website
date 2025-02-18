@@ -7,13 +7,10 @@ Rendered by [twemoji](https://github.com/twitter/twemoji).
 ## Usage
 
 ```typescript
-import { Editor } from '@milkdown/core';
+import { Editor } from "@milkdown/core";
+import { emoji } from "@milkdown/plugin-emoji";
 
-import { emoji } from '@milkdown/plugin-emoji';
-
-Editor.make()
-  .use(emoji)
-  .create();
+Editor.make().use(emoji).create();
 ```
 
 @emoji

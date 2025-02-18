@@ -1,11 +1,12 @@
-import { getDocById } from "@/pages/api/docs";
-import { docConfig } from "@/routes";
-import { toTitle } from "@/utils/title";
 import { ProsemirrorAdapterProvider } from "@prosemirror-adapter/react";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import type { FC } from "react";
+
 import Doc from "@/components/doc-editor";
+import { getDocById } from "@/pages/api/docs";
+import { docConfig } from "@/routes";
+import { toTitle } from "@/utils/title";
 
 type Params = {
   params: {
@@ -32,8 +33,8 @@ export async function getStaticPaths() {
           id,
           scope,
         },
-      })
-    )
+      }),
+    ),
   );
   return {
     paths,

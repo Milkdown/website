@@ -8,8 +8,11 @@ We provide users with a command manager that has lots of commands defined for us
 We can use **command key** to run commands with command manager.
 
 ```typescript
-import { Editor, commandsCtx } from '@milkdown/kit/core';
-import { commonmark, toggleEmphasisCommand } from '@milkdown/kit/preset/commonmark';
+import { Editor, commandsCtx } from "@milkdown/kit/core";
+import {
+  commonmark,
+  toggleEmphasisCommand,
+} from "@milkdown/kit/preset/commonmark";
 
 async function setup() {
   const editor = await Editor.make().use(commonmark).create();
@@ -38,12 +41,15 @@ The command should be a [prosemirror command](https://prosemirror.net/docs/guide
 We create a command in the next example:
 
 ```typescript
-import { blockquoteSchema } from '@milkdown/kit/preset/commonmark';
-import { $command, callCommand } from '@milkdown/kit/utils';
-import { wrapIn } from '@milkdown/kit/prose/commands';
-import { Editor } from '@milkdown/kit/core';
+import { Editor } from "@milkdown/kit/core";
+import { blockquoteSchema } from "@milkdown/kit/preset/commonmark";
+import { wrapIn } from "@milkdown/kit/prose/commands";
+import { $command, callCommand } from "@milkdown/kit/utils";
 
-const wrapInBlockquoteCommand = $command('WrapInBlockquote', (ctx) => () => wrapIn(blockquoteSchema.type(ctx)));
+const wrapInBlockquoteCommand = $command(
+  "WrapInBlockquote",
+  (ctx) => () => wrapIn(blockquoteSchema.type(ctx)),
+);
 
 // register the command when creating the editor
 const editor = Editor().make().use(wrapInBlockquoteCommand).create();
@@ -57,13 +63,18 @@ editor.action(callCommand(wrapInBlockquoteCommand.key));
 We can also add a info argument for commands:
 
 ```typescript
-import { headingSchema } from '@milkdown/kit/preset/commonmark';
-import { $command, callCommand } from '@milkdown/kit/utils';
-import { setBlockType } from '@milkdown/kit/prose/commands';
+import { headingSchema } from "@milkdown/kit/preset/commonmark";
+import { setBlockType } from "@milkdown/kit/prose/commands";
+import { $command, callCommand } from "@milkdown/kit/utils";
 
 // use number as the type of argument
 export const WrapInHeading = createCmdKey<number>();
-const wrapInHeadingCommand = $command('WrapInHeading', (ctx) => (level = 1) => setBlockType(headingSchema.type(ctx), { level }));
+const wrapInHeadingCommand = $command(
+  "WrapInHeading",
+  (ctx) =>
+    (level = 1) =>
+      setBlockType(headingSchema.type(ctx), { level }),
+);
 
 // call command
 editor.action(callCommand(wrapInHeadingCommand.key)); // turn to h1 by default

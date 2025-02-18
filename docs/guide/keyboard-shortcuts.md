@@ -1,20 +1,19 @@
 # Keyboard Shortcuts
 
-Keyboard shortcuts are provided by default from both presets and plugins.  Depending on your application, you might want to change them.
+Keyboard shortcuts are provided by default from both presets and plugins. Depending on your application, you might want to change them.
 
 You can configure shortcuts just like this:
 
 ```typescript
-import { blockquoteKeymap, commonmark } from '@milkdown/kit/preset/commonmark';
+import { blockquoteKeymap, commonmark } from "@milkdown/kit/preset/commonmark";
 
-Editor
-  .make()
+Editor.make()
   .config((ctx) => {
     ctx.set(blockquoteKeymap.key, {
-      WrapInBlockquote: 'Mod-Shift-b',
+      WrapInBlockquote: "Mod-Shift-b",
       // or you may want to bind multiple keys:
-      WrapInBlockquote: ['Mod-Shift-b', 'Mod-b'],
-    })
+      WrapInBlockquote: ["Mod-Shift-b", "Mod-b"],
+    });
   })
   .use(commonmark);
 ```

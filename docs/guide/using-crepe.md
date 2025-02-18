@@ -17,19 +17,18 @@ npm install @milkdown/crepe
 Then, create the crepe editor.
 
 ```typescript
-import { Crepe } from '@milkdown/crepe';
+import { Crepe } from "@milkdown/crepe";
 import "@milkdown/crepe/theme/common/style.css";
-
 // We have some themes for you to choose
 import "@milkdown/crepe/theme/frame.css";
 
 const crepe = new Crepe({
-    root: document.getElementById('app'),
-    defaultValue: 'Hello, Milkdown!',
+  root: document.getElementById("app"),
+  defaultValue: "Hello, Milkdown!",
 });
 
 crepe.create().then(() => {
-  console.log('Editor created');
+  console.log("Editor created");
 });
 
 // To destroy the editor
@@ -80,9 +79,9 @@ const crepe = new Crepe({
   featureConfigs: {
     [Crepe.Feature.LinkTooltip]: {
       ...someOptions,
-    }
-  }
-})
+    },
+  },
+});
 ```
 
 ### `Crepe.Feature.CodeMirror`
@@ -167,11 +166,14 @@ Drag handle and block menu.
 
 - `slashMenuTextGroupLabel`: Label for text group in slash menu.
 
-######  paragraph
+###### paragraph
+
 - `slashMenuTextIcon`: Icon for text in slash menu.
 - `slashMenuTextLabel`: Label for text in slash menu.
 -
+
 ###### heading
+
 - `slashMenuH1Icon`: Icon for h1 in slash menu.
 - `slashMenuH1Label`: Label for h1 in slash menu.
 - `slashMenuH2Icon`: Icon for h2 in slash menu.
@@ -205,8 +207,9 @@ Drag handle and block menu.
 - `slashMenuBulletListLabel`: Label for bullet list in slash menu.
 
 ###### ordered
-  - `slashMenuOrderedListIcon`: Icon for ordered list in slash menu.
-  - `slashMenuOrderedListLabel`: Label for ordered list in slash menu.
+
+- `slashMenuOrderedListIcon`: Icon for ordered list in slash menu.
+- `slashMenuOrderedListLabel`: Label for ordered list in slash menu.
 - todo
   - `slashMenuTaskListIcon`: Icon for todo list in slash menu.
   - `slashMenuTaskListLabel`: Label for todo list in slash menu.
@@ -281,6 +284,8 @@ Latex with math block and inline math.
 Get milkdown editor instance. You can use it interact with the editor.
 
 ```ts
+import { insert } from "@milkdown/kit/utils";
+
 const crepe = new Crepe({
   /* something */
 });
@@ -290,9 +295,7 @@ crepe.editor.use(somePlugin);
 
 await crepe.create();
 
-import { insert } from '@milkdown/kit/utils';
-
-crepe.editor.action(insert('some other thing'))
+crepe.editor.action(insert("some other thing"));
 ```
 
 ### `crepe.create()`
@@ -301,7 +304,7 @@ Create the editor. This method will return a promise that resolves when the edit
 
 ```ts
 crepe.create().then(() => {
-  console.log('Editor created');
+  console.log("Editor created");
 });
 ```
 
@@ -334,13 +337,13 @@ Add a listener to the editor.
 It leverages the [listener plugin](/docs/api/plugin-listener) of Milkdown.
 
 ```ts
-crepe.on(listener => {
+crepe.on((listener) => {
   listener.markdownUpdated(onMarkdownUpdated);
   listener.updated(onDocUpdated);
   listener.focus(onFocus);
   listener.blur(onBlur);
   // ...
-})
+});
 ```
 
 ### `crepe.getMarkdown()`

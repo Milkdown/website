@@ -16,10 +16,10 @@ Create slash view is simple.
 All you need to do is to implement the [Prosemirror Plugin.view](https://prosemirror.net/docs/ref/#state.PluginSpec.view).
 
 ```typescript
-import { SlashProvider } from '@milkdown/kit/plugin/slash'
+import { SlashProvider } from "@milkdown/kit/plugin/slash";
 
 function slashPluginView(view) {
-  const content = document.createElement('div');
+  const content = document.createElement("div");
 
   const provider = new SlashProvider({
     content,
@@ -32,8 +32,8 @@ function slashPluginView(view) {
     destroy: () => {
       provider.destroy();
       content.remove();
-    }
-  }
+    },
+  };
 }
 ```
 
@@ -42,17 +42,16 @@ function slashPluginView(view) {
 You need to bind the slash view to the plugin in `editor.config`.
 
 ```typescript
-import { Editor } from '@milkdown/core';
-import { slashFactory } from '@milkdown/plugin-slash';
+import { Editor } from "@milkdown/core";
+import { slashFactory } from "@milkdown/plugin-slash";
 
-const slash = slashFactory('my-slash');
+const slash = slashFactory("my-slash");
 
-Editor
-  .make()
+Editor.make()
   .config((ctx) => {
     ctx.set(slash.key, {
-      view: slashPluginView
-    })
+      view: slashPluginView,
+    });
   })
   .use(slash)
   .create();

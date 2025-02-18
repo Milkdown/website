@@ -1,7 +1,8 @@
-import { config, slash } from "@/components/slash-menu/config";
 import { rootDOMCtx } from "@milkdown/core";
 import { Instance } from "@milkdown/react";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+
+import { config, slash } from "@/components/slash-menu/config";
 
 export const useSlashState = (instance: Instance) => {
   const [loading, getEditor] = instance;
@@ -30,7 +31,7 @@ export const useSlashState = (instance: Instance) => {
         }));
       });
     },
-    [getEditor]
+    [getEditor],
   );
 
   const onKeydown = useCallback(
@@ -49,7 +50,7 @@ export const useSlashState = (instance: Instance) => {
         return;
       }
     },
-    [getEditor]
+    [getEditor],
   );
 
   return {

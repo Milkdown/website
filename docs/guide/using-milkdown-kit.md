@@ -9,11 +9,11 @@ Thus, you don't need to install the common dependencies manually like `@milkdown
 `@milkdown/kit` re-exports the following packages:
 
 | Package                                                    | Import path                               | Scope     |
-|------------------------------------------------------------|-------------------------------------------|-----------|
+| ---------------------------------------------------------- | ----------------------------------------- | --------- |
 | [@milkdown/core](/docs/api/core)                           | `@milkdown/kit/core`                      | Framework |
 | [@milkdown/ctx](/docs/api/ctx)                             | `@milkdown/kit/ctx`                       | Framework |
 | [@milkdown/prose](/docs/guide/prosemirror-api)             | `@milkdown/kit/prose`                     | Framework |
-| [@milkdown/prose/*](/docs/guide/prosemirror-api)           | `@milkdown/kit/prose/*`                   | Framework |
+| [@milkdown/prose/\*](/docs/guide/prosemirror-api)          | `@milkdown/kit/prose/*`                   | Framework |
 | [@milkdown/transformer](/docs/api/transformer)             | `@milkdown/kit/transformer`               | Framework |
 | [@milkdown/utils](/docs/api/utils)                         | `@milkdown/kit/utils`                     | Framework |
 | [@milkdown/preset-commonmark](/docs/api/preset-commonmark) | `@milkdown/kit/preset/commonmark`         | Preset    |

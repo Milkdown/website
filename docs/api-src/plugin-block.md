@@ -10,11 +10,11 @@ Create block view is simple.
 All you need to do is to implement the [Prosemirror Plugin.view](https://prosemirror.net/docs/ref/#state.PluginSpec.view).
 
 ```typescript
-import { BlockProvider } from '@milkdown/kit/plugin/block'
+import { BlockProvider } from "@milkdown/kit/plugin/block";
 
 function createBlockPluginView(ctx) {
   return (view) => {
-    const content = document.createElement('div');
+    const content = document.createElement("div");
 
     const provider = new BlockProvider({
       ctx,
@@ -28,28 +28,25 @@ function createBlockPluginView(ctx) {
       destroy: () => {
         provider.destroy();
         content.remove();
-      }
-    }
-  }
+      },
+    };
+  };
 }
 ```
-
 
 #### Bind Block View
 
 You need to bind the block view to the plugin in `editor.config`.
 
 ```typescript
-import { Editor } from '@milkdown/core';
+import { Editor } from "@milkdown/core";
+import { block } from "@milkdown/plugin-block";
 
-import { block } from '@milkdown/plugin-block';
-
-Editor
-  .make()
+Editor.make()
   .config((ctx) => {
     ctx.set(block.key, {
-      view: blockPluginView(ctx)
-    })
+      view: blockPluginView(ctx),
+    });
   })
   .use(block)
   .create();

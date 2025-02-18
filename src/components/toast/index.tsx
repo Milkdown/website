@@ -1,4 +1,3 @@
-import { useLinkClass } from "@/hooks";
 import * as Toast from "@radix-ui/react-toast";
 import clsx from "clsx";
 import type { FC, ReactNode } from "react";
@@ -9,6 +8,8 @@ import {
   useMemo,
   useState,
 } from "react";
+
+import { useLinkClass } from "@/hooks";
 
 type ToastType = "success" | "fail" | "warning" | "info";
 
@@ -23,7 +24,7 @@ export const ToastProvider: FC<{ children: ReactNode }> = ({ children }) => {
   const [open, setOpen] = useState(false);
   const [desc, setDesc] = useState("");
   const [onConfirm, setOnConfirm] = useState<undefined | (() => void)>(
-    undefined
+    undefined,
   );
   const [type, setType] = useState<ToastType>("success");
   const linkClassName = useLinkClass();

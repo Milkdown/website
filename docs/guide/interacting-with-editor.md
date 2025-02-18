@@ -5,10 +5,10 @@
 By default, milkdown will create editor on the `document.body`. Alternatively, you can also point out which dom node you want it to load into:
 
 ```typescript
-import { rootCtx } from '@milkdown/kit/core';
+import { rootCtx } from "@milkdown/kit/core";
 
 Editor.make().config((ctx) => {
-    ctx.set(rootCtx, document.querySelector('#editor'));
+  ctx.set(rootCtx, document.querySelector("#editor"));
 });
 ```
 
@@ -17,10 +17,10 @@ It's also possible to just pass a selector to `rootCtx`:
 > The selector will be passed to `document.querySelector` to get the dom.
 
 ```typescript
-import { rootCtx } from '@milkdown/kit/core';
+import { rootCtx } from "@milkdown/kit/core";
 
 Editor.make().config((ctx) => {
-    ctx.set(rootCtx, '#editor');
+  ctx.set(rootCtx, "#editor");
 });
 ```
 
@@ -30,20 +30,20 @@ Editor.make().config((ctx) => {
 
 We support three types of default values:
 
-* Markdown strings.
-* HTML DOM.
-* Prosemirror documentation JSON.
+- Markdown strings.
+- HTML DOM.
+- Prosemirror documentation JSON.
 
 ### Markdown
 
 You can set a markdown string as the default value of the editor.
 
 ```typescript
-import { defaultValueCtx } from '@milkdown/kit/core';
+import { defaultValueCtx } from "@milkdown/kit/core";
 
-const defaultValue = '# Hello milkdown';
+const defaultValue = "# Hello milkdown";
 Editor.make().config((ctx) => {
-    ctx.set(defaultValueCtx, defaultValue);
+  ctx.set(defaultValueCtx, defaultValue);
 });
 ```
 
@@ -57,21 +57,21 @@ Let's assume that we have the following html snippets:
 
 ```html
 <div id="pre">
-    <h1>Hello milkdown!</h1>
+  <h1>Hello milkdown!</h1>
 </div>
 ```
 
 Then we can use it as a defaultValue with a `type` specification:
 
 ```typescript
-import { defaultValueCtx } from '@milkdown/kit/core';
+import { defaultValueCtx } from "@milkdown/kit/core";
 
 const defaultValue = {
-    type: 'html',
-    dom: document.querySelector('#pre'),
+  type: "html",
+  dom: document.querySelector("#pre"),
 };
 Editor.make().config((ctx) => {
-    ctx.set(defaultValueCtx, defaultValue);
+  ctx.set(defaultValueCtx, defaultValue);
 });
 ```
 
@@ -82,30 +82,30 @@ We can also use a JSON object as a default value.
 This JSON object can be obtained by a listener through the [listener-plugin](https://www.npmjs.com/package/@milkdown/plugin-listener), for example:
 
 ```typescript
-import { listener, listenerCtx } from '@milkdown/kit/plugin/listener';
+import { listener, listenerCtx } from "@milkdown/kit/plugin/listener";
 
 let jsonOutput;
 
 Editor.make()
-    .config((ctx) => {
-        ctx.get(listenerCtx).updated((ctx, doc, prevDoc) => {
-            jsonOutput = doc.toJSON();
-        });
-    })
-    .use(listener);
+  .config((ctx) => {
+    ctx.get(listenerCtx).updated((ctx, doc, prevDoc) => {
+      jsonOutput = doc.toJSON();
+    });
+  })
+  .use(listener);
 ```
 
 Then we can use this `jsonOutput` as default Value:
 
 ```typescript
-import { defaultValueCtx } from '@milkdown/kit/core';
+import { defaultValueCtx } from "@milkdown/kit/core";
 
 const defaultValue = {
-    type: 'json',
-    value: jsonOutput,
+  type: "json",
+  value: jsonOutput,
 };
 Editor.make().config((ctx) => {
-    ctx.set(defaultValueCtx, defaultValue);
+  ctx.set(defaultValueCtx, defaultValue);
 });
 ```
 
@@ -116,7 +116,7 @@ Editor.make().config((ctx) => {
 You can inspect the editor's status through the `status` property.
 
 ```typescript
-import { Editor, EditorStatus } from '@milkdown/kit/core';
+import { Editor, EditorStatus } from "@milkdown/kit/core";
 
 const editor = Editor.make().use(/* some plugins */);
 
@@ -138,7 +138,7 @@ assert(editor.status === EditorStatus.OnDestroyed);
 You can also listen to the status changes:
 
 ```typescript
-import { Editor, EditorStatus } from '@milkdown/kit/core';
+import { Editor, EditorStatus } from "@milkdown/kit/core";
 
 const editor = Editor.make().use(/* some plugins */);
 
@@ -158,21 +158,21 @@ You can add as many listeners as you want, all the listeners will be triggered a
 
 You can add markdown listener to get the editor's contents as a markdown string.
 
-> ⚠️ Markdown listener will influence the performance  for large documents, please use it carefully.
+> ⚠️ Markdown listener will influence the performance for large documents, please use it carefully.
 > If you have a large document, I suggest you to only `parse` and `serialize` the document when needed.
 
 ```typescript
-import { listener, listenerCtx } from '@milkdown/kit/plugin/listener';
+import { listener, listenerCtx } from "@milkdown/kit/plugin/listener";
 
-let output = '';
+let output = "";
 
 Editor.make()
-    .config((ctx) => {
-        ctx.get(listenerCtx).markdownUpdated((ctx, markdown, prevMarkdown) => {
-            output = markdown;
-        });
-    })
-    .use(listener);
+  .config((ctx) => {
+    ctx.get(listenerCtx).markdownUpdated((ctx, markdown, prevMarkdown) => {
+      output = markdown;
+    });
+  })
+  .use(listener);
 ```
 
 ### Doc Listener
@@ -180,17 +180,17 @@ Editor.make()
 You can also listen to the [raw prosemirror document node](https://prosemirror.net/docs/ref/#model.Node), and do things you want from there.
 
 ```typescript
-import { listener, listenerCtx } from '@milkdown/kit/plugin/listener';
+import { listener, listenerCtx } from "@milkdown/kit/plugin/listener";
 
 let jsonOutput;
 
 Editor.make()
-    .config((ctx) => {
-        ctx.get(listenerCtx).updated((ctx, doc, prevDoc) => {
-            jsonOutput = doc.toJSON();
-        });
-    })
-    .use(listener);
+  .config((ctx) => {
+    ctx.get(listenerCtx).updated((ctx, doc, prevDoc) => {
+      jsonOutput = doc.toJSON();
+    });
+  })
+  .use(listener);
 ```
 
 For more details about listeners, please check [Using Listeners](/docs/api/plugin-listener).
@@ -202,7 +202,7 @@ For more details about listeners, please check [Using Listeners](/docs/api/plugi
 You can set the editor to readonly mode by setting the `editable` property.
 
 ```typescript
-import { editorViewOptionsCtx } from '@milkdown/kit/core';
+import { editorViewOptionsCtx } from "@milkdown/kit/core";
 
 let readonly = false;
 
@@ -212,12 +212,12 @@ Editor.make().config((ctx) => {
   ctx.update(editorViewOptionsCtx, (prev) => ({
     ...prev,
     editable,
-  }))
+  }));
 });
 
 // set to readonly after 5 secs.
 setTimeout(() => {
-    readonly = true;
+  readonly = true;
 }, 5000);
 ```
 
@@ -230,29 +230,29 @@ You can use an action to get the context value in a running editor on demand.
 For example, to get the markdown string by running an action:
 
 ```typescript
-import { Editor, editorViewCtx, serializerCtx } from '@milkdown/kit/core';
+import { Editor, editorViewCtx, serializerCtx } from "@milkdown/kit/core";
 
 async function playWithEditor() {
-    const editor = await Editor.make().use(commonmark).create();
+  const editor = await Editor.make().use(commonmark).create();
 
-    const getMarkdown = () =>
-        editor.action((ctx) => {
-            const editorView = ctx.get(editorViewCtx);
-            const serializer = ctx.get(serializerCtx);
-            return serializer(editorView.state.doc);
-        });
+  const getMarkdown = () =>
+    editor.action((ctx) => {
+      const editorView = ctx.get(editorViewCtx);
+      const serializer = ctx.get(serializerCtx);
+      return serializer(editorView.state.doc);
+    });
 
-    // get markdown string:
-    getMarkdown();
+  // get markdown string:
+  getMarkdown();
 }
 ```
 
 We provide some macros out of the box, you can use them as actions:
 
 ```typescript
-import { insert } from '@milkdown/kit/utils';
+import { insert } from "@milkdown/kit/utils";
 
-editor.action(insert('# Hello milkdown'));
+editor.action(insert("# Hello milkdown"));
 ```
 
 For more details about macros, please check [macros](/docs/guide/macros).

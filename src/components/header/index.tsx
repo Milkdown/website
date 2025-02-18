@@ -1,5 +1,3 @@
-import { MobileNav } from "./mobile";
-import { DesktopNav } from "./desktop";
 import clsx from "clsx";
 import { atom, useAtom } from "jotai";
 import { useAtomCallback } from "jotai/utils";
@@ -7,6 +5,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { FC, useCallback, useEffect } from "react";
+
+import { DesktopNav } from "./desktop";
+import { MobileNav } from "./mobile";
 
 const displayAtom = atom(false);
 
@@ -31,7 +32,7 @@ export const Header: FC = () => {
         "bg-nord-background/80 dark:bg-nord-background-dark/80",
         "backdrop-blur",
         "transition-transform duration-300",
-        !display && "-translate-y-full"
+        !display && "-translate-y-full",
       )}
     >
       <Link href="/" className="flex items-center gap-2 lg:gap-4">
@@ -66,8 +67,8 @@ function useScroll(path: string) {
         }
         set(displayAtom, true);
       },
-      [path]
-    )
+      [path],
+    ),
   );
 
   useEffect(() => {

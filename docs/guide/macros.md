@@ -7,16 +7,15 @@ and return a callback function that takes the `ctx` of milkdown as parameter.
 When you call this function with `ctx`, it will apply to the editor.
 
 ```typescript
-import { insert } from '@milkdown/kit/utils';
+import { insert } from "@milkdown/kit/utils";
+// With listener
+import { listenerCtx } from "@milkdown/plugin-listener";
 
 // With action
-editor.action(insert('# Hello Macro'));
+editor.action(insert("# Hello Macro"));
 
-// With listener
-import { listenerCtx } from '@milkdown/plugin-listener';
 editor.config((ctx) => {
-  ctx.get(listenerCtx)
-    .mounted(insert('# Default Title'));
+  ctx.get(listenerCtx).mounted(insert("# Default Title"));
 });
 ```
 

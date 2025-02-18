@@ -20,11 +20,12 @@ Create a component is pretty easy.
 </template>
 
 <script>
-  import { defaultValueCtx, Editor, rootCtx } from '@milkdown/kit/core';
-  import { nord } from '@milkdown/theme-nord';
-  import { commonmark } from '@milkdown/kit/preset/commonmark';
+  import { defaultValueCtx, Editor, rootCtx } from "@milkdown/kit/core";
+  import { commonmark } from "@milkdown/kit/preset/commonmark";
+  import { nord } from "@milkdown/theme-nord";
+
   export default {
-    name: 'Editor',
+    name: "Editor",
     props: {
       msg: String,
     },

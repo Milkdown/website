@@ -1,8 +1,9 @@
-import { Github } from "@/components/svg-icon";
-import { useDocSearch, useSetDarkMode } from "@/providers";
 import docsearch from "@docsearch/js";
 import clsx from "clsx";
 import { FC, ReactNode, useEffect, useRef } from "react";
+
+import { Github } from "@/components/svg-icon";
+import { useDocSearch, useSetDarkMode } from "@/providers";
 
 const SystemButtonItem: FC<{ children: ReactNode; onClick?: () => void }> = ({
   children,
@@ -17,7 +18,7 @@ const SystemButtonItem: FC<{ children: ReactNode; onClick?: () => void }> = ({
         "text-nord-neutral dark:text-nord-neutral-dark",
         "fill-nord-neutral dark:fill-nord-neutral-dark",
         "hover:bg-nord-outline/80 hover:dark:bg-nord-outline-dark/80",
-        "transition hover:bg-nord-secondary-deep/[0.12] active:bg-nord-secondary-deep/20 hover:dark:bg-nord-secondary-deep/[0.12] active:dark:bg-nord-secondary-deep/20"
+        "transition hover:bg-nord-secondary-deep/[0.12] active:bg-nord-secondary-deep/20 hover:dark:bg-nord-secondary-deep/[0.12] active:dark:bg-nord-secondary-deep/20",
       )}
     >
       {children}

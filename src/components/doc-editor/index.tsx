@@ -1,15 +1,16 @@
-import { iframePlugin } from "./iframePlugin";
-import Outline from "@/components/outline";
-import { useDarkMode } from "@/providers";
+import { Crepe } from "@milkdown/crepe";
 import { editorViewCtx, editorViewOptionsCtx } from "@milkdown/kit/core";
 import { listener, listenerCtx } from "@milkdown/kit/plugin/listener";
-import { Crepe } from "@milkdown/crepe";
 import { outline } from "@milkdown/kit/utils";
-import { FC, useEffect, useRef, useState } from "react";
 import { eclipse } from "@uiw/codemirror-theme-eclipse";
+import { FC, useEffect, useRef, useState } from "react";
 
-import { Button } from "./Button";
+import Outline from "@/components/outline";
+import { useDarkMode } from "@/providers";
+
 import { useToast } from "../toast";
+import { Button } from "./Button";
+import { iframePlugin } from "./iframePlugin";
 
 const Doc: FC<{ content: string; url: string }> = ({ content, url }) => {
   const [outlines, setOutlines] = useState<

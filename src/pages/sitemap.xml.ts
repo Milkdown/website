@@ -1,11 +1,12 @@
+import { NextApiResponse } from "next";
+
 import { docConfig } from "@/routes";
 import { blogConfig } from "@/routes/blog-config";
-import { NextApiResponse } from "next";
 
 const EXTERNAL_DATA_URL = "https://milkdown.dev/docs";
 function generateSiteMap() {
   const docList = docConfig.flatMap(({ items, scope }) =>
-    items.map((item) => ({ id: item, scope: scope }))
+    items.map((item) => ({ id: item, scope: scope })),
   );
   const blogList = blogConfig.map(({ id }) => ({ id, scope: "blog" }));
   return `<?xml version="1.0" encoding="UTF-8"?>

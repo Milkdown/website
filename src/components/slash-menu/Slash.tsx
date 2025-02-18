@@ -1,10 +1,11 @@
-import { config } from "@/components/slash-menu/config";
-import { SlashItem } from "@/components/slash-menu/SlashItem";
-import { useSlashState } from "@/components/slash-menu/state";
 import { SlashProvider } from "@milkdown/plugin-slash";
 import { useInstance } from "@milkdown/react";
 import { usePluginViewContext } from "@prosemirror-adapter/react";
 import { useEffect, useRef } from "react";
+
+import { SlashItem } from "@/components/slash-menu/SlashItem";
+import { config } from "@/components/slash-menu/config";
+import { useSlashState } from "@/components/slash-menu/state";
 
 export const Slash = () => {
   const { view, prevState } = usePluginViewContext();

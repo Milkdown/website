@@ -9,7 +9,7 @@ export const Button: FC<{ primary?: boolean; icon?: string; text: string }> = ({
   const className = clsx(
     "w-full flex font-semibold text-base items-center justify-center rounded-full transition-all",
     "px-10 py-3 sm:px-12 sm:py-4",
-    primary ? "button-primary main-button" : "button-default main-button"
+    primary ? "button-primary main-button" : "button-default main-button",
   );
 
   return (

@@ -12,10 +12,9 @@ For example:
 
 ```ts
 // Originally in prosemirror-state
-import { EditorState } from '@milkdown/kit/prose/state';
-
+import { EditorState } from "@milkdown/kit/prose/state";
 // Originally in prosemirror-view
-import { EditorView } from '@milkdown/kit/prose/view';
+import { EditorView } from "@milkdown/kit/prose/view";
 ```
 
 ## List of packages

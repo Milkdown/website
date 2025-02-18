@@ -1,11 +1,11 @@
 // @ts-expect-error no types for builddocs
 import { build } from "builddocs";
-import { readdirSync, existsSync } from "node:fs";
-import { writeFile, copyFile } from "node:fs/promises";
+import chalk from "chalk";
 // @ts-expect-error no types for fs-extra/esm
 import { ensureDirSync } from "fs-extra/esm";
+import { readdirSync, existsSync } from "node:fs";
+import { writeFile, copyFile } from "node:fs/promises";
 import { resolve, parse } from "node:path";
-import chalk from "chalk";
 
 const __dirname = new URL(".", import.meta.url).pathname;
 const milkdownDir = resolve(__dirname, "..", "node_modules", "@milkdown");
@@ -44,7 +44,7 @@ const write = readdirSync(apiDir)
           main,
           format: "markdown",
           templates: templatesDir,
-        })
+        }),
       )
       .then((markdown) => writeFile(out, markdown))
       .then(() => {

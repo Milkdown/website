@@ -13,7 +13,7 @@ export const toTitle = (id: string) =>
       isAbbreviation(str)
         ? str.toUpperCase()
         : isConjunction(str)
-        ? str.toLowerCase()
-        : str.charAt(0).toUpperCase() + str.slice(1)
+          ? str.toLowerCase()
+          : str.charAt(0).toUpperCase() + str.slice(1),
     )
     .join(" ");

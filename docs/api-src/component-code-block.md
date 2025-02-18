@@ -17,32 +17,34 @@ The component provides following features:
 # Usage
 
 ```typescript
-import { html } from '@milkdown/kit/component';
-import { codeBlockComponent, codeBlockConfig } from '@milkdown/kit/component/code-block';
-import { defaultValueCtx, Editor } from '@milkdown/kit/core';
-import { commonmark } from '@milkdown/kit/preset/commonmark';
+import { defaultKeymap } from "@codemirror/commands";
+import { languages } from "@codemirror/language-data";
+import { oneDark } from "@codemirror/theme-one-dark";
+import { keymap } from "@codemirror/view";
+import { html } from "@milkdown/kit/component";
+import {
+  codeBlockComponent,
+  codeBlockConfig,
+} from "@milkdown/kit/component/code-block";
+import { defaultValueCtx, Editor } from "@milkdown/kit/core";
+import { commonmark } from "@milkdown/kit/preset/commonmark";
+import { basicSetup } from "codemirror";
 
-import { basicSetup } from 'codemirror';
-import { oneDark } from '@codemirror/theme-one-dark';
-import { languages } from '@codemirror/language-data';
-import { defaultKeymap } from '@codemirror/commands';
-import { keymap } from '@codemirror/view';
-
-await Editor
-  .make()
-  .config(ctx => {
-    ctx.update(codeBlockConfig.key, defaultConfig => ({
+await Editor.make()
+  .config((ctx) => {
+    ctx.update(codeBlockConfig.key, (defaultConfig) => ({
       ...defaultConfig,
       languages,
       extensions: [basicSetup, oneDark, keymap.of(defaultKeymap)],
       renderLanguage: (language, selected) => {
-        return html`<span class="leading">${selected ? check : null}</span>${language}`
+        return html`<span class="leading">${selected ? check : null}</span
+          >${language}`;
       },
-    }))
+    }));
   })
   .use(commonmark)
   .use(codeBlockComponent)
-  .create()
+  .create();
 ```
 
 ::iframe{src="https://stackblitz.com/github/Milkdown/examples/tree/main/component-code-block"}
@@ -61,34 +63,33 @@ Codemirror language data list. You can either import the language data from `@co
 
 ```typescript
 // Option 1: Import language data from @codemirror/language-data
-import { languages } from '@codemirror/language-data';
-
 // Option 2: Provide your own language data
-import {LanguageDescription} from "@codemirror/language"
+import { LanguageDescription } from "@codemirror/language";
+import { languages } from "@codemirror/language-data";
+import { codeBlockConfig } from "@milkdown/kit/component/code-block";
+
 const myLanguages = [
   LanguageDescription.of({
     name: "JavaScript",
-    alias: ["ecmascript","js","node"],
+    alias: ["ecmascript", "js", "node"],
     extensions: ["js", "mjs", "cjs"],
     load() {
-      return import("@codemirror/lang-javascript").then(m => m.javascript())
-    }
+      return import("@codemirror/lang-javascript").then((m) => m.javascript());
+    },
   }),
   LanguageDescription.of({
     name: "CSS",
     extensions: ["css", "pcss"],
     load() {
-      return import("@codemirror/lang-css").then(m => m.css())
-    }
+      return import("@codemirror/lang-css").then((m) => m.css());
+    },
   }),
-]
+];
 
-import { codeBlockConfig } from '@milkdown/kit/component/code-block';
-
-ctx.update(codeBlockConfig.key, defaultConfig => ({
+ctx.update(codeBlockConfig.key, (defaultConfig) => ({
   ...defaultConfig,
   languages: myLanguages,
-}))
+}));
 ```
 
 ### `extensions`
@@ -98,20 +99,19 @@ There are a lot of extensions available in the Codemirror ecosystem.
 You can use the `basicSetup` extension to enable basic features like line numbers, syntax highlighting, theme, etc.
 
 ```typescript
-import { basicSetup } from 'codemirror';
-import { oneDark } from '@codemirror/theme-one-dark';
-import { defaultKeymap, indentWithTab } from '@codemirror/commands'
+import { defaultKeymap, indentWithTab } from "@codemirror/commands";
+import { oneDark } from "@codemirror/theme-one-dark";
+import { codeBlockConfig } from "@milkdown/kit/component/code-block";
+import { basicSetup } from "codemirror";
 
-import { codeBlockConfig } from '@milkdown/kit/component/code-block';
-
-ctx.update(codeBlockConfig.key, defaultConfig => ({
+ctx.update(codeBlockConfig.key, (defaultConfig) => ({
   ...defaultConfig,
   extensions: [
     keymap.of(defaultKeymap.concat(indentWithTab)),
     basicSetup,
     theme,
   ],
-}))
+}));
 ```
 
 ### `renderLanguage`
@@ -119,10 +119,10 @@ ctx.update(codeBlockConfig.key, defaultConfig => ({
 A function to render the language list item in the language picker.
 
 ```typescript
-import { html } from '@milkdown/kit/component';
-import { codeBlockConfig } from '@milkdown/kit/component/code-block';
+import { html } from "@milkdown/kit/component";
+import { codeBlockConfig } from "@milkdown/kit/component/code-block";
 
-ctx.update(codeBlockConfig.key, defaultConfig => ({
+ctx.update(codeBlockConfig.key, (defaultConfig) => ({
   ...defaultConfig,
   renderLanguage: (language, selected) => {
     return html`
@@ -130,9 +130,9 @@ ctx.update(codeBlockConfig.key, defaultConfig => ({
         <span class="leading">${selected ? check : null}</span>
         ${language}
       </div>
-    `
+    `;
   },
-}))
+}));
 ```
 
 ### `expandIcon`
@@ -146,14 +146,13 @@ The value can be a function that return:
 - An HTML template created by `html`.
 
 ```typescript
-import { html } from '@milkdown/kit/component';
+import { html } from "@milkdown/kit/component";
+import { codeBlockConfig } from "@milkdown/kit/component/code-block";
 
-import { codeBlockConfig } from '@milkdown/kit/component/code-block';
-
-ctx.update(codeBlockConfig.key, defaultConfig => ({
+ctx.update(codeBlockConfig.key, (defaultConfig) => ({
   ...defaultConfig,
-  expandIcon: () => html`<span>🔽</span>`
-}))
+  expandIcon: () => html`<span>🔽</span>`,
+}));
 ```
 
 ### `searchIcon`
@@ -167,14 +166,13 @@ The value can be a function that return:
 - An HTML template created by `html`.
 
 ```typescript
-import { html } from '@milkdown/kit/component';
+import { html } from "@milkdown/kit/component";
+import { codeBlockConfig } from "@milkdown/kit/component/code-block";
 
-import { codeBlockConfig } from '@milkdown/kit/component/code-block';
-
-ctx.update(codeBlockConfig.key, defaultConfig => ({
+ctx.update(codeBlockConfig.key, (defaultConfig) => ({
   ...defaultConfig,
-  searchIcon: () => html`<span>🔍</span>`
-}))
+  searchIcon: () => html`<span>🔍</span>`,
+}));
 ```
 
 ### `clearnSearchIcon`
@@ -188,12 +186,12 @@ The value can be a function that return:
 - An HTML template created by `html`.
 
 ```typescript
-import { html } from '@milkdown/kit/component';
+import { html } from "@milkdown/kit/component";
 
-ctx.update(codeBlockConfig.key, defaultConfig => ({
+ctx.update(codeBlockConfig.key, (defaultConfig) => ({
   ...defaultConfig,
-  clearnSearchIcon: () => html`<span>❌</span>`
-}))
+  clearnSearchIcon: () => html`<span>❌</span>`,
+}));
 ```
 
 ### `searchPlaceholder`
@@ -203,12 +201,12 @@ The placeholder text for the search input.
 The value should be a string.
 
 ```typescript
-import { codeBlockConfig } from '@milkdown/kit/component/code-block';
+import { codeBlockConfig } from "@milkdown/kit/component/code-block";
 
-ctx.update(codeBlockConfig.key, defaultConfig => ({
+ctx.update(codeBlockConfig.key, (defaultConfig) => ({
   ...defaultConfig,
-  searchPlaceholder: 'Find a language...'
-}))
+  searchPlaceholder: "Find a language...",
+}));
 ```
 
 ### `noResultText`
@@ -218,12 +216,12 @@ The text displayed when no language matches the search input.
 The value should be a string.
 
 ```typescript
-import { codeBlockConfig } from '@milkdown/kit/component/code-block';
+import { codeBlockConfig } from "@milkdown/kit/component/code-block";
 
-ctx.update(codeBlockConfig.key, defaultConfig => ({
+ctx.update(codeBlockConfig.key, (defaultConfig) => ({
   ...defaultConfig,
-  noResultText: 'No language found'
-}))
+  noResultText: "No language found",
+}));
 ```
 
 ### `renderPreview`
@@ -237,19 +235,18 @@ The value can be a function that return:
 - `null` to hide the preview
 
 ```typescript
-import { html } from '@milkdown/kit/component';
+import { html } from "@milkdown/kit/component";
+import { codeBlockConfig } from "@milkdown/kit/component/code-block";
 
-import { codeBlockConfig } from '@milkdown/kit/component/code-block';
-
-ctx.update(codeBlockConfig.key, defaultConfig => ({
+ctx.update(codeBlockConfig.key, (defaultConfig) => ({
   ...defaultConfig,
   renderPreview: (language, content) => {
-    if (language === 'latex' && content.length > 0) {
+    if (language === "latex" && content.length > 0) {
       return renderLatexToDOM(content);
     }
     return null;
-  }
-}))
+  },
+}));
 ```
 
 ### `previewToggleButton`
@@ -263,19 +260,18 @@ The value can be a function that return:
 - An HTML template created by `html`.
 
 ```typescript
-import { html } from '@milkdown/kit/component';
+import { html } from "@milkdown/kit/component";
+import { codeBlockConfig } from "@milkdown/kit/component/code-block";
 
-import { codeBlockConfig } from '@milkdown/kit/component/code-block';
-
-ctx.update(codeBlockConfig.key, defaultConfig => ({
+ctx.update(codeBlockConfig.key, (defaultConfig) => ({
   ...defaultConfig,
   previewToggleButton: (previewOnlyMode) => {
     if (previewOnlyMode) {
-      return 'Show code';
+      return "Show code";
     }
-    return 'Hide code';
-  }
-}))
+    return "Hide code";
+  },
+}));
 ```
 
 ### `previewLabel`
@@ -289,13 +285,13 @@ The value can be a function that return:
 - An HTML template created by `html`.
 
 ```typescript
-import { html } from '@milkdown/kit/component';
+import { html } from "@milkdown/kit/component";
+import { codeBlockConfig } from "@milkdown/kit/component/code-block";
 
-import { codeBlockConfig } from '@milkdown/kit/component/code-block';
-
-ctx.update(codeBlockConfig.key, defaultConfig => ({
+ctx.update(codeBlockConfig.key, (defaultConfig) => ({
   ...defaultConfig,
   previewLabel: () => {
-    return 'Preview';
-  }
-}))
+    return "Preview";
+  },
+}));
+```

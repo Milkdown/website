@@ -1,9 +1,11 @@
-import { Discord, Github, Twitter } from "@/components/svg-icon";
+import clsx from "clsx";
+import Image from "next/image";
 import Link from "next/link";
 import { FC } from "react";
-import Image from "next/image";
+
+import { Discord, Github, Twitter } from "@/components/svg-icon";
+
 import vercelBanner from "./vercel-banner.svg";
-import clsx from "clsx";
 
 type LinkGroupsProps = {
   title: string;
@@ -20,7 +22,7 @@ const LinkGroups: FC<LinkGroupsProps> = ({ title, items }) => {
           className={clsx(
             "mb-2 text-sm md:text-base",
             "text-nord-neutral/[.80] dark:text-nord-neutral-dark/[.80]",
-            "hover:text-nord-neutral dark:hover:text-nord-neutral-dark"
+            "hover:text-nord-neutral dark:hover:text-nord-neutral-dark",
           )}
         >
           <a href={item.link}>{item.text}</a>
@@ -72,7 +74,7 @@ const Footer: FC = () => {
     <footer
       className={clsx(
         "w-full self-end bg-gray-200 dark:bg-gray-700",
-        "pt-6 pb-12 md:pt-16 md:pb-16"
+        "pt-6 pb-12 md:pt-16 md:pb-16",
       )}
     >
       <div className="mx-8 md:mx-24 lg:mx-40 xl:mx-80 2xl:mx-auto 2xl:max-w-4xl">
@@ -135,7 +137,7 @@ const Footer: FC = () => {
                 "font-light",
                 "text-nord-neutral-deep/40 dark:text-nord-neutral-deep-dark/40",
                 "text-xs md:text-sm lg:text-base",
-                "!leading-[48px]"
+                "!leading-[48px]",
               )}
             >
               MIT Licensed | Copyright © 2021-present Mirone ♡ Meo

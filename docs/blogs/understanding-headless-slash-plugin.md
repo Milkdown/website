@@ -16,12 +16,11 @@ But the trigger character and the UI of the dropdown menu are different in diffe
 
 For example:
 
-* When user type `/`, the menu contains a list of **commands**.
-* When user type `:`, the menu contains a list of **emoji**.
-* When user type `@`, the menu contains a list of **users**.
+- When user type `/`, the menu contains a list of **commands**.
+- When user type `:`, the menu contains a list of **emoji**.
+- When user type `@`, the menu contains a list of **users**.
 
 That's the story behind the headless slash plugin. We provide the plugin to solve a single problem: **display a dropdown menu when users input satisfy a condition**.
-
 
 ## How to use
 
@@ -30,32 +29,32 @@ And you'll also need to provide the UI of the dropdown menu.
 So, you'll need to create a `SlashProvider` instance.
 
 ```ts
-import {slashPlugin, SlashProvider} from '@milkdown/plugin-slash';
+import { slashPlugin, SlashProvider } from "@milkdown/plugin-slash";
 
 const slashProvider = new SlashProvider({
   content: YourDropdownUI,
   shouldShow(this: SlashProvider, view: EditorView) {
     const currentText = this.getContent(view);
 
-    if (currentText === '') {
+    if (currentText === "") {
       return false;
     }
 
     // Display the menu if the last character is `/`.
-    if (currentText.endsWith('/')) {
+    if (currentText.endsWith("/")) {
       return true;
     }
 
     return false;
-  }
-})
+  },
+});
 ```
 
 Then, you can use the slash provider in your plugin view.
 
 ```ts
-import {EditorState} from "@milkdown/prose/state";
-import {EditorView, PluginView} from '@milkdown/prose/view';
+import { EditorState } from "@milkdown/prose/state";
+import { EditorView, PluginView } from "@milkdown/prose/view";
 
 function yourSlashView(): PluginView {
   return {
@@ -64,25 +63,24 @@ function yourSlashView(): PluginView {
     },
     destroy: () => {
       slashProvider.destroy();
-    }
-  }
+    },
+  };
 }
 ```
 
 Last, you'll need to add the slash plugin to your editor.
 
 ```ts
-import { Editor } from '@milkdown/core';
-import { slashFactory } from '@milkdown/plugin-slash';
+import { Editor } from "@milkdown/core";
+import { slashFactory } from "@milkdown/plugin-slash";
 
-const slash = slashFactory('my-slash');
+const slash = slashFactory("my-slash");
 
-Editor
-  .make()
+Editor.make()
   .config((ctx) => {
     ctx.set(slash.key, {
-      view: slashPluginView
-    })
+      view: slashPluginView,
+    });
   })
   .use(slash)
   .create();
@@ -111,7 +109,7 @@ export const DropdownMenu = () => {
     if (!ref.current || loading) return;
 
     slashProvider.current ??= new SlashProvider({
-      content: divRef.current
+      content: divRef.current,
       // ...
     });
 
@@ -145,19 +143,19 @@ export const YourEditor = () => {
   const pluginViewFactory = usePluginViewFactory();
 
   useEditor((editor) => {
-      return Editor.make()
-        .config((ctx) => {
-          ctx.set(slash.key, {
-            view: pluginViewFactory({
-              component: DopdownMenu,
-            })
-          })
-        })
-        .use(slash)
-  })
+    return Editor.make()
+      .config((ctx) => {
+        ctx.set(slash.key, {
+          view: pluginViewFactory({
+            component: DopdownMenu,
+          }),
+        });
+      })
+      .use(slash);
+  });
 
   // ...
-}
+};
 ```
 
 ## Real World Example

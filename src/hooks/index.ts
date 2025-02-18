@@ -1,1 +1,1 @@
-export * from './useLinkClass'
+export * from "./useLinkClass";

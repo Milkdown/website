@@ -18,7 +18,7 @@ export type SidePanelState = {
 
 const sidePanelDataReducer: Reducer<SidePanelState, SidePanelAction> = (
   state,
-  action
+  action,
 ) => {
   switch (action.type) {
     case "ShowRoot": {
@@ -56,7 +56,7 @@ const defaultState: SidePanelState = {
 
 const sidePanelStateCtx = createContext(defaultState);
 const sidePanelDispatcherCtx = createContext<Dispatch<SidePanelAction>>(
-  () => undefined
+  () => undefined,
 );
 
 export const useSidePanelState = () => {
@@ -94,7 +94,7 @@ export const useShowSectionSidePanel = () => {
         mode,
       });
     },
-    [dispatch]
+    [dispatch],
   );
 };
 
@@ -110,10 +110,10 @@ export const useHideSidePanel = () => {
     (delay: number) => {
       sidePanelControl = window.setTimeout(
         () => dispatch({ type: "Hide" }),
-        delay
+        delay,
       );
     },
-    [dispatch]
+    [dispatch],
   );
 };
 

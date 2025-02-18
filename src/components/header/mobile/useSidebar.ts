@@ -1,8 +1,9 @@
 import { useAtom, useSetAtom } from "jotai";
 import { useAtomCallback } from "jotai/utils";
-import { useCallback, useEffect, useRef } from "react";
-import { mobileSidebarOpen, mobileSidebarScope } from "./atom";
 import { useRouter } from "next/router";
+import { useCallback, useEffect, useRef } from "react";
+
+import { mobileSidebarOpen, mobileSidebarScope } from "./atom";
 
 export function useSidebar() {
   const [open, setOpen] = useAtom(mobileSidebarOpen);
@@ -28,7 +29,7 @@ export function useSidebar() {
         set(mobileSidebarOpen, false);
       }
       return;
-    }, [])
+    }, []),
   );
 
   useEffect(() => {

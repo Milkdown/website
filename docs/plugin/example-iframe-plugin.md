@@ -30,28 +30,30 @@ Our iframe should be an inline node because it doesn't have any children,
 and it will have a `src` attribute to connect to the source.
 
 ```typescript
-import { $node } from '@milkdown/kit/utils';
+import { $node } from "@milkdown/kit/utils";
 
-const iframeNode = $node('iframe', () => ({
-  group: 'block',
+const iframeNode = $node("iframe", () => ({
+  group: "block",
   atom: true,
   isolating: true,
-  marks: '',
+  marks: "",
   attrs: {
     src: { default: null },
   },
-  parseDOM: [{
-    tag: 'iframe',
-    getAttrs: (dom) => ({
-      src: (dom as HTMLElement).getAttribute('src'),
-    }),
-  }],
+  parseDOM: [
+    {
+      tag: "iframe",
+      getAttrs: (dom) => ({
+        src: (dom as HTMLElement).getAttribute("src"),
+      }),
+    },
+  ],
   toDOM: (node: Node) => [
-    'iframe',
-    {...node.attrs, 'contenteditable': false},
+    "iframe",
+    { ...node.attrs, contenteditable: false },
     0,
   ],
-}))
+}));
 ```
 
 ## Connect to plugin(s)
@@ -60,11 +62,11 @@ Now that we have our basic node defined, we need to specify which remark plugins
 it requires to work;
 
 ```typescript
-import { $remark } from '@milkdown/kit/utils';
-import directive from 'remark-directive';
+import { $remark } from "@milkdown/kit/utils";
+import directive from "remark-directive";
 
-const remarkPluginId = "..."
-const remarkDirective = $remark(remarkPluginId, () => directive)
+const remarkPluginId = "...";
+const remarkDirective = $remark(remarkPluginId, () => directive);
 ```
 
 ## Parser
@@ -76,9 +78,9 @@ but in this case the iframe node has the following structure:
 
 ```typescript
 const AST = {
-  name: 'iframe',
-  attributes: { src: 'https://saul-mirone.github.io' },
-  type: 'leafDirective',
+  name: "iframe",
+  attributes: { src: "https://saul-mirone.github.io" },
+  type: "leafDirective",
 };
 ```
 
@@ -119,18 +121,24 @@ For user input texts that should be transformed into iframe, we also should make
 We can use `inputRules` to define [prosemirror input rules](https://prosemirror.net/docs/ref/#inputrules) to implement this:
 
 ```typescript
-import { InputRule } from '@milkdown/kit/prose';
+import { InputRule } from "@milkdown/kit/prose";
 
-const iframeInputRule = $inputRule(() => new InputRule(/::iframe\{src\="(?<src>[^"]+)?"?\}/, (state, match, start, end) => {
-  const [okay, src = ''] = match;
-  const { tr } = state;
+const iframeInputRule = $inputRule(
+  () =>
+    new InputRule(
+      /::iframe\{src\="(?<src>[^"]+)?"?\}/,
+      (state, match, start, end) => {
+        const [okay, src = ""] = match;
+        const { tr } = state;
 
-  if (okay) {
-    tr.replaceWith(start - 1, end, iframeNode.type().create({ src }));
-  }
+        if (okay) {
+          tr.replaceWith(start - 1, end, iframeNode.type().create({ src }));
+        }
 
-  return tr;
-}))
+        return tr;
+      },
+    ),
+);
 ```
 
 ## Use Plugins
@@ -139,12 +147,14 @@ Finally, we need to add our new node type to the other nodes in the `AtomList`.
 We can then just `use` the plugin like we normally would:
 
 ```typescript
-import { Editor } from '@milkdown/kit/core';
+import { Editor } from "@milkdown/kit/core";
+import { commonmark } from "@milkdown/kit/preset/commonmark";
 import { AtomList, createNode } from "@milkdown/kit/utils";
-import { commonmark } from '@milkdown/kit/preset/commonmark';
 
-
-Editor.make().use([remarkDirective, iframeNode, iframeInputRule]).use(commonmark).create();
+Editor.make()
+  .use([remarkDirective, iframeNode, iframeInputRule])
+  .use(commonmark)
+  .create();
 ```
 
 ---
