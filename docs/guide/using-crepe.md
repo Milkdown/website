@@ -223,6 +223,9 @@ Drag handle and block menu.
 - table
   - `slashMenuTableIcon`: Icon for table in slash menu.
   - `slashMenuTableLabel`: Label for table in slash menu.
+- math
+  - `slashMenuMathIcon`: Icon for math in slash menu.
+  - `slashMenuMathLabel`: Label for math in slash menu.
 
 ### `Crepe.Feature.Placeholder`
 
@@ -255,6 +258,7 @@ Toolbar with buttons for formatting when selecting text.
 - `codeIcon`: Icon for code text.
 - `linkIcon`: Icon for link.
 - `strikethroughIcon`: Icon for strikethrough text.
+- `latexIcon`: Icon for latex.
 
 ### `Crepe.Feature.Cursor`
 

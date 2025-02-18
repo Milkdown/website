@@ -10,14 +10,6 @@ export default function Document() {
           href="https://unpkg.com/prism-themes/themes/prism-nord.css"
         />
 
-        {/* katex style */}
-        <link
-          rel="stylesheet"
-          href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.css"
-          integrity="sha384-SkMvsJ0Np/CalM0X1hZCccQs6tnLq178/sGoPANiauambU0V/bloCaG3wOXfv+Ef"
-          crossOrigin="anonymous"
-        />
-
         {/* Crepe Nord Theme Fonts */}
         <link
           href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
