@@ -45,7 +45,7 @@ export const Dual: FC = () => {
           "h-[calc(50vh-2rem)] md:h-[calc(100vh-72px)]",
           expand
             ? "expanded relative col-span-2 mx-auto mt-16 mb-24 flex !h-fit min-h-[80vh] w-full max-w-5xl flex-col border-gray-300 dark:border-gray-600"
-            : "fixed bottom-0 left-0 w-1/2",
+            : "fixed md:bottom-0 left-0 w-full md:w-1/2",
         )}
       >
         <PlaygroundMilkdown onChange={onMilkdownChange} />
@@ -53,7 +53,7 @@ export const Dual: FC = () => {
       <div
         className={clsx(
           "h-[calc(50vh-2rem)] border-l border-gray-300 dark:border-gray-600 md:h-[calc(100vh-72px)]",
-          expand ? "!h-0" : "fixed bottom-0 right-0 w-1/2",
+          expand ? "!h-0" : "fixed bottom-0 right-0 w-full md:w-1/2",
         )}
       >
         <ControlPanel

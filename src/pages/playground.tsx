@@ -42,7 +42,7 @@ export default function Playground({ template }: { template: string }) {
       <Head>
         <title>Playground | Milkdown</title>
       </Head>
-      <div className="m-0 grid border-b border-gray-300 dark:border-gray-600 md:mt-0 md:grid-cols-2">
+      <div className="m-0 grid border-b border-gray-300 dark:border-gray-600 md:mt-0 md:grid-cols-2 grid-rows-2 md:grid-rows-1">
         <HydrateAtoms template={template}>
           <Dual />
         </HydrateAtoms>
