@@ -38,7 +38,6 @@
     "@milkdown/plugin-clipboard": "7.6.3",
     "@milkdown/plugin-collab": "7.6.3",
     "@milkdown/plugin-cursor": "7.6.3",
-    "@milkdown/plugin-diagram": "7.6.3",
     "@milkdown/plugin-emoji": "7.6.3",
     "@milkdown/plugin-history": "7.6.3",
     "@milkdown/plugin-indent": "7.6.3",

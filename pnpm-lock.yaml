@@ -95,9 +95,6 @@ importers:
       '@milkdown/plugin-cursor':
         specifier: 7.6.3
         version: 7.6.3(@milkdown/core@7.6.3(@milkdown/ctx@7.6.3)(@milkdown/prose@7.6.3)(@milkdown/transformer@7.6.3(@milkdown/prose@7.6.3)))(@milkdown/ctx@7.6.3)(@milkdown/prose@7.6.3)(@milkdown/transformer@7.6.3(@milkdown/prose@7.6.3))
-      '@milkdown/plugin-diagram':
-        specifier: 7.6.3
-        version: 7.6.3(@milkdown/core@7.6.3(@milkdown/ctx@7.6.3)(@milkdown/prose@7.6.3)(@milkdown/transformer@7.6.3(@milkdown/prose@7.6.3)))(@milkdown/ctx@7.6.3)(@milkdown/prose@7.6.3)(@milkdown/transformer@7.6.3(@milkdown/prose@7.6.3))
       '@milkdown/plugin-emoji':
         specifier: 7.6.3
         version: 7.6.3(@milkdown/core@7.6.3(@milkdown/ctx@7.6.3)(@milkdown/prose@7.6.3)(@milkdown/transformer@7.6.3(@milkdown/prose@7.6.3)))(@milkdown/ctx@7.6.3)(@milkdown/prose@7.6.3)(@milkdown/transformer@7.6.3(@milkdown/prose@7.6.3))
@@ -1815,14 +1812,6 @@ packages:
       '@milkdown/core': ^7.2.0
       '@milkdown/ctx': ^7.2.0
       '@milkdown/prose': ^7.2.0
-
-  '@milkdown/plugin-diagram@7.6.3':
-    resolution: {integrity: sha512-Qwq7zVqO65P8BCYYE5bLo6OB2OSvePDPw0gNg3CF1Non0+mm7GCBZS/CT7ZpMeb9hJI8o5evZQMOpElaFhd8mg==}
-    peerDependencies:
-      '@milkdown/core': ^7.2.0
-      '@milkdown/ctx': ^7.2.0
-      '@milkdown/prose': ^7.2.0
-      '@milkdown/transformer': ^7.2.0
 
   '@milkdown/plugin-emoji@7.6.3':
     resolution: {integrity: sha512-NxKkIynCq8UwJ+qwp+5c/dHfvvnE3xoC4FfJsYJcYwvhy5MbeUf/Ze2usJ6FkFyOYgqPxKqkkV9d6JCvV+e85g==}
@@ -7816,21 +7805,6 @@ snapshots:
       tslib: 2.8.1
     transitivePeerDependencies:
       - '@milkdown/transformer'
-
-  '@milkdown/plugin-diagram@7.6.3(@milkdown/core@7.6.3(@milkdown/ctx@7.6.3)(@milkdown/prose@7.6.3)(@milkdown/transformer@7.6.3(@milkdown/prose@7.6.3)))(@milkdown/ctx@7.6.3)(@milkdown/prose@7.6.3)(@milkdown/transformer@7.6.3(@milkdown/prose@7.6.3))':
-    dependencies:
-      '@milkdown/core': 7.6.3(@milkdown/ctx@7.6.3)(@milkdown/prose@7.6.3)(@milkdown/transformer@7.6.3(@milkdown/prose@7.6.3))
-      '@milkdown/ctx': 7.6.3
-      '@milkdown/exception': 7.6.3
-      '@milkdown/prose': 7.6.3
-      '@milkdown/transformer': 7.6.3(@milkdown/prose@7.6.3)
-      '@milkdown/utils': 7.6.3(@milkdown/core@7.6.3(@milkdown/ctx@7.6.3)(@milkdown/prose@7.6.3)(@milkdown/transformer@7.6.3(@milkdown/prose@7.6.3)))(@milkdown/ctx@7.6.3)(@milkdown/prose@7.6.3)(@milkdown/transformer@7.6.3(@milkdown/prose@7.6.3))
-      mermaid: 10.9.1
-      nanoid: 5.1.0
-      tslib: 2.8.1
-      unist-util-visit: 5.0.0
-    transitivePeerDependencies:
-      - supports-color
 
   '@milkdown/plugin-emoji@7.6.3(@milkdown/core@7.6.3(@milkdown/ctx@7.6.3)(@milkdown/prose@7.6.3)(@milkdown/transformer@7.6.3(@milkdown/prose@7.6.3)))(@milkdown/ctx@7.6.3)(@milkdown/prose@7.6.3)(@milkdown/transformer@7.6.3(@milkdown/prose@7.6.3))':
     dependencies:

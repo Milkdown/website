@@ -82,10 +82,6 @@ Milkdown provides the following official plugins:
 
   Add emoji shortcut support (something like `:+1:`), and use [twemoji](https://twemoji.twitter.com/) to display emoji.
 
-- [@milkdown/plugin-diagram](/docs/api/plugin-diagram)
-
-  Add [mermaid](https://mermaid-js.github.io/mermaid/#/) diagram support.
-
 ## Community plugins
 
 Check out [awesome-milkdown](https://github.com/Milkdown/awesome-milkdown) to find community plugins. You can also submit a PR to list your plugins there.
