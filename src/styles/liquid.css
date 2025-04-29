@@ -29,13 +29,13 @@
 
 .liquid-content {
   animation: fadeIn 0.5s ease var(--animation-delay) forwards;
-  &.delay-300 {
+  &.liquid-delay-300 {
     --animation-delay: 0.3s;
   }
-  &.delay-500 {
+  &.liquid-delay-500 {
     --animation-delay: 0.5s;
   }
-  &.delay-700 {
+  &.liquid-delay-700 {
     --animation-delay: 0.7s;
   }
 }
