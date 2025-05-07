@@ -9,7 +9,7 @@ export const Liquid: FC<{ children: ReactNode }> = ({ children }) => {
       className={clsx(
         "liquid-cover",
         styles.cover,
-        "relative h-screen w-screen",
+        "relative h-screen",
         "bg-nord-background dark:bg-nord-background-dark",
       )}
     >

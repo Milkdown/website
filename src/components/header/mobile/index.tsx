@@ -99,7 +99,7 @@ export const MobileNav: FC = () => {
           "transition-right duration-300",
         )}
       >
-        <div className="flex h-16 items-center justify-between border-b border-nord-neutral/10 px-2 dark:border-nord-neutral/10">
+        <div className="flex h-16 items-center justify-between border-b border-nord-neutral/10 px-2 dark:border-nord-neutral-dark/10">
           <div className="flex items-center gap-2" onClick={() => setScope("")}>
             {scope && (
               <button className="material-symbols-outlined">
