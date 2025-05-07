@@ -45,7 +45,7 @@ export const Dual: FC = () => {
           "h-[calc(50vh-2rem)] md:h-[calc(100vh-72px)]",
           expand
             ? "expanded relative col-span-2 mx-auto mt-16 mb-24 flex !h-fit min-h-[80vh] w-full max-w-5xl flex-col border-gray-300 dark:border-gray-600"
-            : "fixed md:bottom-0 left-0 w-full md:w-1/2",
+            : "fixed left-0 w-full md:bottom-0 md:w-1/2",
         )}
       >
         <PlaygroundMilkdown onChange={onMilkdownChange} />

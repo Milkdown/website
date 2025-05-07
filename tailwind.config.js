@@ -46,7 +46,5 @@ module.exports = {
   future: {
     hoverOnlyWhenSupported: true,
   },
-  plugins: [
-    require("tailwind-nord"),
-  ],
+  plugins: [require("tailwind-nord")],
 };

@@ -16,7 +16,7 @@ export default function Blogs() {
       <Head>
         <title>Blog | Milkdown</title>
       </Head>
-      <div className="prose prose-sm mx-auto px-8 pb-10 pt-24 dark:prose-invert sm:prose-base xl:prose-lg md:pb-24">
+      <div className="prose prose-sm dark:prose-invert sm:prose-base xl:prose-lg mx-auto px-8 pb-10 pt-24 md:pb-24">
         <h1>Milkdown Blog</h1>
         <p>
           This blog is the official source for updates, ideas and fun stuffs
