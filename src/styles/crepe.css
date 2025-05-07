@@ -20,6 +20,10 @@ div:not(.expanded) .crepe > .milkdown > .ProseMirror {
   @apply h-full px-32 py-12;
 }
 
+.crepe .milkdown:not(.expanded .crepe .milkdown) {
+  @apply overflow-y-scroll overscroll-none;
+}
+
 .cm-editor {
   @apply text-sm;
 }
