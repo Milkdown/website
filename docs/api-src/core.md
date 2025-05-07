@@ -93,6 +93,8 @@ The core module for milkdown.
 @CommandManager
 @createCmdKey
 
+@CommandChain
+
 ### Timer
 
 @CommandsReady
