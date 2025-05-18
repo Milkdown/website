@@ -45,7 +45,7 @@
     "@types/react-dom": "18.3.7",
     "@uiw/codemirror-theme-eclipse": "^4.23.0",
     "@vercel/analytics": "^0.1.11",
-    "clsx": "^1.2.1",
+    "clsx": "^2.0.0",
     "husky": "^8.0.3",
     "jotai": "^2.8.3",
     "jotai-effect": "^1.0.0",
