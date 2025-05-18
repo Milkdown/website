@@ -16,7 +16,7 @@ export default function Blogs() {
       <Head>
         <title>Blog | Milkdown</title>
       </Head>
-      <div className="mx-8 w-full pt-24 pb-10 md:mx-24 md:pb-24 lg:mx-40 xl:mx-80 2xl:mx-auto 2xl:max-w-4xl">
+      <div className="mx-8 pt-24 pb-10 md:mx-24 md:pb-24 lg:mx-40 xl:mx-80 2xl:mx-auto 2xl:max-w-4xl">
         <h1 className="text-4xl">Milkdown Blog</h1>
         <p className="font-light text-gray-500 dark:text-gray-400">
           This blog is the official source for updates, ideas and fun stuffs
