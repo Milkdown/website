@@ -70,7 +70,7 @@ const ControlPanel: FC<ControlPanelProps> = ({ hide, onChange, setHide }) => {
           <div>
             <span>Milkdown Playground</span>
             <span className="ml-2 font-mono text-xs text-gray-600 dark:text-gray-300">
-              v{pkgJson.dependencies["@milkdown/core"]}
+              v{pkgJson.dependencies["@milkdown/kit"]}
             </span>
           </div>
         </div>
