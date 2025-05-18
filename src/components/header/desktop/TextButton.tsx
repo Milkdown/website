@@ -25,10 +25,10 @@ const Dropdown: FC = () => {
 
 const className = clsx(
   "flex items-center justify-center",
-  "rounded px-2 py-1.5",
+  "rounded-sm px-2 py-1.5",
   "text-nord-neutral dark:text-nord-neutral-dark",
   "fill-nord-neutral dark:fill-nord-neutral-dark",
-  "transition hover:bg-nord-outline/80 hover:dark:bg-nord-outline-dark/80",
+  "transition hover:bg-nord-outline/80 dark:hover:bg-nord-outline-dark/80",
 );
 
 type TextLinkButtonProps = {
@@ -68,7 +68,7 @@ export const TextButton: FC<TextButtonProps> = ({ text, children }) => {
         {...getReferenceProps()}
         className={clsx(
           className,
-          active && "!fill-nord-primary font-bold !text-nord-primary",
+          active && "fill-nord-primary! text-nord-primary! font-bold",
         )}
       >
         <span className="text-sm">{text}</span>

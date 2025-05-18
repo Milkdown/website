@@ -1,5 +1,7 @@
+@reference "./globals.css";
+
 h4 {
-  @apply underline decoration-nord14 underline-offset-4;
+  @apply decoration-nord14 underline underline-offset-4;
 }
 
 .prose blockquote {

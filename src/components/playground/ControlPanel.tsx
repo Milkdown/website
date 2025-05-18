@@ -28,7 +28,7 @@ const ControlPanel: FC<ControlPanelProps> = ({ hide, onChange, setHide }) => {
           }}
           className={clsx(
             linkClass(false),
-            "flex h-12 w-12 items-center justify-center rounded",
+            "flex h-12 w-12 items-center justify-center rounded-sm",
             "bg-nord6/70 dark:bg-nord3/70",
           )}
         >
@@ -41,11 +41,11 @@ const ControlPanel: FC<ControlPanelProps> = ({ hide, onChange, setHide }) => {
           onClick={() => onShare()}
           className={clsx(
             linkClass(false),
-            "flex h-12 w-12 items-center justify-center rounded",
+            "flex h-12 w-12 items-center justify-center rounded-sm",
             "bg-nord6/70 dark:bg-nord3/70",
           )}
         >
-          <span className="material-symbols-outlined !text-base">share</span>
+          <span className="material-symbols-outlined text-base!">share</span>
         </button>
       </div>
     );
@@ -53,17 +53,17 @@ const ControlPanel: FC<ControlPanelProps> = ({ hide, onChange, setHide }) => {
 
   return (
     <div className="flex h-full flex-col">
-      <div className="flex h-10 items-center justify-between border-b border-nord4 bg-gray-200 px-4 py-2 font-light dark:border-gray-600 dark:bg-gray-700">
+      <div className="border-nord4 flex h-10 items-center justify-between border-b bg-gray-200 px-4 py-2 font-light dark:border-gray-600 dark:bg-gray-700">
         <div className="flex items-center gap-2">
           <button
             onClick={() => setHide(true)}
             className={clsx(
               linkClass(false),
               "flex h-8 w-8 items-center justify-center rounded-full",
-              "hover:bg-nord6/70 hover:dark:bg-nord3/70",
+              "hover:bg-nord6/70 dark:hover:bg-nord3/70",
             )}
           >
-            <span className="material-symbols-outlined !text-base">
+            <span className="material-symbols-outlined text-base!">
               chevron_right
             </span>
           </button>
@@ -80,10 +80,10 @@ const ControlPanel: FC<ControlPanelProps> = ({ hide, onChange, setHide }) => {
             className={clsx(
               linkClass(false),
               "flex h-8 w-8 items-center justify-center rounded-full",
-              "hover:bg-nord6/70 hover:dark:bg-nord3/70",
+              "hover:bg-nord6/70 dark:hover:bg-nord3/70",
             )}
           >
-            <span className="material-symbols-outlined !text-base">share</span>
+            <span className="material-symbols-outlined text-base!">share</span>
           </button>
         </div>
       </div>

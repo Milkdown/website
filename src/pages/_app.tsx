@@ -1,5 +1,6 @@
 import "@docsearch/css";
 import "@milkdown/crepe/theme/common/style.css";
+import "@milkdown/crepe/theme/common/style.css";
 import { Analytics } from "@vercel/analytics/react";
 import clsx from "clsx";
 import NextApp, { AppContext, AppInitialProps } from "next/app";
@@ -40,8 +41,8 @@ export default function App({
           <Header />
           <main
             className={clsx(
-              "flex-grow",
-              pathname !== "/" ? "mt-[72px]" : "bg-white dark:bg-nord0",
+              "grow",
+              pathname !== "/" ? "mt-[72px]" : "dark:bg-nord0 bg-white",
             )}
           >
             <Component {...componentProps} />

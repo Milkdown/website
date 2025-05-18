@@ -1,3 +1,5 @@
+@reference "./globals.css";
+
 #docsearch {
   @apply flex items-end justify-center;
 }
@@ -15,6 +17,7 @@
 }
 #docsearch .DocSearch-Button {
   margin: 0;
+  background: transparent;
 }
 
 .DocSearch-Button .DocSearch-Search-Icon {
@@ -39,10 +42,10 @@
 .DocSearch-Logo svg,
 .DocSearch-Logo svg .cls-1,
 .DocSearch-Logo svg .cls-2 {
-  @apply !fill-nord8 !text-nord8;
+  @apply fill-nord8 text-nord8;
 }
 .DocSearch-Form {
-  @apply mb-1 shadow-none outline outline-2 outline-nord9;
+  @apply outline-nord9 mb-1 shadow-none outline outline-2;
 }
 .DocSearch-Hit[aria-selected="true"] a {
   @apply bg-nord9;

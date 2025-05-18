@@ -1,5 +1,7 @@
-.milkdown milkdown-slash-menu .tab-group {
-  @apply !pb-3;
+@reference "./globals.css";
+
+.milkdown .milkdown-slash-menu .tab-group {
+  @apply pb-3;
 }
 
 .crepe .cm-cursor,
@@ -17,11 +19,11 @@
 }
 
 div:not(.expanded) .crepe > .milkdown > .ProseMirror {
-  @apply h-full px-32 py-12;
+  @apply h-full px-2 md:px-32 md:py-12;
 }
 
 .crepe .milkdown:not(.expanded .crepe .milkdown) {
-  @apply overflow-y-scroll overscroll-none;
+  @apply overflow-y-scroll overscroll-auto;
 }
 
 .cm-editor {
@@ -330,19 +332,6 @@ div:not(.expanded) .crepe > .milkdown > .ProseMirror {
   }
 }
 
-.crepe .milkdown milkdown-table-block .cell-handle {
-  background-color: var(--crepe-color-surface);
-  box-shadow: var(--crepe-shadow-1);
-}
-
-.crepe .milkdown milkdown-image-inline {
-  display: inline-block;
-}
-
-.crepe .milkdown milkdown-image-inline img {
-  display: block;
-}
-
 .crepe .milkdown {
   height: 100%;
   flex: 1;
@@ -409,11 +398,11 @@ div:not(.expanded) .crepe > .milkdown > .ProseMirror {
 }
 
 .crepe > .milkdown > .ProseMirror {
-  @apply !px-3 !py-0 md:!px-[120px] md:!py-[60px];
+  @apply md:px-[120px]! md:py-[60px]!;
 }
 
 .crepe-doc > .milkdown > .ProseMirror {
-  @apply !px-3 !py-0;
+  @apply px-3! py-0!;
 }
 
 .crepe-doc .iframe-plugin-container {
@@ -421,11 +410,11 @@ div:not(.expanded) .crepe > .milkdown > .ProseMirror {
 }
 
 .crepe-doc .iframe-plugin-container.ProseMirror-selectednode {
-  @apply !bg-transparent;
+  @apply bg-transparent!;
 }
 
 .crepe-doc .iframe-plugin-container > a {
-  @apply inline-flex items-center justify-center gap-2 rounded-t border border-nord-neutral/10 bg-gray-300 py-1 px-2 text-xs font-bold text-nord-neutral !no-underline shadow transition hover:bg-nord-secondary-deep/[0.12] dark:bg-gray-700 dark:text-nord-neutral-dark hover:dark:bg-nord-secondary-deep/[0.12];
+  @apply border-nord-neutral/10 text-nord-neutral hover:bg-nord-secondary-deep/[0.12] dark:text-nord-neutral-dark hover:dark:bg-nord-secondary-deep/[0.12] inline-flex items-center justify-center gap-2 rounded-t border bg-gray-300 px-2 py-1 text-xs font-bold no-underline! shadow transition dark:bg-gray-700;
 }
 
 .crepe-doc .iframe-plugin-container > a span {
@@ -433,5 +422,5 @@ div:not(.expanded) .crepe > .milkdown > .ProseMirror {
 }
 
 .crepe-doc .iframe-plugin {
-  @apply block aspect-video w-full rounded-b rounded-tr border border-t-0 border-nord-neutral/10 shadow;
+  @apply border-nord-neutral/10 block aspect-video w-full rounded-tr rounded-b border border-t-0 shadow;
 }

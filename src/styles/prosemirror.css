@@ -1,31 +1,22 @@
+@reference "./globals.css";
+
 .ProseMirror:focus-visible {
   @apply outline-none;
 }
 
 .ProseMirror-selectednode {
   outline: none;
-  @apply outline outline-2 outline-offset-2 outline-nord9 dark:outline-nord10;
+  @apply outline-nord9 dark:outline-nord10 outline outline-2 outline-offset-2;
 }
 
-span[data-type="html"] {
-  @apply relative mx-1 rounded bg-gray-200 px-1 py-1 font-sans text-nord9 dark:bg-gray-900 dark:text-nord10;
-}
+.ProseMirror {
+  span[data-type="html"] {
+    @apply text-nord9 dark:text-nord10 relative mx-1 rounded bg-gray-200 px-1 py-1 font-sans dark:bg-gray-900;
+  }
 
-li p {
-  @apply !m-0 !leading-6;
-}
-
-li p + p {
-  @apply !mt-2;
-}
-
-li::after {
-  all: unset !important;
-}
-
-ul,
-ol {
-  @apply ml-4 !p-0;
+  li::after {
+    all: unset !important;
+  }
 }
 
 .ProseMirror p > img:not(.ProseMirror-separator) {

@@ -1,3 +1,5 @@
+@reference "./globals.css";
+
 .liquid-cover {
   path {
     @apply fill-nord-foreground dark:fill-nord-foreground-dark;

@@ -71,10 +71,10 @@ export default function Home() {
       </Head>
       <div>
         <Liquid>
-          <div className="min-w-64 relative z-10 flex h-full w-full flex-col items-center justify-center">
+          <div className="relative z-10 flex h-full w-full min-w-64 flex-col items-center justify-center">
             <h1
               className={clsx(
-                "text-center text-4xl font-bold text-nord-neutral dark:text-nord-neutral-dark sm:text-6xl xl:text-7xl",
+                "text-nord-neutral dark:text-nord-neutral-dark text-center text-4xl font-bold sm:text-6xl xl:text-7xl",
                 "liquid-content liquid-delay-300 opacity-0",
               )}
             >
@@ -82,7 +82,7 @@ export default function Home() {
             </h1>
             <p
               className={clsx(
-                "text-center text-nord-neutral dark:text-nord-neutral-dark",
+                "text-nord-neutral dark:text-nord-neutral-dark text-center",
                 "text-base sm:text-2xl",
                 "mt-6 mb-11 sm:mt-10 sm:mb-10",
                 "w-64 sm:w-full",

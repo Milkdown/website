@@ -108,11 +108,11 @@ const Footer: FC = () => {
               </a>
             </div>
           </div>
-          <div className="flex-1/2 flex">
+          <div className="flex flex-1/2">
             <LinkGroups {...linksGroup} />
             <LinkGroups {...moreGroup} />
           </div>
-          <div className="flex-1/2 flex items-center gap-5">
+          <div className="flex flex-1/2 items-center gap-5">
             <Link className="flex items-center gap-3" href={root}>
               <Image
                 width={40}
@@ -137,7 +137,7 @@ const Footer: FC = () => {
                 "font-light",
                 "text-nord-neutral-deep/40 dark:text-nord-neutral-deep-dark/40",
                 "text-xs md:text-sm lg:text-base",
-                "!leading-[48px]",
+                "leading-[48px]!",
               )}
             >
               MIT Licensed | Copyright © 2021-present Mirone ♡ Meo

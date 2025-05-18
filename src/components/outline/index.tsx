@@ -45,10 +45,10 @@ function Outline(props: { items: OutlineItem[] }) {
 
   return (
     <ul className="flex-1 pr-1">
-      <div className="mb-2 pl-2 text-nord10">
+      <div className="text-nord10 mb-2 pl-2">
         <small>On this page</small>
       </div>
-      <div className="overflow-y-auto overflow-x-hidden">
+      <div className="overflow-x-hidden overflow-y-auto">
         {items
           .filter((item) => item.level <= 2)
           .map((item) => {

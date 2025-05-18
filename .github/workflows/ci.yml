@@ -1,0 +1,63 @@
+name: CI workflow
+
+on:
+  pull_request:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  install-deps:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: ./.github/actions/setup
+
+  lint:
+    runs-on: ubuntu-latest
+    needs: install-deps
+    steps:
+      - name: Checkout code repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: ./.github/actions/setup
+
+      - name: Run lint
+        run: pnpm lint
+
+      - name: Run prettier
+        run: pnpm prettier
+
+  build:
+    runs-on: ubuntu-latest
+    needs: install-deps
+    steps:
+      - name: Checkout code repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          submodules: true
+
+      - uses: ./.github/actions/setup
+
+      - run: npm install --global corepack@latest
+      - run: corepack enable
+
+      - name: Build packages
+        run: pnpm build
+
+  summary:
+    if: ${{ always() }}
+    needs: [lint, build]
+    runs-on: ubuntu-24.04
+    steps:
+      - name: On error
+        if: ${{ needs.lint.result != 'success' || needs.build.result != 'success' }}
+        run: exit 1

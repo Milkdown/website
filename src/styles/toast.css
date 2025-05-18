@@ -1,3 +1,5 @@
+@reference "./globals.css";
+
 .toast-root {
   @apply mx-4 mt-4 flex items-center justify-between gap-4 rounded-md border border-gray-100 bg-white px-4 py-2 shadow-lg dark:border-gray-800 dark:bg-black dark:text-white;
 }

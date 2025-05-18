@@ -27,10 +27,10 @@ export const Header: FC = () => {
       className={clsx(
         "flex items-center justify-between",
         "fixed z-50 w-full",
-        "py-4 px-4 lg:px-10 xl:px-20",
-        "shadow shadow-nord-background dark:shadow-nord-background-dark",
+        "px-4 py-4 lg:px-10 xl:px-20",
+        "shadow-nord-background dark:shadow-nord-background-dark shadow-sm",
         "bg-nord-background/80 dark:bg-nord-background-dark/80",
-        "backdrop-blur",
+        "backdrop-blur-sm",
         "transition-transform duration-300",
         !display && "-translate-y-full",
       )}
