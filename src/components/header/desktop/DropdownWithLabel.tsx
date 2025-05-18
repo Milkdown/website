@@ -26,10 +26,10 @@ const LabeledItem: FC<{ scope: string; item: string; label: string }> = ({
   return (
     <Link
       className={clsx(
-        "rounded-[20px] py-2 px-6 text-sm capitalize",
+        "rounded-[20px] px-6 py-2 text-sm capitalize",
         "bg-nord-secondary-deep/[.06] transition",
         "hover:bg-nord-secondary-deep/[0.12] active:bg-nord-secondary-deep/20 dark:hover:bg-nord-secondary-deep/[0.12] dark:active:bg-nord-secondary-deep/20",
-        active && "bg-nord-secondary-deep/20 font-bold text-nord-primary",
+        active && "bg-nord-secondary-deep/20 text-nord-primary font-bold",
       )}
       href={url}
     >
@@ -45,7 +45,7 @@ const LabeledItemList: FC<APIConfigItem & { scope: string }> = ({
 }) => {
   return (
     <div className="flex flex-col gap-4">
-      <h2 className="text-left text-xs uppercase text-nord-neutral/60 dark:text-nord-neutral-dark/60">
+      <h2 className="text-nord-neutral/60 dark:text-nord-neutral-dark/60 text-left text-xs uppercase">
         {label}
       </h2>
       <ul className="m-0 flex flex-wrap items-start justify-start gap-4">
@@ -66,8 +66,8 @@ export const DropdownWithLabel: FC<DropdownWithLabelProps> = ({
       className={clsx(
         "flex w-96 flex-col gap-6 p-10",
         "bg-nord-foreground dark:bg-nord-foreground-dark",
-        "rounded-2xl py-8 px-6",
-        "border border-nord-neutral/10 shadow-sm dark:border-nord-neutral/10",
+        "rounded-2xl px-6 py-8",
+        "border-nord-neutral/10 dark:border-nord-neutral/10 border shadow-sm",
       )}
     >
       {items.map((item) => (

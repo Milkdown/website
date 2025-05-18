@@ -414,7 +414,7 @@ div:not(.expanded) .crepe > .milkdown > .ProseMirror {
 }
 
 .crepe-doc .iframe-plugin-container > a {
-  @apply inline-flex items-center justify-center gap-2 rounded-t border border-nord-neutral/10 bg-gray-300 py-1 px-2 text-xs font-bold text-nord-neutral no-underline! shadow transition hover:bg-nord-secondary-deep/[0.12] dark:bg-gray-700 dark:text-nord-neutral-dark hover:dark:bg-nord-secondary-deep/[0.12];
+  @apply border-nord-neutral/10 text-nord-neutral hover:bg-nord-secondary-deep/[0.12] dark:text-nord-neutral-dark hover:dark:bg-nord-secondary-deep/[0.12] inline-flex items-center justify-center gap-2 rounded-t border bg-gray-300 px-2 py-1 text-xs font-bold no-underline! shadow transition dark:bg-gray-700;
 }
 
 .crepe-doc .iframe-plugin-container > a span {
@@ -422,5 +422,5 @@ div:not(.expanded) .crepe > .milkdown > .ProseMirror {
 }
 
 .crepe-doc .iframe-plugin {
-  @apply block aspect-video w-full rounded-b rounded-tr border border-t-0 border-nord-neutral/10 shadow;
+  @apply border-nord-neutral/10 block aspect-video w-full rounded-tr rounded-b border border-t-0 shadow;
 }

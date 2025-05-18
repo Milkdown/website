@@ -1,5 +1,6 @@
 import "@docsearch/css";
 import "@milkdown/crepe/theme/common/style.css";
+import "@milkdown/crepe/theme/common/style.css";
 import { Analytics } from "@vercel/analytics/react";
 import clsx from "clsx";
 import NextApp, { AppContext, AppInitialProps } from "next/app";
@@ -11,8 +12,6 @@ import Footer from "@/components/footer";
 import { Header } from "@/components/header";
 import PwaUpdater from "@/components/pwa-updater";
 import { DocSearchProvider, LayoutProvider } from "@/providers";
-
-import "@milkdown/crepe/theme/common/style.css";
 import "@/styles/crepe.css";
 import "@/styles/docsearch.css";
 import "@/styles/globals.css";
@@ -43,7 +42,7 @@ export default function App({
           <main
             className={clsx(
               "grow",
-              pathname !== "/" ? "mt-[72px]" : "bg-white dark:bg-nord0",
+              pathname !== "/" ? "mt-[72px]" : "dark:bg-nord0 bg-white",
             )}
           >
             <Component {...componentProps} />

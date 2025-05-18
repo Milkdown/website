@@ -39,7 +39,7 @@ const HomeEditor: FC<{ value: string }> = ({ value }) => {
   return (
     <div
       ref={divRef}
-      className="crepe h-80! overflow-auto rounded-2xl border border-nord-outline shadow-sm dark:border-nord-outline-dark md:h-[480px]!"
+      className="crepe border-nord-outline dark:border-nord-outline-dark h-80! overflow-auto rounded-2xl border shadow-sm md:h-[480px]!"
     />
   );
 };

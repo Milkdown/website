@@ -108,11 +108,11 @@ const Footer: FC = () => {
               </a>
             </div>
           </div>
-          <div className="flex-1/2 flex">
+          <div className="flex flex-1/2">
             <LinkGroups {...linksGroup} />
             <LinkGroups {...moreGroup} />
           </div>
-          <div className="flex-1/2 flex items-center gap-5">
+          <div className="flex flex-1/2 items-center gap-5">
             <Link className="flex items-center gap-3" href={root}>
               <Image
                 width={40}

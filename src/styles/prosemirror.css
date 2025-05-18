@@ -6,12 +6,12 @@
 
 .ProseMirror-selectednode {
   outline: none;
-  @apply outline outline-2 outline-offset-2 outline-nord9 dark:outline-nord10;
+  @apply outline-nord9 dark:outline-nord10 outline outline-2 outline-offset-2;
 }
 
 .ProseMirror {
   span[data-type="html"] {
-    @apply relative mx-1 rounded bg-gray-200 px-1 py-1 font-sans text-nord9 dark:bg-gray-900 dark:text-nord10;
+    @apply text-nord9 dark:text-nord10 relative mx-1 rounded bg-gray-200 px-1 py-1 font-sans dark:bg-gray-900;
   }
 
   li::after {

@@ -68,7 +68,7 @@ export const TextButton: FC<TextButtonProps> = ({ text, children }) => {
         {...getReferenceProps()}
         className={clsx(
           className,
-          active && "fill-nord-primary! font-bold text-nord-primary!",
+          active && "fill-nord-primary! text-nord-primary! font-bold",
         )}
       >
         <span className="text-sm">{text}</span>

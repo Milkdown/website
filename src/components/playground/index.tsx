@@ -52,8 +52,8 @@ export const Dual: FC = () => {
       </div>
       <div
         className={clsx(
-          "h-[calc(50vh-2rem)] border-l border-gray-300 dark:border-gray-600 md:h-[calc(100vh-72px)]",
-          expand ? "h-0!" : "fixed bottom-0 right-0 w-full md:w-1/2",
+          "h-[calc(50vh-2rem)] border-l border-gray-300 md:h-[calc(100vh-72px)] dark:border-gray-600",
+          expand ? "h-0!" : "fixed right-0 bottom-0 w-full md:w-1/2",
         )}
       >
         <ControlPanel

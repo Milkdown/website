@@ -19,7 +19,7 @@ export const NavButton: FC<NavButtonProps> = ({ text }) => {
       onClick={() => setScope(text.toLowerCase())}
       className={clsx(
         "flex items-center justify-between gap-6",
-        query.scope === text.toLowerCase() && "font-bold text-nord-primary",
+        query.scope === text.toLowerCase() && "text-nord-primary font-bold",
       )}
     >
       <span className="text-sm">{text}</span>
@@ -41,7 +41,7 @@ export const LinkButton: FC<LinkButtonProps> = ({ text, link }) => {
       href={link}
       className={clsx(
         "flex items-center justify-between gap-6",
-        path === link && "font-bold text-nord-primary",
+        path === link && "text-nord-primary font-bold",
       )}
     >
       <span className="text-sm">{text}</span>

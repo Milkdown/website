@@ -53,7 +53,7 @@ const ControlPanel: FC<ControlPanelProps> = ({ hide, onChange, setHide }) => {
 
   return (
     <div className="flex h-full flex-col">
-      <div className="flex h-10 items-center justify-between border-b border-nord4 bg-gray-200 px-4 py-2 font-light dark:border-gray-600 dark:bg-gray-700">
+      <div className="border-nord4 flex h-10 items-center justify-between border-b bg-gray-200 px-4 py-2 font-light dark:border-gray-600 dark:bg-gray-700">
         <div className="flex items-center gap-2">
           <button
             onClick={() => setHide(true)}

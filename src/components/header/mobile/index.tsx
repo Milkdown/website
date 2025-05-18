@@ -32,7 +32,7 @@ const ScopeList: FC = () => {
       <>
         {apiConfigByCategory.map((category) => (
           <div key={category.label} className="flex flex-col gap-4">
-            <h2 className="text-left text-xs uppercase text-nord-neutral/60 dark:text-nord-neutral-dark/60">
+            <h2 className="text-nord-neutral/60 dark:text-nord-neutral-dark/60 text-left text-xs uppercase">
               {category.label}
             </h2>
             <ul className="m-0 flex flex-col gap-4">
@@ -89,17 +89,17 @@ export const MobileNav: FC = () => {
         className={clsx(
           "fixed top-0 bottom-0 z-50 h-screen w-60 pr-4 pl-6",
           open ? "right-0" : "-right-60",
-          "border border-nord-neutral/10 shadow-sm dark:border-nord-neutral/10",
+          "border-nord-neutral/10 dark:border-nord-neutral/10 border shadow-sm",
           "text-nord-neutral dark:text-nord-neutral-dark",
-          "shadow-sm shadow-nord-background dark:shadow-nord-background-dark",
-          "bg-linear-to-b from-nord-foreground/[.64] to-nord-foreground/80 dark:from-nord-foreground-dark/[.64] dark:to-nord-foreground-dark/80",
+          "shadow-nord-background dark:shadow-nord-background-dark shadow-sm",
+          "from-nord-foreground/[.64] to-nord-foreground/80 dark:from-nord-foreground-dark/[.64] dark:to-nord-foreground-dark/80 bg-linear-to-b",
           "flex flex-col",
           "rounded-l-2xl",
           "backdrop-blur-sm backdrop-filter",
           "transition-right duration-300",
         )}
       >
-        <div className="flex h-16 items-center justify-between border-b border-nord-neutral/10 px-2 dark:border-nord-neutral-dark/10">
+        <div className="border-nord-neutral/10 dark:border-nord-neutral-dark/10 flex h-16 items-center justify-between border-b px-2">
           <div className="flex items-center gap-2" onClick={() => setScope("")}>
             {scope && (
               <button className="material-symbols-outlined">
@@ -116,7 +116,7 @@ export const MobileNav: FC = () => {
           </button>
         </div>
         <div className="flex-1 overflow-y-auto">
-          <div className={clsx("flex flex-col gap-6", "pl-2 pr-4 pt-5 pb-2")}>
+          <div className={clsx("flex flex-col gap-6", "pt-5 pr-4 pb-2 pl-2")}>
             <ScopeList />
           </div>
         </div>
@@ -131,7 +131,7 @@ export const MobileNav: FC = () => {
     <div className="flex md:hidden">
       <button
         ref={buttonRef}
-        className="flex items-center text-nord-neutral dark:text-nord-neutral-dark"
+        className="text-nord-neutral dark:text-nord-neutral-dark flex items-center"
         onClick={() => setOpen(true)}
       >
         <div className="material-symbols-outlined">Menu</div>
