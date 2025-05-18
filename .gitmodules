@@ -1,0 +1,3 @@
+[submodule "milkdown"]
+	path = milkdown
+	url = https://github.com/milkdown/milkdown

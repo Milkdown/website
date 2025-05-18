@@ -3,7 +3,7 @@
   "version": "7.10.1",
   "private": true,
   "scripts": {
-    "build:doc": "tsx scripts/build-api.ts",
+    "build:doc": "tsx scripts/build-docs.ts",
     "build:next": "next build",
     "dev": "next dev",
     "build": "pnpm build:doc && pnpm build:next",

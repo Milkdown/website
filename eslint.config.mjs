@@ -11,4 +11,11 @@ const compat = new FlatCompat({
   allConfig: js.configs.all,
 });
 
-export default [...compat.extends("next/core-web-vitals", "prettier")];
+const config = [
+  ...compat.extends("next/core-web-vitals", "prettier"),
+  {
+    ignores: ["./milkdown/**"],
+  },
+];
+
+export default config;

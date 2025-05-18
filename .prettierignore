@@ -7,3 +7,4 @@ next-env.d.ts
 **/templates/*.md
 
 pnpm-lock.yaml
+milkdown/
