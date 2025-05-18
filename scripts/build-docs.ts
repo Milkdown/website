@@ -16,7 +16,8 @@ async function main() {
 
         // Build TypeScript files
         console.log('Building TypeScript files...');
-        execSync('pnpm build:tsc && pnpm --filter=@milkdown/docs build', { stdio: 'inherit' });
+        execSync('pnpm --filter=@milkdown/dev exec tsc', { stdio: 'inherit' });
+        execSync('pnpm --filter=@milkdown/docs build', { stdio: 'inherit' });
 
         // Ensure api directory exists
         if (!existsSync(API_DIR)) {
