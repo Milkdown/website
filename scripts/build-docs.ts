@@ -16,6 +16,7 @@ async function main() {
 
         // Build TypeScript files
         console.log('Building TypeScript files...');
+        execSync('pnpm -F @milkdown/dev build', { stdio: 'inherit' });
         execSync('pnpm -F @milkdown/docs build', { stdio: 'inherit' });
 
         // Ensure api directory exists
