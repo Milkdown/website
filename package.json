@@ -11,7 +11,7 @@
     "lint": "next lint && tsc --noEmit",
     "format": "prettier --write .",
     "prettier": "prettier --check .",
-    "prepare": "husky install"
+    "prepare": "husky"
   },
   "dependencies": {
     "@codemirror/autocomplete": "^6.18.0",
