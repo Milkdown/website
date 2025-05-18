@@ -11,6 +11,8 @@ import Footer from "@/components/footer";
 import { Header } from "@/components/header";
 import PwaUpdater from "@/components/pwa-updater";
 import { DocSearchProvider, LayoutProvider } from "@/providers";
+
+import "@milkdown/crepe/theme/common/style.css";
 import "@/styles/crepe.css";
 import "@/styles/docsearch.css";
 import "@/styles/globals.css";
@@ -40,7 +42,7 @@ export default function App({
           <Header />
           <main
             className={clsx(
-              "flex-grow",
+              "grow",
               pathname !== "/" ? "mt-[72px]" : "bg-white dark:bg-nord0",
             )}
           >

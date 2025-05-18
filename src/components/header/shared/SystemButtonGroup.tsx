@@ -14,11 +14,11 @@ const SystemButtonItem: FC<{ children: ReactNode; onClick?: () => void }> = ({
       onClick={onClick}
       className={clsx(
         "flex h-8 w-8 items-center justify-center",
-        "cursor-pointer rounded fill-nord-neutral",
+        "cursor-pointer rounded-sm fill-nord-neutral",
         "text-nord-neutral dark:text-nord-neutral-dark",
         "fill-nord-neutral dark:fill-nord-neutral-dark",
-        "hover:bg-nord-outline/80 hover:dark:bg-nord-outline-dark/80",
-        "transition hover:bg-nord-secondary-deep/[0.12] active:bg-nord-secondary-deep/20 hover:dark:bg-nord-secondary-deep/[0.12] active:dark:bg-nord-secondary-deep/20",
+        "hover:bg-nord-outline/80 dark:hover:bg-nord-outline-dark/80",
+        "transition hover:bg-nord-secondary-deep/[0.12] active:bg-nord-secondary-deep/20 dark:hover:bg-nord-secondary-deep/[0.12] dark:active:bg-nord-secondary-deep/20",
       )}
     >
       {children}

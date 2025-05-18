@@ -1,6 +1,6 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+
+@config '../../tailwind.config.js';
 
 html,
 body,
@@ -23,7 +23,7 @@ div[data-milkdown-root="true"] {
 }
 
 button.main-button {
-  @apply shadow transition hover:shadow-md active:shadow-none;
+  @apply shadow-sm transition hover:shadow-md active:shadow-none;
 }
 
 button.button-primary {

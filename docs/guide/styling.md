@@ -34,7 +34,7 @@ Editor
     // Add attributes to the editor container
     ctx.update(editorViewOptionsCtx, (prev) => ({
       ...prev,
-      attributes: { class: 'milkdown-editor mx-auto outline-none', spellcheck: 'false' },
+      attributes: { class: 'milkdown-editor mx-auto outline-hidden', spellcheck: 'false' },
     }))
 
     // Add attributes to nodes and marks

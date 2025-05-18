@@ -89,13 +89,13 @@ export const MobileNav: FC = () => {
         className={clsx(
           "fixed top-0 bottom-0 z-50 h-screen w-60 pr-4 pl-6",
           open ? "right-0" : "-right-60",
-          "border border-nord-neutral/10 shadow dark:border-nord-neutral/10",
+          "border border-nord-neutral/10 shadow-sm dark:border-nord-neutral/10",
           "text-nord-neutral dark:text-nord-neutral-dark",
-          "shadow shadow-nord-background dark:shadow-nord-background-dark",
-          "bg-gradient-to-b from-nord-foreground/[.64] to-nord-foreground/80 dark:from-nord-foreground-dark/[.64] dark:to-nord-foreground-dark/80",
+          "shadow-sm shadow-nord-background dark:shadow-nord-background-dark",
+          "bg-linear-to-b from-nord-foreground/[.64] to-nord-foreground/80 dark:from-nord-foreground-dark/[.64] dark:to-nord-foreground-dark/80",
           "flex flex-col",
           "rounded-l-2xl",
-          "backdrop-blur backdrop-filter",
+          "backdrop-blur-sm backdrop-filter",
           "transition-right duration-300",
         )}
       >

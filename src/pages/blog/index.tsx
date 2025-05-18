@@ -36,7 +36,7 @@ export default function Blogs() {
                 <span className="mx-1">|</span>
                 {author.join(", ")}
               </div>
-              <p className="!mt-2">{desc}</p>
+              <p className="mt-2!">{desc}</p>
             </section>
           ))}
         </div>

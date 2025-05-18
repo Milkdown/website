@@ -1,11 +1,15 @@
-.cm-editor {
-  @apply h-full font-mono md:text-xs lg:text-sm xl:text-base;
-}
+@reference "./globals.css";
 
-.cm-scroller {
-  @apply overscroll-contain;
-}
+.crepe {
+  .cm-editor {
+    @apply h-full font-mono md:text-xs lg:text-sm xl:text-base;
+  }
 
-div[data-show="false"] {
-  @apply hidden;
+  .cm-scroller {
+    @apply overscroll-auto;
+  }
+
+  div[data-show="false"] {
+    @apply hidden;
+  }
 }

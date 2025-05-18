@@ -1,3 +1,5 @@
+@reference "./globals.css";
+
 h4 {
   @apply underline decoration-nord14 underline-offset-4;
 }
