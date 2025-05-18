@@ -64,9 +64,9 @@
     "@types/lodash.debounce": "^4.0.7",
     "@types/lodash.throttle": "^4.1.9",
     "@types/mdast": "^3.0.11",
-    "@types/node": "18.15.3",
-    "@types/react": "18.0.28",
-    "@types/react-dom": "18.0.11",
+    "@types/node": "18.19.100",
+    "@types/react": "18.3.21",
+    "@types/react-dom": "18.3.7",
     "@types/unist": "^2.0.6",
     "@uiw/codemirror-theme-eclipse": "^4.23.0",
     "@vercel/analytics": "^0.1.11",
@@ -90,8 +90,8 @@
     "postcss": "^8.4.21",
     "prettier": "^3.5.1",
     "prettier-plugin-tailwindcss": "^0.6.11",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
     "react-json-tree": "^0.20.0",
     "react-spinners": "^0.17.0",
     "refractor": "^4.8.1",
@@ -129,5 +129,5 @@
       "is-core-module": "npm:@nolyfill/is-core-module@^1"
     }
   },
-  "packageManager": "pnpm@9.15.4"
+  "packageManager": "pnpm@9.15.9"
 }
