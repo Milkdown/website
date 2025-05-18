@@ -2,8 +2,10 @@ import { execSync } from "child_process";
 import { mkdirSync, existsSync } from "fs";
 import { join } from "path";
 
-const MILKDOWN_DIR = join(process.cwd(), "milkdown");
-const API_DIR = join(process.cwd(), "docs", "api");
+const __dirname = new URL(".", import.meta.url).pathname;
+
+const MILKDOWN_DIR = join(__dirname, "..", "milkdown");
+const API_DIR = join(__dirname, "..", "docs", "api");
 
 async function main() {
   try {
