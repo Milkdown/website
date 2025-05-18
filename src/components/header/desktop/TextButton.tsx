@@ -36,8 +36,17 @@ type TextLinkButtonProps = {
   link: string;
 };
 export const TextLinkButton: FC<TextLinkButtonProps> = ({ link, text }) => {
+  const router = useRouter();
+  const scope = router.route.slice(1);
+  const active = scope === text.toLowerCase();
   return (
-    <Link className={className} href={link}>
+    <Link
+      className={clsx(
+        className,
+        active && "fill-nord-primary! text-nord-primary! text-shadow-2xs",
+      )}
+      href={link}
+    >
       <span className="text-sm">{text}</span>
     </Link>
   );
@@ -68,7 +77,7 @@ export const TextButton: FC<TextButtonProps> = ({ text, children }) => {
         {...getReferenceProps()}
         className={clsx(
           className,
-          active && "fill-nord-primary! text-nord-primary! font-bold",
+          active && "fill-nord-primary! text-nord-primary! text-shadow-2xs",
         )}
       >
         <span className="text-sm">{text}</span>

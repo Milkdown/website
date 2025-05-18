@@ -16,18 +16,18 @@ export default function Blogs() {
       <Head>
         <title>Blog | Milkdown</title>
       </Head>
-      <div className="prose prose-sm dark:prose-invert sm:prose-base xl:prose-lg mx-auto px-8 pt-24 pb-10 md:pb-24">
-        <h1>Milkdown Blog</h1>
-        <p>
+      <div className="mx-8 w-full pt-24 pb-10 md:mx-24 md:pb-24 lg:mx-40 xl:mx-80 2xl:mx-auto 2xl:max-w-4xl">
+        <h1 className="text-4xl">Milkdown Blog</h1>
+        <p className="font-light text-gray-500 dark:text-gray-400">
           This blog is the official source for updates, ideas and fun stuffs
           from Milkdown.
         </p>
 
-        <div className="flex flex-col gap-6">
+        <div className="mt-8 flex flex-col gap-8">
           {blogConfig.map(({ id, desc, date, author }) => (
-            <section key={id}>
+            <section key={id} className="pb-8">
               <Link href={`/blog/${id}`} className="no-underline">
-                <h3 className="text-nord10 hover:text-nord8 dark:text-nord9 dark:hover:text-nord8">
+                <h3 className="text-nord10 hover:text-nord8 dark:text-nord9 dark:hover:text-nord8 mb-1 text-2xl">
                   {toTitle(id)}
                 </h3>
               </Link>
