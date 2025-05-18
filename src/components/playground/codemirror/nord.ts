@@ -21,7 +21,6 @@ const nord14 = "#a3be8c";
 const nord15 = "#b48ead";
 
 export const nordTheme = (dark: boolean) => {
-  const highlightBackground = dark ? "#2c313a" : "#e5e9f0";
   const selection = dark ? nord0 : nord4;
   return EditorView.theme(
     {
@@ -58,7 +57,6 @@ export const nordTheme = (dark: boolean) => {
         backgroundColor: selection,
       },
 
-      ".cm-activeLine": { backgroundColor: highlightBackground },
       ".cm-selectionMatch": { backgroundColor: nord15 },
 
       ".cm-matchingBracket, .cm-nonmatchingBracket": {
@@ -72,7 +70,6 @@ export const nordTheme = (dark: boolean) => {
       },
       ".cm-tooltip-autocomplete": {
         "& > ul > li[aria-selected]": {
-          backgroundColor: highlightBackground,
           color: dark ? nord4 : nord2,
         },
       },

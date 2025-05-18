@@ -6,7 +6,7 @@
 
 .ProseMirror-selectednode {
   outline: none;
-  @apply outline-nord9 dark:outline-nord10 outline outline-2 outline-offset-2;
+  @apply outline-nord9 dark:outline-nord10 outline-2 outline-offset-2;
 }
 
 .ProseMirror {
