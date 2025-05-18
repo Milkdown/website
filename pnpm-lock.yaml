@@ -129,15 +129,6 @@ importers:
       clsx:
         specifier: ^1.2.1
         version: 1.2.1
-      eslint:
-        specifier: 9.27.0
-        version: 9.27.0(jiti@2.4.2)
-      eslint-config-next:
-        specifier: 15.3.2
-        version: 15.3.2(eslint@9.27.0(jiti@2.4.2))(typescript@5.8.3)
-      eslint-config-prettier:
-        specifier: ^10.0.1
-        version: 10.0.1(eslint@9.27.0(jiti@2.4.2))
       husky:
         specifier: ^8.0.3
         version: 8.0.3
@@ -202,6 +193,21 @@ importers:
         specifier: ^6.5.4
         version: 6.5.4
     devDependencies:
+      '@eslint/eslintrc':
+        specifier: ^3.3.1
+        version: 3.3.1
+      '@eslint/js':
+        specifier: ^9.27.0
+        version: 9.27.0
+      eslint:
+        specifier: 9.27.0
+        version: 9.27.0(jiti@2.4.2)
+      eslint-config-next:
+        specifier: 15.3.2
+        version: 15.3.2(eslint@9.27.0(jiti@2.4.2))(typescript@5.8.3)
+      eslint-config-prettier:
+        specifier: ^10.0.1
+        version: 10.0.1(eslint@9.27.0(jiti@2.4.2))
       tsx:
         specifier: ^4.18.0
         version: 4.18.0
