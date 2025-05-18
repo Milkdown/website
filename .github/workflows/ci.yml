@@ -46,6 +46,9 @@ jobs:
 
       - uses: ./.github/actions/setup
 
+      - run: npm install --global corepack@latest
+      - run: corepack enable
+
       - name: Build packages
         run: pnpm build
 
