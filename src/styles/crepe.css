@@ -54,7 +54,8 @@ div:not(.expanded) .crepe > .milkdown > .ProseMirror {
     box-shadow: none;
   }
 
-  .milkdown button:focus, .milkdown input:focus {
+  .milkdown button:focus,
+  .milkdown input:focus {
     outline: none;
   }
 
@@ -63,7 +64,6 @@ div:not(.expanded) .crepe > .milkdown > .ProseMirror {
   }
 
   .milkdown {
-
     font-family: var(--crepe-font-default);
     color: var(--crepe-color-on-background);
     background: var(--crepe-color-background);
@@ -142,21 +142,22 @@ div:not(.expanded) .crepe > .milkdown > .ProseMirror {
     background: transparent;
   }
 
-  .milkdown .ProseMirror[data-dragging='true']::-moz-selection, .milkdown .ProseMirror[data-dragging='true'] *::-moz-selection {
+  .milkdown .ProseMirror[data-dragging="true"]::-moz-selection,
+  .milkdown .ProseMirror[data-dragging="true"] *::-moz-selection {
     background: transparent;
   }
 
-  .milkdown .ProseMirror[data-dragging='true'] .ProseMirror-selectednode,
-  .milkdown .ProseMirror[data-dragging='true']::selection,
-  .milkdown .ProseMirror[data-dragging='true'] *::selection {
+  .milkdown .ProseMirror[data-dragging="true"] .ProseMirror-selectednode,
+  .milkdown .ProseMirror[data-dragging="true"]::selection,
+  .milkdown .ProseMirror[data-dragging="true"] *::selection {
     background: transparent;
   }
 
-  .milkdown .ProseMirror[data-dragging='true'] input::-moz-selection {
+  .milkdown .ProseMirror[data-dragging="true"] input::-moz-selection {
     background: var(--crepe-color-selected);
   }
 
-  .milkdown .ProseMirror[data-dragging='true'] input::selection {
+  .milkdown .ProseMirror[data-dragging="true"] input::selection {
     background: var(--crepe-color-selected);
   }
 
@@ -269,7 +270,7 @@ div:not(.expanded) .crepe > .milkdown > .ProseMirror {
   }
 
   .milkdown .ProseMirror blockquote::before {
-    content: '';
+    content: "";
     width: 4px;
     left: 0;
     top: 4px;
@@ -307,7 +308,7 @@ div:not(.expanded) .crepe > .milkdown > .ProseMirror {
   }
 
   .milkdown .ProseMirror hr.ProseMirror-selectednode::before {
-    content: '';
+    content: "";
     position: absolute;
     left: 0;
     top: 0;
@@ -325,7 +326,6 @@ div:not(.expanded) .crepe > .milkdown > .ProseMirror {
   .milkdown .ProseMirror ol {
     padding: 0;
   }
-
 }
 
 .crepe .milkdown {
