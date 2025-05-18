@@ -11,9 +11,6 @@ async function main() {
   try {
     console.log("Getting milkdown...");
     execSync("git submodule update", { stdio: "inherit" });
-    if(!existsSync(MILKDOWN_DIR)) {
-      throw new Error("Milkdown not found.");
-    }
 
     // Change to milkdown directory
     process.chdir(MILKDOWN_DIR);
