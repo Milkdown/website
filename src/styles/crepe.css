@@ -41,28 +41,20 @@ div:not(.expanded) .crepe > .milkdown > .ProseMirror {
     position: relative;
   }
 
-  .milkdown button:not(.cm-editor *),
-  .milkdown input:not(.cm-editor *) {
+  .milkdown * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  .milkdown button,
+  .milkdown input {
     border: none;
     background: none;
     box-shadow: none;
   }
 
-  .cm-button {
-    background: var(--crepe-color-surface);
-    border-radius: 4px;
-    border: 1px solid var(--crepe-color-outline);
-    font-family: var(--crepe-font-default);
-    &:hover {
-      background: var(--crepe-color-hover);
-    }
-    &:active {
-      background: var(--crepe-color-selected);
-    }
-  }
-
-  .milkdown button:focus,
-  .milkdown input:focus {
+  .milkdown button:focus, .milkdown input:focus {
     outline: none;
   }
 
@@ -71,13 +63,24 @@ div:not(.expanded) .crepe > .milkdown > .ProseMirror {
   }
 
   .milkdown {
+
     font-family: var(--crepe-font-default);
     color: var(--crepe-color-on-background);
     background: var(--crepe-color-background);
   }
 
+  .milkdown .milkdown-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
   .milkdown .ProseMirror-focused {
     outline: none;
+  }
+
+  .milkdown .ProseMirror {
+    padding: 60px 120px;
   }
 
   .milkdown .ProseMirror *::-moz-selection {
@@ -139,22 +142,21 @@ div:not(.expanded) .crepe > .milkdown > .ProseMirror {
     background: transparent;
   }
 
-  .milkdown .ProseMirror[data-dragging="true"]::-moz-selection,
-  .milkdown .ProseMirror[data-dragging="true"] *::-moz-selection {
+  .milkdown .ProseMirror[data-dragging='true']::-moz-selection, .milkdown .ProseMirror[data-dragging='true'] *::-moz-selection {
     background: transparent;
   }
 
-  .milkdown .ProseMirror[data-dragging="true"] .ProseMirror-selectednode,
-  .milkdown .ProseMirror[data-dragging="true"]::selection,
-  .milkdown .ProseMirror[data-dragging="true"] *::selection {
+  .milkdown .ProseMirror[data-dragging='true'] .ProseMirror-selectednode,
+  .milkdown .ProseMirror[data-dragging='true']::selection,
+  .milkdown .ProseMirror[data-dragging='true'] *::selection {
     background: transparent;
   }
 
-  .milkdown .ProseMirror[data-dragging="true"] input::-moz-selection {
+  .milkdown .ProseMirror[data-dragging='true'] input::-moz-selection {
     background: var(--crepe-color-selected);
   }
 
-  .milkdown .ProseMirror[data-dragging="true"] input::selection {
+  .milkdown .ProseMirror[data-dragging='true'] input::selection {
     background: var(--crepe-color-selected);
   }
 
@@ -230,18 +232,11 @@ div:not(.expanded) .crepe > .milkdown > .ProseMirror {
       transparent 40%
     );
     font-family: var(--crepe-font-code);
-    padding: 0 10px;
+    padding: 0 2px;
     border-radius: 4px;
     font-size: 87.5%;
     display: inline-block;
     line-height: 1.4286;
-    &::selection {
-      background: color-mix(
-        in srgb,
-        var(--crepe-color-inline-area) 80%,
-        var(--crepe-color-outline) 80%
-      );
-    }
   }
 
   .milkdown .ProseMirror a {
@@ -274,7 +269,7 @@ div:not(.expanded) .crepe > .milkdown > .ProseMirror {
   }
 
   .milkdown .ProseMirror blockquote::before {
-    content: "";
+    content: '';
     width: 4px;
     left: 0;
     top: 4px;
@@ -312,7 +307,7 @@ div:not(.expanded) .crepe > .milkdown > .ProseMirror {
   }
 
   .milkdown .ProseMirror hr.ProseMirror-selectednode::before {
-    content: "";
+    content: '';
     position: absolute;
     left: 0;
     top: 0;
@@ -330,6 +325,7 @@ div:not(.expanded) .crepe > .milkdown > .ProseMirror {
   .milkdown .ProseMirror ol {
     padding: 0;
   }
+
 }
 
 .crepe .milkdown {
