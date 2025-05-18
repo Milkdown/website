@@ -171,8 +171,8 @@ importers:
         specifier: ^4.1.9
         version: 4.1.9
       '@types/mdast':
-        specifier: ^3.0.11
-        version: 3.0.11
+        specifier: ^4.0.0
+        version: 4.0.4
       '@types/node':
         specifier: 18.19.100
         version: 18.19.100
