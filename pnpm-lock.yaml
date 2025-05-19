@@ -141,6 +141,9 @@ importers:
       lint-staged:
         specifier: ^16.0.0
         version: 16.0.0
+      lodash.debounce:
+        specifier: ^4.0.8
+        version: 4.0.8
       lodash.throttle:
         specifier: ^4.1.1
         version: 4.1.1

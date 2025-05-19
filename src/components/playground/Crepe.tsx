@@ -78,6 +78,7 @@ const CrepeEditor: FC<MilkdownProps> = ({ onChange }) => {
       update: (markdown: string) => {
         const crepe = crepeRef.current;
         if (!crepe) return;
+        if (crepe.getMarkdown() === markdown) return;
         crepe.editor.action((ctx) => {
           const view = ctx.get(editorViewCtx);
           const parser = ctx.get(parserCtx);
@@ -92,7 +93,9 @@ const CrepeEditor: FC<MilkdownProps> = ({ onChange }) => {
             state.doc.content.size,
             new Slice(doc.content, 0, 0),
           );
-          tr = tr.setSelection(Selection.near(tr.doc.resolve(from)));
+          const docSize = doc.content.size;
+          const safeFrom = Math.min(from, docSize - 2);
+          tr = tr.setSelection(Selection.near(tr.doc.resolve(safeFrom)));
           view.dispatch(tr);
         });
       },

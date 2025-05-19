@@ -27,7 +27,7 @@ import {
   keymap,
   rectangularSelection,
 } from "@codemirror/view";
-import throttle from "lodash.throttle";
+import debounce from "lodash.debounce";
 
 import { FocusType } from "@/components/playground/atom";
 
@@ -87,16 +87,13 @@ export const createCodeMirrorState = ({
   });
 };
 
-const onCodeMirrorUpdate = throttle(
+const onCodeMirrorUpdate = debounce(
   (onChange: (getString: () => string) => void, viewUpdate: ViewUpdate) => {
-    if (viewUpdate.docChanged) {
-      const getString = () => viewUpdate.state.doc.toString();
-      onChange(getString);
-      viewUpdate.view.focus();
-      requestAnimationFrame(() => {
-        viewUpdate.view.focus();
-      });
+    if (!viewUpdate.view.hasFocus) {
+      return;
     }
+    const getString = () => viewUpdate.state.doc.toString();
+    onChange(getString);
   },
   200,
 );
