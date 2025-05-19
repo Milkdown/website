@@ -27,11 +27,11 @@ import {
   keymap,
   rectangularSelection,
 } from "@codemirror/view";
+import { eclipse } from "@uiw/codemirror-theme-eclipse";
+import { nord } from "@uiw/codemirror-theme-nord";
 import debounce from "lodash.debounce";
 
 import { FocusType } from "@/components/playground/atom";
-
-import { nord } from "./nord";
 
 const basicSetup: Extension = [
   highlightActiveLineGutter(),
@@ -74,7 +74,7 @@ export const createCodeMirrorState = ({
   return EditorState.create({
     doc: content,
     extensions: [
-      nord(dark),
+      dark ? nord : eclipse,
       basicSetup,
       markdown(),
       EditorView.updateListener.of((viewUpdate) => {

@@ -123,6 +123,9 @@ importers:
       '@uiw/codemirror-theme-eclipse':
         specifier: ^4.23.0
         version: 4.23.12(@codemirror/language@6.11.0)(@codemirror/state@6.5.2)(@codemirror/view@6.36.8)
+      '@uiw/codemirror-theme-nord':
+        specifier: ^4.23.12
+        version: 4.23.12(@codemirror/language@6.11.0)(@codemirror/state@6.5.2)(@codemirror/view@6.36.8)
       '@vercel/analytics':
         specifier: ^1.0.0
         version: 1.5.0(next@15.3.2(@babel/core@7.27.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react@19.1.0)(vue@3.5.14(typescript@5.8.3))
@@ -2180,6 +2183,9 @@ packages:
 
   '@uiw/codemirror-theme-eclipse@4.23.12':
     resolution: {integrity: sha512-SVyvHPtrmS47IAnREuqG3YcAFJziLoFNtXg4dXX1IGjJzrT1ONGAn9vfMx0KNWOdGHpFUUFjiH8G3igI0VhZZA==}
+
+  '@uiw/codemirror-theme-nord@4.23.12':
+    resolution: {integrity: sha512-U8w3VIuim9H1lEzReeNyv1+uwnPO+gc3gLXCFwxpwF/XDrTQf5TjQFL+c1AGVCYM/Ywf5sflUcF96C3z634r6g==}
 
   '@uiw/codemirror-themes@4.23.12':
     resolution: {integrity: sha512-8etEByfS9yttFZW0rcWhdZc7/JXJKRWlU5lHmJCI3GydZNGCzydNA+HtK9nWKpJUndVc58Q2sqSC5OIcwq8y6A==}
@@ -6962,6 +6968,14 @@ snapshots:
       eslint-visitor-keys: 4.2.0
 
   '@uiw/codemirror-theme-eclipse@4.23.12(@codemirror/language@6.11.0)(@codemirror/state@6.5.2)(@codemirror/view@6.36.8)':
+    dependencies:
+      '@uiw/codemirror-themes': 4.23.12(@codemirror/language@6.11.0)(@codemirror/state@6.5.2)(@codemirror/view@6.36.8)
+    transitivePeerDependencies:
+      - '@codemirror/language'
+      - '@codemirror/state'
+      - '@codemirror/view'
+
+  '@uiw/codemirror-theme-nord@4.23.12(@codemirror/language@6.11.0)(@codemirror/state@6.5.2)(@codemirror/view@6.36.8)':
     dependencies:
       '@uiw/codemirror-themes': 4.23.12(@codemirror/language@6.11.0)(@codemirror/state@6.5.2)(@codemirror/view@6.36.8)
     transitivePeerDependencies:

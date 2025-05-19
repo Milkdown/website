@@ -17,7 +17,6 @@ import "@/styles/docsearch.css";
 import "@/styles/globals.css";
 import "@/styles/liquid.css";
 import "@/styles/playground.css";
-import "@/styles/prose.css";
 import "@/styles/prosemirror.css";
 import "@/styles/toast.css";
 import { DocSearch } from "@/utils/types";

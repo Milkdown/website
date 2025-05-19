@@ -13,3 +13,9 @@
     @apply hidden;
   }
 }
+
+.playground-cm {
+  .ͼo .cm-content {
+    caret-color: #000 !important;
+  }
+}

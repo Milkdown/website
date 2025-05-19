@@ -50,7 +50,7 @@ export const Codemirror: FC<CodemirrorProps> = ({ onChange }) => {
 
   return (
     <div
-      className="flex-1 overflow-y-scroll overscroll-none bg-gray-50 dark:bg-gray-900"
+      className="playground-cm flex-1 overflow-y-scroll overscroll-none bg-gray-50 dark:bg-gray-900"
       ref={divRef}
     />
   );

@@ -44,6 +44,7 @@
     "@types/react": "19.1.4",
     "@types/react-dom": "19.1.5",
     "@uiw/codemirror-theme-eclipse": "^4.23.0",
+    "@uiw/codemirror-theme-nord": "^4.23.12",
     "@vercel/analytics": "^1.0.0",
     "clsx": "^2.0.0",
     "husky": "^9.0.0",
