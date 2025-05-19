@@ -19,7 +19,7 @@
 }
 
 div:not(.expanded) .crepe > .milkdown > .ProseMirror {
-  @apply h-full px-2 md:px-32 md:py-12;
+  @apply h-full px-2 py-2! md:px-32;
 }
 
 .crepe .milkdown:not(.expanded .crepe .milkdown) {
