@@ -29,7 +29,8 @@ const LabeledItem: FC<{ scope: string; item: string; label: string }> = ({
         "rounded-[20px] px-6 py-2 text-sm capitalize",
         "bg-nord-secondary-deep/[.06] transition",
         "hover:bg-nord-secondary-deep/[0.12] active:bg-nord-secondary-deep/20 dark:hover:bg-nord-secondary-deep/[0.12] dark:active:bg-nord-secondary-deep/20",
-        active && "bg-nord-secondary-deep/20 text-nord-primary font-bold",
+        active &&
+          "bg-nord-secondary-deep/20 text-nord-primary text-shadow-nord-primary/50 text-shadow-2xs",
       )}
       href={url}
     >

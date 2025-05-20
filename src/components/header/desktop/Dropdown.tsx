@@ -22,7 +22,8 @@ const DropdownItem: FC<{ scope: string; item: string }> = ({ scope, item }) => {
           "truncate text-left text-sm",
           "text-nord-neutral dark:text-nord-neutral-dark",
           "hover:bg-nord-secondary-deep/[0.12] active:bg-nord-secondary-deep/20 dark:hover:bg-nord-secondary-deep/[0.12] dark:active:bg-nord-secondary-deep/20 transition",
-          active && "bg-nord-secondary-deep/20 text-nord-primary font-bold",
+          active &&
+            "bg-nord-secondary-deep/20 text-nord-primary text-shadow-nord-primary/50 text-shadow-2xs",
         )}
       >
         {toTitle(item)}
