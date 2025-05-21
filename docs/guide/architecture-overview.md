@@ -43,10 +43,10 @@ The Context System manages state and dependencies in Milkdown. It helps plugins 
 
 ```typescript
 // Create a slice to store a value
-const counterSlice = createSlice(0, 'counter');
+const counterSlice = createSlice(0, "counter");
 
 // Create a timer to manage dependencies
-const dataReady = createTimer('DataReady');
+const dataReady = createTimer("DataReady");
 
 // Use the context in a plugin
 const myPlugin: MilkdownPlugin = (ctx) => {
@@ -79,7 +79,7 @@ Plugins can share data through slices:
 
 ```typescript
 // Create a slice
-const themeSlice = createSlice('light', 'theme');
+const themeSlice = createSlice("light", "theme");
 
 // Use it in a plugin
 const themePlugin: MilkdownPlugin = (ctx) => {
@@ -88,7 +88,7 @@ const themePlugin: MilkdownPlugin = (ctx) => {
     const theme = ctx.get(themeSlice);
 
     // Change the theme
-    ctx.set(themeSlice, 'dark');
+    ctx.set(themeSlice, "dark");
   };
 };
 ```
@@ -120,4 +120,3 @@ const examplePlugin: MilkdownPlugin = (ctx) => {
 This system makes Milkdown flexible and easy to extend.
 
 If you want to learn more about how to write plugins, you can read the [Plugins 101](/docs/plugin/plugins-101).
-
