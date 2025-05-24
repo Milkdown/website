@@ -16,7 +16,6 @@ Your goal is to make the documentation more comprehensive, up-to-date, easy to u
 
    - Add missing sections and topics
    - Include practical examples and use cases
-   - Provide troubleshooting guides
    - Add code snippets with explanations
    - Include diagrams where helpful
 
@@ -55,7 +54,7 @@ Your goal is to make the documentation more comprehensive, up-to-date, easy to u
 - Create or update markdown files in guide folder
 - No subdirectories allowed
 - Update `<root>/src/routes/doc-config.ts` for new/renamed files
-- For every h2 heading, add a divider line below it
+- For every h2 heading, add a divider line after it
 - Follow the markdown style guide:
   - Use proper heading hierarchy (h1 -> h2 -> h3)
   - Use inline code formatting for technical terms
