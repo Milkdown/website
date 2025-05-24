@@ -16,7 +16,7 @@ import "@milkdown/crepe/theme/common/style.css";
 import "@milkdown/crepe/theme/frame.css";
 
 const crepe = new Crepe({
-  root: '#app',
+  root: "#app",
   defaultValue: "Hello, Milkdown!",
 });
 
@@ -30,6 +30,7 @@ crepe.create();
 Milkdown consists of two main parts:
 
 1. **Core Package** (`@milkdown/core`)
+
    - Plugin loader
    - Internal plugins
 
@@ -69,6 +70,7 @@ Milkdown provides two distinct approaches to create an editor, each suited for d
 ### 1. 🍼 Using `@milkdown/kit` (Build from Scratch)
 
 This approach gives you complete control over your editor. Use this if you want to:
+
 - Build a custom editor from the ground up
 - Have full control over which features to include
 - Create a highly customized editing experience
@@ -85,14 +87,10 @@ Create a basic editor with commonmark syntax:
 ```typescript
 import { Editor } from "@milkdown/kit/core";
 import { commonmark } from "@milkdown/kit/preset/commonmark";
-
 // This is the must have css for prosemirror
 import "@milkdown/kit/prose/view/style/prosemirror.css";
 
-Editor
-  .make()
-  .use(commonmark)
-  .create();
+Editor.make().use(commonmark).create();
 ```
 
 ::iframe{src="https://stackblitz.com/github/Milkdown/examples/tree/main/vanilla-commonmark"}
@@ -106,8 +104,7 @@ import { commonmark } from "@milkdown/kit/preset/commonmark";
 import { nord } from "@milkdown/theme-nord";
 import "@milkdown/theme-nord/style.css";
 
-const milkdown = Editor
-  .make()
+const milkdown = Editor.make()
   .config(nord)
   .use(commonmark)
   .use(history)
@@ -125,6 +122,7 @@ milkdown.destroy();
 ### 2. 🥞 Using `@milkdown/crepe` (Ready to Use)
 
 This is the quickest way to get started with a fully-featured editor. Use this if you want to:
+
 - Get up and running quickly
 - Have a well-designed editor out of the box
 - Focus on content rather than configuration
@@ -145,7 +143,7 @@ import "@milkdown/crepe/theme/common/style.css";
 import "@milkdown/crepe/theme/frame.css";
 
 const crepe = new Crepe({
-  root: '#app',
+  root: "#app",
   defaultValue: "Hello, Milkdown!",
 });
 
