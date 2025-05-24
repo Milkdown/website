@@ -1,6 +1,6 @@
 name: Documentation Improvement Guide
 description: A prompt for improving documentation in the Milkdown project guide folder
-model: gpt-4
+model: gpt-4o-mini
 modelParameters:
   temperature: 0.7
 messages:
