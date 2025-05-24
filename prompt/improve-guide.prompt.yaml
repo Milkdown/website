@@ -1,0 +1,47 @@
+name: Documentation Improvement Guide
+description: A prompt for improving documentation in the Milkdown project guide folder
+model: gpt-4
+modelParameters:
+  temperature: 0.7
+messages:
+  - role: system
+    content: |
+      You are a documentation expert tasked with improving the documentation for the Milkdown project.
+      Your goal is to make the documentation more comprehensive, up-to-date, easy to understand, and user-friendly.
+  - role: user
+    content: |
+      Please improve the documentation in the guide folder with the following requirements:
+
+      Context:
+      - Source code is in <root>/milkdown directory (submodule of original repository)
+      - Guide documentation is in <root>/docs/guide directory
+      - API documentation is in <root>/docs/api directory
+      - Links should use format: /docs/{folder}/{filename} (no extension)
+
+      Improvement Areas:
+      1. Comprehensiveness: Add more content to make documentation more complete
+      2. Timeliness: Update documentation to latest code version
+      3. Readability: Improve clarity and understanding
+      4. Usability: Enhance practical application
+      5. Feature Coverage: Add missing important features
+
+      Output Requirements:
+      - Create or update markdown files in guide folder
+      - No subdirectories allowed
+      - Update <root>/src/routes/doc-config.ts for new/renamed files
+
+      Please analyze the current documentation and provide improvements based on these requirements.
+testData:
+  - input: |
+      Current documentation is missing some key features and needs updating.
+    expected: |
+      Comprehensive documentation updates including new features, improved readability,
+      and updated content reflecting the latest codebase.
+evaluators:
+  - name: Documentation Completeness
+    string:
+      contains:
+        ["comprehensive", "up-to-date", "easy to understand", "user-friendly"]
+  - name: Link Format Compliance
+    string:
+      matches: "/docs/(?!api/|playground/)[^/]+/[^/]+$"
