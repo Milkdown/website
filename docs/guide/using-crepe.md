@@ -231,3 +231,4 @@ const markdown = crepe.getMarkdown();
 
 - Learn about [Milkdown's architecture](/docs/guide/architecture-overview)
 - Explore [available plugins](/docs/plugin/using-plugins)
+- Read the [API reference](/docs/api/crepe)
