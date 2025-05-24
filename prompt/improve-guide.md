@@ -34,7 +34,6 @@ Your goal is to make the documentation more comprehensive, up-to-date, easy to u
    - Break down complex concepts
    - Add proper headings and subheadings
    - Use consistent formatting
-   - Include a table of contents for longer documents
 
 4. **Usability**
 
