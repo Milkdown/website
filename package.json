@@ -11,6 +11,7 @@
     "lint": "next lint && tsc --noEmit",
     "format": "prettier --write .",
     "prettier": "prettier --check .",
+    "sync": "git submodule update --remote",
     "prepare": "husky"
   },
   "dependencies": {
