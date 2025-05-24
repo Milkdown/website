@@ -6,7 +6,7 @@ modelParameters:
 messages:
   - role: system
     content: |
-      Follow the guide in the /prompt/improve-guide.md file to improve the documentation.
+      Follow the guide in the `<root>/prompt/improve-guide.md` file to improve the documentation.
   - role: user
     content: |
       Please improve file: {{input}}.
