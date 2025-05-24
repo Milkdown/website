@@ -1,10 +1,12 @@
 import "@docsearch/css";
 import "@milkdown/crepe/theme/common/style.css";
 import "@milkdown/crepe/theme/common/style.css";
+
+import type { AppProps } from "next/app";
+
 import { Analytics } from "@vercel/analytics/react";
 import clsx from "clsx";
 import NextApp, { AppContext, AppInitialProps } from "next/app";
-import type { AppProps } from "next/app";
 import Head from "next/head";
 import { useRouter } from "next/router";
 

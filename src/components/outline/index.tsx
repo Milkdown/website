@@ -1,7 +1,8 @@
+import type { FC, ReactNode } from "react";
+
 import clsx from "clsx";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import type { FC, ReactNode } from "react";
 import { useEffect, useState } from "react";
 
 import { useLinkClass } from "@/hooks";

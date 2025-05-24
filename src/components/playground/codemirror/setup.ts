@@ -1,3 +1,5 @@
+import type { Extension } from "@codemirror/state";
+
 import {
   autocompletion,
   closeBrackets,
@@ -14,7 +16,6 @@ import {
 } from "@codemirror/language";
 import { lintKeymap } from "@codemirror/lint";
 import { highlightSelectionMatches, searchKeymap } from "@codemirror/search";
-import type { Extension } from "@codemirror/state";
 import { EditorState } from "@codemirror/state";
 import {
   EditorView,

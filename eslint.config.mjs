@@ -1,5 +1,6 @@
 import { FlatCompat } from "@eslint/eslintrc";
 import js from "@eslint/js";
+import perfectionist from "eslint-plugin-perfectionist";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -12,9 +13,20 @@ const compat = new FlatCompat({
 });
 
 const config = [
-  ...compat.extends("next/core-web-vitals", "prettier"),
+  {
+    plugins: {
+      perfectionist,
+    },
+    rules: {
+      "perfectionist/sort-imports": "error",
+    },
+  },
+  ...compat.extends("next/core-web-vitals", "next/typescript", "prettier"),
   {
     ignores: ["./milkdown/**"],
+    rules: {
+      "@typescript-eslint/no-unused-vars": "off",
+    },
   },
 ];
 

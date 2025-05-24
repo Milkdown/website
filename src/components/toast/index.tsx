@@ -1,6 +1,7 @@
+import type { FC, ReactNode } from "react";
+
 import * as Toast from "@radix-ui/react-toast";
 import clsx from "clsx";
-import type { FC, ReactNode } from "react";
 import {
   createContext,
   useCallback,

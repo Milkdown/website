@@ -1,4 +1,5 @@
 import type { Dispatch, FC, ReactNode, Reducer } from "react";
+
 import { createContext, useCallback, useContext, useReducer } from "react";
 
 export type SidePanelMode = "desktop" | "mobile";

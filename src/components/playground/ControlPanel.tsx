@@ -1,12 +1,14 @@
+import type { FC } from "react";
+
 import clsx from "clsx";
 import { useAtomValue } from "jotai";
-import type { FC } from "react";
 
 import { crepeAPI } from "@/components/playground/atom";
 import { useLinkClass } from "@/hooks";
 
-import pkgJson from "../../../package.json";
 import type { CodemirrorProps } from "./codemirror";
+
+import pkgJson from "../../../package.json";
 import { Codemirror } from "./codemirror";
 
 interface ControlPanelProps extends CodemirrorProps {

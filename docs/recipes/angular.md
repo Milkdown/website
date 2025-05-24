@@ -21,18 +21,18 @@ Create a component is pretty easy.
 
 ```typescript
 // editor.component.ts
-import { Component, ElementRef, ViewChild } from '@angular/core';
-import { defaultValueCtx, Editor, rootCtx } from '@milkdown/kit/core';
-import { commonmark } from '@milkdown/kit/preset/commonmark';
-import { nord } from '@milkdown/theme-nord';
+import { Component, ElementRef, ViewChild } from "@angular/core";
+import { defaultValueCtx, Editor, rootCtx } from "@milkdown/kit/core";
+import { commonmark } from "@milkdown/kit/preset/commonmark";
+import { nord } from "@milkdown/theme-nord";
 
 @Component({
-    templateUrl: './editor.component.html',
+  templateUrl: "./editor.component.html",
 })
 export class AppComponent {
-  @ViewChild('editorRef') editorRef: ElementRef;
+  @ViewChild("editorRef") editorRef: ElementRef;
 
-  defaultValue = '# Milkdown x Angular';
+  defaultValue = "# Milkdown x Angular";
 
   ngAfterViewInit() {
     Editor.make()

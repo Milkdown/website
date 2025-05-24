@@ -7,8 +7,8 @@ import { apiConfigByCategory, docConfig, scopeTitleMap } from "@/routes";
 import { toTitle } from "@/utils/title";
 
 import { SystemButtonGroup } from "../shared/SystemButtonGroup";
-import { NavButton, LinkButton } from "./NavButton";
 import { mobileSidebarOpen, mobileSidebarScope } from "./atom";
+import { LinkButton, NavButton } from "./NavButton";
 import { useSidebar } from "./useSidebar";
 
 const ScopeList: FC = () => {
