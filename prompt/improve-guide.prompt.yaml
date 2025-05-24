@@ -8,8 +8,7 @@ messages:
     content: |
       You are a documentation expert tasked with improving the documentation for the Milkdown project.
       Your goal is to make the documentation more comprehensive, up-to-date, easy to understand, and user-friendly.
-  - role: user
-    content: |
+
       Please improve the documentation in the guide folder with the following requirements:
 
       Context:
@@ -31,6 +30,11 @@ messages:
       - Update <root>/src/routes/doc-config.ts for new/renamed files
 
       Please analyze the current documentation and provide improvements based on these requirements.
+  - role: user
+    content: |
+      Please improve following files:
+        - <root>/docs/guide/getting-started.md
+        - <root>/docs/guide/architecture-overview.md
 testData:
   - input: |
       Current documentation is missing some key features and needs updating.
