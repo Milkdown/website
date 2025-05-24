@@ -1,115 +1,173 @@
 # Architecture Overview
 
+Milkdown is built with a modular, layered architecture that provides flexibility and extensibility. This document explains the core architectural concepts and how they work together.
+
 ![0.75](/guide/milkdown-architecture.png "Milkdown Architecture")
+
+## Core Architecture Layers
 
 Milkdown's architecture is built upon four distinct layers, each providing specific functionality and extensibility:
 
-- [x] 🥛 **Core**: The foundation of Milkdown, providing essential plugin loading capabilities and core editor concepts.
-- [x] 🧇 **Plugins**: A comprehensive collection of modular plugins that extend the editor's functionality.
-- [x] 🍮 **Components**: Headless UI components that serve as building blocks for custom editor implementations.
-- [x] 🍰 **Editors**: Ready-to-use, user-friendly editors built on top of the plugin and component layers.
+### 🥛 Core Layer
 
-The architecture follows a hierarchical design where editors are constructed using components, which in turn are built upon plugins, all of which rely on the core foundation. This layered approach ensures modularity and flexibility, allowing developers to:
+The foundation of Milkdown that provides:
 
-- Use any layer independently
-- Create custom components
-- Develop new plugins
-- Build specialized editors
+- Plugin loading and management system
+- Core editor concepts and interfaces
+- Base document model integration
+- Essential utilities and helpers
 
-Each layer maintains its independence while providing a cohesive development experience.
+### 🧇 Plugin Layer
 
----
+A comprehensive collection of modular plugins that extend the editor's functionality:
 
-# Markdown Transformation
+- Syntax plugins (Markdown parsing, GFM, etc.)
+- UI plugins (toolbar, menu, etc.)
+- Feature plugins (image upload, table, etc.)
+- Utility plugins (history, clipboard, etc.)
+
+### 🍮 Component Layer
+
+Headless UI components that serve as building blocks:
+
+- Toolbar components
+- Slash menu components
+- Table components
+
+### 🍰 Editor Layer
+
+Ready-to-use, user-friendly editors:
+
+- Crepe editor
+- Custom editor implementations
+
+## Architecture Benefits
+
+This layered approach provides several key benefits:
+
+1. **Modularity**: Each layer can be used independently
+2. **Flexibility**: Mix and match components as needed
+3. **Extensibility**: Create custom implementations at any layer
+4. **Maintainability**: Clear separation of concerns
+5. **Reusability**: Components can be shared across implementations
+
+## Markdown Transformation
 
 ![0.75](/guide/transformer.png "Transformer")
 
-Milkdown's transformation system operates through two fundamental processes:
+Milkdown's transformation system handles the conversion between Markdown and the editor's internal document model:
 
-- [x] 🛫 **Parsing**: Transforms Markdown text into a ProseMirror document model
-- [x] 🛬 **Serialization**: Converts the ProseMirror document model back into Markdown text
+### Parsing Process
 
-This transformation system leverages the Remark ecosystem for Markdown processing while seamlessly integrating with ProseMirror's document model architecture.
+1. Markdown text → Remark AST
+2. Remark AST → ProseMirror Schema
+3. Schema → ProseMirror Document
 
----
+### Serialization Process
 
-# Context System
+1. ProseMirror Document → ProseMirror Schema
+2. Schema → Remark AST
+3. Remark AST → Markdown text
 
-The Context System manages state and dependencies in Milkdown. It helps plugins share data and coordinate their behavior.
+This transformation system ensures:
+
+- Accurate Markdown parsing
+- Consistent document structure
+- Reliable serialization
+- Extensible transformation pipeline
+
+## Context System
+
+The Context System is a powerful state management and dependency coordination system that enables plugins to work together seamlessly.
 
 ![1.00](/guide/plugin-sequence.png "Plugin Sequence")
 
-## Core Elements
+### Core Concepts
+
+#### 1. Context (Ctx)
+
+The main interface for plugins to interact with the system:
 
 ```typescript
-// Create a slice to store a value
-const counterSlice = createSlice(0, "counter");
+interface Ctx {
+  get: <T>(slice: Slice<T>) => T;
+  set: <T>(slice: Slice<T>, value: T) => void;
+  wait: (timer: Timer) => Promise<void>;
+  done: (timer: Timer) => void;
+  inject: <T>(slice: Slice<T>, value: T) => void;
+  remove: <T>(slice: Slice<T>) => void;
+}
+```
 
-// Create a timer to manage dependencies
+#### 2. Slices
+
+State containers that can be shared between plugins:
+
+```typescript
+// Create a slice with initial value and name
+const themeSlice = createSlice("light", "theme");
+
+// Use in a plugin
+const themePlugin: MilkdownPlugin = (ctx) => {
+  return () => {
+    // Read current theme
+    const theme = ctx.get(themeSlice);
+
+    // Update theme
+    ctx.set(themeSlice, "dark");
+
+    // React to theme changes
+    ctx.watch(themeSlice, (newTheme) => {
+      // Handle theme change
+    });
+  };
+};
+```
+
+#### 3. Timers
+
+Dependency management system for plugin coordination:
+
+```typescript
+// Define a timer
 const dataReady = createTimer("DataReady");
 
-// Use the context in a plugin
-const myPlugin: MilkdownPlugin = (ctx) => {
-  // Register the timer
+// Use in a plugin
+const dataPlugin: MilkdownPlugin = (ctx) => {
   ctx.record(dataReady);
 
   return async () => {
-    // Wait for other plugins
+    // Wait for dependencies
     await ctx.wait(SchemaReady);
 
-    // Get and update state
-    const count = ctx.get(counterSlice);
-    ctx.set(counterSlice, count + 1);
+    // Do work
+    // ...
 
-    // Mark this plugin as ready
+    // Mark as ready
     ctx.done(dataReady);
   };
 };
 ```
 
-The system has three main parts:
+### Plugin Lifecycle
 
-- **Ctx**: The main interface for plugins to interact with the system
-- **Container**: Stores all the state
-- **Clock**: Manages when plugins should run
-
-## State Management
-
-Plugins can share data through slices:
-
-```typescript
-// Create a slice
-const themeSlice = createSlice("light", "theme");
-
-// Use it in a plugin
-const themePlugin: MilkdownPlugin = (ctx) => {
-  return () => {
-    // Read the theme
-    const theme = ctx.get(themeSlice);
-
-    // Change the theme
-    ctx.set(themeSlice, "dark");
-  };
-};
-```
-
-## Plugin Integration
-
-Plugins follow a simple pattern:
+Plugins follow a consistent lifecycle pattern:
 
 ```typescript
 const examplePlugin: MilkdownPlugin = (ctx) => {
-  // 1. Setup
+  // 1. Setup Phase
   ctx.inject(mySlice, defaultValue);
+  ctx.record(myTimer);
 
   return async () => {
-    // 2. Wait for dependencies
+    // 2. Initialization Phase
     await ctx.wait(RequiredTimer);
 
-    // 3. Do work
-    // ...
+    // 3. Runtime Phase
+    const value = ctx.get(mySlice);
+    ctx.set(mySlice, newValue);
 
-    // 4. Clean up
+    // 4. Cleanup Phase
     return () => {
       ctx.remove(mySlice);
     };
@@ -117,6 +175,27 @@ const examplePlugin: MilkdownPlugin = (ctx) => {
 };
 ```
 
-This system makes Milkdown flexible and easy to extend.
+### Best Practices
 
-If you want to learn more about how to write plugins, you can read the [Plugins 101](/docs/plugin/plugins-101).
+1. **State Management**
+
+   - Use slices for shared state
+   - Keep state minimal and focused
+   - Watch for state changes when needed
+
+2. **Dependency Management**
+
+   - Use timers for coordination
+   - Wait for required dependencies
+   - Mark completion appropriately
+
+3. **Plugin Organization**
+   - Follow the lifecycle pattern
+   - Clean up resources properly
+   - Document dependencies clearly
+
+## Next Steps
+
+- Start to [use Crepe editor](/docs/guide/using-crepe)
+- Learn more about [writing plugins](/docs/plugin/plugins-101)
+- Explore [available plugins](/docs/plugin/using-plugins)
