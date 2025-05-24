@@ -10,7 +10,7 @@ const API_DIR = join(__dirname, "..", "docs", "api");
 async function main() {
   try {
     console.log("Getting milkdown...");
-    execSync("git submodule update", { stdio: "inherit" });
+    execSync("git submodule update --remote", { stdio: "inherit" });
 
     // Change to milkdown directory
     process.chdir(MILKDOWN_DIR);

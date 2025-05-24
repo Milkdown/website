@@ -152,7 +152,7 @@ Document or block level placeholders to guide users when content is empty.
 
 Mathematical formula support with both inline and block math rendering using KaTeX.
 
-For detailed configuration options of each feature, please refer to the API documentation.
+For detailed configuration options of each feature, please refer to the [API documentation](/docs/api/crepe).
 
 ## Editor Instance Methods
 

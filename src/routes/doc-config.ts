@@ -92,8 +92,8 @@ export const apiConfigByCategory: APIConfigItem[] = [
     ],
   },
   {
-    label: "Theme",
-    items: ["theme-nord"],
+    label: "Editor",
+    items: ["crepe"],
   },
   {
     label: "Framework",
