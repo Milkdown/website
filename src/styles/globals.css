@@ -15,15 +15,21 @@ body,
 body {
   @apply bg-[#fdfcff] text-gray-900 dark:bg-[#1b1c1d] dark:text-gray-50;
 }
+
 div[data-milkdown-root="true"] {
   @apply h-full;
 }
+
 .milkdown {
   @apply h-full;
 }
 
 button.main-button {
   @apply shadow-sm transition hover:shadow-md active:shadow-none;
+}
+
+html {
+  scroll-padding-top: 76px;
 }
 
 button.button-primary {
