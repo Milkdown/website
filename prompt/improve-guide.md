@@ -23,5 +23,6 @@ Your goal is to make the documentation more comprehensive, up-to-date, easy to u
 - Create or update markdown files in guide folder
 - No subdirectories allowed
 - Update `<root>/src/routes/doc-config.ts` for new/renamed files
+- For every h2 heading, add a divider line below it.
 
 Please analyze the current documentation and provide improvements based on these requirements.
