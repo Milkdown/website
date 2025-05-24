@@ -9,9 +9,7 @@ messages:
       Follow the guide in the /prompt/improve-guide.md file to improve the documentation.
   - role: user
     content: |
-      Please improve following files:
-        - <root>/docs/guide/getting-started.md
-        - <root>/docs/guide/architecture-overview.md
+      Please improve file: {{input}}.
 testData:
   - input: |
       Current documentation is missing some key features and needs updating.
@@ -25,4 +23,4 @@ evaluators:
         ["comprehensive", "up-to-date", "easy to understand", "user-friendly"]
   - name: Link Format Compliance
     string:
-      matches: "/docs/(?!api/|playground/)[^/]+/[^/]+$"
+      matches: "/docs/(?!playground/)[^/]+/[^/]+$"
