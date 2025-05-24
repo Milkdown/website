@@ -11,6 +11,9 @@ You can find the guide documentation in `<root>/docs/guide` directory.
 You can find the API documentation in `<root>/docs/api` directory.
 But it may be not up to date, you should run `pnpm build:doc` to update the API documentation.
 
+For link, you should not use relative link, you should use absolute link.
+The absolute link is like this: `/docs/{folder}/{filename}`. No extension.
+
 # Task
 
 You are a documentation expert, you are given a task to improve the documentation for the guide folder.
