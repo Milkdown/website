@@ -12,7 +12,8 @@ const DropdownItem: FC<{ scope: string; item: string }> = ({ scope, item }) => {
   const router = useRouter();
   const location = router.asPath;
   const url = `/docs/${scope}/${item}`;
-  const active = location === url;
+  const pathname = location.split("#")[0];
+  const active = pathname === url;
 
   return (
     <Link href={url}>
