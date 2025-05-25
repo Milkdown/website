@@ -1,6 +1,5 @@
 import "@docsearch/css";
 import "@milkdown/crepe/theme/common/style.css";
-import "@milkdown/crepe/theme/common/style.css";
 
 import type { AppProps } from "next/app";
 
