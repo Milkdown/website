@@ -1,6 +1,64 @@
 # Interacting with Editor
 
+This guide covers the essential ways to interact with the Milkdown editor, including initialization, content management, and editor lifecycle.
+
+## Using Crepe Editor
+
+---
+
+Crepe is a high-level wrapper around Milkdown that provides a simpler API for common editor operations. Here's how to use it:
+
+```typescript
+import { Crepe } from "@milkdown/crepe";
+
+// Create a new editor instance
+const editor = new Crepe({
+  // Optional: specify root element (DOM node or selector)
+  root: "#editor",
+
+  // Optional: set default content, supports markdown, json and dom.
+  defaultValue: "# Hello Crepe!",
+});
+
+// Create the editor
+await editor.create();
+
+// Get markdown content
+const markdown = editor.getMarkdown();
+
+// Set readonly mode
+editor.setReadonly(true);
+
+// Register event listeners
+editor.on((listener) => {
+  listener.markdownUpdated((ctx, markdown) => {
+    console.log("Content updated:", markdown);
+  });
+
+  listener.focus((ctx) => {
+    console.log("Editor focused");
+  });
+
+  listener.blur((ctx) => {
+    console.log("Editor blurred");
+  });
+
+  listener.selectionUpdated((ctx, selection, prevSelection) => {
+    console.log("Selection updated:", selection);
+  });
+
+  listener.updated((ctx, doc, prevDoc) => {
+    console.log("Document updated:", doc);
+  });
+});
+
+// Destroy the editor when done
+await editor.destroy();
+```
+
 ## Register to DOM
+
+---
 
 By default, milkdown will create editor on the `document.body`. Alternatively, you can also point out which dom node you want it to load into:
 
@@ -24,15 +82,15 @@ Editor.make().config((ctx) => {
 });
 ```
 
----
-
 ## Setting Default Value
+
+---
 
 We support three types of default values:
 
-- Markdown strings.
-- HTML DOM.
-- Prosemirror documentation JSON.
+- Markdown strings
+- HTML DOM
+- Prosemirror documentation JSON
 
 ### Markdown
 
@@ -46,8 +104,6 @@ Editor.make().config((ctx) => {
   ctx.set(defaultValueCtx, defaultValue);
 });
 ```
-
-And then the editor will be rendered with default value.
 
 ### Dom
 
@@ -109,9 +165,9 @@ Editor.make().config((ctx) => {
 });
 ```
 
----
-
 ## Inspecting Editor Status
+
+---
 
 You can inspect the editor's status through the `status` property.
 
@@ -147,9 +203,17 @@ editor.onStatusChange((status: EditorStatus) => {
 });
 ```
 
----
+### Status Lifecycle
+
+1. `Idle`: Initial state
+2. `OnCreate`: During creation
+3. `Created`: Successfully created
+4. `OnDestroyed`: During destruction
+5. `Destroyed`: Successfully destroyed
 
 ## Adding Listeners
+
+---
 
 As mentioned above, you can add a listener to the editor, in order to get its value when needed.
 You can add as many listeners as you want, all the listeners will be triggered at once.
@@ -193,6 +257,40 @@ Editor.make()
   .use(listener);
 ```
 
+### Selection Listener
+
+You can track changes to the editor's selection using the `selectionUpdated` event. This is useful for implementing features like:
+
+- Custom toolbars that update based on selection
+- Context menus
+- Selection-based formatting controls
+
+```typescript
+import { listener, listenerCtx } from "@milkdown/kit/plugin/listener";
+import { Selection, TextSelection } from "@milkdown/prose/state";
+
+Editor.make()
+  .config((ctx) => {
+    ctx.get(listenerCtx).selectionUpdated((ctx, selection, prevSelection) => {
+      if (selection instanceof TextSelection) {
+        // Get selection range
+        const { from, to } = selection;
+
+        // Example: Update toolbar based on selection
+        updateToolbar({
+          hasSelection: from !== to,
+          selectionStart: from,
+          selectionEnd: to,
+        });
+      }
+    });
+  })
+  .use(listener);
+```
+
+The selection listener will be triggered when the selection is changed.
+So you don't need to compare them manually.
+
 For more details about listeners, please check [Using Listeners](/docs/api/plugin-listener).
 
 ---
@@ -220,6 +318,13 @@ setTimeout(() => {
   readonly = true;
 }, 5000);
 ```
+
+### Use Cases for Readonly Mode
+
+- Preview mode
+- Document review
+- Print-friendly views
+- Mobile device optimization
 
 ---
 
@@ -254,6 +359,13 @@ import { insert } from "@milkdown/kit/utils";
 
 editor.action(insert("# Hello milkdown"));
 ```
+
+### Common Actions
+
+- Insert content
+- Get current selection
+- Apply formatting
+- Execute commands
 
 For more details about macros, please check [macros](/docs/guide/macros).
 
