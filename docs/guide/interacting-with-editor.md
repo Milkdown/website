@@ -293,9 +293,9 @@ So you don't need to compare them manually.
 
 For more details about listeners, please check [Using Listeners](/docs/api/plugin-listener).
 
----
-
 ## Readonly Mode
+
+---
 
 You can set the editor to readonly mode by setting the `editable` property.
 
@@ -326,9 +326,9 @@ setTimeout(() => {
 - Print-friendly views
 - Mobile device optimization
 
----
-
 ## Using Actions
+
+---
 
 You can use an action to get the context value in a running editor on demand.
 
@@ -369,9 +369,9 @@ editor.action(insert("# Hello milkdown"));
 
 For more details about macros, please check [macros](/docs/guide/macros).
 
----
-
 ## Destroying
+
+---
 
 You can call `editor.destroy` to destroy an existing editor. You can create a new editor again with `editor.create`.
 
