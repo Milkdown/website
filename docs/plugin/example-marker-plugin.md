@@ -148,19 +148,17 @@ const markInputRule = $inputRule(
 To enhance the user experience, we add a color picker tooltip:
 
 ```typescript
-import { $tooltip } from "@milkdown/kit/utils";
+export const colorPickerTooltip = tooltipFactory("color-picker");
 
-const colorPickerTooltip = $tooltip("colorPicker", () => ({
-  items: [
-    { text: "Yellow", color: "#ffff00" },
-    { text: "Red", color: "#ff0000" },
-    { text: "Blue", color: "#0000ff" },
-    // Add more colors as needed
-  ],
-  onSelect: (color: string) => {
-    // Apply the selected color to the current selection
-  },
-}));
+class TooltipPluginView {
+  // ... implementation
+}
+
+export const colorPickerTooltipConfig = (ctx: Ctx) => {
+  ctx.set(colorPickerTooltip.key, {
+    view: () => new TooltipPluginView(ctx),
+  });
+};
 ```
 
 ## Usage
