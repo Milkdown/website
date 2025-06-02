@@ -1,45 +1,63 @@
 # Example: Iframe Plugin
 
-Generally, if we want to add a custom syntax plugin, there are 5 things that need to be done:
+This guide demonstrates how to create a custom iframe syntax plugin for Milkdown. This plugin allows you to embed iframes directly in your markdown content using a simple directive syntax.
 
-1. **Add a remark plugin** to ensure the syntax can be parsed and serialized correctly.
-2. **Define the ProseMirror schema** for your custom node.
-3. **Write a parser specification** to transform the remark AST into a ProseMirror node.
-4. **Write a serializer specification** to transform the ProseMirror node back into a remark AST.
-5. **Write ProseMirror input rules** to ensure user input is handled correctly.
-
-In this section, we will add a **custom iframe syntax** to insert an iframe as a node in Milkdown.
-
-## Remark Plugin
+## Overview
 
 ---
 
-First, we need a remark plugin to support our custom syntax. Remark provides a powerful [remark directive plugin](https://github.com/remarkjs/remark-directive) to support custom syntax. With this plugin, we can easily define an iframe using the following text:
+The iframe plugin enables you to embed external web content using the following syntax:
 
 ```markdown
-# My Iframe
-
-::iframe{src="https://saul-mirone.github.io"}
+::iframe{src="https://example.com"}
 ```
 
-This syntax allows us to embed an iframe directly into our markdown content.
+This will render as an embedded iframe in your document.
 
-## Define Schema
+## Implementation Steps
 
 ---
 
-Next, we need to define the schema of an iframe node. Our iframe should be an inline node because it doesn't have any children, and it will have a `src` attribute to connect to the source.
+To create a custom syntax plugin in Milkdown, we need to implement five key components:
+
+1. **Remark Plugin**: Parse the custom syntax
+2. **Schema Definition**: Define the node structure
+3. **Parser**: Convert markdown to ProseMirror nodes
+4. **Serializer**: Convert ProseMirror nodes back to markdown
+5. **Input Rules**: Handle user input
+
+Let's implement each component:
+
+## 1. Remark Plugin
+
+---
+
+First, we use the `remark-directive` plugin to support our custom syntax. This plugin allows us to define custom directives in markdown.
+
+```typescript
+import directive from "remark-directive";
+import { $remark } from "@milkdown/kit/utils";
+
+const remarkDirective = $remark("remarkDirective", () => directive);
+```
+
+## 2. Schema Definition
+
+---
+
+Next, we define the schema for our iframe node. The schema specifies how the node behaves and appears in the editor.
 
 ```typescript
 import { $node } from "@milkdown/kit/utils";
+import { Node } from "@milkdown/kit/prose/model";
 
 const iframeNode = $node("iframe", () => ({
-  group: "block",
-  atom: true,
-  isolating: true,
-  marks: "",
+  group: "block", // Block-level node
+  atom: true, // Cannot be split
+  isolating: true, // Cannot be merged with adjacent nodes
+  marks: "", // No marks allowed
   attrs: {
-    src: { default: null },
+    src: { default: null }, // URL attribute
   },
   parseDOM: [
     {
@@ -51,45 +69,17 @@ const iframeNode = $node("iframe", () => ({
   ],
   toDOM: (node: Node) => [
     "iframe",
-    { ...node.attrs, contenteditable: false },
+    { ...node.attrs, contenteditable: false }, // Prevent editing iframe content
     0,
   ],
 }));
 ```
 
-This schema defines how the iframe node should behave and be represented in the DOM.
-
-## Connect to plugin(s)
+## 3. Parser
 
 ---
 
-Now that we have our basic node defined, we need to specify which remark plugins it requires to work.
-
-```typescript
-import { $remark } from "@milkdown/kit/utils";
-import directive from "remark-directive";
-
-const remarkPluginId = "...";
-const remarkDirective = $remark(remarkPluginId, () => directive);
-```
-
-This code connects our custom node to the necessary remark plugins.
-
-## Parser
-
----
-
-Then, we need to add a parser specification to transform our markdown (in the form of a remark AST) to a ProseMirror node. You can use an inspect tool to find out the remark AST structure, but in this case, the iframe node has the following structure:
-
-```typescript
-const AST = {
-  name: "iframe",
-  attributes: { src: "https://saul-mirone.github.io" },
-  type: "leafDirective",
-};
-```
-
-So we can easily write our parser specification for it:
+The parser converts our markdown syntax into ProseMirror nodes. It looks for the `leafDirective` type with the name "iframe".
 
 ```typescript
 parseMarkdown: {
@@ -100,13 +90,11 @@ parseMarkdown: {
 },
 ```
 
-This parser ensures that the custom iframe syntax is correctly interpreted and transformed into a ProseMirror node.
-
-## Serializer
+## 4. Serializer
 
 ---
 
-Then, we need to add a serializer specification to transform the ProseMirror node back to a remark AST:
+The serializer converts ProseMirror nodes back to markdown format.
 
 ```typescript
 toMarkdown: {
@@ -117,19 +105,18 @@ toMarkdown: {
       attributes: { src: node.attrs.src },
     });
   },
-}
+},
 ```
 
-This serializer ensures that the ProseMirror node can be serialized back into markdown format.
-
-## Input Rule
+## 5. Input Rules
 
 ---
 
-For user input texts that should be transformed into an iframe, we also need to make it work. We can use `inputRules` to define [ProseMirror input rules](https://prosemirror.net/docs/ref/#inputrules) to implement this:
+Input rules handle user typing and convert the syntax into an iframe node.
 
 ```typescript
 import { InputRule } from "@milkdown/kit/prose";
+import { $inputRule } from "@milkdown/kit/utils";
 
 const iframeInputRule = $inputRule(
   () =>
@@ -138,29 +125,24 @@ const iframeInputRule = $inputRule(
       (state, match, start, end) => {
         const [okay, src = ""] = match;
         const { tr } = state;
-
         if (okay) {
           tr.replaceWith(start - 1, end, iframeNode.type().create({ src }));
         }
-
         return tr;
       },
     ),
 );
 ```
 
-This input rule allows users to type the custom syntax and have it automatically converted into an iframe node.
-
-## Use Plugins
+## Usage
 
 ---
 
-Finally, we need to add our new node type to the other nodes in the `AtomList`. We can then just `use` the plugin like we normally would:
+To use the iframe plugin, add it to your Milkdown editor configuration:
 
 ```typescript
 import { Editor } from "@milkdown/kit/core";
 import { commonmark } from "@milkdown/kit/preset/commonmark";
-import { AtomList, createNode } from "@milkdown/kit/utils";
 
 Editor.make()
   .use([remarkDirective, iframeNode, iframeInputRule])
@@ -168,12 +150,10 @@ Editor.make()
   .create();
 ```
 
-This code demonstrates how to integrate the custom iframe node into the Milkdown editor setup.
-
-## Full Code
+## Example
 
 ---
 
-::iframe{src="https://stackblitz.com/github/Milkdown/examples/tree/main/vanilla-iframe-syntax"}
+Here's a complete example of the iframe plugin in action:
 
-This example provides a complete setup for adding a custom iframe syntax to Milkdown, allowing for rich content embedding directly within markdown documents.
+::iframe{src="https://stackblitz.com/github/Milkdown/examples/tree/main/vanilla-iframe-syntax"}
