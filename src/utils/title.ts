@@ -6,6 +6,13 @@ const isConjunction = (str: string) => {
   return ["and", "or", "with", "for"].includes(str.toLowerCase());
 };
 
+const isExample = (str: string) => {
+  if (str.toLowerCase() === "example") {
+    return true;
+  }
+  return false;
+};
+
 export const toTitle = (id: string) =>
   id
     .split("-")
@@ -14,6 +21,8 @@ export const toTitle = (id: string) =>
         ? str.toUpperCase()
         : isConjunction(str)
           ? str.toLowerCase()
-          : str.charAt(0).toUpperCase() + str.slice(1),
+          : isExample(str)
+            ? "Ex."
+            : str.charAt(0).toUpperCase() + str.slice(1),
     )
     .join(" ");

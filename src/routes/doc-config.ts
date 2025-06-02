@@ -55,6 +55,7 @@ export const pluginConfig: DocConfigItem = {
     "composable-plugins",
     "example-iframe-plugin",
     "example-marker-plugin",
+    "example-tooltip-plugin",
     "using-components",
   ],
 };
