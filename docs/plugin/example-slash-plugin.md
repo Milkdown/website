@@ -70,15 +70,17 @@ const provider = new SlashProvider({
   offset: 8,
 });
 
-const [slashSpec, slashPlugin] = slashFactory("demo");
-slashSpec.set({
-  view: () => ({
-    update: provider.update,
-    destroy: provider.destroy,
-  }),
-});
+const slash = slashFactory("demo");
+const slashConfig = (ctx: Ctx) => {
+  ctx.set(slash.key, {
+    view: () => ({
+      update: provider.update,
+      destroy: provider.destroy,
+    }),
+  });
+};
 
-Editor.make().use(commonmark).use(slashSpec).use(slashPlugin).create();
+Editor.make().config(slashConfig).use(commonmark).use(slash).create();
 ```
 
 Key takeaways:

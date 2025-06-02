@@ -57,6 +57,7 @@ export const pluginConfig: DocConfigItem = {
     "example-marker-plugin",
     "example-tooltip-plugin",
     "example-slash-plugin",
+    "example-block-plugin",
     "using-components",
   ],
 };

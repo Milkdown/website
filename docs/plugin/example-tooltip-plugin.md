@@ -53,19 +53,17 @@ const provider = new TooltipProvider({
 });
 
 // 3) Bridge provider & editor.
-const [selectionTooltipSpec, selectionTooltip] = tooltipFactory("sel-length");
-selectionTooltipSpec.set({
-  view: () => ({
-    update: provider.update,
-    destroy: provider.destroy,
-  }),
-});
+const tooltip = tooltipFactory("sel-length");
+const tooltipConfig = (ctx: Ctx) => {
+  ctx.set(selectionTooltipSpec.key, {
+    view: () => ({
+      update: provider.update,
+      destroy: provider.destroy,
+    }),
+  });
+};
 
-Editor.make()
-  .use(commonmark)
-  .use(selectionTooltipSpec)
-  .use(selectionTooltip)
-  .create();
+Editor.make().config(tooltipConfig).use(commonmark).use(tooltip).create();
 ```
 
 Key points:
