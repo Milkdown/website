@@ -97,6 +97,7 @@ The `useInstance()` hook can only be used within components that are children of
 
 ```tsx
 import { useInstance } from "@milkdown/react";
+import { getMarkdown } from "@milkdown/utils";
 
 // ❌ This won't work - ParentComponent is outside MilkdownProvider
 const ParentComponent: React.FC = () => {
@@ -114,7 +115,7 @@ const EditorControls: React.FC = () => {
     const editor = getInstance();
     if (!editor) return;
 
-    const content = editor.getMarkdown();
+    const content = editor.action(getMarkdown());
     // Do something with the content
   };
 
@@ -165,7 +166,7 @@ const FormWithEditor: React.FC = () => {
     const editor = getInstance();
     if (!editor) return;
 
-    const content = editor.getMarkdown();
+    const content = editor.action(getMarkdown());
     // Submit form with content
   };
 
