@@ -97,7 +97,7 @@ The `useInstance()` hook can only be used within components that are children of
 
 ```tsx
 import { useInstance } from "@milkdown/react";
-import { getMarkdown } from '@milkdown/utils';
+import { getMarkdown } from "@milkdown/utils";
 
 // ❌ This won't work - ParentComponent is outside MilkdownProvider
 const ParentComponent: React.FC = () => {
