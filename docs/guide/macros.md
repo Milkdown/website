@@ -51,6 +51,20 @@ The behavior differs based on the `inline` parameter:
   - If the content is text-only, replaces the selection with a text node
   - Otherwise, replaces the selection with the parsed content
 
+#### `insertPos`
+
+Inserts markdown at a given position. The macro accepts two parameters:
+
+- `markdown`: The markdown string to insert
+- `pos`: The position to insert the content at
+
+```typescript
+import { insertPos } from "@milkdown/kit/utils";
+
+// Insert "Hello" at the beginning of the document
+editor.action(insertPos("Hello", 0));
+```
+
 #### `replaceAll`
 
 Replaces all content in the editor. The macro accepts two parameters:
@@ -79,16 +93,31 @@ The behavior differs based on the `flush` parameter:
   - Reinitializes all plugins
   - Useful when you need a completely fresh editor state
 
+#### `replaceRange`
+
+Replaces the content of the given range with a markdown string.
+
+```typescript
+import { replaceRange } from "@milkdown/kit/utils";
+
+// Replace content from position 0 to 5 with "Hello"
+editor.action(replaceRange("Hello", { from: 0, to: 5 }));
+```
+
 ### Content Retrieval
 
 #### `getMarkdown`
 
-Gets the current content as markdown.
+Gets the current content as markdown. If a range is provided, it will return the markdown for that range; otherwise, it will return the markdown for the entire document.
 
 ```typescript
 import { getMarkdown } from "@milkdown/kit/utils";
 
+// Get markdown for the entire document
 const markdown = editor.action(getMarkdown());
+
+// Get markdown for a specific range
+const selectionMarkdown = editor.action(getMarkdown({ from: 0, to: 5 }));
 ```
 
 #### `getHTML`
@@ -193,6 +222,18 @@ The macro:
 - Returns a boolean indicating whether the command was successful
 
 Note: The command must be registered in the editor's command context before it can be called.
+
+### Utility Macros
+
+#### `markdownToSlice`
+
+Converts a markdown string to a [slice](https://prosemirror.net/docs/ref/#model.Slice). This is useful when you need to manipulate the content before inserting it into the editor.
+
+```typescript
+import { markdownToSlice } from "@milkdown/kit/utils";
+
+const slice = editor.action(markdownToSlice("# Hello Slice"));
+```
 
 ## Examples
 
