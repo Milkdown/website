@@ -178,13 +178,11 @@ const examplePlugin: MilkdownPlugin = (ctx) => {
 ### Best Practices
 
 1. **State Management**
-
    - Use slices for shared state
    - Keep state minimal and focused
    - Watch for state changes when needed
 
 2. **Dependency Management**
-
    - Use timers for coordination
    - Wait for required dependencies
    - Mark completion appropriately

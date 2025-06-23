@@ -171,25 +171,21 @@ editor.action(
 ---
 
 1. **Command Naming**
-
    - Use clear, descriptive names
    - Follow the pattern: `[Action][Target]Command`
    - Example: `toggleEmphasisCommand`, `insertTableCommand`
 
 2. **Command Organization**
-
    - Group related commands together
    - Use namespaces for command keys
    - Keep commands focused and single-purpose
 
 3. **Error Handling**
-
    - Always check if the command can be executed
    - Return `false` if the command cannot be executed
    - Handle edge cases gracefully
 
 4. **Performance**
-
    - Keep commands lightweight
    - Avoid unnecessary state updates
    - Use command chaining for complex operations

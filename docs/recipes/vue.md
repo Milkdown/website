@@ -200,7 +200,6 @@ export default defineComponent({
 ### Best Practices
 
 1. **Component Structure**
-
    - Keep the editor component separate from business logic
    - Wrap the editor with `MilkdownProvider` at the highest necessary level
    - Use TypeScript for better type safety
