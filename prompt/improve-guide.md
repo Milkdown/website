@@ -13,14 +13,12 @@ Your goal is to make the documentation more comprehensive, up-to-date, easy to u
 ## Improvement Areas
 
 1. **Comprehensiveness**
-
    - Add missing sections and topics
    - Include practical examples and use cases
    - Add code snippets with explanations
    - Include diagrams where helpful
 
 2. **Timeliness**
-
    - Review and update code examples to match latest version
    - Update deprecated features and APIs
    - Add new features and their documentation
@@ -28,14 +26,12 @@ Your goal is to make the documentation more comprehensive, up-to-date, easy to u
    - Update version numbers and compatibility notes
 
 3. **Readability**
-
    - Use clear and concise language
    - Break down complex concepts
    - Add proper headings and subheadings
    - Use consistent formatting
 
 4. **Usability**
-
    - Add step-by-step tutorials
    - Include common use cases
    - Provide configuration examples

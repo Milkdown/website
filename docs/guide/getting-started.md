@@ -30,7 +30,6 @@ crepe.create();
 Milkdown consists of two main parts:
 
 1. **Core Package** (`@milkdown/core`)
-
    - Plugin loader
    - Internal plugins
 

@@ -140,13 +140,11 @@ const EditorWithControls: React.FC = () => {
 ### Best Practices
 
 1. **Component Structure**
-
    - Keep the editor component separate from business logic
    - Wrap the editor with `MilkdownProvider` at the highest necessary level
    - Use TypeScript for better type safety
 
 2. **Performance**
-
    - Memoize the editor configuration if it's complex
    - Use React.memo for the editor component if needed
    - Avoid unnecessary re-renders of the editor
