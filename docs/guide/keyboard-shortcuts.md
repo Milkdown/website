@@ -147,6 +147,7 @@ Each keymap definition follows this structure:
 $useKeymap('keymapName', {
   CommandName: {
     shortcuts: string | string[],  // Single shortcut or array of shortcuts
+    priority?: number,             // (Optional) Priority of the shortcut
     command: (ctx) => () => {      // Command to execute
       const commands = ctx.get(commandsCtx);
       return () => commands.call(commandKey, ...args);
@@ -206,4 +207,46 @@ const customKeymap = $useKeymap("customKeymap", {
 
 // Usage
 Editor.make().use(customCommand).use(customKeymap);
+```
+
+## Shortcut Priority
+
+You can control the order in which shortcuts are handled by specifying a `priority` property. Shortcuts with higher priority values are handled before those with lower values. This is useful if you want your custom shortcut to override or take precedence over other shortcuts that use the same key combination.
+
+When multiple shortcuts are registered for the same key, they are executed in order of priority. If a shortcut command returns `false`, the next shortcut with the same key will be tried. If it returns `true`, no further commands for that key will be run. This allows you to chain or override shortcut behaviors as needed.
+
+- The default priority is **50**.
+- Normal priority values should be between **1** and **100**.
+- Use higher numbers to ensure your shortcut is registered before others with the same key.
+
+#### Example: Using Priority
+
+```typescript
+import { $useKeymap } from "@milkdown/utils";
+import { commandsCtx } from "@milkdown/core";
+
+export const customKeymap = $useKeymap("customKeymap", {
+  CustomBold: {
+    shortcuts: "Mod-b",
+    priority: 100, // Highest in the normal range, so this runs first
+    command: (ctx) => {
+      const commands = ctx.get(commandsCtx);
+      return () => {
+        // Custom bold logic
+        return true;
+      };
+    },
+  },
+  CustomAnotherBold: {
+    shortcuts: "Mod-b",
+    priority: 75, // Lower priority, will run only if CustomBold returns false
+    command: (ctx) => {
+      const commands = ctx.get(commandsCtx);
+      return () => {
+        // Custom italic logic
+        return true;
+      };
+    },
+  },
+});
 ```
