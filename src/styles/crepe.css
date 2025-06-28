@@ -18,6 +18,10 @@
   display: flow-root;
 }
 
+.crepe table td {
+  overflow: auto;
+}
+
 div:not(.expanded) .crepe > .milkdown > .ProseMirror {
   @apply h-full px-2 py-2! md:px-32 md:py-12!;
 }
