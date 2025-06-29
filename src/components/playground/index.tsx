@@ -1,7 +1,8 @@
 import clsx from "clsx";
 import { useAtomCallback } from "jotai/utils";
 import dynamic from "next/dynamic";
-import { FC, useCallback, useState } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
+import { FC, useCallback, useEffect, useState } from "react";
 
 import Loading from "@/components/loading";
 
@@ -18,7 +19,17 @@ const ControlPanel = dynamic(() => import("./ControlPanel"), {
 });
 
 export const Dual: FC = () => {
+  const queryString = useSearchParams();
   const [expand, setExpand] = useState(false);
+
+  const router = useRouter();
+
+  useEffect(() => {
+    const hasExpand = queryString.get("expand") === "true";
+    if (hasExpand) {
+      setExpand(hasExpand);
+    }
+  }, [queryString]);
 
   const onMilkdownChange = useAtomCallback(
     useCallback((get, _set, markdown: string) => {
@@ -58,7 +69,14 @@ export const Dual: FC = () => {
       >
         <ControlPanel
           hide={expand}
-          setHide={setExpand}
+          setHide={(value) => {
+            setExpand(value);
+            if (value) {
+              router.push("/playground?expand=true");
+            } else {
+              router.push("/playground");
+            }
+          }}
           onChange={onCodemirrorChange}
         />
       </div>
