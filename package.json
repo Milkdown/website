@@ -106,5 +106,5 @@
       "string.prototype.trimend": "npm:@nolyfill/string.prototype.trimend@^1"
     }
   },
-  "packageManager": "pnpm@10.12.4"
+  "packageManager": "pnpm@10.13.1"
 }
