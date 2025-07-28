@@ -106,5 +106,8 @@
       "string.prototype.trimend": "npm:@nolyfill/string.prototype.trimend@^1"
     }
   },
+  "engines": {
+    "node": ">=22.0.0"
+  },
   "packageManager": "pnpm@10.13.1"
 }
