@@ -24,7 +24,7 @@
     "@codemirror/state": "^6.4.1",
     "@codemirror/view": "^6.32.0",
     "@docsearch/css": "^4.0.0",
-    "@docsearch/js": "^3.3.3",
+    "@docsearch/js": "^4.0.0",
     "@floating-ui/dom": "^1.6.5",
     "@floating-ui/react": "^0.27.0",
     "@lezer/highlight": "^1.2.1",
