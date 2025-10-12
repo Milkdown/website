@@ -9,6 +9,10 @@
   box-shadow: none;
 }
 
+#docsearch .DocSearch-Button {
+  border: none;
+}
+
 #docsearch .DocSearch-Button-Placeholder {
   display: none;
 }

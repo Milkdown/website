@@ -24,6 +24,7 @@ export const guideConfig: DocConfigItem = {
     "architecture-overview",
     "using-crepe",
     "styling",
+    "code-highlighting",
     "interacting-with-editor",
     "commands",
     "keyboard-shortcuts",
