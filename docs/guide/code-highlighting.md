@@ -13,22 +13,22 @@ npm install @milkdown/plugin-highlight
 The highlight plugin requires a parser to be configured. Here's a basic example using the Shiki parser:
 
 ```typescript
-import { Editor } from '@milkdown/core'
-import { commonmark } from '@milkdown/preset-commonmark'
-import { highlight, highlightPluginConfig } from '@milkdown/plugin-highlight'
-import { createParser } from '@milkdown/plugin-highlight/shiki'
+import { Editor } from "@milkdown/core";
+import { commonmark } from "@milkdown/preset-commonmark";
+import { highlight, highlightPluginConfig } from "@milkdown/plugin-highlight";
+import { createParser } from "@milkdown/plugin-highlight/shiki";
 
 const editor = Editor.make()
   .config(async (ctx) => {
     const parser = await createParser({
-      theme: 'github-light',
-      langs: ['javascript', 'typescript', 'python', 'html', 'css']
-    })
-    ctx.set(highlightPluginConfig.key, { parser })
+      theme: "github-light",
+      langs: ["javascript", "typescript", "python", "html", "css"],
+    });
+    ctx.set(highlightPluginConfig.key, { parser });
   })
   .use(commonmark)
   .use(highlight)
-  .create()
+  .create();
 ```
 
 ## Available Parsers
@@ -40,13 +40,13 @@ The plugin supports multiple syntax highlighting libraries:
 Provides high-quality syntax highlighting with VS Code themes. Learn more at [Shiki](https://shiki.style/):
 
 ```typescript
-import { createParser } from '@milkdown/plugin-highlight/shiki'
+import { createParser } from "@milkdown/plugin-highlight/shiki";
 
 const parser = await createParser({
-  theme: 'github-light',
-  langs: ['javascript', 'typescript', 'python']
-})
-ctx.set(highlightPluginConfig.key, { parser })
+  theme: "github-light",
+  langs: ["javascript", "typescript", "python"],
+});
+ctx.set(highlightPluginConfig.key, { parser });
 ```
 
 ### Lowlight
@@ -54,11 +54,11 @@ ctx.set(highlightPluginConfig.key, { parser })
 Based on [highlight.js](https://highlightjs.org/), supports many languages:
 
 ```typescript
-import { createParser } from '@milkdown/plugin-highlight/lowlight'
-import { common } from 'lowlight'
+import { createParser } from "@milkdown/plugin-highlight/lowlight";
+import { common } from "lowlight";
 
-const parser = createParser({ common })
-ctx.set(highlightPluginConfig.key, { parser })
+const parser = createParser({ common });
+ctx.set(highlightPluginConfig.key, { parser });
 ```
 
 Learn more about Lowlight at [lowlight](https://github.com/wooorm/lowlight).
@@ -68,11 +68,11 @@ Learn more about Lowlight at [lowlight](https://github.com/wooorm/lowlight).
 Based on [Prism.js](https://prismjs.com/):
 
 ```typescript
-import { createParser } from '@milkdown/plugin-highlight/refractor'
-import { refractor } from 'refractor'
+import { createParser } from "@milkdown/plugin-highlight/refractor";
+import { refractor } from "refractor";
 
-const parser = createParser({ refractor })
-ctx.set(highlightPluginConfig.key, { parser })
+const parser = createParser({ refractor });
+ctx.set(highlightPluginConfig.key, { parser });
 ```
 
 Learn more about Refractor at [refractor](https://github.com/wooorm/refractor).
@@ -82,10 +82,10 @@ Learn more about Refractor at [refractor](https://github.com/wooorm/refractor).
 A lightweight and fast syntax highlighter. Learn more at [Sugar High](https://github.com/huozhi/sugar-high):
 
 ```typescript
-import { createParser } from '@milkdown/plugin-highlight/sugar-high'
+import { createParser } from "@milkdown/plugin-highlight/sugar-high";
 
-const parser = createParser()
-ctx.set(highlightPluginConfig.key, { parser })
+const parser = createParser();
+ctx.set(highlightPluginConfig.key, { parser });
 ```
 
 ## Styling
@@ -95,6 +95,7 @@ The highlighted code will have CSS classes applied based on the chosen parser. Y
 ### Sugar High Classes
 
 Sugar High uses classes like:
+
 - `sh__token--identifier`
 - `sh__token--string`
 - `sh__token--keyword`
@@ -124,26 +125,26 @@ For Lowlight, Refractor, and Shiki, refer to their respective documentation for 
 Here's a complete example with Shiki:
 
 ```typescript
-import { Editor } from '@milkdown/core'
-import { commonmark } from '@milkdown/preset-commonmark'
-import { highlight, highlightPluginConfig } from '@milkdown/plugin-highlight'
-import { createParser } from '@milkdown/plugin-highlight/shiki'
+import { Editor } from "@milkdown/core";
+import { commonmark } from "@milkdown/preset-commonmark";
+import { highlight, highlightPluginConfig } from "@milkdown/plugin-highlight";
+import { createParser } from "@milkdown/plugin-highlight/shiki";
 
 async function createHighlightedEditor() {
   const parser = await createParser({
-    theme: 'github-light',
-    langs: ['javascript', 'typescript', 'python', 'html', 'css', 'json']
-  })
+    theme: "github-light",
+    langs: ["javascript", "typescript", "python", "html", "css", "json"],
+  });
 
   const editor = Editor.make()
     .config((ctx) => {
-      ctx.set(highlightPluginConfig.key, { parser })
+      ctx.set(highlightPluginConfig.key, { parser });
     })
     .use(commonmark)
-    .use(highlight)
+    .use(highlight);
 
-  await editor.create()
-  return editor
+  await editor.create();
+  return editor;
 }
 ```
 
@@ -151,7 +152,7 @@ With this setup, your code blocks will be automatically highlighted:
 
 ````markdown
 ```javascript
-console.log('Hello, world!');
+console.log("Hello, world!");
 const greeting = (name) => `Hello, ${name}!`;
 ```
 ````
