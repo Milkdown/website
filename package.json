@@ -42,7 +42,7 @@
     "@types/lodash.throttle": "^4.1.9",
     "@types/node": "24.10.1",
     "@types/react": "19.2.3",
-    "@types/react-dom": "19.2.2",
+    "@types/react-dom": "19.2.3",
     "@uiw/codemirror-theme-eclipse": "^4.23.0",
     "@uiw/codemirror-theme-nord": "^4.23.12",
     "@vercel/analytics": "^1.0.0",
