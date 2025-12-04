@@ -2,7 +2,7 @@ import clsx from "clsx";
 import { useAtomCallback } from "jotai/utils";
 import dynamic from "next/dynamic";
 import { useRouter, useSearchParams } from "next/navigation";
-import { FC, useCallback, useEffect, useState } from "react";
+import { FC, useCallback, useState } from "react";
 
 import Loading from "@/components/loading";
 
@@ -24,12 +24,10 @@ export const Dual: FC = () => {
 
   const router = useRouter();
 
-  useEffect(() => {
-    const hasExpand = queryString.get("expand") === "true";
-    if (hasExpand) {
-      setExpand(hasExpand);
-    }
-  }, [queryString]);
+  const hasExpand = queryString.get("expand") === "true";
+  if (hasExpand !== expand) {
+    setExpand(hasExpand);
+  }
 
   const onMilkdownChange = useAtomCallback(
     useCallback((get, _set, markdown: string) => {

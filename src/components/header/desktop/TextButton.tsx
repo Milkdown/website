@@ -1,9 +1,9 @@
 import { offset } from "@floating-ui/dom";
 import {
+  safePolygon,
   useFloating,
   useHover,
   useInteractions,
-  safePolygon,
 } from "@floating-ui/react";
 import clsx from "clsx";
 import Link from "next/link";
@@ -88,6 +88,7 @@ export const TextButton: FC<TextButtonProps> = ({ text, children }) => {
       </button>
       {isOpen && (
         <div
+          // eslint-disable-next-line react-hooks/refs -- refs.setFloating is a callback ref from Floating UI
           ref={refs.setFloating}
           style={floatingStyles}
           className="text-center"
