@@ -7,7 +7,7 @@ The source code for https://milkdown.dev
 This site is built with vite. And all docs are written in markdown and proudly rendered by Milkdown.
 
 ```bash
-pnpm install && pnpm dev
+bun install && bun dev
 ```
 
 - pages: All pages are in this folder.
