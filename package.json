@@ -40,7 +40,7 @@
     "@tailwindcss/postcss": "^4.1.7",
     "@types/lodash.debounce": "^4.0.7",
     "@types/lodash.throttle": "^4.1.9",
-    "@types/node": "24.10.3",
+    "@types/node": "24.10.4",
     "@types/react": "19.2.7",
     "@types/react-dom": "19.2.3",
     "@uiw/codemirror-theme-eclipse": "^4.23.0",
@@ -73,7 +73,7 @@
   "devDependencies": {
     "@eslint/eslintrc": "^3.3.1",
     "@eslint/js": "^9.27.0",
-    "eslint": "9.39.1",
+    "eslint": "9.39.2",
     "eslint-config-next": "16.0.10",
     "eslint-config-prettier": "^10.0.1",
     "eslint-plugin-perfectionist": "^4.13.0",
@@ -109,5 +109,5 @@
   "engines": {
     "node": ">=22.0.0"
   },
-  "packageManager": "pnpm@10.25.0"
+  "packageManager": "pnpm@10.26.0"
 }
