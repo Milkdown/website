@@ -20,6 +20,10 @@ Creating a component is pretty easy.
   import { commonmark } from "@milkdown/kit/preset/commonmark";
   import { nord } from "@milkdown/theme-nord";
 
+	/**
+	 * 
+	 * @param {HTMLDivElement} dom 
+	 */
   function editor(dom) {
     // to obtain the editor instance we need to store a reference of the editor.
     const MakeEditor = Editor.make()
