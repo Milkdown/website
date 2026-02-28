@@ -40,7 +40,7 @@
     "@tailwindcss/postcss": "^4.1.7",
     "@types/lodash.debounce": "^4.0.7",
     "@types/lodash.throttle": "^4.1.9",
-    "@types/node": "24.10.15",
+    "@types/node": "24.11.0",
     "@types/react": "19.2.14",
     "@types/react-dom": "19.2.3",
     "@uiw/codemirror-theme-eclipse": "^4.23.0",
