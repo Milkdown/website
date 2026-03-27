@@ -1,0 +1,15 @@
+{
+  "sortTailwindcss": {},
+  "printWidth": 80,
+  "sortPackageJson": false,
+  "ignorePatterns": [
+    ".next",
+    "docs/api-out",
+    "next-env.d.ts",
+    ".idea/",
+    ".vscode/",
+    "**/templates/*.md",
+    "pnpm-lock.yaml",
+    "milkdown/"
+  ]
+}
