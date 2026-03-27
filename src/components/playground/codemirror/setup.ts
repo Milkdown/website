@@ -1,22 +1,22 @@
-import type { Extension } from "@codemirror/state";
+import type { Extension } from '@codemirror/state'
 
 import {
   autocompletion,
   closeBrackets,
   closeBracketsKeymap,
   completionKeymap,
-} from "@codemirror/autocomplete";
-import { defaultKeymap, history, historyKeymap } from "@codemirror/commands";
-import { markdown } from "@codemirror/lang-markdown";
+} from '@codemirror/autocomplete'
+import { defaultKeymap, history, historyKeymap } from '@codemirror/commands'
+import { markdown } from '@codemirror/lang-markdown'
 import {
   bracketMatching,
   defaultHighlightStyle,
   indentOnInput,
   syntaxHighlighting,
-} from "@codemirror/language";
-import { lintKeymap } from "@codemirror/lint";
-import { highlightSelectionMatches, searchKeymap } from "@codemirror/search";
-import { EditorState } from "@codemirror/state";
+} from '@codemirror/language'
+import { lintKeymap } from '@codemirror/lint'
+import { highlightSelectionMatches, searchKeymap } from '@codemirror/search'
+import { EditorState } from '@codemirror/state'
 import {
   EditorView,
   ViewUpdate,
@@ -27,12 +27,12 @@ import {
   highlightSpecialChars,
   keymap,
   rectangularSelection,
-} from "@codemirror/view";
-import { eclipse } from "@uiw/codemirror-theme-eclipse";
-import { nord } from "@uiw/codemirror-theme-nord";
-import debounce from "lodash.debounce";
+} from '@codemirror/view'
+import { eclipse } from '@uiw/codemirror-theme-eclipse'
+import { nord } from '@uiw/codemirror-theme-nord'
+import debounce from 'lodash.debounce'
 
-import { FocusType } from "@/components/playground/atom";
+import { FocusType } from '@/components/playground/atom'
 
 const basicSetup: Extension = [
   highlightActiveLineGutter(),
@@ -57,13 +57,13 @@ const basicSetup: Extension = [
     ...completionKeymap,
     ...lintKeymap,
   ]),
-];
+]
 
 interface StateOptions {
-  dark: boolean;
-  setFocus: (focus: FocusType) => void;
-  onChange: (getString: () => string) => void;
-  content: string;
+  dark: boolean
+  setFocus: (focus: FocusType) => void
+  onChange: (getString: () => string) => void
+  content: string
 }
 
 export const createCodeMirrorState = ({
@@ -80,31 +80,31 @@ export const createCodeMirrorState = ({
       markdown(),
       EditorView.updateListener.of((viewUpdate) => {
         if (viewUpdate.focusChanged)
-          setFocus(viewUpdate.view.hasFocus ? "cm" : null);
+          setFocus(viewUpdate.view.hasFocus ? 'cm' : null)
 
-        onCodeMirrorUpdate(onChange, viewUpdate);
+        onCodeMirrorUpdate(onChange, viewUpdate)
       }),
     ],
-  });
-};
+  })
+}
 
 const onCodeMirrorUpdate = debounce(
   (onChange: (getString: () => string) => void, viewUpdate: ViewUpdate) => {
     if (!viewUpdate.view.hasFocus) {
-      return;
+      return
     }
-    const getString = () => viewUpdate.state.doc.toString();
-    onChange(getString);
+    const getString = () => viewUpdate.state.doc.toString()
+    onChange(getString)
   },
-  200,
-);
+  200
+)
 
 interface ViewOptions extends StateOptions {
-  root: HTMLElement;
+  root: HTMLElement
 }
 export const createCodeMirrorView = ({ root, ...options }: ViewOptions) => {
   return new EditorView({
     state: createCodeMirrorState(options),
     parent: root,
-  });
-};
+  })
+}

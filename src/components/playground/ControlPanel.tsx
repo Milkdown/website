@@ -1,37 +1,37 @@
-import type { FC } from "react";
+import type { FC } from 'react'
 
-import clsx from "clsx";
-import { useAtomValue } from "jotai";
+import clsx from 'clsx'
+import { useAtomValue } from 'jotai'
 
-import { crepeAPI } from "@/components/playground/atom";
-import { useLinkClass } from "@/hooks";
+import { crepeAPI } from '@/components/playground/atom'
+import { useLinkClass } from '@/hooks'
 
-import type { CodemirrorProps } from "./codemirror";
+import type { CodemirrorProps } from './codemirror'
 
-import pkgJson from "../../../package.json";
-import { Codemirror } from "./codemirror";
+import pkgJson from '../../../package.json'
+import { Codemirror } from './codemirror'
 
 interface ControlPanelProps extends CodemirrorProps {
-  hide: boolean;
-  setHide: (hide: boolean) => void;
+  hide: boolean
+  setHide: (hide: boolean) => void
 }
 
 const ControlPanel: FC<ControlPanelProps> = ({ hide, onChange, setHide }) => {
-  const linkClass = useLinkClass();
-  const { onShare } = useAtomValue(crepeAPI);
+  const linkClass = useLinkClass()
+  const { onShare } = useAtomValue(crepeAPI)
 
   if (hide) {
     return (
       <div className="fixed top-36 right-6 flex flex-col gap-2">
         <button
           onClick={() => {
-            setHide(false);
-            document.documentElement.scrollTop = 0;
+            setHide(false)
+            document.documentElement.scrollTop = 0
           }}
           className={clsx(
             linkClass(false),
-            "flex h-12 w-12 items-center justify-center rounded-sm",
-            "bg-nord6/70 dark:bg-nord3/70",
+            'flex h-12 w-12 items-center justify-center rounded-sm',
+            'bg-nord6/70 dark:bg-nord3/70'
           )}
         >
           <span className="material-symbols-outlined text-2xl">
@@ -43,14 +43,14 @@ const ControlPanel: FC<ControlPanelProps> = ({ hide, onChange, setHide }) => {
           onClick={() => onShare()}
           className={clsx(
             linkClass(false),
-            "flex h-12 w-12 items-center justify-center rounded-sm",
-            "bg-nord6/70 dark:bg-nord3/70",
+            'flex h-12 w-12 items-center justify-center rounded-sm',
+            'bg-nord6/70 dark:bg-nord3/70'
           )}
         >
           <span className="material-symbols-outlined text-base!">share</span>
         </button>
       </div>
-    );
+    )
   }
 
   return (
@@ -61,8 +61,8 @@ const ControlPanel: FC<ControlPanelProps> = ({ hide, onChange, setHide }) => {
             onClick={() => setHide(true)}
             className={clsx(
               linkClass(false),
-              "flex h-8 w-8 items-center justify-center rounded-full",
-              "hover:bg-nord6/70 dark:hover:bg-nord3/70",
+              'flex h-8 w-8 items-center justify-center rounded-full',
+              'hover:bg-nord6/70 dark:hover:bg-nord3/70'
             )}
           >
             <span className="material-symbols-outlined text-base!">
@@ -72,7 +72,7 @@ const ControlPanel: FC<ControlPanelProps> = ({ hide, onChange, setHide }) => {
           <div>
             <span>Milkdown Playground</span>
             <span className="ml-2 font-mono text-xs text-gray-600 dark:text-gray-300">
-              v{pkgJson.dependencies["@milkdown/kit"]}
+              v{pkgJson.dependencies['@milkdown/kit']}
             </span>
           </div>
         </div>
@@ -81,8 +81,8 @@ const ControlPanel: FC<ControlPanelProps> = ({ hide, onChange, setHide }) => {
             onClick={() => onShare()}
             className={clsx(
               linkClass(false),
-              "flex h-8 w-8 items-center justify-center rounded-full",
-              "hover:bg-nord6/70 dark:hover:bg-nord3/70",
+              'flex h-8 w-8 items-center justify-center rounded-full',
+              'hover:bg-nord6/70 dark:hover:bg-nord3/70'
             )}
           >
             <span className="material-symbols-outlined text-base!">share</span>
@@ -91,7 +91,7 @@ const ControlPanel: FC<ControlPanelProps> = ({ hide, onChange, setHide }) => {
       </div>
       <Codemirror onChange={onChange} />
     </div>
-  );
-};
+  )
+}
 
-export default ControlPanel;
+export default ControlPanel

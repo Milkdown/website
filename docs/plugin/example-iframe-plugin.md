@@ -35,10 +35,10 @@ Let's implement each component:
 First, we use the `remark-directive` plugin to support our custom syntax. This plugin allows us to define custom directives in markdown.
 
 ```typescript
-import directive from "remark-directive";
-import { $remark } from "@milkdown/kit/utils";
+import directive from 'remark-directive'
+import { $remark } from '@milkdown/kit/utils'
 
-const remarkDirective = $remark("remarkDirective", () => directive);
+const remarkDirective = $remark('remarkDirective', () => directive)
 ```
 
 ## 2. Schema Definition
@@ -48,31 +48,31 @@ const remarkDirective = $remark("remarkDirective", () => directive);
 Next, we define the schema for our iframe node. The schema specifies how the node behaves and appears in the editor.
 
 ```typescript
-import { $node } from "@milkdown/kit/utils";
-import { Node } from "@milkdown/kit/prose/model";
+import { $node } from '@milkdown/kit/utils'
+import { Node } from '@milkdown/kit/prose/model'
 
-const iframeNode = $node("iframe", () => ({
-  group: "block", // Block-level node
+const iframeNode = $node('iframe', () => ({
+  group: 'block', // Block-level node
   atom: true, // Cannot be split
   isolating: true, // Cannot be merged with adjacent nodes
-  marks: "", // No marks allowed
+  marks: '', // No marks allowed
   attrs: {
     src: { default: null }, // URL attribute
   },
   parseDOM: [
     {
-      tag: "iframe",
+      tag: 'iframe',
       getAttrs: (dom) => ({
-        src: (dom as HTMLElement).getAttribute("src"),
+        src: (dom as HTMLElement).getAttribute('src'),
       }),
     },
   ],
   toDOM: (node: Node) => [
-    "iframe",
+    'iframe',
     { ...node.attrs, contenteditable: false }, // Prevent editing iframe content
     0,
   ],
-}));
+}))
 ```
 
 ## 3. Parser
@@ -115,23 +115,23 @@ toMarkdown: {
 Input rules handle user typing and convert the syntax into an iframe node.
 
 ```typescript
-import { InputRule } from "@milkdown/kit/prose";
-import { $inputRule } from "@milkdown/kit/utils";
+import { InputRule } from '@milkdown/kit/prose'
+import { $inputRule } from '@milkdown/kit/utils'
 
 const iframeInputRule = $inputRule(
   () =>
     new InputRule(
       /::iframe\{src\="(?<src>[^"]+)?"?\}/,
       (state, match, start, end) => {
-        const [okay, src = ""] = match;
-        const { tr } = state;
+        const [okay, src = ''] = match
+        const { tr } = state
         if (okay) {
-          tr.replaceWith(start - 1, end, iframeNode.type().create({ src }));
+          tr.replaceWith(start - 1, end, iframeNode.type().create({ src }))
         }
-        return tr;
-      },
-    ),
-);
+        return tr
+      }
+    )
+)
 ```
 
 ## Usage
@@ -141,13 +141,13 @@ const iframeInputRule = $inputRule(
 To use the iframe plugin, add it to your Milkdown editor configuration:
 
 ```typescript
-import { Editor } from "@milkdown/kit/core";
-import { commonmark } from "@milkdown/kit/preset/commonmark";
+import { Editor } from '@milkdown/kit/core'
+import { commonmark } from '@milkdown/kit/preset/commonmark'
 
 Editor.make()
   .use([remarkDirective, iframeNode, iframeInputRule])
   .use(commonmark)
-  .create();
+  .create()
 ```
 
 ## Example

@@ -25,21 +25,21 @@ npm install @milkdown/crepe @milkdown/vue @milkdown/kit
 </template>
 
 <script>
-import { Crepe } from "@milkdown/crepe";
-import { Milkdown, MilkdownProvider, useEditor } from "@milkdown/vue";
-import { defineComponent } from "vue";
+import { Crepe } from '@milkdown/crepe'
+import { Milkdown, MilkdownProvider, useEditor } from '@milkdown/vue'
+import { defineComponent } from 'vue'
 
 export default defineComponent({
-  name: "MilkdownEditor",
+  name: 'MilkdownEditor',
   components: {
     Milkdown,
   },
   setup: () => {
     const { get } = useEditor((root) => {
-      return new Crepe({ root });
-    });
+      return new Crepe({ root })
+    })
   },
-});
+})
 </script>
 
 <!-- MilkdownEditorWrapper.vue -->
@@ -50,15 +50,15 @@ export default defineComponent({
 </template>
 
 <script>
-import { MilkdownProvider } from "@milkdown/vue";
-import { defineComponent } from "vue";
+import { MilkdownProvider } from '@milkdown/vue'
+import { defineComponent } from 'vue'
 
 export default defineComponent({
-  name: "MilkdownEditorWrapper",
+  name: 'MilkdownEditorWrapper',
   components: {
     MilkdownProvider,
   },
-});
+})
 </script>
 ```
 
@@ -89,14 +89,14 @@ Here's a minimal example to get started:
 </template>
 
 <script>
-import { Editor, rootCtx } from "@milkdown/kit/core";
-import { commonmark } from "@milkdown/kit/preset/commonmark";
-import { nord } from "@milkdown/theme-nord";
-import { Milkdown, useEditor } from "@milkdown/vue";
-import { defineComponent } from "vue";
+import { Editor, rootCtx } from '@milkdown/kit/core'
+import { commonmark } from '@milkdown/kit/preset/commonmark'
+import { nord } from '@milkdown/theme-nord'
+import { Milkdown, useEditor } from '@milkdown/vue'
+import { defineComponent } from 'vue'
 
 export default defineComponent({
-  name: "MilkdownEditor",
+  name: 'MilkdownEditor',
   components: {
     Milkdown,
   },
@@ -105,12 +105,12 @@ export default defineComponent({
       Editor.make()
         .config(nord)
         .config((ctx) => {
-          ctx.set(rootCtx, root);
+          ctx.set(rootCtx, root)
         })
-        .use(commonmark),
-    );
+        .use(commonmark)
+    )
   },
-});
+})
 </script>
 
 <!-- MilkdownEditorWrapper.vue -->
@@ -121,15 +121,15 @@ export default defineComponent({
 </template>
 
 <script>
-import { MilkdownProvider } from "@milkdown/vue";
-import { defineComponent } from "vue";
+import { MilkdownProvider } from '@milkdown/vue'
+import { defineComponent } from 'vue'
 
 export default defineComponent({
-  name: "MilkdownEditorWrapper",
+  name: 'MilkdownEditorWrapper',
   components: {
     MilkdownProvider,
   },
-});
+})
 </script>
 ```
 
@@ -150,30 +150,30 @@ The `useInstance()` hook can only be used within components that are children of
 </template>
 
 <script>
-import { useInstance } from "@milkdown/vue";
-import { defineComponent } from "vue";
+import { useInstance } from '@milkdown/vue'
+import { defineComponent } from 'vue'
 
 export default defineComponent({
-  name: "EditorControls",
+  name: 'EditorControls',
   setup: () => {
-    const [isLoading, getInstance] = useInstance();
+    const [isLoading, getInstance] = useInstance()
 
     const handleSave = () => {
-      if (isLoading.value) return;
+      if (isLoading.value) return
 
-      const editor = getInstance();
-      if (!editor) return;
+      const editor = getInstance()
+      if (!editor) return
 
-      const content = editor.getMarkdown();
+      const content = editor.getMarkdown()
       // Do something with the content
-    };
+    }
 
     return {
       isLoading,
       handleSave,
-    };
+    }
   },
-});
+})
 </script>
 
 <!-- EditorWithControls.vue -->
@@ -185,15 +185,15 @@ export default defineComponent({
 </template>
 
 <script>
-import { MilkdownProvider } from "@milkdown/vue";
-import { defineComponent } from "vue";
+import { MilkdownProvider } from '@milkdown/vue'
+import { defineComponent } from 'vue'
 
 export default defineComponent({
-  name: "EditorWithControls",
+  name: 'EditorWithControls',
   components: {
     MilkdownProvider,
   },
-});
+})
 </script>
 ```
 
@@ -222,30 +222,30 @@ export default defineComponent({
 </template>
 
 <script>
-import { useInstance } from "@milkdown/vue";
-import { defineComponent } from "vue";
+import { useInstance } from '@milkdown/vue'
+import { defineComponent } from 'vue'
 
 export default defineComponent({
-  name: "FormWithEditor",
+  name: 'FormWithEditor',
   setup: () => {
-    const [isLoading, getInstance] = useInstance();
+    const [isLoading, getInstance] = useInstance()
 
     const handleSubmit = () => {
-      if (isLoading.value) return;
+      if (isLoading.value) return
 
-      const editor = getInstance();
-      if (!editor) return;
+      const editor = getInstance()
+      if (!editor) return
 
-      const content = editor.getMarkdown();
+      const content = editor.getMarkdown()
       // Submit form with content
-    };
+    }
 
     return {
       isLoading,
       handleSubmit,
-    };
+    }
   },
-});
+})
 </script>
 ```
 
@@ -257,14 +257,14 @@ export default defineComponent({
 </template>
 
 <script>
-import { Editor, rootCtx } from "@milkdown/kit/core";
-import { commonmark } from "@milkdown/kit/preset/commonmark";
-import { listener, listenerCtx } from "@milkdown/kit/plugin/listener";
-import { Milkdown, useEditor } from "@milkdown/vue";
-import { defineComponent } from "vue";
+import { Editor, rootCtx } from '@milkdown/kit/core'
+import { commonmark } from '@milkdown/kit/preset/commonmark'
+import { listener, listenerCtx } from '@milkdown/kit/plugin/listener'
+import { Milkdown, useEditor } from '@milkdown/vue'
+import { defineComponent } from 'vue'
 
 export default defineComponent({
-  name: "AutoSaveEditor",
+  name: 'AutoSaveEditor',
   components: {
     Milkdown,
   },
@@ -272,18 +272,18 @@ export default defineComponent({
     const { get } = useEditor((root) =>
       Editor.make()
         .config((ctx) => {
-          ctx.set(rootCtx, root);
+          ctx.set(rootCtx, root)
           // Add markdown listener for auto-save
           ctx.get(listenerCtx).markdownUpdated((ctx, markdown) => {
             // Save content to your backend or storage
-            saveToBackend(markdown);
-          });
+            saveToBackend(markdown)
+          })
         })
         .use(commonmark)
-        .use(listener),
-    );
+        .use(listener)
+    )
   },
-});
+})
 </script>
 ```
 

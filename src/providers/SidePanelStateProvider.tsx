@@ -1,127 +1,127 @@
-import type { Dispatch, FC, ReactNode, Reducer } from "react";
+import type { Dispatch, FC, ReactNode, Reducer } from 'react'
 
-import { createContext, useCallback, useContext, useReducer } from "react";
+import { createContext, useCallback, useContext, useReducer } from 'react'
 
-export type SidePanelMode = "desktop" | "mobile";
+export type SidePanelMode = 'desktop' | 'mobile'
 
-export const ROOT = "$ROOT$";
+export const ROOT = '$ROOT$'
 
 export type SidePanelAction =
-  | { type: "Hide" }
-  | { type: "ShowRoot" }
-  | { type: "ShowSection"; id: string; mode: SidePanelMode };
+  | { type: 'Hide' }
+  | { type: 'ShowRoot' }
+  | { type: 'ShowSection'; id: string; mode: SidePanelMode }
 
 export type SidePanelState = {
-  visible: boolean;
-  mode: SidePanelMode;
-  activeId: typeof ROOT | string;
-};
+  visible: boolean
+  mode: SidePanelMode
+  activeId: typeof ROOT | string
+}
 
 const sidePanelDataReducer: Reducer<SidePanelState, SidePanelAction> = (
   state,
-  action,
+  action
 ) => {
   switch (action.type) {
-    case "ShowRoot": {
+    case 'ShowRoot': {
       return {
         visible: true,
-        mode: "mobile",
+        mode: 'mobile',
         activeId: ROOT,
-      };
+      }
     }
-    case "ShowSection": {
+    case 'ShowSection': {
       return {
         visible: true,
         mode: action.mode,
         activeId: action.id,
-      };
+      }
     }
-    case "Hide":
+    case 'Hide':
     default: {
       return {
         ...state,
         visible: false,
-      };
+      }
     }
   }
-};
+}
 
 const defaultState: SidePanelState = {
   visible: false,
   mode:
-    typeof window !== "undefined" && window.innerWidth < 768
-      ? "mobile"
-      : "desktop",
+    typeof window !== 'undefined' && window.innerWidth < 768
+      ? 'mobile'
+      : 'desktop',
   activeId: ROOT,
-};
+}
 
-const sidePanelStateCtx = createContext(defaultState);
+const sidePanelStateCtx = createContext(defaultState)
 const sidePanelDispatcherCtx = createContext<Dispatch<SidePanelAction>>(
-  () => undefined,
-);
+  () => undefined
+)
 
 export const useSidePanelState = () => {
-  return useContext(sidePanelStateCtx);
-};
+  return useContext(sidePanelStateCtx)
+}
 
 export const useSidePanelDispatcher = () => {
-  return useContext(sidePanelDispatcherCtx);
-};
+  return useContext(sidePanelDispatcherCtx)
+}
 
 export const useSidePanelVisible = () => {
-  return useSidePanelState().visible;
-};
+  return useSidePanelState().visible
+}
 
-let sidePanelControl: number;
+let sidePanelControl: number
 
 export const useShowRootSidePanel = () => {
-  const dispatch = useSidePanelDispatcher();
+  const dispatch = useSidePanelDispatcher()
 
   return useCallback(() => {
-    window.clearTimeout(sidePanelControl);
-    dispatch({ type: "ShowRoot" });
-  }, [dispatch]);
-};
+    window.clearTimeout(sidePanelControl)
+    dispatch({ type: 'ShowRoot' })
+  }, [dispatch])
+}
 
 export const useShowSectionSidePanel = () => {
-  const dispatch = useSidePanelDispatcher();
+  const dispatch = useSidePanelDispatcher()
 
   return useCallback(
     (id: string, mode: SidePanelMode) => {
-      window.clearTimeout(sidePanelControl);
+      window.clearTimeout(sidePanelControl)
       dispatch({
-        type: "ShowSection",
+        type: 'ShowSection',
         id,
         mode,
-      });
+      })
     },
-    [dispatch],
-  );
-};
+    [dispatch]
+  )
+}
 
 export const useHoldSidePanel = () => {
   return useCallback(() => {
-    window.clearTimeout(sidePanelControl);
-  }, []);
-};
+    window.clearTimeout(sidePanelControl)
+  }, [])
+}
 
 export const useHideSidePanel = () => {
-  const dispatch = useSidePanelDispatcher();
+  const dispatch = useSidePanelDispatcher()
   return useCallback(
     (delay: number) => {
       sidePanelControl = window.setTimeout(
-        () => dispatch({ type: "Hide" }),
-        delay,
-      );
+        () => dispatch({ type: 'Hide' }),
+        delay
+      )
     },
-    [dispatch],
-  );
-};
+    [dispatch]
+  )
+}
 
 export const SidePanelStateProvider: FC<{ children: ReactNode }> = ({
   children,
 }) => {
-  const [state, dispatch] = useReducer(sidePanelDataReducer, defaultState);
+  const [state, dispatch] = useReducer(sidePanelDataReducer, defaultState)
 
   return (
     <sidePanelStateCtx.Provider value={state}>
@@ -129,5 +129,5 @@ export const SidePanelStateProvider: FC<{ children: ReactNode }> = ({
         {children}
       </sidePanelDispatcherCtx.Provider>
     </sidePanelStateCtx.Provider>
-  );
-};
+  )
+}

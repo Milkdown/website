@@ -7,16 +7,16 @@ Macros are helper functions that provide a convenient way to interact with the e
 There are two main ways to use macros:
 
 ```typescript
-import { insert } from "@milkdown/kit/utils";
-import { listenerCtx } from "@milkdown/plugin-listener";
+import { insert } from '@milkdown/kit/utils'
+import { listenerCtx } from '@milkdown/plugin-listener'
 
 // Method 1: Using editor.action()
-editor.action(insert("# Hello Macro"));
+editor.action(insert('# Hello Macro'))
 
 // Method 2: Using listener
 editor.config((ctx) => {
-  ctx.get(listenerCtx).mounted(insert("# Default Title"));
-});
+  ctx.get(listenerCtx).mounted(insert('# Default Title'))
+})
 ```
 
 ## Available Macros
@@ -31,13 +31,13 @@ Inserts content at the current cursor position. The macro accepts two parameters
 - `inline`: Optional boolean flag (default: false) that determines how the content is inserted
 
 ```typescript
-import { insert } from "@milkdown/kit/utils";
+import { insert } from '@milkdown/kit/utils'
 
 // Insert as block content (default)
-editor.action(insert("# Hello World"));
+editor.action(insert('# Hello World'))
 
 // Insert as inline content
-editor.action(insert("inline text", true));
+editor.action(insert('inline text', true))
 ```
 
 The behavior differs based on the `inline` parameter:
@@ -59,10 +59,10 @@ Inserts markdown at a given position. The macro accepts two parameters:
 - `pos`: The position to insert the content at
 
 ```typescript
-import { insertPos } from "@milkdown/kit/utils";
+import { insertPos } from '@milkdown/kit/utils'
 
 // Insert "Hello" at the beginning of the document
-editor.action(insertPos("Hello", 0));
+editor.action(insertPos('Hello', 0))
 ```
 
 #### `replaceAll`
@@ -73,13 +73,13 @@ Replaces all content in the editor. The macro accepts two parameters:
 - `flush`: Optional boolean flag (default: false) that determines how the replacement is performed
 
 ```typescript
-import { replaceAll } from "@milkdown/kit/utils";
+import { replaceAll } from '@milkdown/kit/utils'
 
 // Replace content without flushing state
-editor.action(replaceAll("# New Content"));
+editor.action(replaceAll('# New Content'))
 
 // Replace content and flush editor state
-editor.action(replaceAll("# New Content", true));
+editor.action(replaceAll('# New Content', true))
 ```
 
 The behavior differs based on the `flush` parameter:
@@ -98,10 +98,10 @@ The behavior differs based on the `flush` parameter:
 Replaces the content of the given range with a markdown string.
 
 ```typescript
-import { replaceRange } from "@milkdown/kit/utils";
+import { replaceRange } from '@milkdown/kit/utils'
 
 // Replace content from position 0 to 5 with "Hello"
-editor.action(replaceRange("Hello", { from: 0, to: 5 }));
+editor.action(replaceRange('Hello', { from: 0, to: 5 }))
 ```
 
 ### Content Retrieval
@@ -111,13 +111,13 @@ editor.action(replaceRange("Hello", { from: 0, to: 5 }));
 Gets the current content as markdown. If a range is provided, it will return the markdown for that range; otherwise, it will return the markdown for the entire document.
 
 ```typescript
-import { getMarkdown } from "@milkdown/kit/utils";
+import { getMarkdown } from '@milkdown/kit/utils'
 
 // Get markdown for the entire document
-const markdown = editor.action(getMarkdown());
+const markdown = editor.action(getMarkdown())
 
 // Get markdown for a specific range
-const selectionMarkdown = editor.action(getMarkdown({ from: 0, to: 5 }));
+const selectionMarkdown = editor.action(getMarkdown({ from: 0, to: 5 }))
 ```
 
 #### `getHTML`
@@ -125,9 +125,9 @@ const selectionMarkdown = editor.action(getMarkdown({ from: 0, to: 5 }));
 Gets the current content as HTML.
 
 ```typescript
-import { getHTML } from "@milkdown/kit/utils";
+import { getHTML } from '@milkdown/kit/utils'
 
-const html = editor.action(getHTML());
+const html = editor.action(getHTML())
 ```
 
 ### Editor State
@@ -137,9 +137,9 @@ const html = editor.action(getHTML());
 Forces the editor to update its state.
 
 ```typescript
-import { forceUpdate } from "@milkdown/kit/utils";
+import { forceUpdate } from '@milkdown/kit/utils'
 
-editor.action(forceUpdate());
+editor.action(forceUpdate())
 ```
 
 #### `setAttr`
@@ -150,23 +150,23 @@ Sets attributes for a node at a specific position. The macro accepts two paramet
 - `update`: A function that takes the previous attributes and returns the new attributes
 
 ```typescript
-import { setAttr } from "@milkdown/kit/utils";
+import { setAttr } from '@milkdown/kit/utils'
 
 // Update node attributes at position 10
 editor.action(
   setAttr(10, (prevAttrs) => ({
     ...prevAttrs,
-    class: "custom-class",
-  })),
-);
+    class: 'custom-class',
+  }))
+)
 
 // Example: Update heading level
 editor.action(
   setAttr(10, (prevAttrs) => ({
     ...prevAttrs,
     level: 2,
-  })),
-);
+  }))
+)
 ```
 
 The macro:
@@ -185,9 +185,9 @@ Note: The position must be valid and contain a node, otherwise the operation wil
 Gets the outline of the document.
 
 ```typescript
-import { outline } from "@milkdown/kit/utils";
+import { outline } from '@milkdown/kit/utils'
 
-const docOutline = editor.action(outline());
+const docOutline = editor.action(outline())
 ```
 
 ### Command Execution
@@ -199,20 +199,20 @@ Calls a registered command with optional payload. The macro has two overloads:
 Examples:
 
 ```typescript
-import { callCommand } from "@milkdown/kit/utils";
-import { wrapInHeadingCommand } from "@milkdown/plugin-heading";
+import { callCommand } from '@milkdown/kit/utils'
+import { wrapInHeadingCommand } from '@milkdown/plugin-heading'
 
 // Using command key
-editor.action(callCommand(wrapInHeadingCommand.key, 1));
+editor.action(callCommand(wrapInHeadingCommand.key, 1))
 
 // With complex payload
 editor.action(
-  callCommand("CustomCommand", {
-    type: "heading",
+  callCommand('CustomCommand', {
+    type: 'heading',
     level: 1,
-    content: "New Heading",
-  }),
-);
+    content: 'New Heading',
+  })
+)
 ```
 
 The macro:
@@ -230,9 +230,9 @@ Note: The command must be registered in the editor's command context before it c
 Converts a markdown string to a [slice](https://prosemirror.net/docs/ref/#model.Slice). This is useful when you need to manipulate the content before inserting it into the editor.
 
 ```typescript
-import { markdownToSlice } from "@milkdown/kit/utils";
+import { markdownToSlice } from '@milkdown/kit/utils'
 
-const slice = editor.action(markdownToSlice("# Hello Slice"));
+const slice = editor.action(markdownToSlice('# Hello Slice'))
 ```
 
 ## Examples
@@ -240,39 +240,39 @@ const slice = editor.action(markdownToSlice("# Hello Slice"));
 ### Adding Content
 
 ```typescript
-import { insert } from "@milkdown/kit/utils";
-import { listenerCtx } from "@milkdown/plugin-listener";
+import { insert } from '@milkdown/kit/utils'
+import { listenerCtx } from '@milkdown/plugin-listener'
 
 editor.config((ctx) => {
-  ctx.get(listenerCtx).mounted(insert("# Welcome\nStart editing..."));
-});
+  ctx.get(listenerCtx).mounted(insert('# Welcome\nStart editing...'))
+})
 ```
 
 ### Saving Content
 
 ```typescript
-import { getMarkdown } from "@milkdown/kit/utils";
+import { getMarkdown } from '@milkdown/kit/utils'
 
 editor.config((ctx) => {
   ctx.get(listenerCtx).updated(() => {
-    const content = getMarkdown()(ctx);
-    localStorage.setItem("editor-content", content);
-  });
-});
+    const content = getMarkdown()(ctx)
+    localStorage.setItem('editor-content', content)
+  })
+})
 ```
 
 ### Custom Command with Macro
 
 ```typescript
-import { callCommand } from "@milkdown/kit/utils";
+import { callCommand } from '@milkdown/kit/utils'
 
 editor.action(
-  callCommand("customCommand", {
-    type: "heading",
+  callCommand('customCommand', {
+    type: 'heading',
     level: 1,
-    content: "New Heading",
-  }),
-);
+    content: 'New Heading',
+  })
+)
 ```
 
 For more details about each macro's parameters and return types, check the [API Reference](/docs/api/utils#macros).

@@ -1,1 +1,1 @@
-export * from "./doc-config";
+export * from './doc-config'

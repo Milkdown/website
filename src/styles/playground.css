@@ -9,7 +9,7 @@
     @apply overscroll-auto;
   }
 
-  div[data-show="false"] {
+  div[data-show='false'] {
     @apply hidden;
   }
 }

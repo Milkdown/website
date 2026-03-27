@@ -1,5 +1,5 @@
-import clsx from "clsx";
-import { FC } from "react";
+import clsx from 'clsx'
+import { FC } from 'react'
 
 export const Button: FC<{ primary?: boolean; icon?: string; text: string }> = ({
   primary,
@@ -7,10 +7,10 @@ export const Button: FC<{ primary?: boolean; icon?: string; text: string }> = ({
   text,
 }) => {
   const className = clsx(
-    "w-full flex font-semibold text-base items-center justify-center rounded-full transition-all",
-    "px-10 py-3 sm:px-12 sm:py-4",
-    primary ? "button-primary main-button" : "button-default main-button",
-  );
+    'w-full flex font-semibold text-base items-center justify-center rounded-full transition-all',
+    'px-10 py-3 sm:px-12 sm:py-4',
+    primary ? 'button-primary main-button' : 'button-default main-button'
+  )
 
   return (
     <button className={className}>
@@ -19,5 +19,5 @@ export const Button: FC<{ primary?: boolean; icon?: string; text: string }> = ({
       )}
       <span className="text">{text}</span>
     </button>
-  );
-};
+  )
+}

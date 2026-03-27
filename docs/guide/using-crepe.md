@@ -32,23 +32,23 @@ pnpm add @milkdown/crepe
 ### Basic Usage
 
 ```typescript
-import { Crepe } from "@milkdown/crepe";
-import "@milkdown/crepe/theme/common/style.css";
-import "@milkdown/crepe/theme/frame.css";
+import { Crepe } from '@milkdown/crepe'
+import '@milkdown/crepe/theme/common/style.css'
+import '@milkdown/crepe/theme/frame.css'
 
 // Choose your preferred theme
 
 // Create editor instance
 const crepe = new Crepe({
-  root: document.getElementById("app"),
-  defaultValue: "# Hello, Crepe!\n\nStart writing your markdown...",
-});
+  root: document.getElementById('app'),
+  defaultValue: '# Hello, Crepe!\n\nStart writing your markdown...',
+})
 
 // Initialize the editor
-await crepe.create();
+await crepe.create()
 
 // Clean up when done
-crepe.destroy();
+crepe.destroy()
 ```
 
 ::iframe{src="https://stackblitz.com/github/Milkdown/examples/tree/main/editor-crepe"}
@@ -75,9 +75,9 @@ To use a theme:
 
 ```typescript
 // Import base styles first
-import "@milkdown/crepe/theme/common/style.css";
+import '@milkdown/crepe/theme/common/style.css'
 // Then import your chosen theme
-import "@milkdown/crepe/theme/frame.css";
+import '@milkdown/crepe/theme/frame.css'
 ```
 
 ### Custom Themes
@@ -104,10 +104,10 @@ const crepe = new Crepe({
   featureConfigs: {
     // Configure feature behavior
     [Crepe.Feature.LinkTooltip]: {
-      inputPlaceholder: "Enter URL...",
+      inputPlaceholder: 'Enter URL...',
     },
   },
-});
+})
 ```
 
 ### Available Features
@@ -163,9 +163,9 @@ For detailed configuration options of each feature, please refer to the [API doc
 Access the underlying Milkdown editor instance.
 
 ```typescript
-const editor = crepe.editor;
-editor.use(customPlugin);
-editor.action(insert("Hello"));
+const editor = crepe.editor
+editor.use(customPlugin)
+editor.action(insert('Hello'))
 ```
 
 #### `crepe.create()`
@@ -173,7 +173,7 @@ editor.action(insert("Hello"));
 Initialize the editor.
 
 ```typescript
-await crepe.create();
+await crepe.create()
 ```
 
 #### `crepe.destroy()`
@@ -181,7 +181,7 @@ await crepe.create();
 Clean up the editor instance.
 
 ```typescript
-crepe.destroy();
+crepe.destroy()
 ```
 
 #### `crepe.setReadonly(value: boolean)`
@@ -189,8 +189,8 @@ crepe.destroy();
 Toggle readonly mode.
 
 ```typescript
-crepe.setReadonly(true); // Make editor read-only
-crepe.setReadonly(false); // Make editor editable
+crepe.setReadonly(true) // Make editor read-only
+crepe.setReadonly(false) // Make editor editable
 ```
 
 #### `crepe.on`
@@ -200,21 +200,21 @@ Add event listeners.
 ```typescript
 crepe.on((listener) => {
   listener.markdownUpdated((markdown) => {
-    console.log("Markdown updated:", markdown);
-  });
+    console.log('Markdown updated:', markdown)
+  })
 
   listener.updated((doc) => {
-    console.log("Document updated");
-  });
+    console.log('Document updated')
+  })
 
   listener.focus(() => {
-    console.log("Editor focused");
-  });
+    console.log('Editor focused')
+  })
 
   listener.blur(() => {
-    console.log("Editor blurred");
-  });
-});
+    console.log('Editor blurred')
+  })
+})
 ```
 
 #### `crepe.getMarkdown()`
@@ -222,7 +222,7 @@ crepe.on((listener) => {
 Get current markdown content.
 
 ```typescript
-const markdown = crepe.getMarkdown();
+const markdown = crepe.getMarkdown()
 ```
 
 ## Next Steps

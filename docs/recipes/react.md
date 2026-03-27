@@ -17,24 +17,24 @@ npm install @milkdown/crepe @milkdown/react @milkdown/kit
 ### Implementation
 
 ```tsx
-import { Crepe } from "@milkdown/crepe";
-import { Milkdown, MilkdownProvider, useEditor } from "@milkdown/react";
+import { Crepe } from '@milkdown/crepe'
+import { Milkdown, MilkdownProvider, useEditor } from '@milkdown/react'
 
 const CrepeEditor: React.FC = () => {
   const { get } = useEditor((root) => {
-    return new Crepe({ root });
-  });
+    return new Crepe({ root })
+  })
 
-  return <Milkdown />;
-};
+  return <Milkdown />
+}
 
 export const MilkdownEditorWrapper: React.FC = () => {
   return (
     <MilkdownProvider>
       <CrepeEditor />
     </MilkdownProvider>
-  );
-};
+  )
+}
 ```
 
 ### Online Demo
@@ -58,31 +58,31 @@ npm install @milkdown/react @milkdown/kit
 Here's a minimal example to get started:
 
 ```tsx
-import { Editor, rootCtx } from "@milkdown/kit/core";
-import { commonmark } from "@milkdown/kit/preset/commonmark";
-import { Milkdown, MilkdownProvider, useEditor } from "@milkdown/react";
-import { nord } from "@milkdown/theme-nord";
+import { Editor, rootCtx } from '@milkdown/kit/core'
+import { commonmark } from '@milkdown/kit/preset/commonmark'
+import { Milkdown, MilkdownProvider, useEditor } from '@milkdown/react'
+import { nord } from '@milkdown/theme-nord'
 
 const MilkdownEditor: React.FC = () => {
   const { get } = useEditor((root) =>
     Editor.make()
       .config(nord)
       .config((ctx) => {
-        ctx.set(rootCtx, root);
+        ctx.set(rootCtx, root)
       })
-      .use(commonmark),
-  );
+      .use(commonmark)
+  )
 
-  return <Milkdown />;
-};
+  return <Milkdown />
+}
 
 export const MilkdownEditorWrapper: React.FC = () => {
   return (
     <MilkdownProvider>
       <MilkdownEditor />
     </MilkdownProvider>
-  );
-};
+  )
+}
 ```
 
 ::iframe{src="https://stackblitz.com/github/Milkdown/examples/tree/main/react-commonmark"}
@@ -96,35 +96,35 @@ export const MilkdownEditorWrapper: React.FC = () => {
 The `useInstance()` hook can only be used within components that are children of `MilkdownProvider`. It returns a tuple containing a loading state and a getter function to access the editor instance.
 
 ```tsx
-import { useInstance } from "@milkdown/react";
-import { getMarkdown } from "@milkdown/utils";
+import { useInstance } from '@milkdown/react'
+import { getMarkdown } from '@milkdown/utils'
 
 // ❌ This won't work - ParentComponent is outside MilkdownProvider
 const ParentComponent: React.FC = () => {
-  const [isLoading, getInstance] = useInstance(); // This will be [true, () => undefined]
-  return <MilkdownEditorWrapper />;
-};
+  const [isLoading, getInstance] = useInstance() // This will be [true, () => undefined]
+  return <MilkdownEditorWrapper />
+}
 
 // ✅ This is the correct way - EditorControls is inside MilkdownProvider
 const EditorControls: React.FC = () => {
-  const [isLoading, getInstance] = useInstance();
+  const [isLoading, getInstance] = useInstance()
 
   const handleSave = () => {
-    if (isLoading) return;
+    if (isLoading) return
 
-    const editor = getInstance();
-    if (!editor) return;
+    const editor = getInstance()
+    if (!editor) return
 
-    const content = editor.action(getMarkdown());
+    const content = editor.action(getMarkdown())
     // Do something with the content
-  };
+  }
 
   return (
     <button onClick={handleSave} disabled={isLoading}>
       Save
     </button>
-  );
-};
+  )
+}
 
 // ✅ Proper component structure
 const EditorWithControls: React.FC = () => {
@@ -133,8 +133,8 @@ const EditorWithControls: React.FC = () => {
       <MilkdownEditorWrapper />
       <EditorControls />
     </MilkdownProvider>
-  );
-};
+  )
+}
 ```
 
 ### Best Practices
@@ -155,18 +155,18 @@ const EditorWithControls: React.FC = () => {
 
 ```tsx
 const FormWithEditor: React.FC = () => {
-  const [isLoading, getInstance] = useInstance();
+  const [isLoading, getInstance] = useInstance()
 
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (isLoading) return;
+    e.preventDefault()
+    if (isLoading) return
 
-    const editor = getInstance();
-    if (!editor) return;
+    const editor = getInstance()
+    if (!editor) return
 
-    const content = editor.action(getMarkdown());
+    const content = editor.action(getMarkdown())
     // Submit form with content
-  };
+  }
 
   return (
     <form onSubmit={handleSubmit}>
@@ -175,35 +175,35 @@ const FormWithEditor: React.FC = () => {
         Submit
       </button>
     </form>
-  );
-};
+  )
+}
 ```
 
 **Auto-save**
 
 ```tsx
-import { Editor, rootCtx } from "@milkdown/kit/core";
-import { commonmark } from "@milkdown/kit/preset/commonmark";
-import { listener, listenerCtx } from "@milkdown/kit/plugin/listener";
-import { Milkdown, useEditor } from "@milkdown/react";
+import { Editor, rootCtx } from '@milkdown/kit/core'
+import { commonmark } from '@milkdown/kit/preset/commonmark'
+import { listener, listenerCtx } from '@milkdown/kit/plugin/listener'
+import { Milkdown, useEditor } from '@milkdown/react'
 
 const AutoSaveEditor: React.FC = () => {
   const { get } = useEditor((root) =>
     Editor.make()
       .config((ctx) => {
-        ctx.set(rootCtx, root);
+        ctx.set(rootCtx, root)
         // Add markdown listener for auto-save
         ctx.get(listenerCtx).markdownUpdated((ctx, markdown) => {
           // Save content to your backend or storage
-          saveToBackend(markdown);
-        });
+          saveToBackend(markdown)
+        })
       })
       .use(commonmark)
-      .use(listener),
-  );
+      .use(listener)
+  )
 
-  return <Milkdown />;
-};
+  return <Milkdown />
+}
 ```
 
 ## More Examples

@@ -5,12 +5,12 @@ Such as syntax, components, etc.
 Now we can try more plugins:
 
 ```typescript
-import { Editor } from "@milkdown/kit/core";
-import { slash } from "@milkdown/kit/plugin/slash";
-import { tooltip } from "@milkdown/kit/plugin/tooltip";
-import { commonmark } from "@milkdown/kit/preset/commonmark";
+import { Editor } from '@milkdown/kit/core'
+import { slash } from '@milkdown/kit/plugin/slash'
+import { tooltip } from '@milkdown/kit/plugin/tooltip'
+import { commonmark } from '@milkdown/kit/preset/commonmark'
 
-Editor.make().use(commonmark).use(tooltip).use(slash).create();
+Editor.make().use(commonmark).use(tooltip).use(slash).create()
 ```
 
 ---
@@ -20,24 +20,24 @@ Editor.make().use(commonmark).use(tooltip).use(slash).create();
 You can also toggle plugins programmatically:
 
 ```typescript
-import { Editor } from "@milkdown/kit/core";
-import { someMilkdownPlugin } from "some-milkdown-plugin";
+import { Editor } from '@milkdown/kit/core'
+import { someMilkdownPlugin } from 'some-milkdown-plugin'
 
 const editor = await Editor.config(configForPlugin)
   .use(someMilkdownPlugin)
-  .create();
+  .create()
 
 // remove plugin
-await editor.remove(someMilkdownPlugin);
+await editor.remove(someMilkdownPlugin)
 
 // remove config
-editor.removeConfig(configForPlugin);
+editor.removeConfig(configForPlugin)
 
 // add another plugin
-editor.use(anotherMilkdownPlugin);
+editor.use(anotherMilkdownPlugin)
 
 // Recreate the editor to apply changes.
-await editor.create();
+await editor.create()
 ```
 
 ---

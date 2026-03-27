@@ -1,5 +1,5 @@
-import clsx from "clsx";
-import { FC } from "react";
+import clsx from 'clsx'
+import { FC } from 'react'
 
 export const Button: FC<{ primary?: boolean; icon?: string; text: string }> = ({
   primary,
@@ -7,11 +7,11 @@ export const Button: FC<{ primary?: boolean; icon?: string; text: string }> = ({
   text,
 }) => {
   const className = clsx(
-    "flex h-12 items-center justify-center rounded-3xl shadow-md hover:shadow-lg pl-4 pr-6",
+    'flex h-12 items-center justify-center rounded-3xl shadow-md hover:shadow-lg pl-4 pr-6',
     primary
-      ? "text-gray-50 bg-nord10 hover:bg-nord9"
-      : "bg-gray-200 hover:bg-gray-100 dark:bg-nord3 dark:hover:bg-nord1",
-  );
+      ? 'text-gray-50 bg-nord10 hover:bg-nord9'
+      : 'bg-gray-200 hover:bg-gray-100 dark:bg-nord3 dark:hover:bg-nord1'
+  )
 
   return (
     <button className={className}>
@@ -20,5 +20,5 @@ export const Button: FC<{ primary?: boolean; icon?: string; text: string }> = ({
       )}
       <span className="text-sm">{text}</span>
     </button>
-  );
-};
+  )
+}

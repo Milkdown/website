@@ -29,61 +29,61 @@ And you'll also need to provide the UI of the dropdown menu.
 So, you'll need to create a `SlashProvider` instance.
 
 ```ts
-import { slashPlugin, SlashProvider } from "@milkdown/plugin-slash";
+import { slashPlugin, SlashProvider } from '@milkdown/plugin-slash'
 
 const slashProvider = new SlashProvider({
   content: YourDropdownUI,
   shouldShow(this: SlashProvider, view: EditorView) {
-    const currentText = this.getContent(view);
+    const currentText = this.getContent(view)
 
-    if (currentText === "") {
-      return false;
+    if (currentText === '') {
+      return false
     }
 
     // Display the menu if the last character is `/`.
-    if (currentText.endsWith("/")) {
-      return true;
+    if (currentText.endsWith('/')) {
+      return true
     }
 
-    return false;
+    return false
   },
-});
+})
 ```
 
 Then, you can use the slash provider in your plugin view.
 
 ```ts
-import { EditorState } from "@milkdown/prose/state";
-import { EditorView, PluginView } from "@milkdown/prose/view";
+import { EditorState } from '@milkdown/prose/state'
+import { EditorView, PluginView } from '@milkdown/prose/view'
 
 function yourSlashView(): PluginView {
   return {
     update: (view: EditorView, prevState: EditorState) => {
-      slashProvider.update(view, prevState);
+      slashProvider.update(view, prevState)
     },
     destroy: () => {
-      slashProvider.destroy();
+      slashProvider.destroy()
     },
-  };
+  }
 }
 ```
 
 Last, you'll need to add the slash plugin to your editor.
 
 ```ts
-import { Editor } from "@milkdown/core";
-import { slashFactory } from "@milkdown/plugin-slash";
+import { Editor } from '@milkdown/core'
+import { slashFactory } from '@milkdown/plugin-slash'
 
-const slash = slashFactory("my-slash");
+const slash = slashFactory('my-slash')
 
 Editor.make()
   .config((ctx) => {
     ctx.set(slash.key, {
       view: slashPluginView,
-    });
+    })
   })
   .use(slash)
-  .create();
+  .create()
 ```
 
 ## Use with Prosemirror Adapter
@@ -95,33 +95,33 @@ It can help you build prosemirror UI components with your favorite UI framework.
 For example, if you're using React:
 
 ```tsx
-import { SlashProvider } from "@milkdown/plugin-slash";
-import { useInstance } from "@milkdown/react";
-import { usePluginViewContext } from "@prosemirror-adapter/react";
+import { SlashProvider } from '@milkdown/plugin-slash'
+import { useInstance } from '@milkdown/react'
+import { usePluginViewContext } from '@prosemirror-adapter/react'
 
 export const DropdownMenu = () => {
-  const { view, prevState } = usePluginViewContext();
-  const slashProvider = useRef<SlashProvider>();
-  const divRef = useRef<HTMLDivElement>(null);
-  const [loading] = useInstance();
+  const { view, prevState } = usePluginViewContext()
+  const slashProvider = useRef<SlashProvider>()
+  const divRef = useRef<HTMLDivElement>(null)
+  const [loading] = useInstance()
 
   useEffect(() => {
-    if (!ref.current || loading) return;
+    if (!ref.current || loading) return
 
     slashProvider.current ??= new SlashProvider({
       content: divRef.current,
       // ...
-    });
+    })
 
     return () => {
-      slashProvider.current?.destroy();
-      slashProvider.current = undefined;
-    };
-  }, [loading, root, setOpened, setSearch, setSelected]);
+      slashProvider.current?.destroy()
+      slashProvider.current = undefined
+    }
+  }, [loading, root, setOpened, setSearch, setSelected])
 
   useEffect(() => {
-    slashProvider.current?.update(view, prevState);
-  });
+    slashProvider.current?.update(view, prevState)
+  })
 
   // Add a wrapper `div` to hide the dropdown menu when initializing.
   return (
@@ -130,17 +130,17 @@ export const DropdownMenu = () => {
         <h1>Hi! I'm a dropdown menu.</h1>
       </div>
     </div>
-  );
-};
+  )
+}
 ```
 
 And in your editor component:
 
 ```ts
-import { usePluginViewFactory } from "@prosemirror-adapter/react";
+import { usePluginViewFactory } from '@prosemirror-adapter/react'
 
 export const YourEditor = () => {
-  const pluginViewFactory = usePluginViewFactory();
+  const pluginViewFactory = usePluginViewFactory()
 
   useEditor((editor) => {
     return Editor.make()
@@ -149,13 +149,13 @@ export const YourEditor = () => {
           view: pluginViewFactory({
             component: DopdownMenu,
           }),
-        });
+        })
       })
-      .use(slash);
-  });
+      .use(slash)
+  })
 
   // ...
-};
+}
 ```
 
 ## Real World Example

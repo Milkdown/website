@@ -19,10 +19,10 @@ At its core the tooltip plugin exported from `@milkdown/plugin-tooltip` contains
 The factory is extremely small (≈40 lines):
 
 ```ts
-import { tooltipFactory } from "@milkdown/plugin-tooltip";
+import { tooltipFactory } from '@milkdown/plugin-tooltip'
 
 // Create a tooltip identified by the string "my".
-export const [myTooltipSpec, myTooltipPlugin] = tooltipFactory("my");
+export const [myTooltipSpec, myTooltipPlugin] = tooltipFactory('my')
 ```
 
 The first element (`myTooltipSpec`) is a **ctx slice** that stores a `PluginSpec`, while the second one (`myTooltipPlugin`) is the real ProseMirror plugin which consumes that spec.
@@ -34,36 +34,36 @@ The first element (`myTooltipSpec`) is a **ctx slice** that stores a `PluginSpec
 Below is the complete code for a tooltip that shows the **length of the current selection**.
 
 ```ts
-import { Editor } from "@milkdown/kit/core";
-import { commonmark } from "@milkdown/kit/preset/commonmark";
-import { TooltipProvider, tooltipFactory } from "@milkdown/plugin-tooltip";
+import { Editor } from '@milkdown/kit/core'
+import { commonmark } from '@milkdown/kit/preset/commonmark'
+import { TooltipProvider, tooltipFactory } from '@milkdown/plugin-tooltip'
 
 // 1) Prepare DOM that we will mount into the page.
-const el = document.createElement("div");
-el.className = "selection-length";
+const el = document.createElement('div')
+el.className = 'selection-length'
 el.style.cssText = `
   pointer-events:none;
   background:#333;color:#fff;padding:2px 6px;border-radius:4px;font-size:12px;
-`;
+`
 
 // 2) Build a provider which updates the content.
 const provider = new TooltipProvider({
   content: el,
   shouldShow: (view) => !!view.state.selection.content().size,
-});
+})
 
 // 3) Bridge provider & editor.
-const tooltip = tooltipFactory("sel-length");
+const tooltip = tooltipFactory('sel-length')
 const tooltipConfig = (ctx: Ctx) => {
   ctx.set(selectionTooltipSpec.key, {
     view: () => ({
       update: provider.update,
       destroy: provider.destroy,
     }),
-  });
-};
+  })
+}
 
-Editor.make().config(tooltipConfig).use(commonmark).use(tooltip).create();
+Editor.make().config(tooltipConfig).use(commonmark).use(tooltip).create()
 ```
 
 Key points:

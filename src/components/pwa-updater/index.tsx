@@ -1,45 +1,45 @@
-import type { Workbox } from "workbox-window";
+import type { Workbox } from 'workbox-window'
 
-import { useEffect } from "react";
+import { useEffect } from 'react'
 
-import { useToast } from "@/components/toast";
+import { useToast } from '@/components/toast'
 
 declare global {
   interface Window {
-    workbox: Workbox;
+    workbox: Workbox
   }
 }
 
 export default function PwaUpdater() {
-  const toast = useToast();
+  const toast = useToast()
   useEffect(() => {
-    if (process.env.NODE_ENV === "development") return;
+    if (process.env.NODE_ENV === 'development') return
     const hasWorkbox =
-      typeof window !== "undefined" &&
-      "serviceWorker" in navigator &&
-      window.workbox !== undefined;
+      typeof window !== 'undefined' &&
+      'serviceWorker' in navigator &&
+      window.workbox !== undefined
 
-    if (!hasWorkbox) return;
+    if (!hasWorkbox) return
 
-    const wb = window.workbox;
+    const wb = window.workbox
     const promptNewVersionAvailable = () => {
       // `event.wasWaitingBeforeRegister` will be false if this is the first time the updated service worker is waiting.
       // When `event.wasWaitingBeforeRegister` is true, a previously updated service worker is still waiting.
       // You may want to customize the UI prompt accordingly.
-      toast("New version available, reload to update", "info", () => {
-        wb.addEventListener("controlling", () => {
-          window.location.reload();
-        });
+      toast('New version available, reload to update', 'info', () => {
+        wb.addEventListener('controlling', () => {
+          window.location.reload()
+        })
 
         // Send a message to the waiting service worker, instructing it to activate.
-        wb.messageSkipWaiting();
-      });
-    };
+        wb.messageSkipWaiting()
+      })
+    }
 
-    wb.addEventListener("waiting", promptNewVersionAvailable);
+    wb.addEventListener('waiting', promptNewVersionAvailable)
 
-    wb.register();
-  }, [toast]);
+    wb.register()
+  }, [toast])
 
-  return <></>;
+  return <></>
 }

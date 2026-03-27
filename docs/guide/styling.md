@@ -25,10 +25,10 @@ To use the Crepe theme in your project:
 
 ```ts
 // Import base styles first
-import "@milkdown/crepe/theme/common/style.css";
+import '@milkdown/crepe/theme/common/style.css'
 
 // Choose the theme you want to use
-import "@milkdown/crepe/theme/crepe.css";
+import '@milkdown/crepe/theme/crepe.css'
 ```
 
 ## Theme Variables
@@ -73,10 +73,10 @@ Crepe theme uses CSS variables for consistent styling. Here are all the availabl
 ```css
 .milkdown {
   /* Font Families */
-  --crepe-font-title: Georgia, Cambria, "Times New Roman", Times, serif;
-  --crepe-font-default: "Open Sans", Arial, Helvetica, sans-serif;
+  --crepe-font-title: Georgia, Cambria, 'Times New Roman', Times, serif;
+  --crepe-font-default: 'Open Sans', Arial, Helvetica, sans-serif;
   --crepe-font-code:
-    Fira Code, Menlo, Monaco, "Courier New", Courier, monospace;
+    Fira Code, Menlo, Monaco, 'Courier New', Courier, monospace;
 }
 ```
 
@@ -105,7 +105,7 @@ You can customize the Crepe theme by overriding its variables:
   --crepe-color-background: #your-background-color;
 
   /* Override typography */
-  --crepe-font-default: "Your Font", sans-serif;
+  --crepe-font-default: 'Your Font', sans-serif;
 
   /* Override shadows */
   --crepe-shadow-1: your-shadow-value;
@@ -165,12 +165,12 @@ Milkdown provides default class names for each node and mark. Here are some comm
 You can add custom attributes to nodes and marks, which is particularly useful when working with CSS frameworks like Tailwind CSS.
 
 ```typescript
-import { Editor, editorViewOptionsCtx } from "@milkdown/kit/core";
+import { Editor, editorViewOptionsCtx } from '@milkdown/kit/core'
 import {
   commonmark,
   headingAttr,
   paragraphAttr,
-} from "@milkdown/kit/preset/commonmark";
+} from '@milkdown/kit/preset/commonmark'
 
 Editor.make()
   .config((ctx) => {
@@ -178,25 +178,25 @@ Editor.make()
     ctx.update(editorViewOptionsCtx, (prev) => ({
       ...prev,
       attributes: {
-        class: "milkdown-editor mx-auto outline-hidden",
-        spellcheck: "false",
+        class: 'milkdown-editor mx-auto outline-hidden',
+        spellcheck: 'false',
       },
-    }));
+    }))
 
     // Add attributes to nodes and marks
     ctx.set(headingAttr.key, (node) => {
-      const level = node.attrs.level;
+      const level = node.attrs.level
       return {
         class: `heading-${level} font-bold`,
-        "data-level": level,
-      };
-    });
+        'data-level': level,
+      }
+    })
 
     ctx.set(paragraphAttr.key, () => ({
-      class: "text-base leading-relaxed",
-    }));
+      class: 'text-base leading-relaxed',
+    }))
   })
-  .use(commonmark);
+  .use(commonmark)
 ```
 
 # Best Practices

@@ -1,15 +1,15 @@
-import clsx from "clsx";
-import dynamic from "next/dynamic";
-import Head from "next/head";
-import Link from "next/link";
+import clsx from 'clsx'
+import dynamic from 'next/dynamic'
+import Head from 'next/head'
+import Link from 'next/link'
 
-import { Button } from "@/components/home/Button";
-import { InfoCard } from "@/components/home/InfoCard";
-import { Liquid } from "@/components/liquid";
-import Loading from "@/components/loading";
+import { Button } from '@/components/home/Button'
+import { InfoCard } from '@/components/home/InfoCard'
+import { Liquid } from '@/components/liquid'
+import Loading from '@/components/loading'
 
-const gettingStarted = "/docs/guide/getting-started";
-const playground = "/playground";
+const gettingStarted = '/docs/guide/getting-started'
+const playground = '/playground'
 
 const doc = `
 # Like this one
@@ -27,41 +27,41 @@ const doc = `
 > まだ準備も出来ていないのに
 
 Try it out by typing in here, or visiting the [online playground](/playground).
-`;
+`
 
 export async function getStaticProps() {
   return {
     props: {}, // will be passed to the page component as props
-  };
+  }
 }
 
-const HomeEditor = dynamic(() => import("@/components/home-editor"), {
+const HomeEditor = dynamic(() => import('@/components/home-editor'), {
   ssr: false,
   loading: () => <Loading />,
-});
+})
 
 const InfoCardData = [
   {
-    emoji: "🔩",
-    title: "Plugin Driven",
-    desc: "Everything in Milkdown are plugins. Extend your editor with different types of plugins: syntax, theme, UI, etc.",
+    emoji: '🔩',
+    title: 'Plugin Driven',
+    desc: 'Everything in Milkdown are plugins. Extend your editor with different types of plugins: syntax, theme, UI, etc.',
   },
   {
-    emoji: "🤝",
-    title: "Collaborative",
-    desc: "With the support of Y.js, Milkdown can be used in real-time collaborative editing which can support multiple users editing on the same documentation.",
+    emoji: '🤝',
+    title: 'Collaborative',
+    desc: 'With the support of Y.js, Milkdown can be used in real-time collaborative editing which can support multiple users editing on the same documentation.',
   },
   {
-    emoji: "🤯",
-    title: "Headless",
-    desc: "Milkdown is headless and comes without any CSS. You can easily customize the editor to fit the style of your application.",
+    emoji: '🤯',
+    title: 'Headless',
+    desc: 'Milkdown is headless and comes without any CSS. You can easily customize the editor to fit the style of your application.',
   },
   {
-    emoji: "💡",
-    title: "Reliable",
-    desc: "Milkdown is built on top of some great libraries, such as ProseMirror, Y.js, and Remark, which means you can use their community and eco system to get help.",
+    emoji: '💡',
+    title: 'Reliable',
+    desc: 'Milkdown is built on top of some great libraries, such as ProseMirror, Y.js, and Remark, which means you can use their community and eco system to get help.',
   },
-];
+]
 
 export default function Home() {
   return (
@@ -74,27 +74,27 @@ export default function Home() {
           <div className="relative z-10 flex h-full w-full min-w-64 flex-col items-center justify-center">
             <h1
               className={clsx(
-                "text-nord-neutral dark:text-nord-neutral-dark text-center text-4xl font-bold sm:text-6xl xl:text-7xl",
-                "liquid-content liquid-delay-300 opacity-0",
+                'text-nord-neutral dark:text-nord-neutral-dark text-center text-4xl font-bold sm:text-6xl xl:text-7xl',
+                'liquid-content liquid-delay-300 opacity-0'
               )}
             >
               Milkdown
             </h1>
             <p
               className={clsx(
-                "text-nord-neutral dark:text-nord-neutral-dark text-center",
-                "text-base sm:text-2xl",
-                "mt-6 mb-11 sm:mt-10 sm:mb-10",
-                "w-64 sm:w-full",
-                "liquid-content liquid-delay-500 opacity-0",
+                'text-nord-neutral dark:text-nord-neutral-dark text-center',
+                'text-base sm:text-2xl',
+                'mt-6 mb-11 sm:mt-10 sm:mb-10',
+                'w-64 sm:w-full',
+                'liquid-content liquid-delay-500 opacity-0'
               )}
             >
               A plugin driven framework to build WYSIWYG Markdown editor.
             </p>
             <div
               className={clsx(
-                "flex flex-col gap-4 sm:flex-row sm:gap-10",
-                "liquid-content liquid-delay-700 opacity-0",
+                'flex flex-col gap-4 sm:flex-row sm:gap-10',
+                'liquid-content liquid-delay-700 opacity-0'
               )}
             >
               <Link href={gettingStarted}>
@@ -123,5 +123,5 @@ export default function Home() {
         </div>
       </div>
     </>
-  );
+  )
 }
