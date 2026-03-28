@@ -1,13 +1,13 @@
-import Head from "next/head";
-import Link from "next/link";
+import Head from 'next/head'
+import Link from 'next/link'
 
-import { blogConfig } from "@/routes/blog-config";
-import { toTitle } from "@/utils/title";
+import { blogConfig } from '@/routes/blog-config'
+import { toTitle } from '@/utils/title'
 
 export async function getStaticProps() {
   return {
     props: {}, // will be passed to the page component as props
-  };
+  }
 }
 
 export default function Blogs() {
@@ -34,7 +34,7 @@ export default function Blogs() {
               <div className="font-serif text-sm text-gray-500 dark:text-gray-400">
                 {date}
                 <span className="mx-1">|</span>
-                {author.join(", ")}
+                {author.join(', ')}
               </div>
               <p className="mt-2!">{desc}</p>
             </section>
@@ -42,5 +42,5 @@ export default function Blogs() {
         </div>
       </div>
     </>
-  );
+  )
 }

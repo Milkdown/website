@@ -20,26 +20,26 @@ The command manager is the central place for handling all editor commands. It pr
 You can execute commands using the command manager through the editor's action system:
 
 ```typescript
-import { Editor, commandsCtx } from "@milkdown/kit/core";
+import { Editor, commandsCtx } from '@milkdown/kit/core'
 import {
   commonmark,
   toggleEmphasisCommand,
-} from "@milkdown/kit/preset/commonmark";
+} from '@milkdown/kit/preset/commonmark'
 
 async function setup() {
-  const editor = await Editor.make().use(commonmark).create();
+  const editor = await Editor.make().use(commonmark).create()
 
   const toggleItalic = () =>
     editor.action((ctx) => {
       // get command manager
-      const commandManager = ctx.get(commandsCtx);
+      const commandManager = ctx.get(commandsCtx)
 
       // call command
-      commandManager.call(toggleEmphasisCommand.key);
-    });
+      commandManager.call(toggleEmphasisCommand.key)
+    })
 
   // get markdown string:
-  $button.onClick = toggleItalic;
+  $button.onClick = toggleItalic
 }
 ```
 
@@ -50,41 +50,41 @@ async function setup() {
 You can chain multiple commands together using the command manager's `chain` method. Commands in the chain will be executed in order until one of them returns `true`:
 
 ```typescript
-import { Editor, commandsCtx } from "@milkdown/kit/core";
+import { Editor, commandsCtx } from '@milkdown/kit/core'
 import {
   commonmark,
   toggleEmphasisCommand,
   toggleStrongCommand,
-} from "@milkdown/kit/preset/commonmark";
+} from '@milkdown/kit/preset/commonmark'
 
-const editor = await Editor.make().use(commonmark).create();
+const editor = await Editor.make().use(commonmark).create()
 
 editor.action((ctx) => {
-  const commandManager = ctx.get(commandsCtx);
+  const commandManager = ctx.get(commandsCtx)
 
   // Chain multiple commands
   commandManager
     .chain()
     .pipe(toggleEmphasisCommand.key) // Try to toggle emphasis
     .pipe(toggleStrongCommand.key) // If emphasis fails, try to toggle strong
-    .run();
-});
+    .run()
+})
 ```
 
 You can also mix inline commands with registered commands:
 
 ```typescript
-import { chainCommands } from "@milkdown/prose/commands";
+import { chainCommands } from '@milkdown/prose/commands'
 
 editor.action((ctx) => {
-  const commandManager = ctx.get(commandsCtx);
+  const commandManager = ctx.get(commandsCtx)
 
   commandManager
     .chain()
     .inline(someInlineCommand) // Add an inline command
     .pipe(toggleEmphasisCommand.key) // Add a registered command
-    .run();
-});
+    .run()
+})
 ```
 
 ## Create a Command
@@ -96,21 +96,21 @@ To create a command, use the `$command` utility from `@milkdown/utils`. Commands
 ### Example: Command without argument
 
 ```typescript
-import { Editor } from "@milkdown/kit/core";
-import { blockquoteSchema } from "@milkdown/kit/preset/commonmark";
-import { wrapIn } from "@milkdown/kit/prose/commands";
-import { $command, callCommand } from "@milkdown/kit/utils";
+import { Editor } from '@milkdown/kit/core'
+import { blockquoteSchema } from '@milkdown/kit/preset/commonmark'
+import { wrapIn } from '@milkdown/kit/prose/commands'
+import { $command, callCommand } from '@milkdown/kit/utils'
 
 const wrapInBlockquoteCommand = $command(
-  "WrapInBlockquote",
-  (ctx) => () => wrapIn(blockquoteSchema.type(ctx)),
-);
+  'WrapInBlockquote',
+  (ctx) => () => wrapIn(blockquoteSchema.type(ctx))
+)
 
 // register the command when creating the editor
-const editor = Editor().make().use(wrapInBlockquoteCommand).create();
+const editor = Editor().make().use(wrapInBlockquoteCommand).create()
 
 // call command
-editor.action(callCommand(wrapInBlockquoteCommand.key));
+editor.action(callCommand(wrapInBlockquoteCommand.key))
 ```
 
 ### Example: Command with argument
@@ -118,43 +118,43 @@ editor.action(callCommand(wrapInBlockquoteCommand.key));
 Commands can accept arguments of any type:
 
 ```typescript
-import { headingSchema } from "@milkdown/kit/preset/commonmark";
-import { setBlockType } from "@milkdown/kit/prose/commands";
-import { $command, callCommand } from "@milkdown/kit/utils";
+import { headingSchema } from '@milkdown/kit/preset/commonmark'
+import { setBlockType } from '@milkdown/kit/prose/commands'
+import { $command, callCommand } from '@milkdown/kit/utils'
 
 // use number as the type of argument
-export const WrapInHeading = createCmdKey<number>();
+export const WrapInHeading = createCmdKey<number>()
 const wrapInHeadingCommand = $command(
-  "WrapInHeading",
+  'WrapInHeading',
   (ctx) =>
     (level = 1) =>
-      setBlockType(headingSchema.type(ctx), { level }),
-);
+      setBlockType(headingSchema.type(ctx), { level })
+)
 
 // call command
-editor.action(callCommand(wrapInHeadingCommand.key)); // turn to h1 by default
-editor.action(callCommand(wrapInHeadingCommand.key, 2)); // turn to h2
+editor.action(callCommand(wrapInHeadingCommand.key)) // turn to h1 by default
+editor.action(callCommand(wrapInHeadingCommand.key, 2)) // turn to h2
 ```
 
 ### Example: Command with Multiple Arguments
 
 ```typescript
 interface TableConfig {
-  rows: number;
-  cols: number;
-  withHeader: boolean;
+  rows: number
+  cols: number
+  withHeader: boolean
 }
 
 const insertTableCommand = $command(
-  "InsertTable",
+  'InsertTable',
   (ctx) => (config: TableConfig) => {
     // Implementation for inserting a table
     return (state, dispatch) => {
       // ... table insertion logic
-      return true;
-    };
-  },
-);
+      return true
+    }
+  }
+)
 
 // Usage
 editor.action(
@@ -162,8 +162,8 @@ editor.action(
     rows: 3,
     cols: 3,
     withHeader: true,
-  }),
-);
+  })
+)
 ```
 
 ## Best Practices
@@ -203,48 +203,48 @@ editor.action(
 
 ```typescript
 const toggleCommand = $command(
-  "ToggleFeature",
+  'ToggleFeature',
   (ctx) => () => (state, dispatch) => {
-    const isActive = checkIfActive(state);
+    const isActive = checkIfActive(state)
     return isActive
       ? removeFeature(state, dispatch)
-      : addFeature(state, dispatch);
-  },
-);
+      : addFeature(state, dispatch)
+  }
+)
 ```
 
 ### Insert Commands
 
 ```typescript
 const insertCommand = $command(
-  "InsertContent",
+  'InsertContent',
   (ctx) => (content: string) => (state, dispatch) => {
-    const { selection } = state;
-    if (!selection) return false;
+    const { selection } = state
+    if (!selection) return false
 
-    const tr = state.tr.insertText(content, selection.from);
-    dispatch?.(tr);
-    return true;
-  },
-);
+    const tr = state.tr.insertText(content, selection.from)
+    dispatch?.(tr)
+    return true
+  }
+)
 ```
 
 ### Transform Commands
 
 ```typescript
 const transformCommand = $command(
-  "TransformContent",
+  'TransformContent',
   (ctx) => (transform: (node: ProseNode) => ProseNode) => (state, dispatch) => {
-    const { selection } = state;
-    if (!selection) return false;
+    const { selection } = state
+    if (!selection) return false
 
     const tr = state.tr.replaceWith(
       selection.from,
       selection.to,
-      transform(state.doc.nodeAt(selection.from)!),
-    );
-    dispatch?.(tr);
-    return true;
-  },
-);
+      transform(state.doc.nodeAt(selection.from)!)
+    )
+    dispatch?.(tr)
+    return true
+  }
+)
 ```

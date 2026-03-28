@@ -13,16 +13,16 @@ You can even use visualizer to visualize the data. We create a simple example on
 Inspector will be a top-level API in Milkdown. You can use it like this:
 
 ```ts
-import { Editor } from "@milkdown/core";
-import { Telemetry } from "@milkdown/ctx";
+import { Editor } from '@milkdown/core'
+import { Telemetry } from '@milkdown/ctx'
 
 const editor = await Editor.make()
   // Inspector is disabled by default considering performance. You need to enable it manually.
   .enableInspector()
   // ...
-  .create();
+  .create()
 
-const telemetry: Telemetry[] = editor.inspect();
+const telemetry: Telemetry[] = editor.inspect()
 ```
 
 The `Telemetry` interface will have the following fields:
@@ -30,30 +30,30 @@ The `Telemetry` interface will have the following fields:
 ```ts
 interface Telemetry {
   // User defined information for the plugin.
-  metadata: Meta;
+  metadata: Meta
 
   // The slices and their current value defined by the plugin.
-  injectedSlices: { name: string; value: unknown }[];
+  injectedSlices: { name: string; value: unknown }[]
 
   // The slices and their current value consumed by the plugin.
-  consumedSlices: { name: string; value: unknown }[];
+  consumedSlices: { name: string; value: unknown }[]
 
   // The timers and their duration defined by the plugin.
-  recordedTimers: { name: string; duration: number; status: TimerStatus }[];
+  recordedTimers: { name: string; duration: number; status: TimerStatus }[]
 
   // The timers and their duration consumed by the plugin.
   // Generally, the plugin will wait for them.
-  waitTimers: { name: string; duration: number; status: TimerStatus }[];
+  waitTimers: { name: string; duration: number; status: TimerStatus }[]
 }
 
-type TimerStatus = "pending" | "resolved" | "rejected";
+type TimerStatus = 'pending' | 'resolved' | 'rejected'
 
 interface Meta {
-  displayName: string;
-  description?: string;
-  package: string;
-  group?: string;
-  additional?: Record<string, any>;
+  displayName: string
+  description?: string
+  package: string
+  group?: string
+  additional?: Record<string, any>
 }
 ```
 
@@ -62,12 +62,12 @@ With the data, you'll know the sequence of the plugins loaded, the slices and ti
 For example:
 
 ```ts
-[
+;[
   {
     metadata: {
-      displayName: "Config",
-      package: "@milkdown/core",
-      group: "System",
+      displayName: 'Config',
+      package: '@milkdown/core',
+      group: 'System',
     },
     injectedSlices: [],
     consumedSlices: [
@@ -75,18 +75,18 @@ For example:
     ],
     recordedTimers: [
       {
-        name: "ConfigReady",
+        name: 'ConfigReady',
         duration: 3,
-        status: "resolved",
+        status: 'resolved',
       },
     ],
     waitTimers: [],
   },
   {
     metadata: {
-      displayName: "Init",
-      package: "@milkdown/core",
-      group: "System",
+      displayName: 'Init',
+      package: '@milkdown/core',
+      group: 'System',
     },
     injectedSlices: [],
     consumedSlices: [
@@ -94,20 +94,20 @@ For example:
     ],
     recordedTimers: [
       {
-        name: "InitReady",
+        name: 'InitReady',
         duration: 5,
-        status: "resolved",
+        status: 'resolved',
       },
     ],
     waitTimers: [
       {
-        name: "ConfigReady",
+        name: 'ConfigReady',
         duration: 5,
-        status: "resolved",
+        status: 'resolved',
       },
     ],
   },
-];
+]
 ```
 
 From above information, we can know that the `Init` plugin wait for `Config` plugin to be ready.
@@ -120,23 +120,23 @@ We can build a sequence diagram from the data.
 For plugin maintainers, you can add metadata to your plugin to make it more friendly to the inspector.
 
 ```ts
-import { MilkdownPlugin } from "@milkdown/ctx";
+import { MilkdownPlugin } from '@milkdown/ctx'
 
 const yourMilkdownPlugin: MilkdownPlugin = () => {
   /* your implementation */
-};
+}
 
 yourMilkdownPlugin.metadata = {
-  displayName: "Your Plugin",
-  package: "your-plugin-package",
-  description: "Your plugin description",
-  group: "If you have a lot of plugins in your package, you can group them.",
+  displayName: 'Your Plugin',
+  package: 'your-plugin-package',
+  description: 'Your plugin description',
+  group: 'If you have a lot of plugins in your package, you can group them.',
   addtitional: {
     /* You can add any additional information here. */
-    version: "1.0.0",
-    authror: "Mike",
+    version: '1.0.0',
+    authror: 'Mike',
   },
-};
+}
 ```
 
 With metadata, your plugin will report telemetry correctly to the inspector.

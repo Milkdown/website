@@ -1,5 +1,5 @@
 /* Copyright 2021, Milkdown by Mirone. */
-import type { ComponentType, FC, ReactNode } from "react";
+import type { ComponentType, FC, ReactNode } from 'react'
 
 export const compose = (
   ...providers: ComponentType<{ children: ReactNode }>[]
@@ -9,8 +9,8 @@ export const compose = (
       <Prev>
         <Curr>{children}</Curr>
       </Prev>
-    );
-    Component.displayName = Prev.displayName;
+    )
+    Component.displayName = Prev.displayName
 
-    return Component;
-  });
+    return Component
+  })

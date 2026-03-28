@@ -20,25 +20,25 @@ Create a component is pretty easy.
 </template>
 
 <script>
-  import { defaultValueCtx, Editor, rootCtx } from "@milkdown/kit/core";
-  import { commonmark } from "@milkdown/kit/preset/commonmark";
-  import { nord } from "@milkdown/theme-nord";
+  import { defaultValueCtx, Editor, rootCtx } from '@milkdown/kit/core'
+  import { commonmark } from '@milkdown/kit/preset/commonmark'
+  import { nord } from '@milkdown/theme-nord'
 
   export default {
-    name: "Editor",
+    name: 'Editor',
     props: {
       msg: String,
     },
     mounted() {
       Editor.make()
         .config((ctx) => {
-          ctx.set(rootCtx, this.$refs.editor);
-          ctx.set(defaultValueCtx, this.$props.msg);
+          ctx.set(rootCtx, this.$refs.editor)
+          ctx.set(defaultValueCtx, this.$props.msg)
         })
         .config(nord)
         .use(commonmark)
-        .create();
+        .create()
     },
-  };
+  }
 </script>
 ```

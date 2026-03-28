@@ -11,16 +11,16 @@ npm install @milkdown/crepe
 ```
 
 ```typescript
-import { Crepe } from "@milkdown/crepe";
-import "@milkdown/crepe/theme/common/style.css";
-import "@milkdown/crepe/theme/frame.css";
+import { Crepe } from '@milkdown/crepe'
+import '@milkdown/crepe/theme/common/style.css'
+import '@milkdown/crepe/theme/frame.css'
 
 const crepe = new Crepe({
-  root: "#app",
-  defaultValue: "Hello, Milkdown!",
-});
+  root: '#app',
+  defaultValue: 'Hello, Milkdown!',
+})
 
-crepe.create();
+crepe.create()
 ```
 
 ::iframe{src="https://stackblitz.com/github/Milkdown/examples/tree/main/editor-crepe"}
@@ -84,12 +84,12 @@ npm install @milkdown/kit
 Create a basic editor with commonmark syntax:
 
 ```typescript
-import { Editor } from "@milkdown/kit/core";
-import { commonmark } from "@milkdown/kit/preset/commonmark";
+import { Editor } from '@milkdown/kit/core'
+import { commonmark } from '@milkdown/kit/preset/commonmark'
 // This is the must have css for prosemirror
-import "@milkdown/kit/prose/view/style/prosemirror.css";
+import '@milkdown/kit/prose/view/style/prosemirror.css'
 
-Editor.make().use(commonmark).create();
+Editor.make().use(commonmark).create()
 ```
 
 ::iframe{src="https://stackblitz.com/github/Milkdown/examples/tree/main/vanilla-commonmark"}
@@ -97,11 +97,11 @@ Editor.make().use(commonmark).create();
 Add undo & redo support:
 
 ```typescript
-import { Editor } from "@milkdown/kit/core";
-import { history } from "@milkdown/kit/plugin/history";
-import { commonmark } from "@milkdown/kit/preset/commonmark";
-import { nord } from "@milkdown/theme-nord";
-import "@milkdown/theme-nord/style.css";
+import { Editor } from '@milkdown/kit/core'
+import { history } from '@milkdown/kit/plugin/history'
+import { commonmark } from '@milkdown/kit/preset/commonmark'
+import { nord } from '@milkdown/theme-nord'
+import '@milkdown/theme-nord/style.css'
 
 const milkdown = Editor.make()
   .config(nord)
@@ -109,11 +109,11 @@ const milkdown = Editor.make()
   .use(history)
   .create()
   .then(() => {
-    console.log("Editor created");
-  });
+    console.log('Editor created')
+  })
 
 // To destroy the editor
-milkdown.destroy();
+milkdown.destroy()
 ```
 
 > **Note**: `<Mod>` is `<Cmd>` for macOS and `<Ctrl>` for other platforms.
@@ -132,26 +132,26 @@ npm install @milkdown/crepe
 ```
 
 ```typescript
-import { Crepe } from "@milkdown/crepe";
-import "@milkdown/crepe/theme/common/style.css";
+import { Crepe } from '@milkdown/crepe'
+import '@milkdown/crepe/theme/common/style.css'
 /**
  * Available themes:
  * frame, classic, nord
  * frame-dark, classic-dark, nord-dark
  */
-import "@milkdown/crepe/theme/frame.css";
+import '@milkdown/crepe/theme/frame.css'
 
 const crepe = new Crepe({
-  root: "#app",
-  defaultValue: "Hello, Milkdown!",
-});
+  root: '#app',
+  defaultValue: 'Hello, Milkdown!',
+})
 
 crepe.create().then(() => {
-  console.log("Editor created");
-});
+  console.log('Editor created')
+})
 
 // To destroy the editor
-crepe.destroy();
+crepe.destroy()
 ```
 
 ::iframe{src="https://stackblitz.com/github/Milkdown/examples/tree/main/editor-crepe"}

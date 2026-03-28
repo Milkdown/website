@@ -1,2 +1,2 @@
-declare module "*.css";
-declare module "@docsearch/css";
+declare module '*.css'
+declare module '@docsearch/css'

@@ -51,6 +51,6 @@
 .DocSearch-Form {
   @apply outline-nord9 mb-1 shadow-none outline outline-2;
 }
-.DocSearch-Hit[aria-selected="true"] a {
+.DocSearch-Hit[aria-selected='true'] a {
   @apply bg-nord9;
 }

@@ -9,7 +9,7 @@ But it can help you understand the plugin system and what happens under the hood
 Generally speaking, a plugin will have following structure:
 
 ```typescript
-import { MilkdownPlugin } from "@milkdown/kit/ctx";
+import { MilkdownPlugin } from '@milkdown/kit/ctx'
 
 const myPlugin: MilkdownPlugin = (ctx) => {
   // #1 prepare plugin
@@ -17,9 +17,9 @@ const myPlugin: MilkdownPlugin = (ctx) => {
     // #2 run plugin
     return async () => {
       // #3 clean up plugin
-    };
-  };
-};
+    }
+  }
+}
 ```
 
 Each plugin is composed by three parts:
@@ -35,19 +35,19 @@ Timer can be used to decide when to load the current plugin and how current plug
 You can use `ctx.wait` to wait a timer to finish.
 
 ```typescript
-import { MilkdownPlugin, Complete } from "@milkdown/kit/core";
+import { MilkdownPlugin, Complete } from '@milkdown/kit/core'
 
 const myPlugin: MilkdownPlugin = (ctx) => {
   return async () => {
-    const start = Date.now();
+    const start = Date.now()
 
-    await ctx.wait(Complete);
+    await ctx.wait(Complete)
 
-    const end = Date.now();
+    const end = Date.now()
 
-    console.log("Milkdown load duration: ", end - start);
-  };
-};
+    console.log('Milkdown load duration: ', end - start)
+  }
+}
 ```
 
 You can also create your own timer and influence other plugins load time.
@@ -59,32 +59,32 @@ import {
   editorStateTimerCtx,
   defaultValueCtx,
   createTimer,
-} from "@milkdown/kit/core";
+} from '@milkdown/kit/core'
 
-const RemoteTimer = createTimer("RemoteTimer");
+const RemoteTimer = createTimer('RemoteTimer')
 
 const remotePlugin: MilkdownPlugin = (ctx) => {
   // register timer
-  ctx.record(RemoteTimer);
+  ctx.record(RemoteTimer)
 
   return async () => {
     // the editorState plugin will wait for this timer to finish before initialize editor state.
-    ctx.update(editorStateTimerCtx, (timers) => timers.concat(RemoteTimer));
+    ctx.update(editorStateTimerCtx, (timers) => timers.concat(RemoteTimer))
 
-    const defaultMarkdown = await fetchMarkdownAPI();
-    ctx.set(defaultValueCtx, defaultMarkdown);
+    const defaultMarkdown = await fetchMarkdownAPI()
+    ctx.set(defaultValueCtx, defaultMarkdown)
 
     // mark timer as complete
-    ctx.done(RemoteTimer);
+    ctx.done(RemoteTimer)
 
     return async () => {
-      await SomeAPI();
+      await SomeAPI()
 
       // remove timer when plugin is removed
-      ctx.clearTimer(RemoteTimer);
-    };
-  };
-};
+      ctx.clearTimer(RemoteTimer)
+    }
+  }
+}
 ```
 
 It has following steps:
@@ -100,37 +100,37 @@ We have used `ctx` several times in the above example, now we can try to underst
 Ctx is a data container which is shared in the entire editor instance. It's composed by a lot of slices. Every `slice` has a unique key and a value. You can change the value of a slice by `ctx.set` and `ctx.update`. And you can get the value of a slice by `ctx.get` with the slice key or name. Last but not least, you can remove a slice by `post.remove`.
 
 ```typescript
-import { MilkdownPlugin, createSlice } from "@milkdown/kit/ctx";
+import { MilkdownPlugin, createSlice } from '@milkdown/kit/ctx'
 
-const counterCtx = createSlice(0, "counter");
+const counterCtx = createSlice(0, 'counter')
 
 const counterPlugin: MilkdownPlugin = (ctx) => {
-  ctx.inject(counterCtx);
+  ctx.inject(counterCtx)
 
   return () => {
     // count is 0
-    const count0 = ctx.get(counterCtx);
+    const count0 = ctx.get(counterCtx)
 
     // set count to 1
-    ctx.set(counterCtx, 1);
+    ctx.set(counterCtx, 1)
 
     // now count is 1
-    const count1 = ctx.get(counterCtx);
+    const count1 = ctx.get(counterCtx)
 
     // set count to n + 2
-    ctx.update(counterCtx, (prev) => prev + 2);
+    ctx.update(counterCtx, (prev) => prev + 2)
 
     // now count is 3
-    const count2 = ctx.get(counterCtx);
+    const count2 = ctx.get(counterCtx)
     // we can also get value by the slice name
-    const count3 = ctx.get("counter");
+    const count3 = ctx.get('counter')
 
     return () => {
       // remove the slice
-      ctx.remove(counterCtx);
-    };
-  };
-};
+      ctx.remove(counterCtx)
+    }
+  }
+}
 ```
 
 We can use `createSlice` to create a ctx, and use `pre.inject` to inject the ctx into the editor.
@@ -145,22 +145,22 @@ import {
   SchemaReady,
   Timer,
   createSlice,
-} from "@milkdown/kit/core";
+} from '@milkdown/kit/core'
 
-const examplePluginTimersCtx = createSlice<Timer[]>([], "example-timer");
+const examplePluginTimersCtx = createSlice<Timer[]>([], 'example-timer')
 
 const examplePlugin: MilkdownPlugin = (ctx) => {
-  ctx.inject(examplePluginTimersCtx, [SchemaReady]);
+  ctx.inject(examplePluginTimersCtx, [SchemaReady])
   return async () => {
     await Promise.all(
-      ctx.get(examplePluginTimersCtx).map((timer) => ctx.wait(timer)),
-    );
+      ctx.get(examplePluginTimersCtx).map((timer) => ctx.wait(timer))
+    )
     // or we can use a simplified syntax sugar
-    await ctx.waitTimers(examplePluginTimersCtx);
+    await ctx.waitTimers(examplePluginTimersCtx)
 
     // do something
-  };
-};
+  }
+}
 ```
 
 With this pattern, if other plugins want to delay the process of `examplePlugin`, all they need to do is just add a timer into `examplePluginTimersCtx` with `ctx.update`.

@@ -1,83 +1,83 @@
-import clsx from "clsx";
-import { useAtomCallback } from "jotai/utils";
-import dynamic from "next/dynamic";
-import { useRouter, useSearchParams } from "next/navigation";
-import { FC, useCallback, useState } from "react";
+import clsx from 'clsx'
+import { useAtomCallback } from 'jotai/utils'
+import dynamic from 'next/dynamic'
+import { useRouter, useSearchParams } from 'next/navigation'
+import { FC, useCallback, useState } from 'react'
 
-import Loading from "@/components/loading";
+import Loading from '@/components/loading'
 
-import { cmAPI, crepeAPI, focus } from "./atom";
+import { cmAPI, crepeAPI, focus } from './atom'
 
-const PlaygroundMilkdown = dynamic(() => import("./Crepe"), {
+const PlaygroundMilkdown = dynamic(() => import('./Crepe'), {
   ssr: false,
   loading: () => <Loading />,
-});
+})
 
-const ControlPanel = dynamic(() => import("./ControlPanel"), {
+const ControlPanel = dynamic(() => import('./ControlPanel'), {
   ssr: false,
   loading: () => <Loading />,
-});
+})
 
 export const Dual: FC = () => {
-  const queryString = useSearchParams();
-  const [expand, setExpand] = useState(false);
+  const queryString = useSearchParams()
+  const [expand, setExpand] = useState(false)
 
-  const router = useRouter();
+  const router = useRouter()
 
-  const hasExpand = queryString.get("expand") === "true";
+  const hasExpand = queryString.get('expand') === 'true'
   if (hasExpand !== expand) {
-    setExpand(hasExpand);
+    setExpand(hasExpand)
   }
 
   const onMilkdownChange = useAtomCallback(
     useCallback((get, _set, markdown: string) => {
-      const cmAPIValue = get(cmAPI);
-      const lock = get(focus) === "cm";
-      if (lock) return;
+      const cmAPIValue = get(cmAPI)
+      const lock = get(focus) === 'cm'
+      if (lock) return
 
-      cmAPIValue.update(markdown);
-    }, []),
-  );
+      cmAPIValue.update(markdown)
+    }, [])
+  )
 
   const onCodemirrorChange = useAtomCallback(
     useCallback((get, _set, getCode: () => string) => {
-      const value = getCode();
-      const crepeAPIValue = get(crepeAPI);
-      crepeAPIValue.update(value);
-    }, []),
-  );
+      const value = getCode()
+      const crepeAPIValue = get(crepeAPI)
+      crepeAPIValue.update(value)
+    }, [])
+  )
 
   return (
     <>
       <div
         className={clsx(
-          "h-[calc(50vh-2rem)] md:h-[calc(100vh-72px)]",
+          'h-[calc(50vh-2rem)] md:h-[calc(100vh-72px)]',
           expand
-            ? "expanded relative col-span-2 mx-auto mb-24 flex h-fit! min-h-[80vh] w-screen max-w-5xl flex-col border-gray-300 dark:border-gray-600"
-            : "fixed left-0 w-full md:bottom-0 md:w-1/2",
+            ? 'expanded relative col-span-2 mx-auto mb-24 flex h-fit! min-h-[80vh] w-screen max-w-5xl flex-col border-gray-300 dark:border-gray-600'
+            : 'fixed left-0 w-full md:bottom-0 md:w-1/2'
         )}
       >
         <PlaygroundMilkdown onChange={onMilkdownChange} />
       </div>
       <div
         className={clsx(
-          "h-[calc(50vh-2rem)] border-l border-gray-300 md:h-[calc(100vh-72px)] dark:border-gray-600",
-          expand ? "h-0!" : "fixed right-0 bottom-0 w-full md:w-1/2",
+          'h-[calc(50vh-2rem)] border-l border-gray-300 md:h-[calc(100vh-72px)] dark:border-gray-600',
+          expand ? 'h-0!' : 'fixed right-0 bottom-0 w-full md:w-1/2'
         )}
       >
         <ControlPanel
           hide={expand}
           setHide={(value) => {
-            setExpand(value);
+            setExpand(value)
             if (value) {
-              router.push("/playground?expand=true");
+              router.push('/playground?expand=true')
             } else {
-              router.push("/playground");
+              router.push('/playground')
             }
           }}
           onChange={onCodemirrorChange}
         />
       </div>
     </>
-  );
-};
+  )
+}

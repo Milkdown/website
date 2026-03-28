@@ -1,44 +1,44 @@
-import clsx from "clsx";
-import Link from "next/link";
-import { useRouter } from "next/router";
-import { FC } from "react";
+import clsx from 'clsx'
+import Link from 'next/link'
+import { useRouter } from 'next/router'
+import { FC } from 'react'
 
-import { APIConfigItem } from "@/routes";
-import { toTitle } from "@/utils/title";
+import { APIConfigItem } from '@/routes'
+import { toTitle } from '@/utils/title'
 
 type DropdownWithLabelProps = {
-  scope: string;
-  items: APIConfigItem[];
-};
+  scope: string
+  items: APIConfigItem[]
+}
 
 const LabeledItem: FC<{ scope: string; item: string; label: string }> = ({
   scope,
   item,
   label,
 }) => {
-  const router = useRouter();
-  const location = router.asPath;
-  const url = `/docs/${scope}/${item}`;
-  const pathname = location.split("#")[0];
-  const active = pathname === url;
+  const router = useRouter()
+  const location = router.asPath
+  const url = `/docs/${scope}/${item}`
+  const pathname = location.split('#')[0]
+  const active = pathname === url
   const text = item.toLowerCase().startsWith(`${label.toLowerCase()}-`)
     ? item.slice(label.length + 1)
-    : item;
+    : item
   return (
     <Link
       className={clsx(
-        "rounded-[20px] px-6 py-2 text-sm capitalize",
-        "bg-nord-secondary-deep/[.06] transition",
-        "hover:bg-nord-secondary-deep/[0.12] active:bg-nord-secondary-deep/20 dark:hover:bg-nord-secondary-deep/[0.12] dark:active:bg-nord-secondary-deep/20",
+        'rounded-[20px] px-6 py-2 text-sm capitalize',
+        'bg-nord-secondary-deep/[.06] transition',
+        'hover:bg-nord-secondary-deep/[0.12] active:bg-nord-secondary-deep/20 dark:hover:bg-nord-secondary-deep/[0.12] dark:active:bg-nord-secondary-deep/20',
         active &&
-          "bg-nord-secondary-deep/20 text-nord-primary text-shadow-nord-primary/50 text-shadow-2xs",
+          'bg-nord-secondary-deep/20 text-nord-primary text-shadow-nord-primary/50 text-shadow-2xs'
       )}
       href={url}
     >
       <li>{toTitle(text)}</li>
     </Link>
-  );
-};
+  )
+}
 
 const LabeledItemList: FC<APIConfigItem & { scope: string }> = ({
   label,
@@ -56,8 +56,8 @@ const LabeledItemList: FC<APIConfigItem & { scope: string }> = ({
         ))}
       </ul>
     </div>
-  );
-};
+  )
+}
 
 export const DropdownWithLabel: FC<DropdownWithLabelProps> = ({
   items,
@@ -66,15 +66,15 @@ export const DropdownWithLabel: FC<DropdownWithLabelProps> = ({
   return (
     <div
       className={clsx(
-        "flex w-96 flex-col gap-6 p-10",
-        "bg-nord-foreground dark:bg-nord-foreground-dark",
-        "rounded-2xl px-6 py-8",
-        "border-nord-neutral/10 dark:border-nord-neutral/10 border shadow-sm",
+        'flex w-96 flex-col gap-6 p-10',
+        'bg-nord-foreground dark:bg-nord-foreground-dark',
+        'rounded-2xl px-6 py-8',
+        'border-nord-neutral/10 dark:border-nord-neutral/10 border shadow-sm'
       )}
     >
       {items.map((item) => (
         <LabeledItemList key={item.label} {...item} scope={scope} />
       ))}
     </div>
-  );
-};
+  )
+}

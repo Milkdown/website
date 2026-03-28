@@ -20,9 +20,9 @@ This document shows you how to:
 2. **`slashFactory(id)`** – Generates a ctx slice & ProseMirror plugin pair that plugs the provider into the editor.
 
 ```ts
-import { slashFactory } from "@milkdown/plugin-slash";
+import { slashFactory } from '@milkdown/plugin-slash'
 
-export const [mySlashSpec, mySlashPlugin] = slashFactory("my");
+export const [mySlashSpec, mySlashPlugin] = slashFactory('my')
 ```
 
 Just like the tooltip factory:
@@ -37,50 +37,50 @@ Just like the tooltip factory:
 Below we create a small menu that suggests two commands whenever the user types `/`.
 
 ```ts
-import { SlashProvider, slashFactory } from "@milkdown/plugin-slash";
-import { Editor } from "@milkdown/kit/core";
-import { commonmark } from "@milkdown/kit/preset/commonmark";
+import { SlashProvider, slashFactory } from '@milkdown/plugin-slash'
+import { Editor } from '@milkdown/kit/core'
+import { commonmark } from '@milkdown/kit/preset/commonmark'
 
 // DOM content of the menu – plain HTML for the demo
-const menu = document.createElement("div");
-menu.className = "slash-menu";
+const menu = document.createElement('div')
+menu.className = 'slash-menu'
 menu.style.cssText = `
   position:absolute;padding:4px 0;background:white;border:1px solid #eee;
   box-shadow:0 2px 8px rgba(0,0,0,.15);border-radius:6px;font-size:14px;
-`;
+`
 menu.innerHTML = `<ul style="margin:0;padding:0;list-style:none">
   <li data-cmd="h1" style="padding:4px 12px;cursor:pointer">Heading 1</li>
   <li data-cmd="bullet" style="padding:4px 12px;cursor:pointer">Bullet List</li>
-</ul>`;
+</ul>`
 
 // Click handler – replace with real commands
-menu.addEventListener("click", (e) => {
-  const target = e.target as HTMLElement;
-  const cmd = target.dataset.cmd;
-  alert(`Run command: ${cmd}`);
-});
+menu.addEventListener('click', (e) => {
+  const target = e.target as HTMLElement
+  const cmd = target.dataset.cmd
+  alert(`Run command: ${cmd}`)
+})
 
 // Provider positions & shows above DOM element
 const provider = new SlashProvider({
   content: menu,
   // show the menu when the last character before caret is '/'
   shouldShow(view) {
-    return provider.getContent(view)?.endsWith("/") ?? false;
+    return provider.getContent(view)?.endsWith('/') ?? false
   },
   offset: 8,
-});
+})
 
-const slash = slashFactory("demo");
+const slash = slashFactory('demo')
 const slashConfig = (ctx: Ctx) => {
   ctx.set(slash.key, {
     view: () => ({
       update: provider.update,
       destroy: provider.destroy,
     }),
-  });
-};
+  })
+}
 
-Editor.make().config(slashConfig).use(commonmark).use(slash).create();
+Editor.make().config(slashConfig).use(commonmark).use(slash).create()
 ```
 
 Key takeaways:

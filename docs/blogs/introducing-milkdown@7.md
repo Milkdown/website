@@ -69,17 +69,17 @@ The composable plugins can keep the atomicity of the plugins and make the plugin
 They also make the plugin system easier to maintain.
 
 ```ts
-const nodeSchema = $node("node", someSchema);
-const nodeInputRules = $inputRules(someInputRules);
-const nodeCommands = $commands(someCommands);
+const nodeSchema = $node('node', someSchema)
+const nodeInputRules = $inputRules(someInputRules)
+const nodeCommands = $commands(someCommands)
 ```
 
 If you want to reuse them, it also will be very easy.
 
 ```ts
 const anotherCommand = $commands(() => {
-  return setBlockType(nodeSchema.type());
-});
+  return setBlockType(nodeSchema.type())
+})
 ```
 
 ## Runtime Plugin Toggling
@@ -89,24 +89,24 @@ In V7, we support runtime plugin toggling by providing two new API: `editor.remo
 They can let users remove the plugins and configs at runtime.
 
 ```ts
-import { Editor } from "@milkdown/core";
-import { someMilkdownPlugin } from "some-milkdown-plugin";
+import { Editor } from '@milkdown/core'
+import { someMilkdownPlugin } from 'some-milkdown-plugin'
 
 const editor = await Editor.config(configForPlugin)
   .use(someMilkdownPlugin)
-  .create();
+  .create()
 
 // remove plugin
-await editor.remove(someMilkdownPlugin);
+await editor.remove(someMilkdownPlugin)
 
 // remove config
-editor.removeConfig(configForPlugin);
+editor.removeConfig(configForPlugin)
 
 // add another plugin
-editor.use(anotherMilkdownPlugin);
+editor.use(anotherMilkdownPlugin)
 
 // Recreate the editor to apply changes.
-await editor.create();
+await editor.create()
 ```
 
 Also, if you call the `editor.create` method after the editor is created,

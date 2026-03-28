@@ -62,10 +62,10 @@ div:not(.expanded) .crepe > .milkdown > .ProseMirror {
   --crepe-color-selected: #e1e2e8;
   --crepe-color-inline-area: #d8dae0;
 
-  --crepe-font-title: Rubik, Cambria, "Times New Roman", Times, serif;
+  --crepe-font-title: Rubik, Cambria, 'Times New Roman', Times, serif;
   --crepe-font-default: Inter, Arial, Helvetica, sans-serif;
   --crepe-font-code:
-    "JetBrains Mono", Menlo, Monaco, "Courier New", Courier, monospace;
+    'JetBrains Mono', Menlo, Monaco, 'Courier New', Courier, monospace;
 
   --crepe-shadow-1:
     0px 1px 3px 1px rgba(0, 0, 0, 0.15), 0px 1px 2px 0px rgba(0, 0, 0, 0.3);
@@ -92,10 +92,10 @@ div:not(.expanded) .crepe > .milkdown > .ProseMirror {
   --crepe-color-selected: #32353a;
   --crepe-color-inline-area: #111418;
 
-  --crepe-font-title: Rubik, Cambria, "Times New Roman", Times, serif;
+  --crepe-font-title: Rubik, Cambria, 'Times New Roman', Times, serif;
   --crepe-font-default: Inter, Arial, Helvetica, sans-serif;
   --crepe-font-code:
-    "JetBrains Mono", Menlo, Monaco, "Courier New", Courier, monospace;
+    'JetBrains Mono', Menlo, Monaco, 'Courier New', Courier, monospace;
 
   --crepe-shadow-1:
     0px 1px 2px 0px rgba(255, 255, 255, 0.3),

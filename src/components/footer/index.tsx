@@ -1,16 +1,16 @@
-import clsx from "clsx";
-import Image from "next/image";
-import Link from "next/link";
-import { FC } from "react";
+import clsx from 'clsx'
+import Image from 'next/image'
+import Link from 'next/link'
+import { FC } from 'react'
 
-import { Discord, Github, Twitter } from "@/components/svg-icon";
+import { Discord, Github, Twitter } from '@/components/svg-icon'
 
-import vercelBanner from "./vercel-banner.svg";
+import vercelBanner from './vercel-banner.svg'
 
 type LinkGroupsProps = {
-  title: string;
-  items: Array<{ text: string; link: string }>;
-};
+  title: string
+  items: Array<{ text: string; link: string }>
+}
 
 const LinkGroups: FC<LinkGroupsProps> = ({ title, items }) => {
   return (
@@ -20,61 +20,61 @@ const LinkGroups: FC<LinkGroupsProps> = ({ title, items }) => {
         <div
           key={i.toString()}
           className={clsx(
-            "mb-2 text-sm md:text-base",
-            "text-nord-neutral/[.80] dark:text-nord-neutral-dark/[.80]",
-            "hover:text-nord-neutral dark:hover:text-nord-neutral-dark",
+            'mb-2 text-sm md:text-base',
+            'text-nord-neutral/[.80] dark:text-nord-neutral-dark/[.80]',
+            'hover:text-nord-neutral dark:hover:text-nord-neutral-dark'
           )}
         >
           <a href={item.link}>{item.text}</a>
         </div>
       ))}
     </div>
-  );
-};
+  )
+}
 
 const linksGroup = {
-  title: "Links",
+  title: 'Links',
   items: [
     {
-      text: "Prosemirror",
-      link: "https://prosemirror.net/",
+      text: 'Prosemirror',
+      link: 'https://prosemirror.net/',
     },
     {
-      text: "Remark",
-      link: "https://remark.js.org/",
+      text: 'Remark',
+      link: 'https://remark.js.org/',
     },
     {
-      text: "Markdown",
-      link: "https://en.wikipedia.org/wiki/Markdown",
+      text: 'Markdown',
+      link: 'https://en.wikipedia.org/wiki/Markdown',
     },
   ],
-};
+}
 
 const moreGroup = {
-  title: "More",
+  title: 'More',
   items: [
     {
-      text: "License",
-      link: "https://github.com/Milkdown/milkdown/blob/main/LICENSE",
+      text: 'License',
+      link: 'https://github.com/Milkdown/milkdown/blob/main/LICENSE',
     },
     {
-      text: "Contributors",
-      link: "https://github.com/Milkdown/milkdown/graphs/contributors",
+      text: 'Contributors',
+      link: 'https://github.com/Milkdown/milkdown/graphs/contributors',
     },
     {
-      text: "Code of Conduct",
-      link: "https://github.com/Milkdown/milkdown/blob/main/CODE_OF_CONDUCT.md",
+      text: 'Code of Conduct',
+      link: 'https://github.com/Milkdown/milkdown/blob/main/CODE_OF_CONDUCT.md',
     },
   ],
-};
+}
 
 const Footer: FC = () => {
-  const root = "/";
+  const root = '/'
   return (
     <footer
       className={clsx(
-        "w-full self-end bg-gray-200 dark:bg-gray-700",
-        "pt-6 pb-12 md:pt-16 md:pb-16",
+        'w-full self-end bg-gray-200 dark:bg-gray-700',
+        'pt-6 pb-12 md:pt-16 md:pb-16'
       )}
     >
       <div className="mx-8 md:mx-24 lg:mx-40 xl:mx-80 2xl:mx-auto 2xl:max-w-4xl">
@@ -134,10 +134,10 @@ const Footer: FC = () => {
           <div className="flex-1/2">
             <div
               className={clsx(
-                "font-light",
-                "text-nord-neutral-deep/40 dark:text-nord-neutral-deep-dark/40",
-                "text-xs md:text-sm lg:text-base",
-                "leading-[48px]!",
+                'font-light',
+                'text-nord-neutral-deep/40 dark:text-nord-neutral-deep-dark/40',
+                'text-xs md:text-sm lg:text-base',
+                'leading-[48px]!'
               )}
             >
               MIT Licensed | Copyright © 2021-present Mirone ♡ Meo
@@ -146,7 +146,7 @@ const Footer: FC = () => {
         </div>
       </div>
     </footer>
-  );
-};
+  )
+}
 
-export default Footer;
+export default Footer

@@ -1,19 +1,19 @@
-import clsx from "clsx";
-import { FC, ReactNode } from "react";
+import clsx from 'clsx'
+import { FC, ReactNode } from 'react'
 
-import styles from "./style.module.css";
+import styles from './style.module.css'
 
 export const Liquid: FC<{ children: ReactNode }> = ({ children }) => {
   return (
     <div
       className={clsx(
-        "liquid-cover",
+        'liquid-cover',
         styles.cover,
-        "relative h-screen",
-        "bg-nord-background dark:bg-nord-background-dark",
+        'relative h-screen',
+        'bg-nord-background dark:bg-nord-background-dark'
       )}
     >
-      <div className={clsx(styles.bg, "z-0")}>
+      <div className={clsx(styles.bg, 'z-0')}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="1241"
@@ -28,5 +28,5 @@ export const Liquid: FC<{ children: ReactNode }> = ({ children }) => {
       </div>
       {children}
     </div>
-  );
-};
+  )
+}

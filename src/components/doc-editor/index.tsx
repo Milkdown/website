@@ -1,29 +1,29 @@
-import { Crepe } from "@milkdown/crepe";
-import { editorViewCtx, editorViewOptionsCtx } from "@milkdown/kit/core";
-import { listener, listenerCtx } from "@milkdown/kit/plugin/listener";
-import { outline } from "@milkdown/kit/utils";
-import { eclipse } from "@uiw/codemirror-theme-eclipse";
-import { FC, useEffect, useRef, useState } from "react";
+import { Crepe } from '@milkdown/crepe'
+import { editorViewCtx, editorViewOptionsCtx } from '@milkdown/kit/core'
+import { listener, listenerCtx } from '@milkdown/kit/plugin/listener'
+import { outline } from '@milkdown/kit/utils'
+import { eclipse } from '@uiw/codemirror-theme-eclipse'
+import { FC, useEffect, useRef, useState } from 'react'
 
-import Outline from "@/components/outline";
-import { useDarkMode } from "@/providers";
+import Outline from '@/components/outline'
+import { useDarkMode } from '@/providers'
 
-import { useToast } from "../toast";
-import { Button } from "./Button";
-import { iframePlugin } from "./iframePlugin";
+import { useToast } from '../toast'
+import { Button } from './Button'
+import { iframePlugin } from './iframePlugin'
 
 const Doc: FC<{ content: string; url: string }> = ({ content, url }) => {
   const [outlines, setOutlines] = useState<
     { text: string; level: number; id: string }[]
-  >([]);
-  const darkMode = useDarkMode();
-  const divRef = useRef<HTMLDivElement>(null);
-  const toast = useToast();
-  const loading = useRef(false);
+  >([])
+  const darkMode = useDarkMode()
+  const divRef = useRef<HTMLDivElement>(null)
+  const toast = useToast()
+  const loading = useRef(false)
 
   useEffect(() => {
-    if (!divRef.current || loading.current) return;
-    loading.current = true;
+    if (!divRef.current || loading.current) return
+    loading.current = true
     const crepe = new Crepe({
       root: divRef.current,
       defaultValue: content,
@@ -37,43 +37,43 @@ const Doc: FC<{ content: string; url: string }> = ({ content, url }) => {
         },
         [Crepe.Feature.LinkTooltip]: {
           onCopyLink: () => {
-            toast("Link copied", "success");
+            toast('Link copied', 'success')
           },
         },
       },
-    });
-    const editor = crepe.editor;
+    })
+    const editor = crepe.editor
     editor
       .config((ctx) => {
         ctx.set(editorViewOptionsCtx, {
           attributes: {
-            class: "w-full max-w-full box-border p-4",
-            spellcheck: "false",
+            class: 'w-full max-w-full box-border p-4',
+            spellcheck: 'false',
           },
-        });
+        })
 
         ctx
           .get(listenerCtx)
           .mounted((ctx) => {
-            setOutlines(outline()(ctx));
+            setOutlines(outline()(ctx))
           })
           .markdownUpdated((ctx) => {
-            const view = ctx.get(editorViewCtx);
-            if (view.state?.doc) setOutlines(outline()(ctx));
-          });
+            const view = ctx.get(editorViewCtx)
+            if (view.state?.doc) setOutlines(outline()(ctx))
+          })
       })
       .use(iframePlugin)
-      .use(listener);
+      .use(listener)
 
     crepe.create().then(() => {
-      loading.current = false;
-    });
+      loading.current = false
+    })
 
     return () => {
-      if (loading.current) return;
-      crepe.destroy();
-    };
-  }, [content, darkMode, toast]);
+      if (loading.current) return
+      crepe.destroy()
+    }
+  }, [content, darkMode, toast])
 
   return (
     <>
@@ -85,7 +85,7 @@ const Doc: FC<{ content: string; url: string }> = ({ content, url }) => {
         <Outline items={outlines} />
       </div>
     </>
-  );
-};
+  )
+}
 
-export default Doc;
+export default Doc

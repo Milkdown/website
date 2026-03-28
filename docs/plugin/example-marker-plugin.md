@@ -40,26 +40,26 @@ First, we create a remark plugin to handle our custom marker syntax:
 > Under the hood, you'll need to write a [micromark extension](https://github.com/micromark/micromark) to make it works correctly.
 
 ```typescript
-import { $remark } from "@milkdown/kit/utils";
+import { $remark } from '@milkdown/kit/utils'
 
 const remarkMarkColor = () => {
   return (tree: any) => {
-    visit(tree, "text", (node: any, index: number, parent: any) => {
-      const match = node.value.match(/==(?:{#([^}]+)})?([^=]+)==/);
+    visit(tree, 'text', (node: any, index: number, parent: any) => {
+      const match = node.value.match(/==(?:{#([^}]+)})?([^=]+)==/)
       if (match) {
-        const [_, color, text] = match;
+        const [_, color, text] = match
         const mark = {
-          type: "mark",
+          type: 'mark',
           data: { color },
-          children: [{ type: "text", value: text }],
-        };
-        parent.children.splice(index, 1, mark);
+          children: [{ type: 'text', value: text }],
+        }
+        parent.children.splice(index, 1, mark)
       }
-    });
-  };
-};
+    })
+  }
+}
 
-const milkdownMarkColorPlugin = $remark("markColor", () => remarkMarkColor);
+const milkdownMarkColorPlugin = $remark('markColor', () => remarkMarkColor)
 ```
 
 ## 2. Schema Definition
@@ -69,49 +69,49 @@ const milkdownMarkColorPlugin = $remark("markColor", () => remarkMarkColor);
 Next, we define the schema for our marker:
 
 ```typescript
-import { $markSchema } from "@milkdown/kit/utils";
-import { Mark } from "mdast";
+import { $markSchema } from '@milkdown/kit/utils'
+import { Mark } from 'mdast'
 
-export const DEFAULT_COLOR = "#ffff00";
+export const DEFAULT_COLOR = '#ffff00'
 
-export const markSchema = $markSchema("mark", () => ({
+export const markSchema = $markSchema('mark', () => ({
   attrs: {
     color: {
       default: DEFAULT_COLOR,
-      validate: "string",
+      validate: 'string',
     },
   },
   parseDOM: [
     {
-      tag: "mark",
+      tag: 'mark',
       getAttrs: (node: HTMLElement) => ({
         color: node.style.backgroundColor,
       }),
     },
   ],
-  toDOM: (mark) => ["mark", { style: `background-color: ${mark.attrs.color}` }],
+  toDOM: (mark) => ['mark', { style: `background-color: ${mark.attrs.color}` }],
   parseMarkdown: {
-    match: (node) => node.type === "mark",
+    match: (node) => node.type === 'mark',
     runner: (state, node, markType) => {
-      const color = (node as Mark).data?.color;
-      state.openMark(markType, { color });
-      state.next(node.children);
-      state.closeMark(markType);
+      const color = (node as Mark).data?.color
+      state.openMark(markType, { color })
+      state.next(node.children)
+      state.closeMark(markType)
     },
   },
   toMarkdown: {
-    match: (node) => node.type.name === "mark",
+    match: (node) => node.type.name === 'mark',
     runner: (state, mark) => {
-      let color = mark.attrs.color;
+      let color = mark.attrs.color
       if (color?.toLowerCase() === DEFAULT_COLOR.toLowerCase()) {
-        color = undefined;
+        color = undefined
       }
-      state.withMark(mark, "mark", undefined, {
+      state.withMark(mark, 'mark', undefined, {
         data: { color },
-      });
+      })
     },
   },
-}));
+}))
 ```
 
 ## 3. Input Rules
@@ -121,24 +121,24 @@ export const markSchema = $markSchema("mark", () => ({
 We add input rules to handle user typing:
 
 ```typescript
-import { $inputRule } from "@milkdown/kit/utils";
-import { InputRule } from "@milkdown/kit/prose";
+import { $inputRule } from '@milkdown/kit/utils'
+import { InputRule } from '@milkdown/kit/prose'
 
 const markInputRule = $inputRule(
   () =>
     new InputRule(/==(?:{#([^}]+)})?([^=]+)==/, (state, match, start, end) => {
-      const [okay, color, text] = match;
-      const { tr } = state;
+      const [okay, color, text] = match
+      const { tr } = state
       if (okay) {
         tr.addMark(
           start,
           end,
-          markSchema.type().create({ color: color || DEFAULT_COLOR }),
-        );
+          markSchema.type().create({ color: color || DEFAULT_COLOR })
+        )
       }
-      return tr;
-    }),
-);
+      return tr
+    })
+)
 ```
 
 ## 4. Color Picker Tooltip
@@ -148,7 +148,7 @@ const markInputRule = $inputRule(
 To enhance the user experience, we add a color picker tooltip:
 
 ```typescript
-export const colorPickerTooltip = tooltipFactory("color-picker");
+export const colorPickerTooltip = tooltipFactory('color-picker')
 
 class TooltipPluginView {
   // ... implementation
@@ -157,8 +157,8 @@ class TooltipPluginView {
 export const colorPickerTooltipConfig = (ctx: Ctx) => {
   ctx.set(colorPickerTooltip.key, {
     view: () => new TooltipPluginView(ctx),
-  });
-};
+  })
+}
 ```
 
 ## Usage
@@ -168,8 +168,8 @@ export const colorPickerTooltipConfig = (ctx: Ctx) => {
 To use the marker plugin, add it to your Milkdown editor configuration:
 
 ```typescript
-import { Editor } from "@milkdown/kit/core";
-import { commonmark } from "@milkdown/kit/preset/commonmark";
+import { Editor } from '@milkdown/kit/core'
+import { commonmark } from '@milkdown/kit/preset/commonmark'
 
 Editor.make()
   .use(milkdownMarkColorPlugin)
@@ -177,7 +177,7 @@ Editor.make()
   .use(markInputRule)
   .use(colorPickerTooltip)
   .use(commonmark)
-  .create();
+  .create()
 ```
 
 ## Example

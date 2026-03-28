@@ -18,32 +18,32 @@ npm install @milkdown/theme-nord
 Create a component is pretty easy.
 
 ```tsx
-import { Editor, rootCtx } from "@milkdown/kit/core";
-import { commonmark } from "@milkdown/kit/preset/commonmark";
-import { Milkdown, MilkdownProvider, useEditor } from "@milkdown/react";
-import { nord } from "@milkdown/theme-nord";
-import React from "react";
+import { Editor, rootCtx } from '@milkdown/kit/core'
+import { commonmark } from '@milkdown/kit/preset/commonmark'
+import { Milkdown, MilkdownProvider, useEditor } from '@milkdown/react'
+import { nord } from '@milkdown/theme-nord'
+import React from 'react'
 
 const MilkdownEditor: React.FC = () => {
   const { editor } = useEditor((root) =>
     Editor.make()
       .config(nord)
       .config((ctx) => {
-        ctx.set(rootCtx, root);
+        ctx.set(rootCtx, root)
       })
-      .use(commonmark),
-  );
+      .use(commonmark)
+  )
 
-  return <Milkdown />;
-};
+  return <Milkdown />
+}
 
 export const MilkdownEditorWrapper: React.FC = () => {
   return (
     <MilkdownProvider>
       <MilkdownEditor />
     </MilkdownProvider>
-  );
-};
+  )
+}
 ```
 
 ## Online Demo

@@ -1,23 +1,23 @@
-import { useAtomValue, useSetAtom } from "jotai";
-import { FC, useLayoutEffect, useRef } from "react";
+import { useAtomValue, useSetAtom } from 'jotai'
+import { FC, useLayoutEffect, useRef } from 'react'
 
-import { useDarkMode } from "@/providers";
+import { useDarkMode } from '@/providers'
 
-import { cmAPI, markdown, focus } from "../atom";
-import { createCodeMirrorState, createCodeMirrorView } from "./setup";
+import { cmAPI, markdown, focus } from '../atom'
+import { createCodeMirrorState, createCodeMirrorView } from './setup'
 
 export interface CodemirrorProps {
-  onChange: (getString: () => string) => void;
+  onChange: (getString: () => string) => void
 }
 export const Codemirror: FC<CodemirrorProps> = ({ onChange }) => {
-  const divRef = useRef<HTMLDivElement>(null);
-  const dark = useDarkMode();
-  const content = useAtomValue(markdown);
-  const setCmAPI = useSetAtom(cmAPI);
-  const setFocus = useSetAtom(focus);
+  const divRef = useRef<HTMLDivElement>(null)
+  const dark = useDarkMode()
+  const content = useAtomValue(markdown)
+  const setCmAPI = useSetAtom(cmAPI)
+  const setFocus = useSetAtom(focus)
 
   useLayoutEffect(() => {
-    if (!divRef.current) return;
+    if (!divRef.current) return
 
     const editor = createCodeMirrorView({
       root: divRef.current,
@@ -25,7 +25,7 @@ export const Codemirror: FC<CodemirrorProps> = ({ onChange }) => {
       setFocus,
       content,
       dark,
-    });
+    })
     setCmAPI({
       loaded: true,
       update: (markdown: string) => {
@@ -34,24 +34,24 @@ export const Codemirror: FC<CodemirrorProps> = ({ onChange }) => {
           setFocus,
           dark,
           content: markdown,
-        });
-        editor.setState(state);
+        })
+        editor.setState(state)
       },
-    });
+    })
 
     return () => {
-      editor.destroy();
+      editor.destroy()
       setCmAPI({
         loaded: false,
         update: () => {},
-      });
-    };
-  }, [onChange, content, dark, setCmAPI, setFocus]);
+      })
+    }
+  }, [onChange, content, dark, setCmAPI, setFocus])
 
   return (
     <div
       className="playground-cm flex-1 overflow-y-scroll overscroll-none bg-gray-50 dark:bg-gray-900"
       ref={divRef}
     />
-  );
-};
+  )
+}

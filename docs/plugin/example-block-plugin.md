@@ -22,7 +22,7 @@ This guide covers:
 Unlike tooltip/slash, `@milkdown/plugin-block` ships its factory slices directly:
 
 ```ts
-import { blockSpec, blockPlugin } from "@milkdown/plugin-block";
+import { blockSpec, blockPlugin } from '@milkdown/plugin-block'
 ```
 
 You normally interact with **BlockProvider** which talks to an internal _BlockService_: the service listens to mouse / drag events, figures out which node is **active** and sends `show` / `hide` messages to the provider.
@@ -41,19 +41,19 @@ Key APIs:
 Below we build a small **drag handle** that appears on hover and lets you drag-n-drop any block.
 
 ```ts
-import { block, blockPlugin } from "@milkdown/plugin-block";
-import { BlockProvider } from "@milkdown/plugin-block/block-provider"; // path depending on bundler
-import { Editor } from "@milkdown/kit/core";
-import { commonmark } from "@milkdown/kit/preset/commonmark";
+import { block, blockPlugin } from '@milkdown/plugin-block'
+import { BlockProvider } from '@milkdown/plugin-block/block-provider' // path depending on bundler
+import { Editor } from '@milkdown/kit/core'
+import { commonmark } from '@milkdown/kit/preset/commonmark'
 
 // 1️⃣ Create DOM element for the handle
-const handle = document.createElement("div");
-handle.className = "drag-handle";
-handle.innerHTML = "≡";
+const handle = document.createElement('div')
+handle.className = 'drag-handle'
+handle.innerHTML = '≡'
 handle.style.cssText = `
   width:20px;height:20px;display:flex;align-items:center;justify-content:center;
   cursor:grab;border-radius:4px;background:#f2f3f5;color:#555;user-select:none;
-`;
+`
 
 // 2️⃣ Build provider – show only when mouse is over a block
 const provider = (ctx: Ctx) => {
@@ -61,22 +61,22 @@ const provider = (ctx: Ctx) => {
     ctx,
     content: handle,
     getOffset: () => 8,
-  });
+  })
 
   return {
     update: provider.update,
     destroy: provider.destroy,
-  };
-};
+  }
+}
 
 // 3️⃣ Wire provider to Milkdown
 const blockConfig = (ctx: Ctx) => {
   ctx.set(blockSpec.key, {
     view: provider(ctx),
-  });
-};
+  })
+}
 
-Editor.make().config(blockConfig).use(commonmark).use(block).create();
+Editor.make().config(blockConfig).use(commonmark).use(block).create()
 ```
 
 Drag & Drop:

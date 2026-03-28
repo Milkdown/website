@@ -8,32 +8,32 @@
 >
 > Please try something on the left side.
 
-![1.00](/polar.jpeg "Hello by a polar bear")
+![1.00](/polar.jpeg 'Hello by a polar bear')
 
 You're seeing this editor called **🥞Crepe**, which is an editor built on top of Milkdown.
 
 If you want to install this editor, you can run `npm install @milkdown/crepe`. Then you can use it like this:
 
 ```js
-import { Crepe } from "@milkdown/crepe";
-import "@milkdown/crepe/theme/common/style.css";
+import { Crepe } from '@milkdown/crepe'
+import '@milkdown/crepe/theme/common/style.css'
 // We have some themes for you to choose, ex.
-import "@milkdown/crepe/theme/frame.css";
+import '@milkdown/crepe/theme/frame.css'
 
 // Or you can create your own theme
-import "./your-theme.css";
+import './your-theme.css'
 
 const crepe = new Crepe({
-  root: "#app",
-  defaultValue: "# Hello, Milkdown!",
-});
+  root: '#app',
+  defaultValue: '# Hello, Milkdown!',
+})
 
 crepe.create().then(() => {
-  console.log("Milkdown is ready!");
-});
+  console.log('Milkdown is ready!')
+})
 
 // Before unmount
-crepe.destroy();
+crepe.destroy()
 ```
 
 ---
