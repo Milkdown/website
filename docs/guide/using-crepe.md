@@ -152,6 +152,10 @@ Document or block level placeholders to guide users when content is empty.
 
 Mathematical formula support with both inline and block math rendering using KaTeX.
 
+#### 11. Top Bar (`TopBar`)
+
+A fixed toolbar at the top of the editor with heading selector, formatting buttons, insert actions, and block commands. Unlike the floating Toolbar feature, the TopBar is always visible. This feature is **disabled by default**.
+
 For detailed configuration options of each feature, please refer to the [API documentation](/docs/api/crepe).
 
 ## Editor Instance Methods
@@ -199,19 +203,19 @@ Add event listeners.
 
 ```typescript
 crepe.on((listener) => {
-  listener.markdownUpdated((markdown) => {
+  listener.markdownUpdated((ctx, markdown, prevMarkdown) => {
     console.log('Markdown updated:', markdown)
   })
 
-  listener.updated((doc) => {
+  listener.updated((ctx, doc, prevDoc) => {
     console.log('Document updated')
   })
 
-  listener.focus(() => {
+  listener.focus((ctx) => {
     console.log('Editor focused')
   })
 
-  listener.blur(() => {
+  listener.blur((ctx) => {
     console.log('Editor blurred')
   })
 })
