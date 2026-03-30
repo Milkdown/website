@@ -25,7 +25,7 @@ import { nord } from '@milkdown/theme-nord'
 import React from 'react'
 
 const MilkdownEditor: React.FC = () => {
-  const { editor } = useEditor((root) =>
+  useEditor((root) =>
     Editor.make()
       .config(nord)
       .config((ctx) => {

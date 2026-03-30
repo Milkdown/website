@@ -107,7 +107,7 @@ const wrapInBlockquoteCommand = $command(
 )
 
 // register the command when creating the editor
-const editor = Editor().make().use(wrapInBlockquoteCommand).create()
+const editor = await Editor.make().use(wrapInBlockquoteCommand).create()
 
 // call command
 editor.action(callCommand(wrapInBlockquoteCommand.key))
@@ -123,7 +123,6 @@ import { setBlockType } from '@milkdown/kit/prose/commands'
 import { $command, callCommand } from '@milkdown/kit/utils'
 
 // use number as the type of argument
-export const WrapInHeading = createCmdKey<number>()
 const wrapInHeadingCommand = $command(
   'WrapInHeading',
   (ctx) =>

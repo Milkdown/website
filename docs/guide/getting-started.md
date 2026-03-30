@@ -103,17 +103,16 @@ import { commonmark } from '@milkdown/kit/preset/commonmark'
 import { nord } from '@milkdown/theme-nord'
 import '@milkdown/theme-nord/style.css'
 
-const milkdown = Editor.make()
+const editor = await Editor.make()
   .config(nord)
   .use(commonmark)
   .use(history)
   .create()
-  .then(() => {
-    console.log('Editor created')
-  })
+
+console.log('Editor created')
 
 // To destroy the editor
-milkdown.destroy()
+editor.destroy()
 ```
 
 > **Note**: `<Mod>` is `<Cmd>` for macOS and `<Ctrl>` for other platforms.
@@ -136,8 +135,8 @@ import { Crepe } from '@milkdown/crepe'
 import '@milkdown/crepe/theme/common/style.css'
 /**
  * Available themes:
- * frame, classic, nord
- * frame-dark, classic-dark, nord-dark
+ * frame, crepe, nord
+ * frame-dark, crepe-dark, nord-dark
  */
 import '@milkdown/crepe/theme/frame.css'
 

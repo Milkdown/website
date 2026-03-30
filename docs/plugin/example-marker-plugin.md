@@ -122,7 +122,7 @@ We add input rules to handle user typing:
 
 ```typescript
 import { $inputRule } from '@milkdown/kit/utils'
-import { InputRule } from '@milkdown/kit/prose'
+import { InputRule } from '@milkdown/kit/prose/inputrules'
 
 const markInputRule = $inputRule(
   () =>

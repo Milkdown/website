@@ -95,7 +95,7 @@ editor.action((ctx) => {
     if (isSynced) {
       collabService
         // apply your template
-        .applyTemplate(markdown)
+        .applyTemplate(template)
         // don't forget connect
         .connect()
     }
@@ -111,7 +111,7 @@ You can control this behavior through passing second parameter to `applyTemplate
 
 ```typescript
 collabService
-  .applyTemplate(markdown, (remoteNode, templateNode) => {
+  .applyTemplate(template, (remoteNode, templateNode) => {
     // return true to apply template
   })
   // don't forget connect

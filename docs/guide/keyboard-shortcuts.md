@@ -34,9 +34,9 @@ Milkdown comes with a set of default keyboard shortcuts from both presets and pl
 | Shortcut      | Description                  |
 | ------------- | ---------------------------- |
 | `Mod-Shift-b` | Wrap selection in blockquote |
-| `Mod-Shift-8` | Wrap in bullet list          |
-| `Mod-Shift-7` | Wrap in ordered list         |
-| `Mod-Shift-c` | Wrap in code block           |
+| `Mod-Alt-8`   | Wrap in bullet list          |
+| `Mod-Alt-7`   | Wrap in ordered list         |
+| `Mod-Alt-c`   | Wrap in code block           |
 | `Shift-Enter` | Insert hard break            |
 | `Mod-Alt-0`   | Wrap in paragraph            |
 
@@ -60,8 +60,8 @@ Milkdown comes with a set of default keyboard shortcuts from both presets and pl
 
 | Shortcut            | Description                      |
 | ------------------- | -------------------------------- |
-| `Mod-]`             | Move to next cell                |
-| `Mod-[`             | Move to previous cell            |
+| `Mod-]` / `Tab`       | Move to next cell                |
+| `Mod-[` / `Shift-Tab` | Move to previous cell            |
 | `Mod-Enter`/`Enter` | Exit table and break if possible |
 
 ## Configuring Shortcuts

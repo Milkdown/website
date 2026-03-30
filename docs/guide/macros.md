@@ -8,7 +8,7 @@ There are two main ways to use macros:
 
 ```typescript
 import { insert } from '@milkdown/kit/utils'
-import { listenerCtx } from '@milkdown/plugin-listener'
+import { listenerCtx } from '@milkdown/kit/plugin/listener'
 
 // Method 1: Using editor.action()
 editor.action(insert('# Hello Macro'))
@@ -53,10 +53,11 @@ The behavior differs based on the `inline` parameter:
 
 #### `insertPos`
 
-Inserts markdown at a given position. The macro accepts two parameters:
+Inserts markdown at a given position. The macro accepts the following parameters:
 
 - `markdown`: The markdown string to insert
 - `pos`: The position to insert the content at
+- `inline`: Optional boolean flag (default: false) that determines whether to insert as inline content
 
 ```typescript
 import { insertPos } from '@milkdown/kit/utils'
@@ -200,7 +201,7 @@ Examples:
 
 ```typescript
 import { callCommand } from '@milkdown/kit/utils'
-import { wrapInHeadingCommand } from '@milkdown/plugin-heading'
+import { wrapInHeadingCommand } from '@milkdown/kit/preset/commonmark'
 
 // Using command key
 editor.action(callCommand(wrapInHeadingCommand.key, 1))
@@ -241,7 +242,7 @@ const slice = editor.action(markdownToSlice('# Hello Slice'))
 
 ```typescript
 import { insert } from '@milkdown/kit/utils'
-import { listenerCtx } from '@milkdown/plugin-listener'
+import { listenerCtx } from '@milkdown/kit/plugin/listener'
 
 editor.config((ctx) => {
   ctx.get(listenerCtx).mounted(insert('# Welcome\nStart editing...'))
@@ -254,7 +255,7 @@ editor.config((ctx) => {
 import { getMarkdown } from '@milkdown/kit/utils'
 
 editor.config((ctx) => {
-  ctx.get(listenerCtx).updated(() => {
+  ctx.get(listenerCtx).updated((ctx, doc, prevDoc) => {
     const content = getMarkdown()(ctx)
     localStorage.setItem('editor-content', content)
   })

@@ -31,7 +31,7 @@ editor.setReadonly(true)
 
 // Register event listeners
 editor.on((listener) => {
-  listener.markdownUpdated((ctx, markdown) => {
+  listener.markdownUpdated((ctx, markdown, prevMarkdown) => {
     console.log('Content updated:', markdown)
   })
 
@@ -188,7 +188,7 @@ editor.destroy().then(() => {
   assert(editor.status === EditorStatus.Destroyed)
 })
 
-assert(editor.status === EditorStatus.OnDestroyed)
+assert(editor.status === EditorStatus.OnDestroy)
 ```
 
 You can also listen to the status changes:
@@ -208,7 +208,7 @@ editor.onStatusChange((status: EditorStatus) => {
 1. `Idle`: Initial state
 2. `OnCreate`: During creation
 3. `Created`: Successfully created
-4. `OnDestroyed`: During destruction
+4. `OnDestroy`: During destruction
 5. `Destroyed`: Successfully destroyed
 
 ## Adding Listeners

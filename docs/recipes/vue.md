@@ -151,6 +151,7 @@ The `useInstance()` hook can only be used within components that are children of
 
 <script>
 import { useInstance } from '@milkdown/vue'
+import { getMarkdown } from '@milkdown/kit/utils'
 import { defineComponent } from 'vue'
 
 export default defineComponent({
@@ -164,7 +165,7 @@ export default defineComponent({
       const editor = getInstance()
       if (!editor) return
 
-      const content = editor.getMarkdown()
+      const content = editor.action(getMarkdown())
       // Do something with the content
     }
 
@@ -223,6 +224,7 @@ export default defineComponent({
 
 <script>
 import { useInstance } from '@milkdown/vue'
+import { getMarkdown } from '@milkdown/kit/utils'
 import { defineComponent } from 'vue'
 
 export default defineComponent({
@@ -236,7 +238,7 @@ export default defineComponent({
       const editor = getInstance()
       if (!editor) return
 
-      const content = editor.getMarkdown()
+      const content = editor.action(getMarkdown())
       // Submit form with content
     }
 

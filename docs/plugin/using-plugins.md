@@ -6,11 +6,11 @@ Now we can try more plugins:
 
 ```typescript
 import { Editor } from '@milkdown/kit/core'
-import { slash } from '@milkdown/kit/plugin/slash'
-import { tooltip } from '@milkdown/kit/plugin/tooltip'
+import { history } from '@milkdown/kit/plugin/history'
+import { listener } from '@milkdown/kit/plugin/listener'
 import { commonmark } from '@milkdown/kit/preset/commonmark'
 
-Editor.make().use(commonmark).use(tooltip).use(slash).create()
+Editor.make().use(commonmark).use(history).use(listener).create()
 ```
 
 ---

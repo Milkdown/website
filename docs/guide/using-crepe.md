@@ -62,13 +62,13 @@ Crepe comes with several beautiful themes out of the box:
 ### Light Themes
 
 - `frame` - Modern frame-based design
-- `classic` - Traditional editor look
+- `crepe` - Traditional editor look
 - `nord` - Clean, minimal Nord color scheme
 
 ### Dark Themes
 
 - `frame-dark` - Dark version of frame theme
-- `classic-dark` - Dark version of classic theme
+- `crepe-dark` - Dark version of crepe theme
 - `nord-dark` - Dark version of nord theme
 
 To use a theme:

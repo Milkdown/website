@@ -35,13 +35,14 @@ Timer can be used to decide when to load the current plugin and how current plug
 You can use `ctx.wait` to wait a timer to finish.
 
 ```typescript
-import { MilkdownPlugin, Complete } from '@milkdown/kit/core'
+import { EditorViewReady } from '@milkdown/kit/core'
+import type { MilkdownPlugin } from '@milkdown/kit/ctx'
 
 const myPlugin: MilkdownPlugin = (ctx) => {
   return async () => {
     const start = Date.now()
 
-    await ctx.wait(Complete)
+    await ctx.wait(EditorViewReady)
 
     const end = Date.now()
 
@@ -54,12 +55,8 @@ You can also create your own timer and influence other plugins load time.
 For example, let's create a plugin that will fetch markdown content from remote server as editor's default value.
 
 ```typescript
-import {
-  MilkdownPlugin,
-  editorStateTimerCtx,
-  defaultValueCtx,
-  createTimer,
-} from '@milkdown/kit/core'
+import { editorStateTimerCtx, defaultValueCtx } from '@milkdown/kit/core'
+import { type MilkdownPlugin, createTimer } from '@milkdown/kit/ctx'
 
 const RemoteTimer = createTimer('RemoteTimer')
 
@@ -89,7 +86,7 @@ const remotePlugin: MilkdownPlugin = (ctx) => {
 
 It has following steps:
 
-1. We use `createTimer` to create a timer, and use `pre.record` to register it into milkdown.
+1. We use `createTimer` to create a timer, and use `ctx.record` to register it into milkdown.
 2. We update `editorStateTimerCtx` to tell the internal `editorState` plugin that before initialize editor state, it should wait our remote fetch process finished.
 3. After we get value from `fetchMarkdownAPI`, we set it as `defaultValue` and use `ctx.done` to mark a timer as complete.
 
@@ -140,12 +137,8 @@ And when plugin processing, `ctx.get` can get the value of a ctx, `ctx.set` can 
 So, we can use `ctx` combine with `timer` to decide when should a plugin be processed.
 
 ```typescript
-import {
-  MilkdownPlugin,
-  SchemaReady,
-  Timer,
-  createSlice,
-} from '@milkdown/kit/core'
+import { SchemaReady } from '@milkdown/kit/core'
+import { type MilkdownPlugin, type Timer, createSlice } from '@milkdown/kit/ctx'
 
 const examplePluginTimersCtx = createSlice<Timer[]>([], 'example-timer')
 

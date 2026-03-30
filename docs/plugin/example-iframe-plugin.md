@@ -115,7 +115,7 @@ toMarkdown: {
 Input rules handle user typing and convert the syntax into an iframe node.
 
 ```typescript
-import { InputRule } from '@milkdown/kit/prose'
+import { InputRule } from '@milkdown/kit/prose/inputrules'
 import { $inputRule } from '@milkdown/kit/utils'
 
 const iframeInputRule = $inputRule(

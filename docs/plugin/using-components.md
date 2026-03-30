@@ -5,10 +5,10 @@ Each component is a separate module. You can use them by importing them from `@m
 All components can be used just like plugins.
 
 ```ts
-import { imageBlock } from '@milkdown/kit/component/image-block'
+import { imageBlockComponent } from '@milkdown/kit/component/image-block'
 import { Editor } from '@milkdown/kit/core'
 
-Editor.make().use(/* some other plugins */).use(imageBlock).create()
+Editor.make().use(/* some other plugins */).use(imageBlockComponent).create()
 ```
 
 Components are designed to be headless, which means they are not opinionated about the UI.
