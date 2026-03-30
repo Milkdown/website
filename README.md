@@ -4,15 +4,14 @@ The source code for https://milkdown.dev
 
 # Development
 
-This site is built with vite. And all docs are written in markdown and proudly rendered by Milkdown.
+This site is built with Next.js. All docs are written in markdown and proudly rendered by Milkdown.
 
 ```bash
 pnpm install && pnpm dev
 ```
 
-- pages: All pages are in this folder.
+- docs: All documentation pages in markdown.
 - src: Website source code.
-- plugins: Vite plugins used in this project.
 - public: Static files.
 
 # License

@@ -159,6 +159,6 @@ crepe.destroy()
 
 - Learn more about [overview](/guide/architecture-overview)
 - Explore [available plugins](/plugins/using-plugins)
-- Check out [theming](/guide/theming)
+- Check out [styling](/guide/styling)
 
 > 🍼 Fun fact: This documentation is rendered by Milkdown itself!
