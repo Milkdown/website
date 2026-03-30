@@ -44,11 +44,11 @@ Each component's config options are documented in their respective API pages bel
 
 # List of Components
 
-| Name                                             | Description                                                |
-| ------------------------------------------------ | ---------------------------------------------------------- |
+| Name                                             | Description                                                                                                             |
+| ------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------- |
 | [Code Block](/docs/api/component-code-block)     | Code editor powered by [CodeMirror](https://codemirror.net/) with syntax highlighting, language picker, and copy button |
-| [Image Block](/docs/api/component-image-block)   | Block-level image with upload support, resizing, and caption editing |
-| [Image Inline](/docs/api/component-image-inline) | Inline image with placeholder and uploader features |
-| [Link Tooltip](/docs/api/component-link-tooltip) | Floating tooltip for links with preview and edit modes |
-| [List Item](/docs/api/component-list-item-block) | Custom renderer for bullet, ordered, and task lists with checkbox support |
-| [Table Block](/docs/api/component-table-block)   | Interactive table with row/column operations, alignment controls, and drag handles |
+| [Image Block](/docs/api/component-image-block)   | Block-level image with upload support, resizing, and caption editing                                                    |
+| [Image Inline](/docs/api/component-image-inline) | Inline image with placeholder and uploader features                                                                     |
+| [Link Tooltip](/docs/api/component-link-tooltip) | Floating tooltip for links with preview and edit modes                                                                  |
+| [List Item](/docs/api/component-list-item-block) | Custom renderer for bullet, ordered, and task lists with checkbox support                                               |
+| [Table Block](/docs/api/component-table-block)   | Interactive table with row/column operations, alignment controls, and drag handles                                      |

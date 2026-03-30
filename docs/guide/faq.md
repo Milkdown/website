@@ -181,4 +181,7 @@ await editor.destroy()
 ```
 
 In React, use a cleanup function in `useEffect`. In Vue, use `onUnmounted`.
+
+```
+
 ```

@@ -58,11 +58,11 @@ Milkdown comes with a set of default keyboard shortcuts from both presets and pl
 
 #### Tables
 
-| Shortcut            | Description                      |
-| ------------------- | -------------------------------- |
+| Shortcut              | Description                      |
+| --------------------- | -------------------------------- |
 | `Mod-]` / `Tab`       | Move to next cell                |
 | `Mod-[` / `Shift-Tab` | Move to previous cell            |
-| `Mod-Enter`/`Enter` | Exit table and break if possible |
+| `Mod-Enter`/`Enter`   | Exit table and break if possible |
 
 ## Configuring Shortcuts
 

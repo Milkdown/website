@@ -64,20 +64,20 @@ editor.action((ctx) => {
 
 The following ProseMirror packages are re-exported:
 
-| Import Path | Original Package | Description |
-| --- | --- | --- |
-| `@milkdown/kit/prose/changeset` | `prosemirror-changeset` | Change tracking |
-| `@milkdown/kit/prose/commands` | `prosemirror-commands` | Built-in editor commands |
-| `@milkdown/kit/prose/dropcursor` | `prosemirror-dropcursor` | Drop cursor indicator |
-| `@milkdown/kit/prose/gapcursor` | `prosemirror-gapcursor` | Gap cursor for block boundaries |
-| `@milkdown/kit/prose/history` | `prosemirror-history` | Undo/redo history |
-| `@milkdown/kit/prose/inputrules` | `prosemirror-inputrules` | Input rule matching |
-| `@milkdown/kit/prose/keymap` | `prosemirror-keymap` | Key binding support |
-| `@milkdown/kit/prose/model` | `prosemirror-model` | Document model (Schema, Node, Mark) |
-| `@milkdown/kit/prose/schema-list` | `prosemirror-schema-list` | List-related schema helpers |
-| `@milkdown/kit/prose/state` | `prosemirror-state` | Editor state management |
-| `@milkdown/kit/prose/transform` | `prosemirror-transform` | Document transformations |
-| `@milkdown/kit/prose/view` | `prosemirror-view` | Editor view and DOM rendering |
-| `@milkdown/kit/prose/tables` | `prosemirror-tables` | Table editing support |
+| Import Path                       | Original Package          | Description                         |
+| --------------------------------- | ------------------------- | ----------------------------------- |
+| `@milkdown/kit/prose/changeset`   | `prosemirror-changeset`   | Change tracking                     |
+| `@milkdown/kit/prose/commands`    | `prosemirror-commands`    | Built-in editor commands            |
+| `@milkdown/kit/prose/dropcursor`  | `prosemirror-dropcursor`  | Drop cursor indicator               |
+| `@milkdown/kit/prose/gapcursor`   | `prosemirror-gapcursor`   | Gap cursor for block boundaries     |
+| `@milkdown/kit/prose/history`     | `prosemirror-history`     | Undo/redo history                   |
+| `@milkdown/kit/prose/inputrules`  | `prosemirror-inputrules`  | Input rule matching                 |
+| `@milkdown/kit/prose/keymap`      | `prosemirror-keymap`      | Key binding support                 |
+| `@milkdown/kit/prose/model`       | `prosemirror-model`       | Document model (Schema, Node, Mark) |
+| `@milkdown/kit/prose/schema-list` | `prosemirror-schema-list` | List-related schema helpers         |
+| `@milkdown/kit/prose/state`       | `prosemirror-state`       | Editor state management             |
+| `@milkdown/kit/prose/transform`   | `prosemirror-transform`   | Document transformations            |
+| `@milkdown/kit/prose/view`        | `prosemirror-view`        | Editor view and DOM rendering       |
+| `@milkdown/kit/prose/tables`      | `prosemirror-tables`      | Table editing support               |
 
 You can find the full ProseMirror documentation [here](https://prosemirror.net/docs/ref/).
