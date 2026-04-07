@@ -40,7 +40,7 @@
     "@tailwindcss/postcss": "^4.1.7",
     "@types/lodash.debounce": "^4.0.7",
     "@types/lodash.throttle": "^4.1.9",
-    "@types/node": "24.12.0",
+    "@types/node": "24.12.2",
     "@types/react": "19.2.14",
     "@types/react-dom": "19.2.3",
     "@uiw/codemirror-theme-eclipse": "^4.23.0",
@@ -69,7 +69,7 @@
     "workbox-window": "^7.0.0"
   },
   "devDependencies": {
-    "oxfmt": "^0.43.0",
+    "oxfmt": "^0.44.0",
     "oxlint": "^1.56.0",
     "tsx": "^4.18.0"
   },
