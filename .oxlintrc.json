@@ -10,8 +10,7 @@
     "no-unused-vars": "off",
     "react/react-in-jsx-scope": "off",
     "jsx-a11y/click-events-have-key-events": "warn",
-    "jsx-a11y/no-static-element-interactions": "warn",
-    "import/order": "error"
+    "jsx-a11y/no-static-element-interactions": "warn"
   },
   "settings": {
     "next": {
