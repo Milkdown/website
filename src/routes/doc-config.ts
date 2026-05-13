@@ -94,6 +94,8 @@ export const apiConfigByCategory: APIConfigItem[] = [
       'plugin-upload',
       'plugin-clipboard',
       'plugin-collab',
+      'plugin-streaming',
+      'plugin-diff',
     ],
   },
   {

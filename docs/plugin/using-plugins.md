@@ -67,6 +67,8 @@ Milkdown provides the following official plugins:
 | [@milkdown/kit/plugin/block](/docs/api/plugin-block)           | Add a drag handle for every block node.                   |
 | [@milkdown/kit/plugin/tooltip](/docs/api/plugin-tooltip)       | Add universal tooltip support.                            |
 | [@milkdown/kit/plugin/slash](/docs/api/plugin-slash)           | Add universal slash commands support.                     |
+| [@milkdown/kit/plugin/streaming](/docs/api/plugin-streaming)   | Stream markdown content into the editor, token by token.  |
+| [@milkdown/kit/plugin/diff](/docs/api/plugin-diff)             | Review changes between documents with accept/reject.      |
 
 ### Other Plugins:
 
