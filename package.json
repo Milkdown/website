@@ -41,7 +41,7 @@
     "@types/lodash.debounce": "^4.0.7",
     "@types/lodash.throttle": "^4.1.9",
     "@types/node": "24.12.4",
-    "@types/react": "19.2.14",
+    "@types/react": "19.2.15",
     "@types/react-dom": "19.2.3",
     "@uiw/codemirror-theme-eclipse": "^4.23.0",
     "@uiw/codemirror-theme-nord": "^4.23.12",
@@ -69,7 +69,7 @@
     "workbox-window": "^7.0.0"
   },
   "devDependencies": {
-    "oxfmt": "^0.49.0",
+    "oxfmt": "^0.51.0",
     "oxlint": "^1.56.0",
     "tsx": "^4.18.0"
   },
