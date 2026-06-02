@@ -23,6 +23,7 @@ export const guideConfig: DocConfigItem = {
     'getting-started',
     'architecture-overview',
     'using-crepe',
+    'ai-feature',
     'styling',
     'code-highlighting',
     'interacting-with-editor',

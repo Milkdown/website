@@ -158,7 +158,7 @@ A fixed toolbar at the top of the editor with heading selector, formatting butto
 
 #### 12. AI (`AI`)
 
-AI-powered editing with streaming output and diff review. Provides a toolbar entry, an instruction palette with built-in suggestions (improve writing, fix grammar, change tone, translate, etc.), an inline streaming indicator, and a floating panel to accept or reject the AI's changes. Works with any provider you supply, and ships with built-in OpenAI and Anthropic providers. This feature is **disabled by default** — you must provide a `provider` to enable it.
+AI-powered editing with streaming output and diff review. Provides a toolbar entry, an instruction palette with built-in suggestions (improve writing, fix grammar, change tone, translate, etc.), an inline streaming indicator, and a floating panel to accept or reject the AI's changes. Works with any provider you supply, and ships with built-in OpenAI and Anthropic providers. This feature is **disabled by default** — you must provide a `provider` to enable it. See the [AI feature guide](/docs/guide/ai-feature) for full configuration and examples.
 
 For detailed configuration options of each feature, please refer to the [API documentation](/docs/api/crepe).
 
