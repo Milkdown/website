@@ -92,7 +92,7 @@ Crepe includes a comprehensive set of features that can be enabled or disabled a
 
 ### Feature Configuration
 
-> **Note**: For any configuration that ends with `Icon` (like `boldIcon`, `linkIcon`, etc.), you can use a HTML string or a simply string. This applies to all icon configurations throughout Crepe's features.
+> **Note**: For any configuration that ends with `Icon` (like `boldIcon`, `linkIcon`, etc.), you can use an HTML string or a simple string. This applies to all icon configurations throughout Crepe's features.
 
 ```typescript
 const crepe = new Crepe({
