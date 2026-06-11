@@ -12,7 +12,7 @@
       "groupName": "all non-major dependencies",
       "groupSlug": "all-minor-patch",
       "matchUpdateTypes": ["minor", "patch"],
-      "matchPackageNames": ["*", "!/^@milkdown/"]
+      "matchPackageNames": ["!/^@milkdown/"]
     }
   ],
   "commitMessagePrefix": "chore: ",
