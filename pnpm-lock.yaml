@@ -36,8 +36,8 @@ importers:
         specifier: ^4.0.0
         version: 4.6.3
       '@docsearch/js':
-        specifier: ^4.0.0
-        version: 4.6.3
+        specifier: ^5.0.0
+        version: 5.0.5
       '@floating-ui/dom':
         specifier: ^1.6.5
         version: 1.7.6
@@ -784,8 +784,8 @@ packages:
   '@docsearch/css@4.6.3':
     resolution: {integrity: sha512-nlOwcXcsNAptQl4vlL4MA78qNJKO0Qlds5GuBjCoePgkebTXLSf8Qt1oyZ3YBshYupKXG9VRGEsk1zr23d+bzQ==}
 
-  '@docsearch/js@4.6.3':
-    resolution: {integrity: sha512-qUIX2b4Apew3tv4F0qhmgShsl/Lfw4m6mqv/5/5dWNxwTcDdLMp2s3YwZ+NMGh3IKCg0pBaXm7Q5VdyU5Rj+cQ==}
+  '@docsearch/js@5.0.5':
+    resolution: {integrity: sha512-FZtElUFj23W7KQigRTYRU24zU1p7B70NR3yihlBLtx+uERQmrfconjlRlrbYi4VfksNTm/ZgRBGEaO8kxYLstA==}
 
   '@emnapi/runtime@1.10.0':
     resolution: {integrity: sha512-ewvYlk86xUoGI0zQRNq/mC+16R1QeDlKQy21Ki3oSYXNgLb45GV1P6A0M+/s6nyCuNDqe5VpaY84BzXGwVbwFA==}
@@ -5255,7 +5255,7 @@ snapshots:
 
   '@docsearch/css@4.6.3': {}
 
-  '@docsearch/js@4.6.3': {}
+  '@docsearch/js@5.0.5': {}
 
   '@emnapi/runtime@1.10.0':
     dependencies:
