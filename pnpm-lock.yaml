@@ -33,8 +33,8 @@ importers:
         specifier: ^6.32.0
         version: 6.42.1
       '@docsearch/css':
-        specifier: ^4.0.0
-        version: 4.6.3
+        specifier: ^5.0.0
+        version: 5.0.5
       '@docsearch/js':
         specifier: ^4.0.0
         version: 4.6.3
@@ -781,8 +781,8 @@ packages:
   '@codemirror/view@6.42.1':
     resolution: {integrity: sha512-ToN3oFc0nsxNUYVF5P0ztLgbC4UPPjPtA9aKYhkOKQaZASpOUo6ISXyQLP66ctVwlDc+j6Jv0uK5IFALkiXztg==}
 
-  '@docsearch/css@4.6.3':
-    resolution: {integrity: sha512-nlOwcXcsNAptQl4vlL4MA78qNJKO0Qlds5GuBjCoePgkebTXLSf8Qt1oyZ3YBshYupKXG9VRGEsk1zr23d+bzQ==}
+  '@docsearch/css@5.0.5':
+    resolution: {integrity: sha512-0ETIihH1MKPzIcTZjjJsXGpheg53ZIuQ7mETXZVTnRDxK8BEbUz62IBSz0RuhGa6G3jxMVzWkVKenj7Ru4vUcA==}
 
   '@docsearch/js@4.6.3':
     resolution: {integrity: sha512-qUIX2b4Apew3tv4F0qhmgShsl/Lfw4m6mqv/5/5dWNxwTcDdLMp2s3YwZ+NMGh3IKCg0pBaXm7Q5VdyU5Rj+cQ==}
@@ -5253,7 +5253,7 @@ snapshots:
       style-mod: 4.1.3
       w3c-keyname: 2.2.8
 
-  '@docsearch/css@4.6.3': {}
+  '@docsearch/css@5.0.5': {}
 
   '@docsearch/js@4.6.3': {}
 
